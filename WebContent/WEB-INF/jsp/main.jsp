@@ -11,7 +11,7 @@
 <body>
 	<h1>Hello</h1>
 	${msg}
-	<img src="/GardenPlatformWeb/img/cloud_platform.png"></img>
+	<img src="/GardenPlatformWeb/resource/img/cloud_platform.png"></img>
 	
 </body>
 </html>

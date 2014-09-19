@@ -24,4 +24,15 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/sample.do", method = RequestMethod.GET)
+	public ModelAndView getSample(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		System.out.println("\nsample");
+		
+		ModelAndView mav = new ModelAndView("sample");
+		mav.addObject("msg", "Garden Platform");
+		
+		return mav;
+	}
+	
 }
