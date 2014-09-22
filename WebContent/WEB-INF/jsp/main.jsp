@@ -39,8 +39,9 @@
                                     <li><a href="#">DEVELOPER</a></li>
                                 </ul>
                                 <form class="navbar-form pull-left">
-                                    <a class="btn btn-primary" href="#">SIGN UP</a>
+                                    <a id="signupModalBtn" class="btn btn-primary" data-toggle="modal" href="#signupModal">SIGN UP</a>
                                 </form>
+                               	<h1>${id}</h1>
                             </div>
                         </div>
                     </div>
@@ -57,19 +58,17 @@
 							You have the design, you have the code. We’ve created the product that will help your startup to look even better.
 			            </p>
 	                    <div class="signin-form">
-	                        <form>
-	                            <div class="form-group">
-	                                <input class="form-control" type="text" placeholder="Your E-mail">
-	                            </div>
-	                            <div class="form-group">
-	                                <div>
-	                                    <input type="password" class="form-control" placeholder="Password">
-	                                </div>
-	                            </div>
-	                            <div class="form-group">
-	                                <button type="submit" class="btn btn-block btn-info">Sign in</button>
-	                            </div>
-	                        </form>
+                            <div class="form-group">
+                                <input class="form-control" id="signinId" type="text" placeholder="ID">
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <input type="password" id="signinPwd" class="form-control" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" id="signinBtn" class="btn btn-block btn-info">Sign in</button>
+                            </div>
 	                    </div>
 	                    <div class="additional-links" style="color:#555; margin-bottom:30px;">
 	                        By signing up you agree to <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
@@ -122,32 +121,57 @@
             </section>
 
 
-		<!-- footer-2 -->
-		<footer class="footer-2 bg-midnight-blue">
-		<div class="container">
-			<nav class="pull-left">
-			<ul>
-				<li class="active"><a href="#">HOME</a></li>
-				<li><a href="#">MY APPS</a></li>
-				<li><a href="#">STORE</a></li>
-				<li><a href="#">DEVELOPER</a></li>
-			</ul>
-			</nav>
-			<div class="social-btns pull-right">
-				<a href="#"><div class="fui-vimeo"></div>
-					<div class="fui-vimeo"></div></a> <a href="#"><div
-						class="fui-facebook"></div>
-					<div class="fui-facebook"></div></a> <a href="#"><div
-						class="fui-twitter"></div>
-					<div class="fui-twitter"></div></a>
-			</div>
-			<div class="additional-links">
-				Be sure to take a look to our <a href="#">Terms of Use</a> and <a
-					href="#">Privacy Policy</a>
-			</div>
+			<!-- footer-2 -->
+			<footer class="footer-2 bg-midnight-blue">
+				<div class="container">
+					<nav class="pull-left">
+					<ul>
+						<li class="active"><a href="#">HOME</a></li>
+						<li><a href="#">MY APPS</a></li>
+						<li><a href="#">STORE</a></li>
+						<li><a href="#">DEVELOPER</a></li>
+					</ul>
+					</nav>
+					<div class="social-btns pull-right">
+						<a href="#"><div class="fui-vimeo"></div>
+						<div class="fui-vimeo"></div></a> <a href="#"><div
+							class="fui-facebook"></div>
+						<div class="fui-facebook"></div></a> <a href="#"><div
+							class="fui-twitter"></div>
+						<div class="fui-twitter"></div></a>
+					</div>
+					<div class="additional-links">
+						Be sure to take a look to our <a href="#">Terms of Use</a> and <a
+							href="#">Privacy Policy</a>
+					</div>
+				</div>
+			</footer>
 		</div>
-		</footer>
-	</div>
+		
+		<!-- Modal -->
+		<div aria-hidden="true" aria-labelledby="signupLabel" role="dialog" tabindex="-1" id="signupModal" class="modal fade">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title">Sign up</h4>
+		            </div>
+		            <div class="modal-body">
+		                <input type="text" id="signupId" name="id" placeholder="ID" autocomplete="off" class="form-control placeholder-no-fix" autofocus>
+		                <input type="password" id="signupPwd1" name="pwd1" placeholder="Password (6 or more characters)" autocomplete="off" class="form-control placeholder-no-fix">
+		                <input type="password" id="signupPwd2" name="pwd2" placeholder="Password Confirm" autocomplete="off" class="form-control placeholder-no-fix">
+		                <input type="text" id="signupEmail" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+		                <input type="text" id="signupPhone" name="phone" placeholder="Phone Number" autocomplete="off" class="form-control placeholder-no-fix">
+		            </div>
+		            <div class="modal-footer">
+		            	<span id="signupMsg" class="pull-left"></span>
+		                <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+		                <button class="btn btn-primary" type="button" id="signupBtn">Submit</button>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<!-- modal -->
 
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="/GardenPlatformWeb/resource/js/lib/jquery-1.10.2.min.js"></script>

@@ -1464,6 +1464,44 @@ section * {
   margin-bottom: 55px;
 }
 
-.demo-tiles {
-  margin-bottom: 46px;
+
+/* Bootstrap Modifications */
+.modal-header {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	background: #1ABC9C;
 }
+
+.modal-title {
+	color: white;
+}
+
+.btn-round {
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+}
+
+.accordion-heading .accordion-toggle {
+	display: block;
+	cursor: pointer;
+	border-top: 1px solid #F5F5F5;
+	padding: 5px 0px;
+	line-height: 28.75px;
+	text-transform: uppercase;
+	color: #1a1a1a;
+	background-color: #ffffff;
+	outline: none !important;
+	text-decoration: none;
+}	
+
+.modal-body input {
+	margin-top : 15px;
+	color : #1ABC9C;
+}
+
+#signupMsg {
+	font-size: 17px;
+	color : #E74C3C;
+}
+
+
