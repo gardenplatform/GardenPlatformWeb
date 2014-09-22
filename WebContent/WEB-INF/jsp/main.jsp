@@ -5,8 +5,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
-        <meta charset="utf-8">
         <title>Garden Platform</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -29,7 +29,7 @@
                         <div class="navbar col-sm-12" role="navigation">
                             <div class="navbar-header">
                                 <button type="button" class="navbar-toggle"></button>
-                                <a class="brand" href="#"><img src="/GardenPlatformWeb/resource/img/logo.png" width="50" height="50" alt="">Garden Platform</a>
+                                <a class="brand" href="#"><img src="/GardenPlatformWeb/resource/img/logo.png" width="50" height="50" alt="">Garden</a>
                             </div>
                             <div class="collapse navbar-collapse pull-right">
                                 <ul class="nav pull-left">

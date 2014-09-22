@@ -54,9 +54,15 @@
 				data : userInfo,
 				success : function(data) {
 					var obj = jQuery.parseJSON(data);
-					console.log(obj);
+					if(obj.status==200) {
+						signin(id,pwd1);
+					}
+					else {
+						location.href="error.do?status="+obj.status;
+					}
 				},
 				error : function(xhr, status, error) {
+					location.href="error.do?status="+status;
 					console.log("Status : " + status + "\n" + "Error : " + error);
 				}
 			});	
@@ -66,36 +72,14 @@
   	// 로그인 이벤트
 	$('#signinBtn' ).click(function() {
 		
-		console.log("asd");
 		var id = $('#signinId').val();
 		var pwd = $('#signinPwd').val();
-		
-		var userInfo = {
-				id    : id,
-				pwd   : pwd
-		};
 		
 		if(id  == "" || pwd  == "") {	
 			console.log("All fileds are required.");
 		}
 		else {
-			$.ajax({
-				type : "POST",
-				url : "signin.do",
-				data : userInfo,
-				success : function(data) {
-					var obj = jQuery.parseJSON(data);
-					if(obj.status == 200) {
-						location.href = "home.do";
-					}
-					else {
-						console.log(obj);
-					}
-				},
-				error : function(xhr, status, error) {
-					console.log("Status : " + status + "\n" + "Error : " + error);
-				}
-			});	
+			signin(id,pwd);
 		}
 		console.log();
 	});
@@ -112,3 +96,31 @@
 	});
 
 })(jQuery);
+
+
+function signin(id, pwd) {
+	
+	var userInfo = {
+			id    : id,
+			pwd   : pwd
+	};
+	
+	$.ajax({
+		type : "POST",
+		url : "signin.do",
+		data : userInfo,
+		success : function(data) {
+			var obj = jQuery.parseJSON(data);
+			if(obj.status==200) {
+				location.href="home.do";
+			}
+			else {
+				location.href="error.do?status="+obj.status;
+			}
+		},
+		error : function(xhr, status, error) {
+			location.href="error.do?status="+status;
+			console.log("Status : " + status + "\n" + "Error : " + error);
+		}
+	});	
+}
