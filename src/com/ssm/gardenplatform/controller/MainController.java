@@ -20,12 +20,12 @@ public class MainController {
 	
 	LogManager logMgr = new LogManager();
 	
-	@RequestMapping(value = "/test.do", method = RequestMethod.GET)
+	@RequestMapping(value = "index.do", method = RequestMethod.GET)
 	public ModelAndView getTest(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
 		logMgr.printLog(request);
 		
-		ModelAndView mav = new ModelAndView("test");
+		ModelAndView mav = new ModelAndView("/my_apps/index");
 		mav.addObject("msg", "Garden Platform");
 		return mav;
 	}

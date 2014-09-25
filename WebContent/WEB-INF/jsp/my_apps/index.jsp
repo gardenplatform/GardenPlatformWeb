@@ -15,13 +15,11 @@
     <!-- Bootstrap core CSS -->
     <link href="/GardenPlatformWeb/resource/css/lib/bootstrap.css" rel="stylesheet">
     <!--external css-->
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/GardenPlatformWeb/resource/css/my_apps/font-awesome/css/font-awesome.css" rel="stylesheet" />
     
     <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/style-responsive.css" rel="stylesheet">
-
-    <script src="assets/js/chart-master/Chart.js"></script>
+    <link href="/GardenPlatformWeb/resource/css/my_apps/global_css/style.css" rel="stylesheet">
+    <link href="/GardenPlatformWeb/resource/css/my_apps/global_css/style-responsive.css" rel="stylesheet">
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -39,9 +37,10 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>Garden Platform</b></a>
+            <a href="main.do" class="logo"><b>Garden Platform</b></a>
             <!--logo end-->
-            
+            <div class="nav notify-row" id="top_menu">
+            </div>
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     <li><a class="logout" href="login.html">Logout</a></li>
@@ -59,11 +58,8 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="profile.html"><img src="assets/img/ui-park.jpg" class="img-circle" width="60" height="60"></a></p>
-              	  <h5 class="centered">ë°ì±í¸</h5>
-              	  	
                   <li class="mt">
-                      <a class="active" href="index.html">
+                      <a class="active" href="index.do">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
@@ -72,67 +68,26 @@
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-desktop"></i>
-                          <span>UI Elements</span>
+                          <span>Dropdown Menu 1</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="general.html">General</a></li>
-                          <li><a  href="buttons.html">Buttons</a></li>
-                          <li><a  href="panels.html">Panels</a></li>
+                          <li><a  href="index.do">Submenu 1</a></li>
+                          <li><a  href="index.do">Submenu 2</a></li>
+                          <li><a  href="index.do">Submenu 3</a></li>
                       </ul>
                   </li>
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-cogs"></i>
-                          <span>Components</span>
+                          <i class="fa fa-desktop"></i>
+                          <span>Dropdown Menu 2</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="calendar.html">Calendar</a></li>
-                          <li><a  href="gallery.html">Gallery</a></li>
-                          <li><a  href="todo_list.html">Todo List</a></li>
+                          <li><a  href="index.do">Submenu 1</a></li>
+                          <li><a  href="index.do">Submenu 2</a></li>
+                          <li><a  href="index.do">Submenu 3</a></li>
                       </ul>
                   </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-book"></i>
-                          <span>Extra Pages</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="blank.html">Blank Page</a></li>
-                          <li><a  href="login.html">Login</a></li>
-                          <li><a  href="lock_screen.html">Lock Screen</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-tasks"></i>
-                          <span>Forms</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="form_component.html">Form Components</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-th"></i>
-                          <span>Data Tables</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="basic_table.html">Basic Table</a></li>
-                          <li><a  href="responsive_table.html">Responsive Table</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class=" fa fa-bar-chart-o"></i>
-                          <span>Charts</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="morris.html">Morris</a></li>
-                          <li><a  href="chartjs.html">Chartjs</a></li>
-                      </ul>
-                  </li>
-
               </ul>
               <!-- sidebar menu end-->
           </div>
@@ -148,58 +103,58 @@
 
               <div class="row">
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   <div class="col-lg-9 main-chart">
-                  ì»¨íì¸ 
+                  컨텐츠
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   
                   
@@ -208,7 +163,7 @@
       *********************************************************************************************************************************************************** -->                  
                   
                   <div class="col-lg-3 main-chart">
-                   ì¬ì´ë ì»¨íì¸ 
+                   사이드 컨텐츠
                   </div><!-- /col-lg-3 -->
               </div>
           </section>
@@ -219,7 +174,7 @@
       <footer class="site-footer">
           <div class="text-center">
               footer
-              <a href="index.html#" class="go-top">
+              <a href="index.do" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
           </div>
@@ -228,24 +183,21 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/jquery-1.8.3.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="/GardenPlatformWeb/resource/js/lib/jquery-1.10.2.min.js"></script>
+    <script src="/GardenPlatformWeb/resource/js/lib/bootstrap.min.js"></script>
+    <script src="/GardenPlatformWeb/resource/js/my_apps/global_js/jquery.scrollTo.min.js"></script>
+    <script src="/GardenPlatformWeb/resource/js/my_apps/global_js/jquery.nicescroll.js" type="text/javascript"></script>
 
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script class="include" type="text/javascript" src="/GardenPlatformWeb/resource/js/my_apps/global_js/jquery.dcjqaccordion.2.7.js"></script>
     
     <!-- 
     <script src="assets/js/jquery.sparkline.js"></script>
      -->
 
     <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
+    <script src="/GardenPlatformWeb/resource/js/my_apps/global_js/common-scripts.js"></script>
     
    
     <!--script for this page-->
-	
-    
   </body>
 </html>

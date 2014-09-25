@@ -34,7 +34,7 @@
                             <div class="collapse navbar-collapse pull-right">
                                 <ul class="nav pull-left">
                                     <li class="active"><a href="#">HOME</a></li>
-                                    <li><a href="/GardenPlatformWeb/test.do">MY APPS</a></li>
+                                    <li><a href="index.do">MY APPS</a></li>
                                     <li><a href="#">STORE</a></li>
                                     <li><a href="#">DEVELOPER</a></li>
                                 </ul>
