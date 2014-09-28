@@ -52,19 +52,19 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
                   <li class="mt">
-                      <a class="active" href="#">
+                      <a href="index.do">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
                   </li>
 
                   <li class="sub-menu dcjq-parent-li">
-                      <a href="javascript:;" class="dcjq-parent">
+                      <a href="javascript:;" class="dcjq-parent active">
                           <i class="fa fa-desktop"></i>
                           <span>DropDown Menu</span>
                       <span class="dcjq-icon"></span></a>
                       <ul class="sub" style="display: none;">
-                          <li><a href="apps_detail.do">Apps Detail</a></li>
+                          <li><a class="active" href="apps_detail.do">Apps Detail</a></li>
                           <li><a href="#">subMenu</a></li>
                           <li><a href="#">subMenu</a></li>
                       </ul>
@@ -75,7 +75,7 @@
 
 			<section id="main-content"> 
 				<section class="wrapper">
-		                  Dashboard 컨텐츠 
+		                   Apps Detail 컨텐츠
 		                  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		                  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		                  <br><br><br><br><br><br><br><br>

@@ -1,3 +1,66 @@
+#sidebar {
+	font-size: 15px;
+	line-height: 1.214;
+	height: 100%;
+	margin: 0;
+	list-style-type: none;
+	overflow: auto;
+	position: fixed;
+	padding: 0;
+	width: 210px;
+	z-index: 10;
+	background-color: #fff;
+	-webkit-backface-visibility: hidden;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+
+ul, li {
+	list-style: none;
+}
+
+ul.sidebar-menu li a.active{
+	color: #1abc9c;
+  	text-decoration: none;
+}
+
+ul.sidebar-menu li a{
+	text-decoration: none;
+	display: block;
+	padding: 7px 20px;
+	outline: none;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+ul.sidebar-menu li ul.sub li a {
+	font-size: 14px;
+	padding: 6px 0;
+	line-height: 35px;
+	height: 35px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+#main-content{
+	margin-left:210px;
+}
+
+.wrapper {
+	display: inline-block;
+	margin-top: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-top: 0px;
+	width: 100%;
+}
+
 .dropdown-arrow-inverse {
   border-bottom-color: #34495e !important;
   border-top-color: #34495e !important;
@@ -210,6 +273,7 @@ a.muted:focus {
 }
 footer {
   background-color: transparent;
+  z-index : 100;
 }
 .input-append input {
   -webkit-border-radius: 6px 0 0 6px;
@@ -1504,5 +1568,3 @@ section * {
 	font-size: 17px;
 	color : #E74C3C;
 }
-
-

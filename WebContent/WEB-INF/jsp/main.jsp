@@ -16,7 +16,7 @@
         <!-- Using only with Flat-UI (free)-->
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/icon-font.css">
         <!-- end -->
-        <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/main.css">
+        <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/global/global.css">
         
     </head>
 
@@ -34,9 +34,9 @@
                             <div class="collapse navbar-collapse pull-right">
                                 <ul class="nav pull-left">
                                     <li class="active"><a href="#">HOME</a></li>
-                                    <li><a href="index.do">MY APPS</a></li>
-                                    <li><a href="#">STORE</a></li>
-                                    <li><a href="#">DEVELOPER</a></li>
+                                    <li><a href="/GardenPlatformWeb/my_apps/index.do">MY APPS</a></li>
+                                    <li><a href="/GardenPlatformWeb/store/index.do">STORE</a></li>
+                                    <li><a href="/GardenPlatformWeb/developer/index.do">DEVELOPER</a></li>
                                 </ul>
                                 <form class="navbar-form pull-left">
                                     <a id="signupModalBtn" class="btn btn-primary" data-toggle="modal" href="#signupModal">SIGN UP</a>
@@ -47,8 +47,8 @@
                     </div>
                 </div>
             </header>
-            
-            <!-- content23 -->
+
+	<!-- content23 -->
             <section class="content-23 v-center">
             	<div class="container" >
 	                <div id="bgVideo" class="background" ></div>
@@ -126,10 +126,10 @@
 				<div class="container">
 					<nav class="pull-left">
 					<ul>
-						<li class="active"><a href="#">HOME</a></li>
-						<li><a href="#">MY APPS</a></li>
-						<li><a href="#">STORE</a></li>
-						<li><a href="#">DEVELOPER</a></li>
+						<li class="active"><a href="/GardenPlatformWeb/main.do">HOME</a></li>
+						<li><a href="/GardenPlatformWeb/my_apps/index.do">MY APPS</a></li>
+						<li><a href="/GardenPlatformWeb/store/index.do">STORE</a></li>
+						<li><a href="/GardenPlatformWeb/developer/index.do">DEVELOPER</a></li>
 					</ul>
 					</nav>
 					<div class="social-btns pull-right">

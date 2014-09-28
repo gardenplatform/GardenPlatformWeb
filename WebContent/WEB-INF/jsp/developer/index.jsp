@@ -33,9 +33,9 @@
                             <div class="collapse navbar-collapse pull-right">
                                 <ul class="nav pull-left">
                                     <li><a href="/GardenPlatformWeb/main.do">HOME</a></li>
-                                    <li class="active"><a href="#">MY APPS</a></li>
+                                    <li><a href="/GardenPlatformWeb/my_apps/index.do"">MY APPS</a></li>
                                     <li><a href="/GardenPlatformWeb/store/index.do">STORE</a></li>
-                                    <li><a href="/GardenPlatformWeb/developer/index.do">DEVELOPER</a></li>
+                                    <li class="active"><a href="#">DEVELOPER</a></li>
                                 </ul>
                                 <form class="navbar-form pull-left">
                                     <a id="signupModalBtn" class="btn btn-primary" data-toggle="modal" href="#signupModal">SIGN UP</a>
@@ -54,20 +54,8 @@
                   <li class="mt">
                       <a class="active" href="#">
                           <i class="fa fa-dashboard"></i>
-                          <span>Dashboard</span>
+                          <span>Developer</span>
                       </a>
-                  </li>
-
-                  <li class="sub-menu dcjq-parent-li">
-                      <a href="javascript:;" class="dcjq-parent">
-                          <i class="fa fa-desktop"></i>
-                          <span>DropDown Menu</span>
-                      <span class="dcjq-icon"></span></a>
-                      <ul class="sub" style="display: none;">
-                          <li><a href="apps_detail.do">Apps Detail</a></li>
-                          <li><a href="#">subMenu</a></li>
-                          <li><a href="#">subMenu</a></li>
-                      </ul>
                   </li>
               </ul>
               <!-- sidebar menu end-->
@@ -75,7 +63,7 @@
 
 			<section id="main-content"> 
 				<section class="wrapper">
-		                  Dashboard 컨텐츠 
+		                  Developer 컨텐츠 
 		                  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		                  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		                  <br><br><br><br><br><br><br><br>
