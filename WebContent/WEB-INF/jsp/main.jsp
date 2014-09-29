@@ -21,6 +21,7 @@
     </head>
 
     <body>
+    	<c:set var="id" value="${id}" />
         <div class="page-wrapper">
             <!-- header-11 -->
             <header class="header-11">
@@ -31,24 +32,32 @@
                                 <button type="button" class="navbar-toggle"></button>
                                 <a class="brand" href="#"><img src="/GardenPlatformWeb/resource/img/logo.png" width="50" height="50" alt="">Garden</a>
                             </div>
-                            <div class="collapse navbar-collapse pull-right">
+                            <div class="collapse navbar-collapse">
                                 <ul class="nav pull-left">
                                     <li class="active"><a href="#">HOME</a></li>
                                     <li><a href="/GardenPlatformWeb/my_apps/index.do">MY APPS</a></li>
                                     <li><a href="/GardenPlatformWeb/store/index.do">STORE</a></li>
                                     <li><a href="/GardenPlatformWeb/developer/index.do">DEVELOPER</a></li>
                                 </ul>
-                                <form class="navbar-form pull-left">
-                                    <a id="signupModalBtn" class="btn btn-primary" data-toggle="modal" href="#signupModal">SIGN UP</a>
-                                </form>
-                               	<h1>${id}</h1>
+                               	<c:if test="${!empty id}">
+                                    <a id="signoutBtn" class="navbar-form pull-right" href="logout.do" style="margin-top:10px;"><span class="glyphicon glyphicon-log-out"></span> Sign out</a>
+                               		<a class="navbar-form pull-right" href="#">
+                               			<img src="/GardenPlatformWeb/resource/img/mini_user.png" width="40" height="40" alt="">
+                               			${id}
+                               		</a>
+                               	</c:if>
+                               	<c:if test="${empty id}">
+                                	<form class="navbar-form pull-right">
+	                                    <a id="signupModalBtn" class="btn btn-primary" data-toggle="modal" href="#signupModal">SIGN UP</a>
+	                                </form>
+	                            </c:if>
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
 
-	<!-- content23 -->
+			<!-- content23 -->
             <section class="content-23 v-center">
             	<div class="container" >
 	                <div id="bgVideo" class="background" ></div>
