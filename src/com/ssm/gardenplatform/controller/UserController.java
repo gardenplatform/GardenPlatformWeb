@@ -14,6 +14,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.ssm.gardenplatform.log.LogManager;
 import com.ssm.gardenplatform.model.User;
@@ -29,6 +31,8 @@ public class UserController {
 	@RequestMapping(value = "/signup.do", method = RequestMethod.POST)
 	public void postSignup(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
+		logMgr.printLog(request);
+		
 		String result = null;
 		
 		String id = request.getParameter("id");
@@ -61,6 +65,8 @@ public class UserController {
 	@RequestMapping(value = "/signin.do", method = RequestMethod.POST)
 	public void postSignin(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
+		logMgr.printLog(request);
+		
 		String result = null;
 		
 		String id = request.getParameter("id");
@@ -102,5 +108,21 @@ public class UserController {
 		
 		PrintWriter writer = response.getWriter();
 		writer.write(obj.toString());
+	}
+	
+	@RequestMapping(value = "/signout.do", method = RequestMethod.GET)
+	public ModelAndView getSignout(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+		logMgr.printLog(request);
+		
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+		    session.invalidate();
+		}
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setView(new RedirectView("main.do"));
+
+		return mav;
 	}
 }

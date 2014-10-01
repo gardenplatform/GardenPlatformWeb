@@ -5,19 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
-        <title>Garden Platform</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-        <link rel="shortcut icon" href="/GardenPlatformWeb/resource/img/favicon.ico">
-        <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/bootstrap.css">
-        <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/flat-ui.css">
-        <!-- Using only with Flat-UI (free)-->
-        <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/icon-font.css">
-        <!-- end -->
-        <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/main.css">
-        
+    
     </head>
 	
 	<body>
