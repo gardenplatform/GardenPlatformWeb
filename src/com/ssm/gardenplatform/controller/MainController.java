@@ -20,50 +20,6 @@ public class MainController {
 	
 	LogManager logMgr = new LogManager();
 	
-	//start Store pages
-	@RequestMapping(value = "/store/index.do", method = RequestMethod.GET)
-	public ModelAndView getStore_Index(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
-		logMgr.printLog(request);
-		
-		ModelAndView mav = new ModelAndView("/store/index");
-		mav.addObject("msg", "Garden Platform");
-		return mav;
-	}
-	
-	//start developer pages
-	@RequestMapping(value = "/developer/index.do", method = RequestMethod.GET)
-	public ModelAndView getDeveloper_Index(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
-		logMgr.printLog(request);
-		
-		ModelAndView mav = new ModelAndView("/developer/index");
-		mav.addObject("msg", "Garden Platform");
-		return mav;
-	}
-	
-	//start my_apps pages
-	@RequestMapping(value = "/my_apps/index.do", method = RequestMethod.GET)
-	public ModelAndView getMyapps_Index(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
-		logMgr.printLog(request);
-		
-		ModelAndView mav = new ModelAndView("/my_apps/index");
-		mav.addObject("msg", "Garden Platform");
-		return mav;
-	}
-	
-	@RequestMapping(value = "/my_apps/apps_detail.do", method = RequestMethod.GET)
-	public ModelAndView getMyapps_Apps_Detail(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
-		logMgr.printLog(request);
-		
-		ModelAndView mav = new ModelAndView("/my_apps/apps_detail");
-		mav.addObject("msg", "Garden Platform");
-		return mav;
-	}
-	
-	
 	// main page
 	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
 	public ModelAndView getMain(HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -82,10 +38,20 @@ public class MainController {
 //		HttpSession session = request.getSession();
 //		User user = (User)session.getAttribute("user");
 		
-		ModelAndView mav = new ModelAndView("main");
+		ModelAndView mav = new ModelAndView("home");
 		mav.addObject("id", "test123");
 //		mav.addObject("id", user.getId());
 		
+		return mav;
+	}
+	
+	// test page
+	@RequestMapping(value = "/test.do", method = RequestMethod.GET)
+	public ModelAndView getTest(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		logMgr.printLog(request);
+		
+		ModelAndView mav = new ModelAndView("test");
 		return mav;
 	}
 	
