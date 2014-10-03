@@ -12,11 +12,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <link rel="shortcut icon" href="/GardenPlatformWeb/resource/img/favicon.png">
-        <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/bootstrap.css">
+        <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/bootstrap.min.css">
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/flat-ui.css">
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/icon-font.css">
         <!-- end -->
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/decorator/decorator.css">
+        <script src="/GardenPlatformWeb/resource/js/lib/jquery-1.11.0.min.js"></script>
         <decorator:head/>
     </head>
 
@@ -29,7 +30,7 @@
                         <div class="navbar col-sm-12" role="navigation">
                             <div class="navbar-header">
                                 <button type="button" class="navbar-toggle"></button>
-                                <a class="brand" href="/GardenPlatformWeb/main.do"><img src="/GardenPlatformWeb/resource/img/logo.png" width="50" height="50" alt="">Garden</a>
+                                <a class="brand" href="/GardenPlatformWeb/main.do"><img src="/GardenPlatformWeb/resource/img/logo.png" width="40" height="40" alt="">Garden</a>
                             </div>
                             <div class="collapse navbar-collapse">
                                 <ul class="nav pull-left">
@@ -38,41 +39,34 @@
                                     <li><a href="/GardenPlatformWeb/store/index.do">STORE</a></li>
                                     <li><a href="/GardenPlatformWeb/developer/index.do">DEVELOPER</a></li>
                                 </ul>
+							
                                 <ul class="nav pull-right">
-                                    <li>
-                                    	<c:if test="${!empty id}">
-                                    	<!-- 
-		                                    <a id="signoutBtn" class="navbar-form" href="/GardenPlatformWeb/signout.do" style="margin-top:10px;"><span class="glyphicon glyphicon-log-out"></span> Sign out</a>
-		                               	 -->
-		                               	 	<a href="#" style="padding:30px 0px">
+                                   	<c:if test="${!empty id}">
+	                                    <li class="dropdown">
+			                            	<a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding:7px 105px 7px 30px">
 		                               			<img src="/GardenPlatformWeb/resource/img/mini_user.png" width="40" height="40" alt="">
-		                               			${id}
-		                               		</a>
-		                               	</c:if>
-                                    </li>
-                                    <li>
-	                                    <c:if test="${empty id}">
+		                               			${id} <span class="caret"></span>
+			                            	</a>
+		                                    <ul class="dropdown-menu" role="menu">
+					                      		<li>
+				                                    <a id="profileBtn" href="#"><span class="glyphicon glyphicon-user"></span> Profile</a>
+					                      		</li>
+					                      		<li role="presentation" class="divider"></li>
+			                                    <li>
+				                                    <a id="signoutBtn" href="/GardenPlatformWeb/signout.do"><span class="glyphicon glyphicon-log-out"></span> Sign out</a>
+					                      		</li>
+				                      		</ul>
+	                                    </li>
+	                               	</c:if>
+	                               	 <c:if test="${empty id}">
+                                    	<li>
 		                                	<form class="navbar-form">
 			                                    <a id="signupModalBtn" class="btn btn-primary" data-toggle="modal" href="#signupModal">SIGN UP</a>
 			                                </form>
-	                            		</c:if>
-                                    </li>
+           	                        	</li>
+                            		</c:if>
                                 </ul>
-                                <!-- 
-                               	<c:if test="${!empty id}">
-                                    <a id="signoutBtn" class="navbar-form pull-right" href="/GardenPlatformWeb/signout.do" style="margin-top:10px;"><span class="glyphicon glyphicon-log-out"></span> Sign out</a>
-                               		<a class="navbar-form pull-right" href="#">
-                               			<img src="/GardenPlatformWeb/resource/img/mini_user.png" width="40" height="40" alt="">
-                               			${id}
-                               		</a>
-                               	</c:if>
-                               	<c:if test="${empty id}">
-                                	<form class="navbar-form pull-right">
-	                                    <a id="signupModalBtn" class="btn btn-primary" data-toggle="modal" href="#signupModal">SIGN UP</a>
-	                                </form>
-	                            </c:if>
-	                             -->
-                            </div>
+							</div>
                         </div>
                     </div>
                 </div>
@@ -142,8 +136,6 @@
 
 
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="/GardenPlatformWeb/resource/js/lib/jquery-1.10.2.min.js"></script>
-        <script src="/GardenPlatformWeb/resource/js/lib/bootstrap.min.js"></script>
         <script src="/GardenPlatformWeb/resource/js/lib/modernizr.custom.js"></script>
         <script src="/GardenPlatformWeb/resource/js/lib/startup-kit.js"></script>
         <script src="/GardenPlatformWeb/resource/js/lib/jquery.backgroundvideo.min.js"></script>
