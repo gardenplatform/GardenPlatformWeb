@@ -27,8 +27,6 @@
                       <span class="dcjq-icon"></span></a>
                       <ul class="sub" style="display: none;">
                           <li><a href="apps_detail.do">Apps Detail</a></li>
-                          <li><a href="#">subMenu</a></li>
-                          <li><a href="#">subMenu</a></li>
                       </ul>
                   </li>
               </ul>
@@ -37,7 +35,7 @@
 
 			<section id="main-content"> 
 				<section class="wrapper">
-		                  Dashboard 컨텐츠
+		                  
 				</section> 
 			</section>
     	</div>

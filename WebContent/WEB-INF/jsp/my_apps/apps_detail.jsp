@@ -27,8 +27,6 @@
                       <span class="dcjq-icon"></span></a>
                       <ul class="sub" style="display: none;">
                           <li><a class="active" href="apps_detail.do">Apps Detail</a></li>
-                          <li><a href="#">subMenu</a></li>
-                          <li><a href="#">subMenu</a></li>
                       </ul>
                   </li>
               </ul>
