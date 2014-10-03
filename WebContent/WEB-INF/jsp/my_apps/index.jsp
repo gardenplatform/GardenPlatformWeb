@@ -35,7 +35,12 @@
 
 			<section id="main-content"> 
 				<section class="wrapper">
-		                  
+	<div class="form-group">
+  <div class="input-group">
+    <span class="input-group-addon">@</span>
+    <input type="text" class="form-control" placeholder="Prepend" />
+  </div>  
+</div>
 				</section> 
 			</section>
     	</div>

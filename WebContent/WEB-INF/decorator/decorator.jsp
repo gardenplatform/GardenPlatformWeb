@@ -13,8 +13,8 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <link rel="shortcut icon" href="/GardenPlatformWeb/resource/img/favicon.png">
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/bootstrap.css">
-        <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/flat-ui.css">
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/icon-font.css">
+        <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/flat-ui.css">
         <!-- end -->
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/decorator/decorator.css">
         <decorator:head/>
