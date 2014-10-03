@@ -41,16 +41,16 @@ function signin(id, pwd) {
 		data : userInfo,
 		success : function(data) {
 			var obj = jQuery.parseJSON(data);
-			if(obj.status==200) {
+			console.log(obj);
+			if(obj.status=="success") {
 				location.href="home.do";
 			}
 			else {
-				location.href="error.do?status="+obj.status;
+				//location.href="error.do?status="+obj.status+"&msg="+obj.msg;
 			}
 		},
 		error : function(xhr, status, error) {
-			location.href="error.do?status="+status;
-			console.log("Status : " + status + "\n" + "Error : " + error);
+			location.href="error.do?status="+status+"&msg="+error;
 		}
 	});	
 }

@@ -928,7 +928,8 @@ section * {
   width: 100%;
   padding-top: 0;
   padding-bottom: 0;
-  height: 90px;
+  height: 100px;
+  background-color: beige;
 }
 .header-11 .navbar {
   position: absolute;
@@ -1355,6 +1356,10 @@ Bootstrap Modifications
 
 .modal-title {
 	color: white;
+}
+
+.modal-footer {
+	margin-top:40px;
 }
 
 .btn-round {

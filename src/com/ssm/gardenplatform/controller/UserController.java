@@ -2,6 +2,7 @@ package com.ssm.gardenplatform.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,27 +34,41 @@ public class UserController {
 
 		logMgr.printLog(request);
 		
-		String result = null;
+		Map<String, Object> result = null;
 		
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
+		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
+		String classNum = request.getParameter("classNum");
+		String gender = request.getParameter("gender");
 		
 		String url = RestInfo.restURL+"/users";
 		
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
 		vars.add("username", id);
 		vars.add("password", pwd);
+		vars.add("real_name", name);
 		vars.add("email", email);
 		vars.add("phone", phone);	
-		
+		vars.add("class_num", classNum);	
+		vars.add("gender", gender);	
+	
 		result = restMgr.post(url, vars);
 		
 		JSONObject obj = new JSONObject();
-		
-		try {
-			obj.put("status", "200");
+
+		try {		
+			if(result.get("status").toString().equals("success")) {
+				obj.put("status", "success");
+				obj.put("msg", "Sign up Success");
+			}
+			else{
+				obj.put("status", "error");
+				obj.put("msg", result.get("msg"));
+			}
+			
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -66,13 +81,11 @@ public class UserController {
 	public void postSignin(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
 		logMgr.printLog(request);
-		
-		String result = null;
+
+		Map<String, Object> result = null;
 		
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
-		
-		System.out.println(id + " " + pwd); 
 		
 		String url = RestInfo.restURL+"/tokens";
 		
@@ -82,26 +95,33 @@ public class UserController {
 		
 		result = restMgr.post(url, vars);
 		
-		HttpSession session = request.getSession();
-		User user = new User();
-		user.setId(id);
-		
-		// user token 정보를 session에 저장
-		JSONObject jsonObj;
-		try {
-			jsonObj = new JSONObject(result);
-			user.setToken(jsonObj.get("token")+"");
-		} catch (JSONException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-		session.setAttribute("user",user);
-		
 		JSONObject obj = new JSONObject();
-		
 		try {
-			obj.put("status", "200");
+			if(result.get("status").toString().equals("success")) {
+				
+				HttpSession session = request.getSession();
+				User user = new User();
+				user.setId(id);
+				
+				// user token 정보를 session에 저장
+				JSONObject jsonObj;
+				try {
+					jsonObj = new JSONObject(result.get("result").toString());
+					user.setToken(jsonObj.get("token")+"");
+				} catch (JSONException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				session.setAttribute("user",user);
+				
+				obj.put("status", "success");
+				obj.put("msg", "Sign in Success");
+			}
+			else{
+				obj.put("status", "error");
+				obj.put("msg", result.get("msg"));
+			}
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
