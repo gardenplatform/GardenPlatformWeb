@@ -38,6 +38,27 @@
                                     <li><a href="/GardenPlatformWeb/store/index.do">STORE</a></li>
                                     <li><a href="/GardenPlatformWeb/developer/index.do">DEVELOPER</a></li>
                                 </ul>
+                                <ul class="nav pull-right">
+                                    <li>
+                                    	<c:if test="${!empty id}">
+                                    	<!-- 
+		                                    <a id="signoutBtn" class="navbar-form" href="/GardenPlatformWeb/signout.do" style="margin-top:10px;"><span class="glyphicon glyphicon-log-out"></span> Sign out</a>
+		                               	 -->
+		                               	 	<a href="#" style="padding:30px 0px">
+		                               			<img src="/GardenPlatformWeb/resource/img/mini_user.png" width="40" height="40" alt="">
+		                               			${id}
+		                               		</a>
+		                               	</c:if>
+                                    </li>
+                                    <li>
+	                                    <c:if test="${empty id}">
+		                                	<form class="navbar-form">
+			                                    <a id="signupModalBtn" class="btn btn-primary" data-toggle="modal" href="#signupModal">SIGN UP</a>
+			                                </form>
+	                            		</c:if>
+                                    </li>
+                                </ul>
+                                <!-- 
                                	<c:if test="${!empty id}">
                                     <a id="signoutBtn" class="navbar-form pull-right" href="/GardenPlatformWeb/signout.do" style="margin-top:10px;"><span class="glyphicon glyphicon-log-out"></span> Sign out</a>
                                		<a class="navbar-form pull-right" href="#">
@@ -50,6 +71,7 @@
 	                                    <a id="signupModalBtn" class="btn btn-primary" data-toggle="modal" href="#signupModal">SIGN UP</a>
 	                                </form>
 	                            </c:if>
+	                             -->
                             </div>
                         </div>
                     </div>
@@ -97,8 +119,16 @@
 		                <input type="text" id="signupId" name="id" placeholder="ID" autocomplete="off" class="form-control placeholder-no-fix" autofocus>
 		                <input type="password" id="signupPwd1" name="pwd1" placeholder="Password (6 or more characters)" autocomplete="off" class="form-control placeholder-no-fix">
 		                <input type="password" id="signupPwd2" name="pwd2" placeholder="Password Confirm" autocomplete="off" class="form-control placeholder-no-fix">
+		                <input type="text" id="signupName" name="name" placeholder="Name" autocomplete="off" class="form-control placeholder-no-fix">
 		                <input type="text" id="signupEmail" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
 		                <input type="text" id="signupPhone" name="phone" placeholder="Phone Number" autocomplete="off" class="form-control placeholder-no-fix">
+		                <input type="text" id="signupClass" name="class" placeholder="Class (ex:23-1)" autocomplete="off" class="form-control placeholder-no-fix">
+		                <span class="col-sm-2">
+		                	<input type="radio" name="gender" id="signupMale" value="Male" data-toggle="radio" checked> <strong>Male</strong>
+		                </span>
+		                <span class="col-sm-3">
+		                	<input type="radio" name="gender" id="signupFemale" value="Female" data-toggle="radio"> <strong>Female</strong>
+		                </span>
 		            </div>
 		            <div class="modal-footer">
 		            	<span id="signupMsg" class="pull-left"></span>

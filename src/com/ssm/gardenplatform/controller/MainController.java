@@ -35,12 +35,13 @@ public class MainController {
 		
 		logMgr.printLog(request);
 
-//		HttpSession session = request.getSession();
-//		User user = (User)session.getAttribute("user");
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
 		
 		ModelAndView mav = new ModelAndView("home");
-		mav.addObject("id", "test123");
-//		mav.addObject("id", user.getId());
+//		mav.addObject("id", "test123");
+		if(user != null)
+			mav.addObject("id", user.getId());
 		
 		return mav;
 	}

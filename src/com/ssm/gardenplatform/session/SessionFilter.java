@@ -38,10 +38,9 @@ public class SessionFilter implements Filter {
 				login = true;
 			}
 		}
-		
 		String uri = httpRequest.getRequestURI().toString().trim();
-		if(uri.startsWith("GardenPlatformWeb/main.do") && login){
-			httpResponse.sendRedirect("home.do");
+		if(uri.startsWith("/GardenPlatformWeb/main.do") && login){
+			httpResponse.sendRedirect("/GardenPlatformWeb/home.do");
 		}
 		
 		if(excludeUrl(httpRequest)) {
@@ -55,7 +54,7 @@ public class SessionFilter implements Filter {
 		}
 		else{
 			//System.out.println("Session Expired");
-			httpResponse.sendRedirect("main.do");
+			httpResponse.sendRedirect("/GardenPlatformWeb/main.do");
 			return;
 		}
 	}
@@ -70,10 +69,13 @@ public class SessionFilter implements Filter {
 		if(uri.startsWith("/GardenPlatformWeb/main.do")){
 			return true;
 		}
-		else if(uri.startsWith("/GardenPlatformWeb/login.do")){
+		else if(uri.startsWith("/GardenPlatformWeb/signin.do")){
 			return true;
 		}
 		else if(uri.startsWith("/GardenPlatformWeb/signup.do")){
+			return true;
+		}
+		else if(uri.startsWith("/GardenPlatformWeb/error.do")){
 			return true;
 		}
 		else if(uri.startsWith("/GardenPlatformWeb/resource/")){
