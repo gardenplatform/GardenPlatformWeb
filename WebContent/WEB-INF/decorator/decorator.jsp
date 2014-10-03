@@ -119,5 +119,12 @@
         <script src="/GardenPlatformWeb/resource/js/lib/startup-kit.js"></script>
         <script src="/GardenPlatformWeb/resource/js/lib/jquery.backgroundvideo.min.js"></script>
         <script src="/GardenPlatformWeb/resource/js/decorator/decorator.js"></script>
+        
+        <!-- left slider animation js -->
+        <script src="/GardenPlatformWeb/resource/js/global/jquery.dcjqaccordion.2.7.js"></script>
+        <script src="/GardenPlatformWeb/resource/js/global/jquery.scrollTo.min.js"></script>
+        <script src="/GardenPlatformWeb/resource/js/global/global.js"></script>
+        <script src="/GardenPlatformWeb/resource/js/global/jquery.nicescroll.js" type="text/javascript"></script>
+        
     </body>
 </html>
