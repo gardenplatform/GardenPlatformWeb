@@ -57,12 +57,11 @@
                 </div>
             </header>
 
-
     		<decorator:body/>
     	
 			<!-- footer-2 -->
 			<footer class="footer-2 bg-midnight-blue">
-				<div class="container">
+				<div class="container" id="footer">
 					<nav class="pull-left">
 					<ul>
 						<li class="active"><a href="/GardenPlatformWeb/main.do">HOME</a></li>
