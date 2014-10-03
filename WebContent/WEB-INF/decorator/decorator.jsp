@@ -43,7 +43,7 @@
                                 <ul class="nav pull-right">
                                    	<c:if test="${!empty id}">
 	                                    <li class="dropdown">
-			                            	<a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding:7px 105px 7px 30px">
+			                            	<a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding:7px 10px 7px 30px">
 		                               			<img src="/GardenPlatformWeb/resource/img/mini_user.png" width="40" height="40" alt="">
 		                               			${id} <span class="caret"></span>
 			                            	</a>
