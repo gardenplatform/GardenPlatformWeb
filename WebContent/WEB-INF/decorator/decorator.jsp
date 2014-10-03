@@ -22,7 +22,6 @@
 
     <body>
     	<c:set var="id" value="${id}" />
-        <div class="page-wrapper">
             <!-- header-11 -->
             <header class="header-11">
                 <div class="container">
@@ -56,10 +55,11 @@
                     </div>
                 </div>
             </header>
-
-    		<decorator:body/>
-    	
+			<div class="page-wrapper">
+    			<decorator:body/>
+    		</div>
 			<!-- footer-2 -->
+			<div class="undermargin"></div>
 			<footer class="footer-2 bg-midnight-blue">
 				<div class="container" id="footer">
 					<nav class="pull-left">
@@ -85,7 +85,6 @@
 				</div>
 			</footer>
 		</div>
-		
 		<!-- Modal -->
 		<div aria-hidden="true" aria-labelledby="signupLabel" role="dialog" tabindex="-1" id="signupModal" class="modal fade">
 		    <div class="modal-dialog">
@@ -108,7 +107,7 @@
 		            </div>
 		        </div>
 		    </div>
-		</div>
+		
 		<!-- modal -->
 
 

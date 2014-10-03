@@ -22,6 +22,10 @@ ul, li {
 	list-style: none;
 }
 
+.sidebar-menu {
+	padding-left : 0px;
+}
+
 ul.sidebar-menu li a.active{
 	color: #1abc9c;
   	text-decoration: none;
@@ -497,7 +501,9 @@ p {
   position: relative;
   z-index: 2;
   background: #fff;
-  min-height: 100%; 
+  min-height: 100%;
+  margin: -90px 0 -85px;
+  padding: 90px 0 85px 0;
 }
 .header-background {
   position: absolute;
@@ -1172,7 +1178,6 @@ section * {
  * Footer 2 stylesheet  
  * */
 .footer-2 {
-  position: absolute;
   bottom: 0;
   width: 100%;
   padding-top: 20px;
@@ -1385,4 +1390,6 @@ Bootstrap Modifications
 	color : #E74C3C;
 }
 
-
+div.undermargin {
+	height : 20px;
+}

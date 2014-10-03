@@ -10,7 +10,7 @@
 
     <body>
             <div class="container">
-		     <div id="sidebar" class="nav-collapse " tabindex="5000" style="overflow: hidden; outline: none;">
+		     <div id="sidebar" style="overflow: hidden; outline: none;">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
                   <li class="mt">
