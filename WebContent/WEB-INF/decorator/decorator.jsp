@@ -13,95 +13,69 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <link rel="shortcut icon" href="/GardenPlatformWeb/resource/img/favicon.png">
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/bootstrap.css">
-        <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/bootstrap.min.css">
-        <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/icon-font.css">
-        <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/flat-ui.css">
-        <!-- end -->
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/decorator/decorator.css">
+        <!-- jquery.js가 맨 처음에 와야 기능이 정상동작함. -->
         <script src="/GardenPlatformWeb/resource/js/lib/jquery-1.11.0.min.js"></script>
+        
         <decorator:head/>
     </head>
 
     <body>
     	<c:set var="id" value="${id}" />
-            <!-- header-11 -->
-            <header class="header-11">
-                <div class="container">
-                    <div class="row">
-                        <div class="navbar col-sm-12" role="navigation">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle"></button>
-                                <a class="brand" href="/GardenPlatformWeb/main.do"><img src="/GardenPlatformWeb/resource/img/logo.png" width="40" height="40" alt="">Garden</a>
-                            </div>
-                            <div class="collapse navbar-collapse">
-                                <ul class="nav pull-left">
-                                    <li class="active"><a href="/GardenPlatformWeb/home.do">HOME</a></li>
-                                    <li><a href="/GardenPlatformWeb/my_apps/index.do">MY APPS</a></li>
-                                    <li><a href="/GardenPlatformWeb/store/index.do">STORE</a></li>
-                                    <li><a href="/GardenPlatformWeb/developer/index.do">DEVELOPER</a></li>
-                                </ul>
-							
-                                <ul class="nav pull-right">
-                                   	<c:if test="${!empty id}">
-	                                    <li class="dropdown">
-			                            	<a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding:7px 10px 7px 30px">
-		                               			<img src="/GardenPlatformWeb/resource/img/mini_user.png" width="40" height="40" alt="">
-		                               			${id} <span class="caret"></span>
-			                            	</a>
-		                                    <ul class="dropdown-menu" role="menu">
-					                      		<li>
-				                                    <a id="profileBtn" href="#"><span class="glyphicon glyphicon-user"></span> Profile</a>
-					                      		</li>
-					                      		<li role="presentation" class="divider"></li>
-			                                    <li>
-				                                    <a id="signoutBtn" href="/GardenPlatformWeb/signout.do"><span class="glyphicon glyphicon-log-out"></span> Sign out</a>
-					                      		</li>
-				                      		</ul>
-	                                    </li>
-	                               	</c:if>
-	                               	 <c:if test="${empty id}">
-                                    	<li>
-		                                	<form class="navbar-form">
-			                                    <a id="signupModalBtn" class="btn btn-primary" data-toggle="modal" href="#signupModal">SIGN UP</a>
-			                                </form>
-           	                        	</li>
-                            		</c:if>
-                                </ul>
-							</div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-			<div class="page-wrapper">
+        <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/GardenPlatformWeb/main.do"><img src="/GardenPlatformWeb/resource/img/logo.png">Garden</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+               		<li id="nav-myapps"><a href="/GardenPlatformWeb/my_apps/index.do">My Apps</a></li>
+               		<li id="nav-store"><a href="/GardenPlatformWeb/store/index.do">Store</a></li>
+               		<li id="nav-developer"><a href="/GardenPlatformWeb/developer/index.do">Developer</a></li>
+                </ul>
+                
+                <ul class="nav navbar-nav navbar-right">
+                	<li class="dropdown" id="nav-userinfo">
+                		<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="name" style="padding: 0px 0px 0px 0px;">
+                		<img class="img" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/p50x50/10565031_677986682295089_5741239171452330999_n.jpg?oh=faa04656774966b37e0299b613620304&amp;oe=54CA4714&amp;__gda__=1420806770_6480a830c55fb7891ca0298622dee634" alt="">
+                		</a>
+                		<ul class="dropdown-menu">
+                			<li><a href="/info/userinfo">내 정보</a>
+                			</li><li><a href="#">로그아웃</a>
+                		</ul>
+                	</li>
+                </ul> 
+                <form class="navbar-form navbar-right">
+			  	<a id="signupModalBtn" class="btn btn-primary" data-toggle="modal" href="#signupModal">SIGN UP</a>
+			  </form>
+               <form class="navbar-form navbar-right" role="search">
+		        <div class="form-group">
+		          <input type="text" class="form-control" placeholder="Search">
+		        </div>
+		        <button type="submit" class="btn btn-default">Submit</button>
+		      </form>
+		      
+            </div><!--/.nav-collapse -->
+        </div>
+    </header>
+			<div class="wrapper">
     			<decorator:body/>
     		</div>
-			<!-- footer-2 -->
+			<!-- footer -->
 			<div class="undermargin"></div>
-			<footer class="footer-2 bg-midnight-blue">
-				<div class="container" id="footer">
-					<nav class="pull-left">
-					<ul>
-						<li class="active"><a href="/GardenPlatformWeb/main.do">HOME</a></li>
-						<li><a href="/GardenPlatformWeb/my_apps/index.do">MY APPS</a></li>
-						<li><a href="/GardenPlatformWeb/store/index.do">STORE</a></li>
-						<li><a href="/GardenPlatformWeb/developer/index.do">DEVELOPER</a></li>
-					</ul>
-					</nav>
-					<div class="social-btns pull-right">
-						<a href="#"><div class="fui-vimeo"></div>
-						<div class="fui-vimeo"></div></a> <a href="#"><div
-							class="fui-facebook"></div>
-						<div class="fui-facebook"></div></a> <a href="#"><div
-							class="fui-twitter"></div>
-						<div class="fui-twitter"></div></a>
-					</div>
-					<div class="additional-links">
-						Be sure to take a look to our <a href="#">Terms of Use</a> and <a
-							href="#">Privacy Policy</a>
-					</div>
+			
+			<div class="footer">
+				<div class="container">
+					<h5 class="text-right"><small>Copyright 2014 Samsung Software Membership, All Rights Reserved.</small></h5>
+					<h6 class="text-right"><small>Developed by Sungjin Park, Juyoung Park, Sungho Park, Sangwoo Jun</small></h6>
 				</div>
-			</footer>
-		</div>
+			</div>
 		<!-- Modal -->
 		<div aria-hidden="true" aria-labelledby="signupLabel" role="dialog" tabindex="-1" id="signupModal" class="modal fade">
 		    <div class="modal-dialog">
@@ -132,21 +106,13 @@
 		            </div>
 		        </div>
 		    </div>
-		
+		</div>
 		<!-- modal -->
 
-
+		
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="/GardenPlatformWeb/resource/js/lib/modernizr.custom.js"></script>
-        <script src="/GardenPlatformWeb/resource/js/lib/startup-kit.js"></script>
-        <script src="/GardenPlatformWeb/resource/js/lib/jquery.backgroundvideo.min.js"></script>
+        
         <script src="/GardenPlatformWeb/resource/js/decorator/decorator.js"></script>
-        
-        <!-- left slider animation js -->
-        <script src="/GardenPlatformWeb/resource/js/global/jquery.dcjqaccordion.2.7.js"></script>
-        <script src="/GardenPlatformWeb/resource/js/global/jquery.scrollTo.min.js"></script>
-        <script src="/GardenPlatformWeb/resource/js/global/global.js"></script>
-        <script src="/GardenPlatformWeb/resource/js/global/jquery.nicescroll.js" type="text/javascript"></script>
-        
+        <script src="/GardenPlatformWeb/resource/js/decorator/bootstrap.min.js"></script>
     </body>
 </html>

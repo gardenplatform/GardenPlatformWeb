@@ -4,45 +4,28 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-    <head>
-    
-    </head>
+<head>
 
-    <body>
-            <div class="container">
-		     <div id="sidebar" style="overflow: hidden; outline: none;">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-                  <li class="mt">
-                      <a class="active" href="#">
-                          <i class="fa fa-dashboard"></i>
-                          <span>Dashboard</span>
-                      </a>
-                  </li>
+</head>
 
-                  <li class="sub-menu dcjq-parent-li">
-                      <a href="javascript:;" class="dcjq-parent">
-                          <i class="fa fa-desktop"></i>
-                          <span>DropDown Menu</span>
-                      <span class="dcjq-icon"></span></a>
-                      <ul class="sub" style="display: none;">
-                          <li><a href="apps_detail.do">Apps Detail</a></li>
-                      </ul>
-                  </li>
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
+<body>
+	<div class="container">
+	<div class="btn-group-vertical">
+			<button type="button" class="btn btn-default active">ㄱㄷ 하는중임</button>
+			<button type="button" class="btn btn-default">2</button>
 
-			<section id="main-content"> 
-				<section class="wrapper">
-	<div class="form-group">
-  <div class="input-group">
-    <span class="input-group-addon">@</span>
-    <input type="text" class="form-control" placeholder="Prepend" />
-  </div>  
-</div>
-				</section> 
-			</section>
-    	</div>
-    </body>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					Dropdown<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="#">Dropdown link</a></li>
+					<li><a href="#">Dropdown link</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script src="/GardenPlatformWeb/resource/js/my_apps/my_apps.js"></script>
+</body>
 </html>
