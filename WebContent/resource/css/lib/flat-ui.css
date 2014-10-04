@@ -3056,7 +3056,6 @@ fieldset[disabled] .navbar-inverse .navbar-btn.active {
   border-radius: 0;
 }
 .open > .dropdown-menu {
-  margin-top: 18px !important;
   opacity: 1;
   visibility: visible;
 }
