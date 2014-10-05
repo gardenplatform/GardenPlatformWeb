@@ -52,7 +52,7 @@
                 	</li>
                 </ul> 
                 <form class="navbar-form navbar-right">
-			  	<a id="signupModalBtn" class="btn btn-primary" data-toggle="modal" href="#signupModal">SIGN UP</a>
+			  	<a id="signupModalBtn" class="btn btn-mint" data-toggle="modal" href="#signupModal">SIGN UP</a>
 			  </form>
                <form class="navbar-form navbar-right" role="search">
 		        <div class="form-group">
@@ -102,7 +102,7 @@
 		            <div class="modal-footer">
 		            	<span id="signupMsg" class="pull-left"></span>
 		                <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-		                <button class="btn btn-primary" type="button" id="signupBtn">Submit</button>
+		                <button class="btn btn-mint" type="button" id="signupBtn">Submit</button>
 		            </div>
 		        </div>
 		    </div>

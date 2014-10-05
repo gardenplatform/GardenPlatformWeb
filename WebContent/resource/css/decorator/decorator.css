@@ -2,10 +2,11 @@
     font-family: 'NanumGothic';
     src: url('/GardenPlatformWeb/resource/css/fonts/NanumGothic.woff') format('woff');
 }
-
+/*
 * {
     font-family: 'NanumGothic' !important;
 }
+*/
 
 @media (min-width: 768px) {
     .title {
@@ -217,11 +218,32 @@ div.undermargin{
 }
 
 div.footer{
-	border-color: #222222;
+	border-color: #f1f1f1;
 	border-style: solid;
 	border-width: 1px 0px 0px;
 	height: auto;
-	background: #080808 !important;
+	background: #ffffff !important;
   	padding-top: 4px;
   	padding-bottom: 4px;
+}
+
+.snb {
+	float: left;
+	width: 130px;
+}
+
+.snb h4{
+	width: 120px;
+	height: 28px;
+	border-bottom: 2px solid #1abc9c;
+}
+
+.content {
+	float: left;
+	position: relative;
+	width: 790px;
+	padding-top: 35px;
+	margin-left: 35px;
+	color: #666;
+	line-height: 18px
 }
