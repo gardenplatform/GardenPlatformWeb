@@ -46,14 +46,4 @@ public class MainController {
 		return mav;
 	}
 	
-	// test page
-	@RequestMapping(value = "/test.do", method = RequestMethod.GET)
-	public ModelAndView getTest(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
-		logMgr.printLog(request);
-		
-		ModelAndView mav = new ModelAndView("test");
-		return mav;
-	}
-	
 }

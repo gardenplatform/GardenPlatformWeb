@@ -9,7 +9,7 @@ public class LogManager {
 	public void printLog(HttpServletRequest request) {
 		
 		Date dt = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd, hh:mm:ss a"); 
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd, HH:mm:ss"); 
 		System.out.println("\n" + sdf.format(dt).toString()); 
 		
 		String clientIp = request.getHeader("HTTP_X_FORWARDED_FOR");
