@@ -10,36 +10,38 @@
 
     <body>
     	<c:set var="id" value="${id}" />
-        	<div class="container" >
-            <!-- 
-            <div id="bgVideo" class="background" ></div>
-            <div id="formBox" class="col-sm-5 pull-right">
-			<h1 style="color:#1ABC9C">Garden Platform</h1>
-            <p style="color:#555;">
-				You have the design, you have the code. We’ve created the product that will help your startup to look even better.
-            </p>
-            <div class="signin-form">
-	            <div class="form-group">
-	                <input class="form-control" id="signinId" type="text" placeholder="ID">
+        	<div class="container">
+		<div class="main_container">
+		<div class="row vertical-center">
+			<div class="col-md-6" style="text-align:center;">
+				<img src="https://dt8kf6553cww8.cloudfront.net/static/images/empty_states/sign-in@2x-vflrhf4zv.png" style="width: 288px; height: 305px;">
+			</div>
+			<div class="col-md-6">
+					            <div id="formBox">
+							<h1 style="color:#1ABC9C">Garden Platform</h1>
+				            <p style="color:#555;">
+				            하나의 통합된 계정으로 쉽게 시스템을 이용하세요!
+				            </p>
+					            <div class="signin-form">
+						            <div class="form-group">
+						                <input class="form-control" id="signinId" type="text" placeholder="ID">
+						            </div>
+						            <div class="form-group">
+						                <div>
+						                    <input type="password" id="signinPwd" class="form-control" placeholder="Password">
+						                </div>
+						            </div>
+						            <div class="form-group">
+						                <button type="submit" id="signinBtn" class="btn btn-block btn-info">Sign in</button>
+						            </div>
+					            </div>
 	            </div>
-	            <div class="form-group">
-	                <div>
-	                    <input type="password" id="signinPwd" class="form-control" placeholder="Password">
-	                </div>
-	            </div>
-	            <div class="form-group">
-	                <button type="submit" id="signinBtn" class="btn btn-block btn-info">Sign in</button>
-	            </div>
-            </div>
-              </div>
-             -->
-			<img data-js-component-id="component1846270405609328715"
-				src="https://dt8kf6553cww8.cloudfront.net/static/images/empty_states/sign-in@2x-vflrhf4zv.png"
-				data-hi-res="https://dt8kf6553cww8.cloudfront.net/static/images/empty_states/sign-in@2x-vflrhf4zv.png"
-				class="login-or-register-img" style="width: 288px; height: 305px;">
+				
+			</div>
 			
+		</div>
+		</div>
 	</div>
         <script src="/GardenPlatformWeb/resource/js/main.js"></script>
-        <script src="/GardenPlatformWeb/resource/js/lib/jquery.backgroundvideo.min.js"></script>
     </body>
 </html>

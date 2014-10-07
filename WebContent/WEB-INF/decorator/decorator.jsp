@@ -54,12 +54,6 @@
                 <form class="navbar-form navbar-right">
 			  	<a id="signupModalBtn" class="btn btn-mint" data-toggle="modal" href="#signupModal">SIGN UP</a>
 			  </form>
-               <form class="navbar-form navbar-right" role="search">
-		        <div class="form-group">
-		          <input type="text" class="form-control" placeholder="Search">
-		        </div>
-		        <button type="submit" class="btn btn-default">Submit</button>
-		      </form>
 		      
             </div><!--/.nav-collapse -->
         </div>
