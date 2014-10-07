@@ -11,8 +11,8 @@
     <body>
     	<c:set var="id" value="${id}" />
         	<div class="container" >
+            <!-- 
             <div id="bgVideo" class="background" ></div>
-            
             <div id="formBox" class="col-sm-5 pull-right">
 			<h1 style="color:#1ABC9C">Garden Platform</h1>
             <p style="color:#555;">
@@ -32,7 +32,13 @@
                          </div>
                   </div>
               </div>
-            </div>
+             -->
+			<img data-js-component-id="component1846270405609328715"
+				src="https://dt8kf6553cww8.cloudfront.net/static/images/empty_states/sign-in@2x-vflrhf4zv.png"
+				data-hi-res="https://dt8kf6553cww8.cloudfront.net/static/images/empty_states/sign-in@2x-vflrhf4zv.png"
+				class="login-or-register-img" style="width: 288px; height: 305px;">
+			
+	</div>
         <script src="/GardenPlatformWeb/resource/js/main.js"></script>
         <script src="/GardenPlatformWeb/resource/js/lib/jquery.backgroundvideo.min.js"></script>
     </body>
