@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.ssm.gardenplatform.mapper.BoardMapper">
+	
+	<resultMap id="board" type="com.ssm.gardenplatform.model.Board">
+	</resultMap>
+	
+	<insert id="insertBoard" parameterType="Board">
+		INSERT INTO Board (b_title,b_content,b_time,b_user)
+		VALUES(#{b_title},#{b_content},#{b_time},#{b_user})
+	</insert>
+
+	<select id="selectBoard" parameterType="int" resultType="board">
+		SELECT * FROM Board 
+		WHERE bid = #{b_id}
+	</select>
+	
+	<select id="selectAllBoard" resultMap="board">
+		SELECT * FROM Board
+	</select>
+	
+</mapper>

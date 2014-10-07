@@ -18,19 +18,19 @@
             <p style="color:#555;">
 				You have the design, you have the code. We’ve created the product that will help your startup to look even better.
             </p>
-                  <div class="signin-form">
-                         <div class="form-group">
-                             <input class="form-control" id="signinId" type="text" placeholder="ID">
-                         </div>
-                         <div class="form-group">
-                             <div>
-                                 <input type="password" id="signinPwd" class="form-control" placeholder="Password">
-                             </div>
-                         </div>
-                         <div class="form-group">
-                             <button type="submit" id="signinBtn" class="btn btn-block btn-info">Sign in</button>
-                         </div>
-                  </div>
+            <div class="signin-form">
+	            <div class="form-group">
+	                <input class="form-control" id="signinId" type="text" placeholder="ID">
+	            </div>
+	            <div class="form-group">
+	                <div>
+	                    <input type="password" id="signinPwd" class="form-control" placeholder="Password">
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <button type="submit" id="signinBtn" class="btn btn-block btn-info">Sign in</button>
+	            </div>
+            </div>
               </div>
              -->
 			<img data-js-component-id="component1846270405609328715"
