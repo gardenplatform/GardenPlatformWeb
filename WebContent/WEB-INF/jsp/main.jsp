@@ -17,26 +17,25 @@
 				<img src="https://dt8kf6553cww8.cloudfront.net/static/images/empty_states/sign-in@2x-vflrhf4zv.png" style="width: 288px; height: 305px;">
 			</div>
 			<div class="col-md-6">
-					            <div id="formBox">
-							<h1 style="color:#1ABC9C">Garden Platform</h1>
-				            <p style="color:#555;">
-				            하나의 통합된 계정으로 쉽게 시스템을 이용하세요!
-				            </p>
-					            <div class="signin-form">
-						            <div class="form-group">
-						                <input class="form-control" id="signinId" type="text" placeholder="ID">
-						            </div>
-						            <div class="form-group">
-						                <div>
-						                    <input type="password" id="signinPwd" class="form-control" placeholder="Password">
-						                </div>
-						            </div>
-						            <div class="form-group">
-						                <button type="submit" id="signinBtn" class="btn btn-block btn-info">Sign in</button>
-						            </div>
-					            </div>
-	            </div>
-				
+				<div id="formBox">
+					<h1 style="color: #1ABC9C">Garden Platform</h1>
+					<p style="color: #555;">하나의 통합된 계정으로 쉽게 시스템을 이용하세요!</p>
+					<div class="signin-form">
+						<div class="form-group">
+							<input class="form-control" id="signinId" type="text" placeholder="아이디">
+						</div>
+						<div class="form-group">
+							<div>
+								<input type="password" id="signinPwd" class="form-control"
+									placeholder="비밀번호">
+							</div>
+						</div>
+						<div class="form-group">
+							<button type="submit" id="signinBtn"
+								class="btn btn-block btn-info">로그인</button>
+						</div>
+					</div>
+				</div>
 			</div>
 			
 		</div>

@@ -12,6 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <link rel="shortcut icon" href="/GardenPlatformWeb/resource/img/favicon.png">
+        
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/bootstrap.css">
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/decorator/decorator.css">
         <!-- jquery.js가 맨 처음에 와야 기능이 정상동작함. -->
@@ -52,8 +53,8 @@
                 	</li>
                 </ul> 
                 <form class="navbar-form navbar-right">
-			  	<a id="signupModalBtn" class="btn btn-mint" data-toggle="modal" href="#signupModal">SIGN UP</a>
-			  </form>
+			  		<button id="signupModalBtn" class="btn btn-mint" data-toggle="modal" data-target="#signupModal">회원가입</button>
+				</form>
 		      
             </div><!--/.nav-collapse -->
         </div>
@@ -70,7 +71,38 @@
 					<h6 class="text-right"><small>Developed by Sungjin Park, Juyoung Park, Sungho Park, Sangwoo Jun</small></h6>
 				</div>
 			</div>
-		<!-- Modal -->
+			
+			<div class="modal fade" id="signupModal">
+			    <div class="modal-dialog">
+			        <div class="modal-content">
+			            <div class="modal-header">
+			                <h4 class="modal-title">Sign up</h4>
+			            </div>
+			            <div class="modal-body">
+			            	<input type="text" id="signupId" name="id" placeholder="ID" autocomplete="off" class="form-control placeholder-no-fix" autofocus>
+			                <input type="password" id="signupPwd1" name="pwd1" placeholder="Password (6 or more characters)" autocomplete="off" class="form-control placeholder-no-fix">
+			                <input type="password" id="signupPwd2" name="pwd2" placeholder="Password Confirm" autocomplete="off" class="form-control placeholder-no-fix">
+			                <input type="text" id="signupName" name="name" placeholder="Name" autocomplete="off" class="form-control placeholder-no-fix">
+			                <input type="text" id="signupEmail" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+			                <input type="text" id="signupPhone" name="phone" placeholder="Phone Number" autocomplete="off" class="form-control placeholder-no-fix">
+			                <input type="text" id="signupClass" name="class" placeholder="Class (ex:23-1)" autocomplete="off" class="form-control placeholder-no-fix">
+			                <span class="col-sm-2">
+			                	<input type="radio" name="gender" id="signupMale" value="Male" data-toggle="radio" checked> <strong>Male</strong>
+			                </span>
+			                <span class="col-sm-3">
+			                	<input type="radio" name="gender" id="signupFemale" value="Female" data-toggle="radio"> <strong>Female</strong>
+			                </span>
+			            </div>
+			            <div class="modal-footer">
+			            	<span id="signupMsg" class="pull-left"></span>
+			                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button> 
+		                	<button class="btn btn-mint" type="button" id="signupBtn">가입</button>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+			
+		<!-- Modal
 		<div aria-hidden="true" aria-labelledby="signupLabel" role="dialog" tabindex="-1" id="signupModal" class="modal fade">
 		    <div class="modal-dialog">
 		        <div class="modal-content">
@@ -101,9 +133,8 @@
 		        </div>
 		    </div>
 		</div>
-		<!-- modal -->
-
-		
+		 -->
+			
         <!-- Placed at the end of the document so the pages load faster -->
         
         <script src="/GardenPlatformWeb/resource/js/decorator/decorator.js"></script>
