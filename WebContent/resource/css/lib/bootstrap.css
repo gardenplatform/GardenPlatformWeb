@@ -1,4 +1,4 @@
-/*!
+/*! mic check one two!
  * Bootstrap v3.0.2 by @fat and @mdo
  * Copyright 2013 Twitter, Inc.
  * Licensed under http://www.apache.org/licenses/LICENSE-2.0
@@ -7193,7 +7193,6 @@ fieldset[disabled] .btn-mint:active,
 .btn-mint.disabled.active,
 .btn-mint[disabled].active,
 fieldset[disabled] .btn-mint.active {
-  background-color: #ffffff;
+  background-color: #1abc9c;
   border-color: #cccccc;
 }
-

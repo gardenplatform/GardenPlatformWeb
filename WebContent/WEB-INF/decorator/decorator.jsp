@@ -76,6 +76,108 @@
 			    <div class="modal-dialog">
 			        <div class="modal-content">
 			            <div class="modal-header">
+			                <h4 class="modal-title">회원가입</h4>
+			            </div>
+			            <div class="modal-body">
+			            	<form class="form-join form-horizontal" role="form">
+				                <div class="form-group" id="groupid">
+				                    <label class="control-label col-sm-3">ID</label>
+				                    <div class="col-xs-12 col-sm-9">
+				                        <input type="text" id="signupId" class="form-control" maxlength="30" placeholder="swssm" autofocus="">
+				                    </div> 
+				                    <label id="errorid" class="col-sm-offset-3 control-label hidden"></label>
+				                </div>
+				                <div class="form-group" id="passwordgroup">
+				                    <label class="control-label col-sm-3">비밀번호</label>
+				                    <div class="col-xs-12 col-sm-9">
+				                        <input type="password" id="signupPwd1" class="form-control" maxlength="100" placeholder="********" />
+				                    </div>
+				                    <label id="errorpassword" class="col-sm-offset-3 control-label hidden"></label>
+				                </div>
+				                <div class="form-group" id="passwordgroup">
+				                    <label class="control-label col-sm-3">비밀번호 확인</label>
+				                    <div class="col-xs-12 col-sm-9">
+				                        <input type="password" id="signupPwd2" class="form-control" maxlength="100" placeholder="********" />
+				                    </div>
+				                    <label id="errorpasswordconfirm" class="col-sm-offset-3 control-label hidden"></label>
+				                </div>
+				                <div class="form-group" id="namegroup">
+				                    <label class="control-label col-xs-12 col-sm-3">이름</label>
+				                    <div class="col-xs-12 col-sm-9">
+				                        <input type="text" id="signupName" maxlength="5" class="form-control" placeholder="김창렬" />
+				                    </div> 
+				                    
+				                    <label id="errorname" class="col-sm-offset-3 control-label hidden"></label>
+				                </div>
+				                
+				                <div class="form-group" id="emailgroup">
+				                	<label class="control-label col-xs-12 col-sm-3">이메일</label>
+				                	<div class="col-xs-12 col-sm-9">
+				                		<input type="text" id="signupEmail" class="form-control" placeholder="email@gmail.com" />
+				                	</div>
+				                	<label id="erroremail" class="col-sm-offset-3 control-label hidden text-danger"></label>
+				                </div>
+				                
+				                <div class="form-group" id="phonegroup">
+				                	<label class="control-label col-xs-12 col-sm-3">핸드폰</label>
+				                	<div class="col-xs-12 col-sm-9">
+				                		<input type="text" id="signupPhone" class="form-control" placeholder="010-1234-5678" />
+				                	</div>
+				                	<label id="errorphone" class="col-sm-offset-3 control-label hidden text-danger"></label>
+				                </div>
+				                
+				                <div class="form-group" id="nameclass">
+				                    <label class="control-label col-xs-12 col-sm-3">기수</label>
+				                    <div class="col-xs-12 col-sm-9">
+				                        <input type="text" id="signupClass" class="form-control" placeholder="23-1" />
+				                    </div>
+				                    
+				                    <label id="errorclass" class="col-sm-offset-3 control-label hidden text-danger"></label>
+				                </div>
+				                
+				                <div class="form-group" id="gender">
+				                	<label class="control-label col-xs-12 col-sm-3">성별</label>
+									<div class="col-xs-12 col-sm-9">
+										<button type="button" class="btn btn-default dropdown-toggle" id="inputgender" data-toggle="dropdown" style="width: 100%">남</button>
+										<ul class="dropdown-menu" id="genderdropdown">
+											<li><a href="#">Male</a></li>
+											<li><a href="#">Female</a></li>
+										</ul>
+									</div>
+									
+									<label id="errorgender" class="col-sm-offset-3 control-label hidden text-danger"></label>
+				                </div>
+				                
+				                
+				                
+            				</form>
+			            </div>
+			            <div class="modal-footer">
+			            	<span id="signupMsg" class="pull-left"></span>
+			                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+			                <!-- 아이디쪽 서버확인 끝나면 disabled 사라질거임. -->
+		                	<button class="btn btn-mint" type="button" id="signupBtn" disabled="disabled">가입</button>  
+			            </div>
+			        </div>
+			    </div>
+			</div>
+			<!-- 
+			
+			 -->
+	
+			
+        <!-- Placed at the end of the document so the pages load faster -->
+        
+        <script src="/GardenPlatformWeb/resource/js/decorator/decorator.js"></script>
+        <script src="/GardenPlatformWeb/resource/js/decorator/bootstrap.min.js"></script>
+    </body>
+</html>
+
+<!-- 원래거
+<div class="modal fade" id="signupModal">
+			    <div class="modal-dialog">
+			        <div class="modal-content">
+			            <div class="modal-header">
 			                <h4 class="modal-title">Sign up</h4>
 			            </div>
 			            <div class="modal-body">
@@ -95,49 +197,11 @@
 			            </div>
 			            <div class="modal-footer">
 			            	<span id="signupMsg" class="pull-left"></span>
-			                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button> 
+			                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button> 
 		                	<button class="btn btn-mint" type="button" id="signupBtn">가입</button>
 			            </div>
 			        </div>
 			    </div>
 			</div>
-			
-		<!-- Modal
-		<div aria-hidden="true" aria-labelledby="signupLabel" role="dialog" tabindex="-1" id="signupModal" class="modal fade">
-		    <div class="modal-dialog">
-		        <div class="modal-content">
-		            <div class="modal-header">
-		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		                <h4 class="modal-title">Sign up</h4>
-		            </div>
-		            <div class="modal-body">
-		                <input type="text" id="signupId" name="id" placeholder="ID" autocomplete="off" class="form-control placeholder-no-fix" autofocus>
-		                <input type="password" id="signupPwd1" name="pwd1" placeholder="Password (6 or more characters)" autocomplete="off" class="form-control placeholder-no-fix">
-		                <input type="password" id="signupPwd2" name="pwd2" placeholder="Password Confirm" autocomplete="off" class="form-control placeholder-no-fix">
-		                <input type="text" id="signupName" name="name" placeholder="Name" autocomplete="off" class="form-control placeholder-no-fix">
-		                <input type="text" id="signupEmail" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
-		                <input type="text" id="signupPhone" name="phone" placeholder="Phone Number" autocomplete="off" class="form-control placeholder-no-fix">
-		                <input type="text" id="signupClass" name="class" placeholder="Class (ex:23-1)" autocomplete="off" class="form-control placeholder-no-fix">
-		                <span class="col-sm-2">
-		                	<input type="radio" name="gender" id="signupMale" value="Male" data-toggle="radio" checked> <strong>Male</strong>
-		                </span>
-		                <span class="col-sm-3">
-		                	<input type="radio" name="gender" id="signupFemale" value="Female" data-toggle="radio"> <strong>Female</strong>
-		                </span>
-		            </div>
-		            <div class="modal-footer">
-		            	<span id="signupMsg" class="pull-left"></span>
-		                <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-		                <button class="btn btn-mint" type="button" id="signupBtn">Submit</button>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		 -->
-			
-        <!-- Placed at the end of the document so the pages load faster -->
-        
-        <script src="/GardenPlatformWeb/resource/js/decorator/decorator.js"></script>
-        <script src="/GardenPlatformWeb/resource/js/decorator/bootstrap.min.js"></script>
-    </body>
-</html>
+
+ -->
