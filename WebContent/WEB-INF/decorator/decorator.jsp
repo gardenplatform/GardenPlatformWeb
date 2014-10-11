@@ -148,12 +148,9 @@
 									<label id="errorgender" class="col-sm-offset-3 control-label hidden text-danger"></label>
 				                </div>
 				                
-				                
-				                
             				</form>
 			            </div>
 			            <div class="modal-footer">
-			            	<span id="signupMsg" class="pull-left"></span>
 			                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 			                <!-- 아이디쪽 서버확인 끝나면 disabled 사라질거임. -->
 		                	<button class="btn btn-mint" type="button" id="signupBtn" disabled="disabled">가입</button>  
@@ -161,9 +158,6 @@
 			        </div>
 			    </div>
 			</div>
-			<!-- 
-			
-			 -->
 	
 			
         <!-- Placed at the end of the document so the pages load faster -->
@@ -172,36 +166,3 @@
         <script src="/GardenPlatformWeb/resource/js/decorator/bootstrap.min.js"></script>
     </body>
 </html>
-
-<!-- 원래거
-<div class="modal fade" id="signupModal">
-			    <div class="modal-dialog">
-			        <div class="modal-content">
-			            <div class="modal-header">
-			                <h4 class="modal-title">Sign up</h4>
-			            </div>
-			            <div class="modal-body">
-			            	<input type="text" id="signupId" name="id" placeholder="ID" autocomplete="off" class="form-control placeholder-no-fix" autofocus>
-			                <input type="password" id="signupPwd1" name="pwd1" placeholder="Password (6 or more characters)" autocomplete="off" class="form-control placeholder-no-fix">
-			                <input type="password" id="signupPwd2" name="pwd2" placeholder="Password Confirm" autocomplete="off" class="form-control placeholder-no-fix">
-			                <input type="text" id="signupName" name="name" placeholder="Name" autocomplete="off" class="form-control placeholder-no-fix">
-			                <input type="text" id="signupEmail" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
-			                <input type="text" id="signupPhone" name="phone" placeholder="Phone Number" autocomplete="off" class="form-control placeholder-no-fix">
-			                <input type="text" id="signupClass" name="class" placeholder="Class (ex:23-1)" autocomplete="off" class="form-control placeholder-no-fix">
-			                <span class="col-sm-2">
-			                	<input type="radio" name="gender" id="signupMale" value="Male" data-toggle="radio" checked> <strong>Male</strong>
-			                </span>
-			                <span class="col-sm-3">
-			                	<input type="radio" name="gender" id="signupFemale" value="Female" data-toggle="radio"> <strong>Female</strong>
-			                </span>
-			            </div>
-			            <div class="modal-footer">
-			            	<span id="signupMsg" class="pull-left"></span>
-			                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button> 
-		                	<button class="btn btn-mint" type="button" id="signupBtn">가입</button>
-			            </div>
-			        </div>
-			    </div>
-			</div>
-
- -->

@@ -16,7 +16,7 @@
 			<div class="col-md-6" style="text-align:center;">
 				<img src="https://dt8kf6553cww8.cloudfront.net/static/images/empty_states/sign-in@2x-vflrhf4zv.png" style="width: 288px; height: 305px;">
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-5">
 				<div id="formBox">
 					<h1 style="color: #1ABC9C">Garden Platform</h1>
 					<p style="color: #555;">하나의 통합된 계정으로 쉽게 시스템을 이용하세요!</p>
