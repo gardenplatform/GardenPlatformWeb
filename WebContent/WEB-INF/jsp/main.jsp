@@ -19,7 +19,7 @@
 			<div class="col-md-5">
 				<div id="formBox">
 					<h1 style="color: #1ABC9C">Garden Platform</h1>
-					<p style="color: #555;">하나의 통합된 계정으로 쉽게 시스템을 이용하세요!</p>
+					<p style="color: #555;">하나의 통합된 계정으로 쉽게 시스템을 이용하세요!!</p>
 					<div class="signin-form">
 						<div class="form-group">
 							<input class="form-control" id="signinId" type="text" placeholder="아이디">
