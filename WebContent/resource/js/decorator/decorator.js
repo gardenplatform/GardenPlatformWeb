@@ -170,7 +170,6 @@
 		var phone = $('#signupPhone').val();
 		var classNum = $('#signupClass').val();
 		//젠더부분 수정했는데 이거 맞는지 모르겠으니깐 봐주셈 
-		// 남, 여 이렇게 들어가는데 Male, Female이면 html로 가서 dropdown 안쪽을 바꾸셈 ㅇㅋ?
 		var gender = $('#inputgender').html();
 		
 		var userInfo = {
