@@ -17,20 +17,15 @@
 			<h4>Developer</h4>
 
 			<ul class="nav nav-pills nav-stacked">
-			  <li class="active"><a href="#">Dashboard</a></li>
-			  <li><a href="#">Apps Detail</a></li>
-			  <li><a href="#">Messages</a></li>
+			  <li class="active"><a href="#">Getting Start</a></li>
+			  <li><a href="#">Sample Apps</a></li>
+			  <li><a href="#">Downloads</a></li>
+			  <li><a href="#">Reference</a></li>
 			  <li class="dropdown">
 			    <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Dropdown <span class="caret"></span>
 			    </a>
 			    <ul class="dropdown-menu" role="menu">
-			    	<li><a href="#">Action</a></li>
-		            <li><a href="#">Another action</a></li>
-		            <li><a href="#">Something else here</a></li>
-		            <li class="divider"></li>
-		            <li><a href="#">Separated link</a></li>
-		            <li class="divider"></li>
-		            <li><a href="#">One more separated link</a></li>
+		            <li><a href="#">바꿀예정</a></li>
 			    </ul>
 			  </li>
 			</ul>

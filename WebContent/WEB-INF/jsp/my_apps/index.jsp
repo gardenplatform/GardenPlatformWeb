@@ -33,11 +33,34 @@
 			    </ul>
 			  </li>
 			</ul>
-			
 		</div>
 		
 		<div class="content">
-		 컨텐츠
+			<div class="media">
+			  <a class="pull-left" href="#">
+			    <img class="media-object" src="/GardenPlatformWeb/resource/img/my_app_sample.png" style="width:100px; height:100px;">
+			  </a>
+			  <div class="media-body">
+			    <h4 class="media-heading">Sample App 1</h4>
+			    <h5><small>This app is public and available to all users.</small></h5>
+			    <div class="row">
+			    	<div class="col-md-4">
+			    	App ID
+			    	</div>
+			    	<div class="col-md-8">
+			    	App Secret
+			    	</div>
+			    </div>
+			    <div class="row">
+			    	<div class="col-md-4">
+				    	<input type="text" class="form-control" placeholder="Username">
+			    	</div>
+			    	<div class="col-md-8">
+				    	<input type="text" class="form-control" placeholder="Username">
+			    	</div>
+			    </div>
+			  </div>
+			</div>
 		</div>
 	</div>
 
