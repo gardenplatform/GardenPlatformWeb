@@ -16,8 +16,8 @@
 			<h4>MY Apps</h4>
 
 			<ul class="nav nav-pills nav-stacked">
-			  <li class="active"><a href="#">Dashboard</a></li>
-			  <li><a href="/GardenPlatformWeb/my_apps/apps_detail.do">Apps Detail</a></li>
+			  <li><a href="/GardenPlatformWeb/my_apps/index.do">Dashboard</a></li>
+			  <li class="active"><a href="/GardenPlatformWeb/my_apps/index.do">Apps Detail</a></li>
 			  <li><a href="#">Messages</a></li>
 			  <li class="dropdown">
 			    <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Dropdown <span class="caret"></span>
@@ -36,34 +36,7 @@
 		</div>
 		
 		<div class="content">
-			<div class="media">
-			  <a class="pull-left" href="#">
-			    <img class="media-object" src="/GardenPlatformWeb/resource/img/my_app_sample.png" style="width:100px; height:100px;">
-			  </a>
-			  <div class="media-body">
-			    <h4 class="media-heading">Sample App 1</h4>
-			    <h5><small>This app is public and available to all users.</small></h5>
-			    <div class="row">
-			    	<div class="col-md-4">
-			    	App ID
-			    	</div>
-			    	<div class="col-md-8">
-			    	App Secret
-			    	</div>
-			    </div>
-			    <div class="row">
-			    	<div class="col-md-4">
-				    	<input type="text" class="form-control" placeholder="Username">
-			    	</div>
-			    	<div class="col-md-6">
-			    		<div class="input-group">
-					    	<input type="text" class="form-control" placeholder="Username">
-					    	<span class="input-group-addon">Show</span>
-			    		</div>
-			    	</div>
-			    </div>
-			  </div>
-			</div>
+			Apps Detail
 		</div>
 	</div>
 
