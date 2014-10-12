@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -142,6 +144,35 @@ public class UserController {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setView(new RedirectView("main.do"));
+
+		return mav;
+	}
+	
+	
+	@RequestMapping(value = "/profile.do", method = RequestMethod.GET)
+	public ModelAndView getProfile(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+		logMgr.printLog(request);
+
+		Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+		User user = new User();
+		user = (User) session.getAttribute("user");
+		
+		String url = RestInfo.restURL+"/users/"+user.getId();
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+user.getToken());
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		
+		result = restMgr.getWithHeader(url, vars, headers);
+		
+
+		ModelAndView mav = new ModelAndView();
+		mav.setView(new RedirectView("profile.do"));
 
 		return mav;
 	}

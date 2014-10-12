@@ -181,6 +181,8 @@
 				gender : gender
 		};
 		
+		console.log(userInfo);
+		
 		$.ajax({
 			type : "POST",
 			url : "signup.do",
@@ -192,7 +194,7 @@
 					signin(id,pwd1);
 				}
 				else {
-					location.href="error.do?status="+obj.status+"&msg="+obj.msg;
+					location.href="/GardenPlatformWeb/error.do?status="+obj.status+"&msg="+obj.msg;
 				}
 			},
 			error : function(xhr, status, error) {
