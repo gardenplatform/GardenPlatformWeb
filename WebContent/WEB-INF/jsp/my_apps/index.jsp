@@ -38,7 +38,7 @@
 		<div class="content">
 			<div class="media">
 			  <a class="pull-left" href="#">
-			    <img class="media-object" src="/GardenPlatformWeb/resource/img/my_app_sample.png" style="width:100px; height:100px;">
+			    <img class="media-object" src="/GardenPlatformWeb/resource/img/my_app_sample2.png" style="width:100px; height:100px;">
 			  </a>
 			  <div class="media-body">
 			    <h4 class="media-heading">Sample App 1</h4>
