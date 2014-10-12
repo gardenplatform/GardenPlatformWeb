@@ -2,6 +2,10 @@
 
 <decorators defaultdir="/WEB-INF/decorator">
 
+	<decorator name="noheader" page="noheader.jsp">
+        <pattern>/main.do</pattern>
+    </decorator>
+
 	<decorator name="decorator" page="decorator.jsp" >
 		<pattern>/*</pattern>
 	</decorator>

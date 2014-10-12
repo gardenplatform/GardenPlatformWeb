@@ -164,12 +164,11 @@
 	$('#signupBtn' ).click(function() {
 		var id = $('#signupId').val();
 		var pwd1 = $('#signupPwd1').val();
-		var pwd2 = $('#signupPwd2').val();;
+		var pwd2 = $('#signupPwd2').val();
 		var name = $('#signupName').val();
 		var email = $('#signupEmail').val();
 		var phone = $('#signupPhone').val();
 		var classNum = $('#signupClass').val();
-		//젠더부분 수정했는데 이거 맞는지 모르겠으니깐 봐주셈 
 		var gender = $('#inputgender').html();
 		
 		var userInfo = {

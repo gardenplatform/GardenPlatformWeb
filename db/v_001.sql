@@ -7,3 +7,5 @@ CREATE TABLE Board (
 
     PRIMARY KEY (b_id)
 )DEFAULT CHARSET=utf8;
+
+select * from board;
