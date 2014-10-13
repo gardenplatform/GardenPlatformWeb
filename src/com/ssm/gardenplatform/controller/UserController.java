@@ -105,7 +105,7 @@ public class UserController {
 				User user = new User();
 				user.setId(id);
 				
-				// user token 정보를 session에 저장
+				// user token ��������� session��� ������
 				JSONObject jsonObj;
 				try {
 					jsonObj = new JSONObject(result.get("result").toString());
@@ -149,11 +149,12 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(value = "/profile.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/user/profile.do", method = RequestMethod.GET)
 	public ModelAndView getProfile(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
 		logMgr.printLog(request);
 
+		/*
 		Map<String, Object> result = null;
 		
 		HttpSession session = request.getSession(false);
@@ -169,10 +170,9 @@ public class UserController {
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		
 		result = restMgr.getWithHeader(url, vars, headers);
-		
+		*/
 
-		ModelAndView mav = new ModelAndView();
-		mav.setView(new RedirectView("profile.do"));
+		ModelAndView mav = new ModelAndView("/user/profile");
 
 		return mav;
 	}
