@@ -23,42 +23,6 @@
 
     <body>
     	<c:set var="id" value="${id}" />
-        <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/GardenPlatformWeb/home.do"><img src="/GardenPlatformWeb/resource/img/logo.png">Garden</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-               		<li id="nav-myapps"><a href="/GardenPlatformWeb/my_apps/index.do">My Apps</a></li>
-               		<li id="nav-store"><a href="/GardenPlatformWeb/store/index.do">Store</a></li>
-               		<li id="nav-developer"><a href="/GardenPlatformWeb/developer/index.do">Developer</a></li>
-                </ul>
-                
-                <ul class="nav navbar-nav navbar-right">
-                	<li class="dropdown" id="nav-userinfo">
-                		<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="name" style="padding: 0px 0px 0px 0px;">
-                		<img class="img" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/p50x50/10565031_677986682295089_5741239171452330999_n.jpg?oh=faa04656774966b37e0299b613620304&amp;oe=54CA4714&amp;__gda__=1420806770_6480a830c55fb7891ca0298622dee634" alt="">
-                		</a>
-                		<ul class="dropdown-menu">
-                			<li><a href="/GardenPlatformWeb/profile.do">내 정보</a>
-                			</li><li><a href="/GardenPlatformWeb/signout.do">로그아웃</a>
-                		</ul>
-                	</li>
-                </ul> 
-                <form class="navbar-form navbar-right">
-			  		<button id="signupModalBtn" class="btn btn-mint" data-toggle="modal" data-target="#signupModal">회원가입</button>
-				</form>
-		      
-            </div><!--/.nav-collapse -->
-        </div>
-    </header>
 			<div class="wrapper">
     			<decorator:body/>
     		</div>

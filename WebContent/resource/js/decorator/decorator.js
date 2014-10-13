@@ -164,12 +164,11 @@
 	$('#signupBtn' ).click(function() {
 		var id = $('#signupId').val();
 		var pwd1 = $('#signupPwd1').val();
-		var pwd2 = $('#signupPwd2').val();;
+		var pwd2 = $('#signupPwd2').val();
 		var name = $('#signupName').val();
 		var email = $('#signupEmail').val();
 		var phone = $('#signupPhone').val();
 		var classNum = $('#signupClass').val();
-		//젠더부분 수정했는데 이거 맞는지 모르겠으니깐 봐주셈 
 		var gender = $('#inputgender').html();
 		
 		var userInfo = {
@@ -182,6 +181,8 @@
 				gender : gender
 		};
 		
+		console.log(userInfo);
+		
 		$.ajax({
 			type : "POST",
 			url : "signup.do",
@@ -193,7 +194,7 @@
 					signin(id,pwd1);
 				}
 				else {
-					location.href="error.do?status="+obj.status+"&msg="+obj.msg;
+					location.href="/GardenPlatformWeb/error.do?status="+obj.status+"&msg="+obj.msg;
 				}
 			},
 			error : function(xhr, status, error) {
