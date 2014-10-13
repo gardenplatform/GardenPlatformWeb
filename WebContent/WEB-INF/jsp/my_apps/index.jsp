@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
+	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/my_apps/my_apps.css">
 </head>
 
 <body>
@@ -38,7 +38,7 @@
 		<div class="content">
 			<div class="media">
 			  <a class="pull-left" href="#">
-			    <img class="media-object" src="/GardenPlatformWeb/resource/img/my_app_sample2.png" style="width:100px; height:100px;">
+			    <img class="media-object myapps-img" src="/GardenPlatformWeb/resource/img/my_app_sample2.png">
 			  </a>
 			  <div class="media-body">
 			    <h4 class="media-heading">Sample App 1</h4>
