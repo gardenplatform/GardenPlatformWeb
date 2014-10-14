@@ -227,23 +227,47 @@ div.footer{
   	padding-bottom: 4px;
 }
 
-.snb {
-	float: left;
-	width: 130px;
-}
-
-.snb h4{
+.sidebar-offcanvas h4{
 	width: 120px;
 	height: 28px;
 	border-bottom: 2px solid #1abc9c;
 }
 
 .content {
-	float: left;
-	position: relative;
-	width: 790px;
 	padding-top: 35px;
 	margin-left: 35px;
-	color: #666;
-	line-height: 18px
+}
+
+.snb > li.active > a {
+	color : #ffffff;
+	background-color: #1abc9c;
+}
+
+.snb > li > a {
+	color : black;
+}
+
+#sub1 > li > a {
+	color : black;
+}
+
+.snb > li > a {
+	border-radius: 4px;
+}
+
+.sidebar-offcanvas{
+	
+}
+
+#sidebar {
+  height: 100%;
+  padding-right: 0;
+  padding-top: 20px;
+}
+#sidebar .nav {
+  width: 95%;
+}
+#sidebar li {
+  border:0 #f2f2f2 solid;
+  border-bottom-width:1px;
 }

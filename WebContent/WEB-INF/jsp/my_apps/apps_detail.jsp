@@ -10,35 +10,30 @@
 
 <body>
 	<div class="container">
+		<div class="row row-offcanvas row-offcanvas-left">
+			<!-- sidebar -->
+			<div class="col-xs-5 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+				<h4>MY Apps</h4>
+				<ul class="snb nav">
+					<li><a href="/GardenPlatformWeb/my_apps/index.do">Dashboard</a></li>
+					<li class="active"><a href="/GardenPlatformWeb/my_apps/apps_detail.do">Apps Detail</a></li>
+					<li><a href="#" data-toggle="collapse" data-target="#sub1"> Dropdown <span class="caret"></span></a>
+						<ul class="nav collapse" id="sub1">
+							<li><a href="#">Sub Link 1</a></li>
+							<li><a href="#">Sub Link 2</a></li>
+							<li><a href="#">Sub Link 3</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
 
-		<div class="snb">
-
-			<h4>MY Apps</h4>
-
-			<ul class="nav nav-pills nav-stacked">
-			  <li><a href="/GardenPlatformWeb/my_apps/index.do">Dashboard</a></li>
-			  <li class="active"><a href="/GardenPlatformWeb/my_apps/index.do">Apps Detail</a></li>
-			  <li><a href="#">Messages</a></li>
-			  <li class="dropdown">
-			    <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Dropdown <span class="caret"></span>
-			    </a>
-			    <ul class="dropdown-menu" role="menu">
-			    	<li><a href="#">Action</a></li>
-		            <li><a href="#">Another action</a></li>
-		            <li><a href="#">Something else here</a></li>
-		            <li class="divider"></li>
-		            <li><a href="#">Separated link</a></li>
-		            <li class="divider"></li>
-		            <li><a href="#">One more separated link</a></li>
-			    </ul>
-			  </li>
-			</ul>
+			<!-- main area -->
+			<div class="col-xs-12 col-sm-9 content">
+				컨텐츠 추가예정
+			</div>
 		</div>
-		
-		<div class="content">
-			Apps Detail
-		</div>
-	</div>
+		<!-- /.col-xs-12 main -->
+	</div><!--/.container-->
 
 	<script src="/GardenPlatformWeb/resource/js/my_apps/my_apps.js"></script>
 </body>

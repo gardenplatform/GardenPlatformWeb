@@ -12,29 +12,29 @@
 
 	<div class="container">
 
-		<div class="snb">
+		<div class="row row-offcanvas row-offcanvas-left">
+			<!-- sidebar -->
+			<div class="col-xs-5 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+				<h4>MY Apps</h4>
+				<ul class="snb nav">
+					<li class="active"><a href="/GardenPlatformWeb/my_apps/index.do">Getting Start</a></li>
+					<li><a href="/GardenPlatformWeb/my_apps/apps_detail.do">Apps Detail</a></li>
+					<li><a href="#" data-toggle="collapse" data-target="#sub1"> Dropdown <span class="caret"></span></a>
+						<ul class="nav collapse" id="sub1">
+							<li><a href="#">Sub Link 1</a></li>
+							<li><a href="#">Sub Link 2</a></li>
+							<li><a href="#">Sub Link 3</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
 
-			<h4>Developer</h4>
-
-			<ul class="nav nav-pills nav-stacked">
-			  <li class="active"><a href="#">Getting Start</a></li>
-			  <li><a href="#">Sample Apps</a></li>
-			  <li><a href="#">Downloads</a></li>
-			  <li><a href="#">Reference</a></li>
-			  <li class="dropdown">
-			    <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Dropdown <span class="caret"></span>
-			    </a>
-			    <ul class="dropdown-menu" role="menu">
-		            <li><a href="#">바꿀예정</a></li>
-			    </ul>
-			  </li>
-			</ul>
-			
+			<!-- main area -->
+			<div class="col-xs-12 col-sm-9 content">
+				컨텐츠
+			</div>
 		</div>
-		
-		<div class="content">
-		 컨텐츠
-		</div>
+		<!-- /.col-xs-12 main -->
 	</div>
 
 

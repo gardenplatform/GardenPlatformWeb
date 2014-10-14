@@ -11,11 +11,11 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        
         <link rel="shortcut icon" href="/GardenPlatformWeb/resource/img/favicon.png">
         
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/bootstrap.css">
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/decorator/decorator.css">
-        <!-- jquery.js가 맨 처음에 와야 기능이 정상동작함. -->
         <script src="/GardenPlatformWeb/resource/js/lib/jquery-1.11.0.min.js"></script>
         
         <decorator:head/>
@@ -36,7 +36,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-               		<li id="nav-myapps"><a href="/GardenPlatformWeb/my_apps/index.do">My Apps</a></li>
+                	<li class="dropdown" id="nav-myapps">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Apps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">앱 등록</a></li>
+                            <li class="divider"></li>
+                            <li id="nav-myapps"><a href="/GardenPlatformWeb/my_apps/index.do">Sample App1</a></li>
+                        </ul>
+                    </li>
                		<li id="nav-store"><a href="/GardenPlatformWeb/store/index.do">Store</a></li>
                		<li id="nav-developer"><a href="/GardenPlatformWeb/developer/index.do">Developer</a></li>
                 </ul>
