@@ -31,8 +31,8 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<button type="submit" id="signinBtn"
-								class="btn btn-block btn-info">로그인</button>
+							<button type="submit" id="signinBtn" class="btn btn-block btn-info">로그인</button>
+							<button id="signupModalBtn" class="btn btn-block btn-mint" data-toggle="modal" data-target="#signupModal">회원가입</button>
 						</div>
 					</div>
 				</div>
