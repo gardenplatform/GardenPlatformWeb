@@ -21,20 +21,34 @@
 	    	idok = false;
 	    }
 	    else{
-	    	//$(errorid).removeClass('text-danger text-success hidden').html('아이디 중복 확인 중..');
-	        
-	    	// 빱줘영님 숙제. 아이디 중복확인해서 코드좀 적어주셈
-	    	
-	    	/*
-	    	if(사용가능하면){
-        		$(errorid).addClass('text-success').html('사용 가능한 아이디입니다.');
-        		idok = true;
-        	}
-        	else{
-        		$(errorid).addClass('text-danger').html('중복된 아이디입니다.');
-        		idok = false;
-        	}
-        	*/
+	    	$(errorid).removeClass('text-danger text-success hidden').html('아이디 중복 확인 중..');
+			var id = $('#signupId').val();
+	    	var data = {
+					id    : id,
+			};
+	    	$.ajax({
+				type : "POST",
+				url : "/GardenPlatformWeb/checkID.do",
+				data : data,
+				success : function(data) {
+					var obj = jQuery.parseJSON(data);
+					console.log(obj);
+					if(obj.status=="success") {
+		        		$(errorid).addClass('text-success').html('사용 가능한 아이디입니다.');
+		        		idok = true;
+					}
+					else if(obj.status=="conflict") {
+						$(errorid).addClass('text-danger').html('이미 존재하는 ID입니다.');
+		        		idok = false;
+					}
+					else {
+						location.href="/GardenPlatformWeb/error.do?status="+obj.status+"&msg="+obj.msg;
+					}
+				},
+				error : function(xhr, status, error) {
+					location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+				}
+			});
 	    }
 	    toggleButton();
 	    
@@ -103,18 +117,7 @@
 		
 		if(re.test(phonenum) || phonenum.length == 0){
 			phoneok = true;
-			
-			$(errorphone).removeClass('text-danger text-success hidden').html('회원 정보 확인 중..');
-			//빱줘영님 숙제2 
-			/*
-			if(핸드폰번호 존재안하면){
-				$(errorphone).removeClass('text-warning').addClass('hidden');
-			}
-			else{
-				$(errorphone).removeClass('text-success hidden').addClass('text-danger').html('해당 핸드폰 번호로 이미 가입한 아이디가 있습니다.');
-				phoneok = false;
-			}
-			*/
+			$(errorphone).removeClass('text-warning').addClass('hidden');
 		}
 		else{
 			$(errorphone).removeClass('hidden').html('핸드폰 번호 표현이 잘못되었습니다.');
@@ -153,10 +156,10 @@
 		console.log(phoneok);
 		console.log(emailok);
 		if(idok && pwconfirmok && classok && phoneok && emailok){
-			$('#button_requestjoin').removeAttr('disabled');
+			$('#signupBtn').removeAttr('disabled');
 		}
 		else{
-			$('#button_requestjoin').attr('disabled', 'disabled');
+			$('#signupBtn').attr('disabled', 'disabled');
 		}
 	}
 	
@@ -198,7 +201,7 @@
 				}
 			},
 			error : function(xhr, status, error) {
-				location.href="error.do?status="+status+"&msg="+error;
+				location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
 			}
 		});	
 	});

@@ -20,7 +20,7 @@
 					<h4> ${type}</h4> 
 					<p> ${content} </p>
 					<a class="btn btn-primary btn-large btn-block"
-						href="home.do">Go Home</a>
+						href="/GardenPlatformWeb/home.do">Go Home</a>
 				</div>
 			</div>
 		</div>

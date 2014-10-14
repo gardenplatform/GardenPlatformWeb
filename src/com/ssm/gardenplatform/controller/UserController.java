@@ -132,6 +132,84 @@ public class UserController {
 		writer.write(obj.toString());
 	}
 	
+	@RequestMapping(value = "/checkID.do", method = RequestMethod.POST)
+	public void checkID(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+		logMgr.printLog(request);
+
+		Map<String, Object> result = null;
+		
+		String id = request.getParameter("id");
+		
+		String url = RestInfo.restURL+"/users?username="+id;
+		result = restMgr.get(url);
+		
+		JSONObject obj = new JSONObject();
+		try {
+			if(result.get("status").toString().equals("success")) {
+				obj.put("status", "success");
+				obj.put("msg", "Can use ID");
+			}
+			else{
+				if(result.get("msg").toString().equals("409 CONFLICT")) {
+					obj.put("status", "conflict");
+					obj.put("msg", "ID is already taken");
+				}
+				else {
+					obj.put("status", "error");
+					obj.put("msg", result.get("msg"));
+				}
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		PrintWriter writer = response.getWriter();
+		writer.write(obj.toString());
+	}
+	
+	@RequestMapping(value = "/checkPwd.do", method = RequestMethod.POST)
+	public void checkPwd(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+		logMgr.printLog(request);
+
+		Map<String, Object> result = null;
+		
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		
+		String url = RestInfo.restURL+"/tokens";
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+		vars.add("username", id);
+		vars.add("password", pwd);
+		
+		result = restMgr.post(url, vars);
+		
+		JSONObject obj = new JSONObject();
+		try {
+			if(result.get("status").toString().equals("success")) {
+				obj.put("status", "success");
+				obj.put("msg", "Right Password");
+			}
+			else{
+				if(result.get("msg").toString().equals("400 BAD REQUEST")) {
+					obj.put("status", "failure");
+					obj.put("msg", "Check your password");
+				}
+				else {
+					obj.put("status", "error");
+					obj.put("msg", result.get("msg"));
+				}
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		PrintWriter writer = response.getWriter();
+		writer.write(obj.toString());
+	}
+	
 	@RequestMapping(value = "/signout.do", method = RequestMethod.GET)
 	public ModelAndView getSignout(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
@@ -154,7 +232,6 @@ public class UserController {
 
 		logMgr.printLog(request);
 
-		/*
 		Map<String, Object> result = null;
 		
 		HttpSession session = request.getSession(false);
@@ -170,10 +247,100 @@ public class UserController {
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		
 		result = restMgr.getWithHeader(url, vars, headers);
-		*/
-
-		ModelAndView mav = new ModelAndView("/user/profile");
-
+		
+		ModelAndView mav = new ModelAndView();
+		if(result.get("status").equals("error")){
+			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
+		}
+		else {
+			mav.setViewName("/user/profile");
+			try {
+				JSONObject jsonObj = new JSONObject(result.get("result").toString());
+				mav.addObject("id", jsonObj.get("username"));
+				mav.addObject("email", jsonObj.get("email"));
+				mav.addObject("phone", jsonObj.get("phone"));
+				mav.addObject("name", jsonObj.get("real_name"));
+				mav.addObject("class_num", jsonObj.get("class_num"));
+				mav.addObject("gender", jsonObj.get("gender"));
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}
 		return mav;
+	}
+	
+
+	@RequestMapping(value = "/updateUser.do", method = RequestMethod.POST)
+	public void updateUser(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+		logMgr.printLog(request);
+
+		Map<String, Object> result = null;
+		HttpSession session = request.getSession(false);
+		User user = new User();
+		user = (User) session.getAttribute("user");
+		
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		String newPwd = request.getParameter("newPwd");
+		String email = request.getParameter("email");
+		String phone = request.getParameter("phone");
+		
+		String url = RestInfo.restURL+"/tokens";
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+		vars.add("username", id);
+		vars.add("password", pwd);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+user.getToken());
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		
+		// 아이디 비밀번호 확인
+		result = restMgr.post(url, vars);
+		
+		JSONObject obj = new JSONObject();
+		try {
+			// 비밀번호가 맞으면 프로필 업데이트
+			if(result.get("status").toString().equals("success")) {
+				url = RestInfo.restURL+"/users/"+user.getId();
+				
+				vars.clear();
+				vars.add("email", email);
+				vars.add("phone", phone);
+				if(newPwd == null) 
+					vars.add("password", pwd);
+				else
+					vars.add("password", newPwd);
+
+				System.out.println(vars.toString());
+				result = restMgr.putWithHeader(url, vars, headers);
+				
+				if(result.get("status").toString().equals("success")) {
+					obj.put("status", "success");
+					obj.put("msg", "Profile update success");
+				}
+				else {
+					obj.put("status", "error");
+					obj.put("msg", result.get("msg"));
+				}
+			}
+			else{
+				if(result.get("msg").toString().equals("400 BAD REQUEST")) {
+					obj.put("status", "faliure");
+					obj.put("msg", "Check your password");
+				}
+				else {
+					obj.put("status", "error");
+					obj.put("msg", result.get("msg"));
+				}
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		PrintWriter writer = response.getWriter();
+		writer.write(obj.toString());
 	}
 }

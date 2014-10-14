@@ -13,15 +13,22 @@
 	
 	<h3>개인 정보</h3>
 	<h4><small>비밀번호를 변경하지 않으시려면 칸을 비워두세요</small></h4>
+
+	
 	
 	<div class="form center-block">
 		<div class="form-group row">
 			<h5 class="col-xs-4">ID</h5>
-			<h5 id="userid" class="col-xs-8"></h5>
+			<h5 id="userid" class="col-xs-8">${id}</h5>
 		</div>
 		<div class="form-group row">
 			<h5 class="col-xs-4">이름</h5>
-			<h5 id="username" class="col-xs-8"></h5>
+			<h5 id="username" class="col-xs-8">${name}</h5>
+		</div>
+		
+		<div class="form-group row">
+			<h5 class="col-xs-4">기수</h5>
+			<h5 id="classnum" class="col-xs-8">${class_num}</h5>
 		</div>
 		
 		<div class="form-group row">
@@ -45,28 +52,22 @@
 			</div>
 		</div>
 		
-		<div class="form-group row">
-			<h5 class="col-xs-4">기수</h5>
-			<div class="col-xs-8">
-				<input id="classnum" class="form-control" placeholder="23-2"></input>
-			</div>
-		</div>
 		
 		<div class="form-group row">
 			<h5 class="col-xs-4">이메일</h5>
 			<div class="col-xs-8">
-				<input id="email" class="form-control" placeholder="email@gmail.com"></input>
+				<input id="email" class="form-control" placeholder="email@gmail.com" value=${email}></input>
 			</div>
 		</div>
 		
 		<div class="form-group row">
 			<h5 class="col-xs-4">핸드폰 번호</h5>
 			<div class="col-xs-8">
-				<input id="phonenum" class="form-control" type="tel" placeholder="010-1234-5678"></input>
+				<input id="phonenum" class="form-control" type="tel" placeholder="010-1234-5678" value=${phone}></input>
 			</div>
 		</div>
 		
-		<button id="modify" type="button" class="btn btn-primary btn-block">수정</button>
+		<button id="modify" type="button" class="btn btn-primary btn-block" disabled="disabled">수정</button>
 	</div>
 		
 	</div>
