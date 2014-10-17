@@ -49,6 +49,16 @@ public class MyAppsController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/my_apps/setting.do", method = RequestMethod.GET)
+	public ModelAndView getMyapps_Setting(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		logMgr.printLog(request);
+		
+		ModelAndView mav = new ModelAndView("/my_apps/setting");
+		mav.addObject("msg", "Garden Platform");
+		return mav;
+	}
+	
 	/**
 	POST /clients
 	header :
