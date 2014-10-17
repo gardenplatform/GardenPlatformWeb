@@ -168,12 +168,12 @@
 			            <div class="modal-body">
 			            	<div class="row">
 								<div class="col-md-6">
-									<a href="#" class="thumbnail"> 
+									<a href="/GardenPlatformWeb/my_apps/web_register.do" class="thumbnail"> 
 										<img src="/GardenPlatformWeb/resource/img/icons/iMac@2x.png">
 									</a>
 								</div>
 								<div class="col-md-6">
-									<a href="#" class="thumbnail"> 
+									<a href="/GardenPlatformWeb/my_apps/native_register.do" class="thumbnail"> 
 										<img src="/GardenPlatformWeb/resource/img/icons/iMac@2x.png">
 									</a>
 								</div>
