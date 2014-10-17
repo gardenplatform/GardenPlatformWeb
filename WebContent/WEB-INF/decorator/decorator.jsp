@@ -169,12 +169,12 @@
 			            	<div class="row">
 								<div class="col-md-6">
 									<a href="/GardenPlatformWeb/my_apps/web_register.do" class="thumbnail"> 
-										<img src="/GardenPlatformWeb/resource/img/icons/iMac@2x.png">
+										<img src="/GardenPlatformWeb/resource/img/www.png" style="width:200px; height:200px">
 									</a>
 								</div>
 								<div class="col-md-6">
 									<a href="/GardenPlatformWeb/my_apps/native_register.do" class="thumbnail"> 
-										<img src="/GardenPlatformWeb/resource/img/icons/iMac@2x.png">
+										<img src="/GardenPlatformWeb/resource/img/icons/iMac@2x.png" style="width:200px; height:200px">
 									</a>
 								</div>
 							</div>
