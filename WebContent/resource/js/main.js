@@ -36,6 +36,7 @@ function signin(id, pwd) {
 			}
 			else {
 				//location.href="error.do?status="+obj.status+"&msg="+obj.msg;
+				setError("아이디나 비밀번호가 일치하지 않습니다.");
 			}
 		},
 		error : function(xhr, status, error) {
