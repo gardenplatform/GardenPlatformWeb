@@ -21,7 +21,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.ssm.gardenplatform.log.LogManager;
-import com.ssm.gardenplatform.model.User;
 import com.ssm.gardenplatform.rest.RestInfo;
 import com.ssm.gardenplatform.rest.RestManager;
 
@@ -102,20 +101,17 @@ public class UserController {
 			if(result.get("status").toString().equals("success")) {
 				
 				HttpSession session = request.getSession();
-				User user = new User();
-				user.setId(id);
+				session.setAttribute("userID", id);
 				
-				// user token ��������� session��� ������
+				// user token & session
 				JSONObject jsonObj;
 				try {
 					jsonObj = new JSONObject(result.get("result").toString());
-					user.setToken(jsonObj.get("token")+"");
+					session.setAttribute("token", jsonObj.get("token").toString());
 				} catch (JSONException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				session.setAttribute("user",user);
 				
 				obj.put("status", "success");
 				obj.put("msg", "Sign in Success");
@@ -235,15 +231,17 @@ public class UserController {
 		Map<String, Object> result = null;
 		
 		HttpSession session = request.getSession(false);
-		User user = new User();
-		user = (User) session.getAttribute("user");
 		
-		String url = RestInfo.restURL+"/users/"+user.getId();
+		String userID = session.getAttribute("userID").toString();
+		String token = session.getAttribute("token").toString();
+		
+		
+		String url = RestInfo.restURL+"/users/"+userID;
 		
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
 		
 		HttpHeaders headers = new HttpHeaders();
-		headers.set("Authorization","token "+user.getToken());
+		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		
 		result = restMgr.getWithHeader(url, vars, headers);
@@ -278,8 +276,9 @@ public class UserController {
 
 		Map<String, Object> result = null;
 		HttpSession session = request.getSession(false);
-		User user = new User();
-		user = (User) session.getAttribute("user");
+		
+		String token = session.getAttribute("token").toString();
+		String userID = session.getAttribute("userID").toString();
 		
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
@@ -294,7 +293,7 @@ public class UserController {
 		vars.add("password", pwd);
 		
 		HttpHeaders headers = new HttpHeaders();
-		headers.set("Authorization","token "+user.getToken());
+		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		
 		// 아이디 비밀번호 확인
@@ -304,7 +303,7 @@ public class UserController {
 		try {
 			// 비밀번호가 맞으면 프로필 업데이트
 			if(result.get("status").toString().equals("success")) {
-				url = RestInfo.restURL+"/users/"+user.getId();
+				url = RestInfo.restURL+"/users/"+userID;
 				
 				vars.clear();
 				vars.add("email", email);

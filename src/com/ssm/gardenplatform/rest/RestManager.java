@@ -103,9 +103,9 @@ public class RestManager {
 		return result;
 	}
 	
-	public Map<String, Object> postWithHeader(String url, MultiValueMap<String, Object> vars, HttpHeaders headers) {
+	public Map<Object, Object> postWithHeader(String url, MultiValueMap<Object, Object> vars, HttpHeaders headers) {
 		
-		Map<String, Object> result = new HashMap<>();
+		Map<Object, Object> result = new HashMap<>();
 		String resultString = null; 
 		HttpEntity<?> entity = new HttpEntity<Object>(vars, headers);
 		try{

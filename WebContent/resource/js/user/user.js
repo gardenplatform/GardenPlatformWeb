@@ -47,7 +47,7 @@ $('#password').keyup(function(){
 });
 
 $('button#modify').click(function(){
-var ispasswordchanged = $(newpasswordgroup).attr('disabled') == undefined? true : false;
+	var ispasswordchanged = $(newpasswordgroup).attr('disabled') == undefined? true : false;
 
 	var id = $('#userid').html();
 	var phone = $('#phonenum').val();
