@@ -99,7 +99,7 @@ public class MyAppsController {
 		vars.add("redirect_uri", appRedirect);
 		vars.add("client_type", appType);
 		
-		result = restMgr.getWithHeader(url, vars, headers);
+		result = restMgr.postWithHeader(url, vars, headers);
 		
 		
 		ModelAndView mav = new ModelAndView("/my_apps/apps_detail");
