@@ -194,7 +194,11 @@
 				var obj = jQuery.parseJSON(data);
 				console.log(obj);
 				if(obj.status=="success") {
-					signin(id,pwd1);
+					setSuccess("회원가입이 완료되었습니다.");
+					setTimeout(function(){
+						signin(id,pwd1);
+					}, 300);
+					
 				}
 				else {
 					location.href="/GardenPlatformWeb/error.do?status="+obj.status+"&msg="+obj.msg;
@@ -218,3 +222,75 @@
 	});
 
 })(jQuery);
+
+
+
+function setProgress(string){
+	$('<div class="loadingdiv fade"><div class="loading-container container hidden-xs"><div class="loading fade in"></div><img class="fade success" src="/GardenPlatformWeb/resource/img/success.png"/><img class="fade fail" src="/GardenPlatformWeb/resource/img/fail.png"/><h2 class="fade in text-right">' + string + '</h2></div>' +
+			'<div class="loading-container container visible-xs"><div class="loading fade in"></div><img class="fade success" src="/GardenPlatformWeb/resource/img/success.png"/><img class="fade fail" src="/GardenPlatformWeb/resource/img/fail.png"/><h3 class="text-center fade in">' + string + '</h3></div></div>').ready(function(){setTimeout(function(){$('div.loadingdiv').addClass('in');}, 50);}).prependTo('body');
+}
+
+function dismissProgress(){
+	$('div.loadingdiv').removeClass('in');
+	setTimeout(function(){
+		$('div.loadingdiv').remove();
+	}, 300);
+}
+
+function setError(string){
+	
+	if($('div.loadingdiv').length == 0){
+		$('<div class="loadingdiv fade"><div class="loading-container container hidden-xs"><img class="fade in fail" src="/GardenPlatformWeb/resource/img/fail.png"/><h2 class="fade in text-right">' + string + '</h2></div>' +
+				'<div class="loading-container container visible-xs"><img class="fade in fail" src="/GardenPlatformWeb/resource/img/fail.png"/><h3 class="text-center fade in">' + string + '</h3></div></div>').ready(function(){setTimeout(function(){$('div.loadingdiv').addClass('in');}, 50);}).prependTo('body');
+		$('div.loading-container h2, div.loading-container h3').html(string).addClass('in').css('color', '#a94442');
+		$('div.loadingdiv').click(function(){
+			$(this).removeClass('in');
+			setTimeout(function(){
+				$('div.loadingdiv').remove();
+			}, 300);
+		});
+		return;
+	}
+	
+	$('div.loading-container h2, div.loading-container h3, div.loading').removeClass('in');
+	setTimeout(function(){
+		$('div.loading-container h2, div.loading-container h3').html(string).addClass('in').css('color', '#a94442');
+		$('img.fail').addClass('in');
+	}, 300);
+	
+	$('div.loadingdiv').click(function(){
+		$(this).removeClass('in');
+		setTimeout(function(){
+			$('div.loadingdiv').remove();
+		}, 300);
+	});
+}
+
+function setSuccess(string){
+	
+	if($('div.loadingdiv').length == 0){
+		$('<div class="loadingdiv fade"><div class="loading-container container hidden-xs"><img class="fade in success" src="/GardenPlatformWeb/resource/img/success.png"/><h2 class="fade in text-right">' + string + '</h2></div>' +
+				'<div class="loading-container container visible-xs"><img class="fade in success" src="/GardenPlatformWeb/resource/img/success.png"/><h3 class="text-center fade in">' + string + '</h3></div></div>').ready(function(){setTimeout(function(){$('div.loadingdiv').addClass('in');}, 50);}).prependTo('body');
+		$('div.loading-container h2, div.loading-container h3').html(string).addClass('in').css('color', '#3c763d');
+		$('div.loadingdiv').click(function(){
+			$(this).removeClass('in');
+			setTimeout(function(){
+				$('div.loadingdiv').remove();
+			}, 300);
+		});
+		return;
+	}
+	
+	$('div.loading-container h2, div.loading-container h3, div.loading').removeClass('in');
+	setTimeout(function(){
+		$('div.loading-container h2, div.loading-container h3').html(string).addClass('in').css('color', '#3c763d');
+		$('img.success').addClass('in');
+	}, 300);
+	
+	$('div.loadingdiv').click(function(){
+		$(this).removeClass('in');
+		setTimeout(function(){
+			$('div.loadingdiv').remove();
+		}, 300);
+	});
+}

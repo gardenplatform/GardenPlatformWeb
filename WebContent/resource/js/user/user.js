@@ -1,14 +1,5 @@
 // user js
 
-/*
-	//빱줘영님 정보 받아와서 넣어주셈.
-	$('#userid').html(data.userid);
-	$('#username').html(data.username);
-	$('#classnum').val(data.class_num);
-	$('#phonenum').val(data.phone_num);
-	$('#email').val(data.email);
-*/
-
 var newpasswordgroup = $('#newpassword').add('#newpasswordconfirm'); 
 
 $('#password').keyup(function(){
@@ -68,16 +59,20 @@ var ispasswordchanged = $(newpasswordgroup).attr('disabled') == undefined? true 
 	};
 	
 	if(phone=="" || email=="" || pwd=="") {
-		alert("입력하지 않은 항목이 있습니다.");
+		setError("입력하지 않은 항목이 있습니다.");
+		//alert("입력하지 않은 항목이 있습니다.");
 	}
 	else if(!phoneRegEx.test(phone)) {
-		alert("핸드폰 번호 입력 양식이 틀립니다.");
+		setError("핸드폰 번호 입력 양식이 틀립니다.");
+//		alert("핸드폰 번호 입력 양식이 틀립니다.");
 	}
 	else if(!emailRegEx.test(email)) {
-		alert("email 입력 양식이 틀립니다.");
+		setError("Email 입력 양식이 틀립니다.");
+//		alert("email 입력 양식이 틀립니다.");
 	}
 	else if(newPwd1 != newPwd2) {
-		alert("새로운 비밀번호를 확인해주세요.");
+		setError("새로운 비밀번호를 확인해주세요.");
+		//alert("새로운 비밀번호를 확인해주세요.");
 	}
 	else {
 		$.ajax({
@@ -88,7 +83,8 @@ var ispasswordchanged = $(newpasswordgroup).attr('disabled') == undefined? true 
 				var obj = jQuery.parseJSON(data);
 				console.log(obj);
 				if(obj.status=="success") {
-					alert("성공적으로 변경되었습니다.");
+					setSuccess("성공적으로 변경되었습니다.");
+					//alert("성공적으로 변경되었습니다.");
 					location.href = "/GardenPlatformWeb/user/profile.do";
 				}
 				else if(obj.status=="failure"){
