@@ -39,7 +39,7 @@
                 	<li class="dropdown" id="nav-myapps">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Apps <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">앱 등록</a></li>
+                            <li><a id="app" data-toggle="modal" data-target="#app_modal">앱 등록</a></li>
                             <li class="divider"></li>
                             <li id="nav-myapps"><a href="/GardenPlatformWeb/my_apps/index.do">Sample App1</a></li>
                         </ul>
@@ -59,12 +59,6 @@
                 		</ul>
                 	</li>
                 </ul> 
-                <!-- 
-                <form class="navbar-form navbar-right">
-			  		<button id="signupModalBtn" class="btn btn-mint" data-toggle="modal" data-target="#signupModal">회원가입</button>
-				</form>
-                 -->
-		      
             </div><!--/.nav-collapse -->
         </div>
     </header>
@@ -167,7 +161,35 @@
 			        </div>
 			    </div>
 			</div>
-	
+			
+			<div class="modal fade" id="app_modal">
+			    <div class="modal-dialog modal-vertical-centered">
+			        <div class="modal-content">
+			            <div class="modal-body">
+			            	<div class="row">
+								<div class="col-md-6">
+									<a href="/GardenPlatformWeb/my_apps/web_register.do" class="thumbnail"> 
+										<img src="/GardenPlatformWeb/resource/img/www.png" style="width:200px; height:200px">
+									</a>
+								</div>
+								<div class="col-md-6">
+									<a href="/GardenPlatformWeb/my_apps/native_register.do" class="thumbnail"> 
+										<img src="/GardenPlatformWeb/resource/img/icons/iMac@2x.png" style="width:200px; height:200px">
+									</a>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<h4 style="text-align:center;">Web App</h4>
+								</div>
+								<div class="col-md-6">
+									<h4 style="text-align:center;">Native App</h4>
+								</div>
+							</div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
 			
         <!-- Placed at the end of the document so the pages load faster -->
         

@@ -49,6 +49,36 @@ public class MyAppsController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/my_apps/setting.do", method = RequestMethod.GET)
+	public ModelAndView getMyapps_Setting(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		logMgr.printLog(request);
+		
+		ModelAndView mav = new ModelAndView("/my_apps/setting");
+		mav.addObject("msg", "Garden Platform");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/my_apps/web_register.do", method = RequestMethod.GET)
+	public ModelAndView getMyapps_webRegister(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		logMgr.printLog(request);
+		
+		ModelAndView mav = new ModelAndView("/my_apps/web_register");
+		mav.addObject("msg", "Garden Platform");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/my_apps/native_register.do", method = RequestMethod.GET)
+	public ModelAndView getMyapps_nativeRegister(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		logMgr.printLog(request);
+		
+		ModelAndView mav = new ModelAndView("/my_apps/native_register");
+		mav.addObject("msg", "Garden Platform");
+		return mav;
+	}
+	
 	/**
 	POST /clients
 	header :

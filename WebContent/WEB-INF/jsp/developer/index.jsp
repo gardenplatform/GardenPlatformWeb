@@ -15,7 +15,7 @@
 		<div class="row row-offcanvas row-offcanvas-left">
 			<!-- sidebar -->
 			<div class="col-xs-5 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
-				<h4>MY Apps</h4>
+				<h4>Developer</h4>
 				<ul class="snb nav">
 					<li class="active"><a href="/GardenPlatformWeb/my_apps/index.do">Getting Start</a></li>
 					<li><a href="/GardenPlatformWeb/my_apps/apps_detail.do">Apps Detail</a></li>

@@ -12,19 +12,12 @@
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-left">
 			<!-- sidebar -->
-			<div class="col-xs-5 col-sm-2 sidebar-offcanvas" id="sidebar"
-				role="navigation">
+			<div class="col-xs-5 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
 				<h4>MY Apps</h4>
 				<ul class="snb nav">
-					<li class="active"><a href="#">Dashboard</a></li>
-					<li><a href="/GardenPlatformWeb/my_apps/apps_detail.do">Apps Detail</a></li>
-					<li><a href="#" data-toggle="collapse" data-target="#sub1"> Dropdown <span class="caret"></span></a>
-						<ul class="nav collapse" id="sub1">
-							<li><a href="#">Sub Link 1</a></li>
-							<li><a href="#">Sub Link 2</a></li>
-							<li><a href="#">Sub Link 3</a></li>
-						</ul>
-					</li>
+					<li class="active"><a href="/GardenPlatformWeb/my_apps/index.do"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+					<li><a href="/GardenPlatformWeb/my_apps/apps_detail.do"><span class="glyphicon glyphicon-time"></span> App Detail</a></li>
+					<li><a href="/GardenPlatformWeb/my_apps/setting.do"><span class="glyphicon glyphicon-cog"></span> Setting</a></li>
 				</ul>
 			</div>
 
@@ -61,6 +54,16 @@
 		</div>
 		<!-- /.col-xs-12 main -->
 	</div><!--/.row-->
+	
+	<!--
+					<li><a href="#" data-toggle="collapse" data-target="#sub1"> Dropdown <span class="caret"></span></a>
+						<ul class="nav collapse" id="sub1">
+							<li><a href="#">Sub Link 1</a></li>
+							<li><a href="#">Sub Link 2</a></li>
+							<li><a href="#">Sub Link 3</a></li>
+						</ul>
+					</li>
+					 -->
 
 	<script src="/GardenPlatformWeb/resource/js/my_apps/my_apps.js"></script>
 </body>

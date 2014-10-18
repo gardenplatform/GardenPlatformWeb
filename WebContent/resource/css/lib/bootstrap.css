@@ -2648,7 +2648,7 @@ input[type="button"].btn-block {
 
 .glyphicon {
   position: relative;
-  top: 1px;
+  top: 3px;
   display: inline-block;
   font-family: 'Glyphicons Halflings';
   -webkit-font-smoothing: antialiased;
@@ -4894,9 +4894,9 @@ textarea.input-group-sm > .input-group-btn > .btn {
   border-color: #101010;
 }
 
-.navbar-inverse .navbar-nav > .open > a,
-.navbar-inverse .navbar-nav > .open > a:hover,
-.navbar-inverse .navbar-nav > .open > a:focus {
+.navbar-inverse .navbar-nav > .open > a .caret ,
+.navbar-inverse .navbar-nav > .open > a:hover .caret,
+.navbar-inverse .navbar-nav > .open > a:focus .caret {
   /*
   color: #ffffff;
   background-color: #ffffff;
@@ -4908,6 +4908,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
   border-bottom-color: #1abc9c;
 }
 
+.navbar-inverse .navbar-nav > .active > a:hover .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #1abc9c;
+}
+
 .navbar-inverse .navbar-nav > .dropdown > a .caret {
   border-top-color: #999999;
   border-bottom-color: #999999;
@@ -4916,8 +4921,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-inverse .navbar-nav > .open > a .caret,
 .navbar-inverse .navbar-nav > .open > a:hover .caret,
 .navbar-inverse .navbar-nav > .open > a:focus .caret {
-  border-top-color: #1abc9c;
-  border-bottom-color: #1abc9c;
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
 }
 
 @media (max-width: 767px) {
@@ -6176,6 +6181,20 @@ button.close {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   }
+}
+
+/*  customizing modal */
+.modal.modal-wide .modal-dialog {
+  width: 70%;
+}
+.modal-wide .modal-body {
+  overflow-y: auto;
+}
+
+.modal-vertical-centered {
+transform: translate(0, 50%) !important;
+-ms-transform: translate(0, 50%) !important; /* IE 9 */
+-webkit-transform: translate(0, 50%) !important; /* Safari and Chrome */
 }
 
 .tooltip {
