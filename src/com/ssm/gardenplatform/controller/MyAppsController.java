@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ssm.gardenplatform.log.LogManager;
-import com.ssm.gardenplatform.model.User;
 import com.ssm.gardenplatform.rest.RestInfo;
 import com.ssm.gardenplatform.rest.RestManager;
 
@@ -100,37 +99,40 @@ public class MyAppsController {
 		(만들어진것)
 	}
 	*/
-	@RequestMapping(value = "/postClient.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/webRegister.do", method = RequestMethod.POST)
 	public ModelAndView postClient(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
 		logMgr.printLog(request);
 		
 		String appName = request.getParameter("appName");
 		String appUrl = request.getParameter("appUrl");
-		String appRedirect = request.getParameter("appRedirect");
-		String appType = request.getParameter("appType");
+		String appRedirectUrl = request.getParameter("appRedirectUrl");
+		String appType = "0";
 		
-		Map<String, Object> result = null;
+		System.out.println(appName);
+		System.out.println(appUrl);
+		System.out.println(appRedirectUrl);
+		System.out.println(appType);
+		
+		Map<Object, Object> result = null;
 		
 		HttpSession session = request.getSession(false);
-		User user = new User();
-		user = (User) session.getAttribute("user");
+		String token = session.getAttribute("token").toString();
 		
-		String url = RestInfo.restURL+"/users/"+user.getId();
+		String url = RestInfo.restURL+"/clients";
 		
-		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
-		
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("Authorization","token "+user.getToken());
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		
+		MultiValueMap<Object, Object> vars = new LinkedMultiValueMap<Object, Object>();
+
 		vars.add("name", appName);
 		vars.add("url", appUrl);
-		vars.add("redirect_uri", appRedirect);
-		vars.add("client_type", appType);
-		
-		result = restMgr.getWithHeader(url, vars, headers);
-		
+		vars.add("redirect_uri", appRedirectUrl);
+		vars.add("client_type", 0);
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		result = restMgr.postWithHeader(url, vars, headers);
 		
 		ModelAndView mav = new ModelAndView("/my_apps/apps_detail");
 		mav.addObject("msg", "Garden Platform");

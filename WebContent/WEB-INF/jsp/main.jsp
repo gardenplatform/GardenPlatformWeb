@@ -9,8 +9,7 @@
     </head>
 
     <body>
-    	<c:set var="id" value="${id}" />
-        	<div class="container">
+      	<div class="container">
 		<div class="main_container">
 		<div class="row vertical-center">
 			<div class="col-md-6" style="text-align:center;">

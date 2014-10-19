@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ssm.gardenplatform.log.LogManager;
-import com.ssm.gardenplatform.model.User;
 
 
 @Controller
@@ -35,13 +34,13 @@ public class MainController {
 		
 		logMgr.printLog(request);
 
-		HttpSession session = request.getSession();
-		User user = (User)session.getAttribute("user");
+		HttpSession session = request.getSession(false);
+		//String userID = session.getAttribute("userID").toString();
 		
 		ModelAndView mav = new ModelAndView("home");
 //		mav.addObject("id", "test123");
-		if(user != null)
-			mav.addObject("id", user.getId());
+//		if(userID != null)
+//			mav.addObject("userID", userID);
 		
 		return mav;
 	}
