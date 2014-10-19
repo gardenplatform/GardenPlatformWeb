@@ -22,7 +22,24 @@
 			</div>
 			<!-- main area -->
 			<div class="col-xs-12 col-sm-9 content">
-				컨텐츠 추가예정
+				<div class="panel panel-default">
+				  <div class="panel-heading">App info</div>
+				  <ul class="list-group">
+				    <li class="list-group-item">App Center.</li>
+				    <li class="list-group-item">
+				    	<div class="row">
+				    		<div class="col-xs-6 col-md-6">
+				    		<label class="control-label">Short Description</label>
+				    			<input type="text" class="form-control">
+				    		</div>
+				    		<div class="col-xs-6 col-md-6">
+				    		<label class="control-label">라벨</label>
+				    			<input type="text" class="form-control">
+				    		</div>
+				    	</div>
+				    </li>
+				  </ul>
+				</div>
 			</div>
 		</div>
 		<!-- /.col-xs-12 main -->

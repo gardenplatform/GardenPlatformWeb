@@ -22,7 +22,21 @@
 			</div>
 			<!-- main area -->
 			<div class="col-xs-12 col-sm-9 content">
-				컨텐츠 추가예정
+				<div class="panel panel-default">
+				  <div class="panel-heading">WebSite</div>
+				  <ul class="list-group">
+				    <li class="list-group-item">
+				    	<div class="form-group">
+					    	<label class="control-label">Site URL</label>
+					    	<input type="text" class="form-control">
+					    </div>
+					    <div class="form-group">
+					    	<label class="control-label">Redirect URL</label>
+					    	<input type="text" class="form-control">
+						</div>
+				    </li>
+				  </ul>
+				</div>
 			</div>
 		</div>
 		<!-- /.col-xs-12 main -->
