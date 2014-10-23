@@ -294,3 +294,7 @@ function setSuccess(string){
 		}, 300);
 	});
 }
+
+$(function () { 
+    $("[data-toggle='tooltip']").tooltip(); 
+});

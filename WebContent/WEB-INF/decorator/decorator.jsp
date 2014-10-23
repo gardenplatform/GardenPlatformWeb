@@ -196,23 +196,23 @@
 			            <div class="modal-header">
 			                <h4 class="modal-title">WebApp 등록</h4>
 			            </div>
-			            <div class="modal-body">
-			            	<div class="form-group row">
-								<h5 class="col-xs-4">App Name <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="left" title="Tooltip on left"></span></h5>
+			            <div class="modal-body" title="test">
+			            	<div class="form-group row" title="test">
+								<h5 class="col-xs-4">App Name <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="사용할 App의 이름"></span></h5>
 								<div class="col-xs-8">
 									<input id="appName" class="form-control" type="tel" placeholder="Snac"></input>
 								</div>
 							</div>
 							
 							<div class="form-group row">
-								<h5 class="col-xs-4">URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="left" title="Tooltip on left"></span></h5>
+								<h5 class="col-xs-4">URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="URL에 대한 설명 적어야됨"></span></h5>
 								<div class="col-xs-8">
 									<input id="appUrl" class="form-control" type="tel" placeholder="www.snac.org"></input>
 								</div>
 							</div>
 							
 							<div class="form-group row">
-								<h5 class="col-xs-4">Redirect URL <span class="glyphicon glyphicon-info-sign"></span></h5>
+								<h5 class="col-xs-4">Redirect URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="Redirect URL에 대한 설명 적어야됨"></span></h5>
 								<div class="col-xs-8">
 									<input id="reUrl" class="form-control" type="tel" placeholder="Re..."></input>
 								</div>
@@ -261,10 +261,8 @@
 			        </div>
 			    </div>
 			</div>
-			
-			
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="script.js"></script>
+        <script src="/GardenPlatformWeb/resource/js/decorator/decorator.js"></script>
         <script src="/GardenPlatformWeb/resource/js/decorator/bootstrap.min.js"></script>
     </body>
 </html>
