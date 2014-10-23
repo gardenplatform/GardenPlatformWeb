@@ -155,7 +155,6 @@
 			            </div>
 			            <div class="modal-footer">
 			                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-			                <!-- 아이디쪽 서버확인 끝나면 disabled 사라질거임. -->
 		                	<button class="btn btn-mint" type="button" id="signupBtn" disabled="disabled">가입</button>  
 			            </div>
 			        </div>
@@ -168,12 +167,12 @@
 			            <div class="modal-body">
 			            	<div class="row">
 								<div class="col-md-6">
-									<a href="/GardenPlatformWeb/my_apps/web_register.do" class="thumbnail"> 
+									<a href="#" class="thumbnail" data-toggle="modal" data-target="#web_register" data-dismiss="modal"> 
 										<img src="/GardenPlatformWeb/resource/img/www.png" style="width:200px; height:200px">
 									</a>
 								</div>
 								<div class="col-md-6">
-									<a href="/GardenPlatformWeb/my_apps/native_register.do" class="thumbnail"> 
+									<a href="#" class="thumbnail" data-toggle="modal" data-target="#native_register" data-dismiss="modal">
 										<img src="/GardenPlatformWeb/resource/img/icons/iMac@2x.png" style="width:200px; height:200px">
 									</a>
 								</div>
@@ -190,6 +189,79 @@
 			        </div>
 			    </div>
 			</div>
+			
+			<div class="modal fade" id="web_register">
+			    <div class="modal-dialog modal-vertical-centered">
+			        <div class="modal-content">
+			            <div class="modal-header">
+			                <h4 class="modal-title">WebApp 등록</h4>
+			            </div>
+			            <div class="modal-body">
+			            	<div class="form-group row">
+								<h5 class="col-xs-4">App Name</h5>
+								<div class="col-xs-8">
+									<input id="appName" class="form-control" type="tel" placeholder="Snac"></input>
+								</div>
+							</div>
+							
+							<div class="form-group row">
+								<h5 class="col-xs-4">URL</h5>
+								<div class="col-xs-8">
+									<input id="appUrl" class="form-control" type="tel" placeholder="www.snac.org"></input>
+								</div>
+							</div>
+			
+							<div class="form-group row">
+								<h5 class="col-xs-4">Redirect URL</h5>
+								<div class="col-xs-8">
+									<input id="reUrl" class="form-control" type="tel" placeholder="Re..."></input>
+								</div>
+							</div>
+			            </div>
+			            <div class="modal-footer">
+		                	<button class="btn btn-mint" type="button" id="btn_web_register">등록</button>  
+			                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+			
+			<div class="modal fade" id="native_register">
+			    <div class="modal-dialog modal-vertical-centered">
+			        <div class="modal-content">
+			            <div class="modal-header">
+			                <h4 class="modal-title">NativeApp 등록</h4>
+			            </div>
+			            <div class="modal-body">
+			            	<div class="form-group row">
+								<h5 class="col-xs-4">App Name</h5>
+								<div class="col-xs-8">
+									<input id="appName" class="form-control" type="tel" placeholder="Snac"></input>
+								</div>
+							</div>
+							
+							<div class="form-group row">
+								<h5 class="col-xs-4">URL</h5>
+								<div class="col-xs-8">
+									<input id="appUrl" class="form-control" type="tel" placeholder="www.snac.org"></input>
+								</div>
+							</div>
+							
+							<div class="form-group row">
+								<h5 class="col-xs-4">Redirect URL</h5>
+								<div class="col-xs-8">
+									<input id="reUrl" class="form-control" type="tel" placeholder="Re..."></input>
+								</div>
+							</div>
+			            </div>
+			            <div class="modal-footer">
+		                	<button class="btn btn-mint" type="button" id="btn_native_register">등록</button>  
+			                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+			
 			
         <!-- Placed at the end of the document so the pages load faster -->
         
