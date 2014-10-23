@@ -209,8 +209,9 @@
 			}
 		});	
 	});
+	
 
-	// 내용초기화
+	// 회원가입 내용초기화
 	$('#signupModalBtn').click(function() {
 		$('#signupId').val("");
 		$('#signupPwd1').val("");

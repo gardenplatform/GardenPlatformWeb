@@ -16,6 +16,7 @@
         
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/bootstrap.css">
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/decorator/decorator.css">
+        
         <script src="/GardenPlatformWeb/resource/js/lib/jquery-1.11.0.min.js"></script>
         
         <decorator:head/>
@@ -262,9 +263,7 @@
 			    </div>
 			</div>
 			
-			
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="script.js"></script>
-        <script src="/GardenPlatformWeb/resource/js/decorator/bootstrap.min.js"></script>
+		<!-- script -->
+        <script src="/GardenPlatformWeb/resource/js/lib/bootstrap.min.js"></script>
     </body>
 </html>

@@ -106,7 +106,7 @@ public class MyAppsController {
 		vars.add("name", appName);
 		vars.add("url", appUrl);
 		vars.add("redirect_uri", appRedirectUrl);
-		vars.add("client_type", 0);
+		vars.add("client_type", appType);
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization","token "+token);
