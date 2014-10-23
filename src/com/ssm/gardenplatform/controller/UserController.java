@@ -2,12 +2,15 @@ package com.ssm.gardenplatform.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.HttpHeaders;
@@ -247,10 +250,7 @@ public class UserController {
 		result = restMgr.getWithHeader(url, vars, headers);
 		
 		ModelAndView mav = new ModelAndView();
-		if(result.get("status").equals("error")){
-			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
-		}
-		else {
+		if(result.get("status").equals("success")){
 			mav.setViewName("/user/profile");
 			try {
 				JSONObject jsonObj = new JSONObject(result.get("result").toString());
@@ -263,7 +263,9 @@ public class UserController {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-			
+		}
+		else {
+			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));			
 		}
 		return mav;
 	}
@@ -313,7 +315,6 @@ public class UserController {
 				else
 					vars.add("password", newPwd);
 
-				System.out.println(vars.toString());
 				result = restMgr.putWithHeader(url, vars, headers);
 				
 				if(result.get("status").toString().equals("success")) {

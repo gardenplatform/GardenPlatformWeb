@@ -48,6 +48,13 @@
 								</div>
 							</div>
 						</div>
+						<h1> 필요한 정보 쓰삼 </h1>
+						app name : ${appName} <br/>
+						app url : ${appUrl}  <br/>
+						app redirect url : ${appRedirectUrl}  <br/>
+						app type : ${appType}  <br/>
+						app id : ${appID} <br/>
+						app Secret : ${appSecret}  <br/>
 					</div>
 				</div>
 			</div>
