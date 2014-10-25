@@ -336,4 +336,3 @@ function setSuccess(string){
 $(function () { 
     $("[data-toggle='tooltip']").tooltip(); 
 });
-
