@@ -26,7 +26,7 @@ function setError(string){
 			$(this).removeClass('in');
 			setTimeout(function(){
 				$('div.loadingdiv').remove();
-			}, 300);
+			}, 400);
 		});
 		return;
 	}

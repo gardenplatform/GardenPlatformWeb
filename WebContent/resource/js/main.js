@@ -151,11 +151,6 @@
 	});
 	
 	function toggleButton(){
-		console.log(idok);
-		console.log(pwconfirmok);
-		console.log(classok);
-		console.log(phoneok);
-		console.log(emailok);
 		if(idok && pwconfirmok && classok && phoneok && emailok){
 			$('#signupBtn').removeAttr('disabled');
 		}
@@ -194,12 +189,12 @@
 			success : function(data) {
 				var obj = jQuery.parseJSON(data);
 				console.log(obj);
+				console.log(obj.status);
 				if(obj.status=="success") {
 					setSuccess("회원가입이 완료되었습니다.");
 					setTimeout(function(){
 						signin(id,pwd1);
 					}, 300);
-					
 				}
 				else {
 					location.href="/GardenPlatformWeb/error.do?status="+obj.status+"&msg="+obj.msg;

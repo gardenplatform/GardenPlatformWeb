@@ -117,12 +117,13 @@
 		            </div>
 		            <div class="modal-footer">
 		                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-		                <!-- 아이디쪽 서버확인 끝나면 disabled 사라질거임. -->
 	                	<button class="btn btn-mint" type="button" id="signupBtn" disabled="disabled">가입</button>  
 		            </div>
 		        </div>
 		    </div>
 		</div>
 		
+		<!-- script -->
+		<script src="/GardenPlatformWeb/resource/js/decorator/noheader.js"></script>
     </body>
 </html>
