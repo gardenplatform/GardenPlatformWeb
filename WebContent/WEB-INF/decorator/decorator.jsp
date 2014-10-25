@@ -16,7 +16,9 @@
         
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/bootstrap.css">
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/decorator/decorator.css">
+        
         <script src="/GardenPlatformWeb/resource/js/lib/jquery-1.11.0.min.js"></script>
+        <script src="/GardenPlatformWeb/resource/js/lib/bootstrap.min.js"></script>
         
         <decorator:head/>
     </head>
@@ -40,7 +42,9 @@
                         <ul class="dropdown-menu">
                             <li><a id="app" data-toggle="modal" data-target="#app_modal">앱 등록</a></li>
                             <li class="divider"></li>
-                            <li id="nav-myapps"><a href="/GardenPlatformWeb/my_apps/index.do">Sample App1</a></li>
+						    <c:forEach var="item" items="${sessionScope.appList}">
+                            	<li id="nav-myapps"><a href="/GardenPlatformWeb/my_apps/index.do?appName=${item}">${item}</a></li>
+						    </c:forEach>
                         </ul>
                     </li>
                		<li id="nav-store"><a href="/GardenPlatformWeb/store/index.do">Store</a></li>
@@ -61,208 +65,122 @@
                 </ul> 
             </div><!--/.nav-collapse -->
         </div>
-    </header>
-			<div class="wrapper">
-    			<decorator:body/>
-    		</div>
-			<!-- footer -->
-			<div class="undermargin"></div>
-			
-			<div class="footer">
-				<div class="container">
-					<h5 class="text-right"><small>Copyright 2014 Samsung Software Membership, All Rights Reserved.</small></h5>
-					<h6 class="text-right"><small>Developed by Sungjin Park, Juyoung Park, Sungho Park, Sangwoo Jun</small></h6>
-				</div>
+    	</header>
+		<div class="wrapper">
+   			<decorator:body/>
+   		</div>
+		<!-- footer -->
+		<div class="undermargin"></div>
+		
+		<div class="footer">
+			<div class="container">
+				<h5 class="text-right"><small>Copyright 2014 Samsung Software Membership, All Rights Reserved.</small></h5>
+				<h6 class="text-right"><small>Developed by Sungjin Park, Juyoung Park, Sungho Park, Sangwoo Jun</small></h6>
 			</div>
+		</div>
+		
+		<div class="modal fade" id="app_modal">
+		    <div class="modal-dialog modal-vertical-centered">
+		        <div class="modal-content">
+		            <div class="modal-body">
+		            	<div class="row">
+							<div class="col-md-6">
+								<a href="#" class="thumbnail" data-toggle="modal" data-target="#web_register" data-dismiss="modal"> 
+									<img src="/GardenPlatformWeb/resource/img/www.png" style="width:200px; height:200px">
+								</a>
+							</div>
+							<div class="col-md-6">
+								<a href="#" class="thumbnail" data-toggle="modal" data-target="#native_register" data-dismiss="modal">
+									<img src="/GardenPlatformWeb/resource/img/icons/iMac@2x.png" style="width:200px; height:200px">
+								</a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<h4 style="text-align:center;">Web App</h4>
+							</div>
+							<div class="col-md-6">
+								<h4 style="text-align:center;">Native App</h4>
+							</div>
+						</div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		
+		<div class="modal fade" id="web_register">
+		    <div class="modal-dialog modal-vertical-centered">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <h4 class="modal-title">WebApp 등록</h4>
+		            </div>
+		            <div class="modal-body" title="test">
+		            	<div class="form-group row" title="test">
+							<h5 class="col-xs-4">App Name <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="사용할 App의 이름"></span></h5>
+							<div class="col-xs-8">
+								<input id="appName" class="form-control" type="tel" placeholder="Snac"></input>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<h5 class="col-xs-4">URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="URL에 대한 설명 적어야됨"></span></h5>
+							<div class="col-xs-8">
+								<input id="appUrl" class="form-control" type="tel" placeholder="www.snac.org"></input>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<h5 class="col-xs-4">Redirect URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="Redirect URL에 대한 설명 적어야됨"></span></h5>
+							<div class="col-xs-8">
+								<input id="reUrl" class="form-control" type="tel" placeholder="Re..."></input>
+							</div>
+						</div>
+		            </div>
+		            <div class="modal-footer">
+	                	<button class="btn btn-mint" type="button" id="btn_web_register">등록</button>  
+		                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		
+		<div class="modal fade" id="native_register">
+		    <div class="modal-dialog modal-vertical-centered">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <h4 class="modal-title">NativeApp 등록</h4>
+		            </div>
+		            <div class="modal-body">
+		            	<div class="form-group row">
+							<h5 class="col-xs-4">App Name<span class="glyphicon glyphicon-info-sign"></span></h5>
+							<div class="col-xs-8">
+								<input id="appName" class="form-control" type="tel" placeholder="Snac"></input>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<h5 class="col-xs-4">URL<span class="glyphicon glyphicon-info-sign"></span></h5>
+							<div class="col-xs-8">
+								<input id="appUrl" class="form-control" type="tel" placeholder="www.snac.org"></input>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<h5 class="col-xs-4">Redirect URL<span class="glyphicon glyphicon-info-sign"></span></h5>
+							<div class="col-xs-8">
+								<input id="reUrl" class="form-control" type="tel" placeholder="Re..."></input>
+							</div>
+						</div>
+		            </div>
+		            <div class="modal-footer">
+	                	<button class="btn btn-mint" type="button" id="btn_native_register">등록</button>  
+		                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+		            </div>
+		        </div>
+		    </div>
+		</div>
 			
-			<div class="modal fade" id="signupModal">
-			    <div class="modal-dialog">
-			        <div class="modal-content">
-			            <div class="modal-header">
-			                <h4 class="modal-title">회원가입</h4>
-			            </div>
-			            <div class="modal-body">
-			            	<form class="form-join form-horizontal" role="form">
-				                <div class="form-group" id="groupid">
-				                    <label class="control-label col-sm-3">ID</label>
-				                    <div class="col-xs-12 col-sm-9">
-				                        <input type="text" id="signupId" class="form-control" maxlength="30" placeholder="swssm" autofocus="">
-				                    </div> 
-				                    <label id="errorid" class="col-sm-offset-3 control-label hidden"></label>
-				                </div>
-				                <div class="form-group" id="passwordgroup">
-				                    <label class="control-label col-sm-3">비밀번호</label>
-				                    <div class="col-xs-12 col-sm-9">
-				                        <input type="password" id="signupPwd1" class="form-control" maxlength="100" placeholder="********" />
-				                    </div>
-				                    <label id="errorpassword" class="col-sm-offset-3 control-label hidden"></label>
-				                </div>
-				                <div class="form-group" id="passwordgroup">
-				                    <label class="control-label col-sm-3">비밀번호 확인</label>
-				                    <div class="col-xs-12 col-sm-9">
-				                        <input type="password" id="signupPwd2" class="form-control" maxlength="100" placeholder="********" />
-				                    </div>
-				                    <label id="errorpasswordconfirm" class="col-sm-offset-3 control-label hidden"></label>
-				                </div>
-				                <div class="form-group" id="namegroup">
-				                    <label class="control-label col-xs-12 col-sm-3">이름</label>
-				                    <div class="col-xs-12 col-sm-9">
-				                        <input type="text" id="signupName" maxlength="5" class="form-control" placeholder="김창렬" />
-				                    </div> 
-				                    
-				                    <label id="errorname" class="col-sm-offset-3 control-label hidden"></label>
-				                </div>
-				                
-				                <div class="form-group" id="emailgroup">
-				                	<label class="control-label col-xs-12 col-sm-3">이메일</label>
-				                	<div class="col-xs-12 col-sm-9">
-				                		<input type="text" id="signupEmail" class="form-control" placeholder="email@gmail.com" />
-				                	</div>
-				                	<label id="erroremail" class="col-sm-offset-3 control-label hidden text-danger"></label>
-				                </div>
-				                
-				                <div class="form-group" id="phonegroup">
-				                	<label class="control-label col-xs-12 col-sm-3">핸드폰</label>
-				                	<div class="col-xs-12 col-sm-9">
-				                		<input type="text" id="signupPhone" class="form-control" placeholder="010-1234-5678" />
-				                	</div>
-				                	<label id="errorphone" class="col-sm-offset-3 control-label hidden text-danger"></label>
-				                </div>
-				                
-				                <div class="form-group" id="nameclass">
-				                    <label class="control-label col-xs-12 col-sm-3">기수</label>
-				                    <div class="col-xs-12 col-sm-9">
-				                        <input type="text" id="signupClass" class="form-control" placeholder="23-1" />
-				                    </div>
-				                    
-				                    <label id="errorclass" class="col-sm-offset-3 control-label hidden text-danger"></label>
-				                </div>
-				                
-				                <div class="form-group" id="gender">
-				                	<label class="control-label col-xs-12 col-sm-3">성별</label>
-									<div class="col-xs-12 col-sm-9">
-										<button type="button" class="btn btn-default dropdown-toggle" id="inputgender" data-toggle="dropdown" style="width: 100%">Male</button>
-										<ul class="dropdown-menu" id="genderdropdown">
-											<li><a href="#">Male</a></li>
-											<li><a href="#">Female</a></li>
-										</ul>
-									</div>
-									
-									<label id="errorgender" class="col-sm-offset-3 control-label hidden text-danger"></label>
-				                </div>
-				                
-            				</form>
-			            </div>
-			            <div class="modal-footer">
-			                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-		                	<button class="btn btn-mint" type="button" id="signupBtn" disabled="disabled">가입</button>  
-			            </div>
-			        </div>
-			    </div>
-			</div>
-			
-			<div class="modal fade" id="app_modal">
-			    <div class="modal-dialog modal-vertical-centered">
-			        <div class="modal-content">
-			            <div class="modal-body">
-			            	<div class="row">
-								<div class="col-md-6">
-									<a href="#" class="thumbnail" data-toggle="modal" data-target="#web_register" data-dismiss="modal"> 
-										<img src="/GardenPlatformWeb/resource/img/www.png" style="width:200px; height:200px">
-									</a>
-								</div>
-								<div class="col-md-6">
-									<a href="#" class="thumbnail" data-toggle="modal" data-target="#native_register" data-dismiss="modal">
-										<img src="/GardenPlatformWeb/resource/img/icons/iMac@2x.png" style="width:200px; height:200px">
-									</a>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<h4 style="text-align:center;">Web App</h4>
-								</div>
-								<div class="col-md-6">
-									<h4 style="text-align:center;">Native App</h4>
-								</div>
-							</div>
-			            </div>
-			        </div>
-			    </div>
-			</div>
-			
-			<div class="modal fade" id="web_register">
-			    <div class="modal-dialog modal-vertical-centered">
-			        <div class="modal-content">
-			            <div class="modal-header">
-			                <h4 class="modal-title">WebApp 등록</h4>
-			            </div>
-			            <div class="modal-body" title="test">
-			            	<div class="form-group row" title="test">
-								<h5 class="col-xs-4">App Name <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="사용할 App의 이름"></span></h5>
-								<div class="col-xs-8">
-									<input id="appName" class="form-control" type="tel" placeholder="Snac"></input>
-								</div>
-							</div>
-							
-							<div class="form-group row">
-								<h5 class="col-xs-4">URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="URL에 대한 설명 적어야됨"></span></h5>
-								<div class="col-xs-8">
-									<input id="appUrl" class="form-control" type="tel" placeholder="www.snac.org"></input>
-								</div>
-							</div>
-							
-							<div class="form-group row">
-								<h5 class="col-xs-4">Redirect URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="Redirect URL에 대한 설명 적어야됨"></span></h5>
-								<div class="col-xs-8">
-									<input id="reUrl" class="form-control" type="tel" placeholder="Re..."></input>
-								</div>
-							</div>
-			            </div>
-			            <div class="modal-footer">
-		                	<button class="btn btn-mint" type="button" id="btn_web_register">등록</button>  
-			                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-			            </div>
-			        </div>
-			    </div>
-			</div>
-			
-			<div class="modal fade" id="native_register">
-			    <div class="modal-dialog modal-vertical-centered">
-			        <div class="modal-content">
-			            <div class="modal-header">
-			                <h4 class="modal-title">NativeApp 등록</h4>
-			            </div>
-			            <div class="modal-body">
-			            	<div class="form-group row">
-								<h5 class="col-xs-4">App Name<span class="glyphicon glyphicon-info-sign"></span></h5>
-								<div class="col-xs-8">
-									<input id="appName" class="form-control" type="tel" placeholder="Snac"></input>
-								</div>
-							</div>
-							
-							<div class="form-group row">
-								<h5 class="col-xs-4">URL<span class="glyphicon glyphicon-info-sign"></span></h5>
-								<div class="col-xs-8">
-									<input id="appUrl" class="form-control" type="tel" placeholder="www.snac.org"></input>
-								</div>
-							</div>
-							
-							<div class="form-group row">
-								<h5 class="col-xs-4">Redirect URL<span class="glyphicon glyphicon-info-sign"></span></h5>
-								<div class="col-xs-8">
-									<input id="reUrl" class="form-control" type="tel" placeholder="Re..."></input>
-								</div>
-							</div>
-			            </div>
-			            <div class="modal-footer">
-		                	<button class="btn btn-mint" type="button" id="btn_native_register">등록</button>  
-			                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-			            </div>
-			        </div>
-			    </div>
-			</div>
-        <!-- Placed at the end of the document so the pages load faster -->
+		<!-- script -->
         <script src="/GardenPlatformWeb/resource/js/decorator/decorator.js"></script>
-        <script src="/GardenPlatformWeb/resource/js/decorator/bootstrap.min.js"></script>
     </body>
 </html>
