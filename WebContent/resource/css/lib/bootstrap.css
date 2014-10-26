@@ -473,6 +473,12 @@ cite {
   text-align: center;
 }
 
+
+.no_margin{
+	margin-top : 0px;
+	margin-bottom : 0px;
+}
+
 h1,
 h2,
 h3,
@@ -1974,7 +1980,7 @@ output {
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
-  cursor: not-allowed;
+  /*cursor: not-allowed;*/
   background-color: #eeeeee;
 }
 
@@ -2659,7 +2665,7 @@ input[type="button"].btn-block {
 }
 
 .glyphicon:empty {
-  width: 1em;
+  /*width: 1em;*/
 }
 
 .glyphicon-asterisk:before {
@@ -7217,4 +7223,34 @@ fieldset[disabled] .btn-mint:active,
 fieldset[disabled] .btn-mint.active {
   background-color: #1abc9c;
   border-color: #cccccc;
+}
+
+.has-feedback
+{
+	position: relative;
+}
+
+.form-control-feedback {
+	position: absolute;
+	top: 25px;
+	right: 0;
+	z-index: 2;
+	display: block;
+	width: 34px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+}
+
+.glyphicon-remove{
+	color: #a94442;
+}
+
+.glyphicon-ok{
+	color: #3c763d;
+}
+
+.has-feedback
+.form-control{
+	padding-right: 42.5px;
 }

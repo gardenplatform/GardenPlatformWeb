@@ -114,27 +114,29 @@
 		            <div class="modal-header">
 		                <h4 class="modal-title">WebApp 등록</h4>
 		            </div>
-		            <div class="modal-body" title="test">
-		            	<div class="form-group row" title="test">
-							<h5 class="col-xs-4">App Name <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="사용할 App의 이름"></span></h5>
-							<div class="col-xs-8">
-								<input id="appName" class="form-control" type="tel" placeholder="Snac"></input>
-							</div>
+		            <div class="modal-body">
+		            	
+		            	<div id="appname_div" class="form-group has-feedback">
+							<label class="control-label">App Name <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="사용할 App의 이름"></span></label>
+							<input id="appName" class="form-control" placeholder="Snac"></input>
+							<span id="appname_success" class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
+							<span id="appname_fail" class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
 						</div>
 						
-						<div class="form-group row">
-							<h5 class="col-xs-4">URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="URL에 대한 설명 적어야됨"></span></h5>
-							<div class="col-xs-8">
-								<input id="appUrl" class="form-control" type="tel" placeholder="www.snac.org"></input>
-							</div>
+						<div id="appurl_div" class="form-group has-feedback">
+							<label class="control-label">URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="사용할 App의 이름"></span></label>
+							<input id="appUrl" class="form-control" type="tel" placeholder="www.snac.org"></input>
+							<span id="appurl_success" class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
+							<span id="appurl_success" class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
 						</div>
 						
-						<div class="form-group row">
-							<h5 class="col-xs-4">Redirect URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="Redirect URL에 대한 설명 적어야됨"></span></h5>
-							<div class="col-xs-8">
-								<input id="reUrl" class="form-control" type="tel" placeholder="Re..."></input>
-							</div>
+						<div id="reurl_div" class="form-group has-feedback">
+							<label class="control-label">Redirect URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="사용할 App의 이름"></span></label>
+							<input id="reUrl" class="form-control" type="tel" placeholder="redirect URL"></input>
+							<span id="reurl_success" class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
+							<span id="reurl_success"class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
 						</div>
+						
 		            </div>
 		            <div class="modal-footer">
 	                	<button class="btn btn-mint" type="button" id="btn_web_register">등록</button>  

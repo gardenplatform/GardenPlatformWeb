@@ -12,7 +12,7 @@
 	<div class="container">
 	
 	<h3>개인 정보</h3>
-	<h4><small>비밀번호를 변경하지 않으시려면 칸을 비워두세요</small></h4>
+	<h4><small>개인 정보를 수정할 수 있습니다.</small></h4>
 
 	
 	

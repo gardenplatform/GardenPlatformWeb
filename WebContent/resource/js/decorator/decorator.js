@@ -110,6 +110,53 @@ function setSuccess(string){
 	});
 }
 
+$('#appName').change(function(){
+	//서버에서 앱네임 겹치는지 확인해서
+	//if(안겹치면)
+	$('#appname_div').addClass('has-success');
+	$('#appname_success').removeClass('hidden');
+	//else{
+	//$('#appname_div').addClass('has-error');
+	//$('#appname_fail').removeClass('hidden');
+	//}
+});
+
+$('#appUrl').change(function(){
+	//이건 어케해야될지 잘 ㅋ
+	$('#appurl_div').addClass('has-success');
+	$('#appurl_success').removeClass('hidden');
+});
+
+$('#reUrl').change(function(){
+	//이건 어케해야될지 잘 ㅋ
+	$('#reurl_div').addClass('has-success');
+	$('#reurl_success').removeClass('hidden');
+});
+
+//모달 초기화
+$('#app').click(function() {
+	$('#appName').val("");
+	$('#appUrl').val("");
+	$('#reUrl').val("");
+	
+	$('#appname_div').removeClass('has-success');
+	$('#appurl_div').removeClass('has-success');
+	$('#reurl_div').removeClass('has-success');
+	$('#appname_success').addClass('hidden');
+	$('#appurl_success').addClass('hidden');
+	$('#reurl_success').addClass('hidden');
+	
+	$('#appname_div').removeClass('has-error');
+	$('#appurl_div').removeClass('has-error');
+	$('#reurl_div').removeClass('has-error');
+	$('#appname_fail').addClass('hidden');
+	$('#appurl_fail').addClass('hidden');
+	$('#reurl_fail').addClass('hidden');
+	
+});
+
+
+//적용예정 기달
 $(function () { 
     $("[data-toggle='tooltip']").tooltip(); 
 });

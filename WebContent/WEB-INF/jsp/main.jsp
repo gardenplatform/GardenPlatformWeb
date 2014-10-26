@@ -13,7 +13,7 @@
 			<div class="main_container">
 				<div class="row vertical-center">
 					<div class="col-md-6" style="text-align:center;">
-						<img src="https://dt8kf6553cww8.cloudfront.net/static/images/empty_states/sign-in@2x-vflrhf4zv.png" style="width: 288px; height: 305px;">
+						<img src="/GardenPlatformWeb/resource/img/home_garden.png" style="width: 288px; height: 305px;">
 					</div>
 					<div class="col-md-5">
 						<div id="formBox">

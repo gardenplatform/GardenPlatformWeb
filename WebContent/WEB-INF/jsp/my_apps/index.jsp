@@ -15,7 +15,7 @@
 			<div class="col-xs-5 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
 				<h4>MY Apps</h4>
 				<ul class="snb nav">
-					<li class="active"><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+					<li class="active"><a href="/GardenPlatformWeb/my_apps/index.do?appName=${appName}"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
 					<li><a href="/GardenPlatformWeb/my_apps/apps_detail.do"><span class="glyphicon glyphicon-time"></span> App Detail</a></li>
 					<li><a href="/GardenPlatformWeb/my_apps/setting.do"><span class="glyphicon glyphicon-cog"></span> Setting</a></li>
 				</ul>
@@ -23,39 +23,49 @@
 
 			<!-- main area -->
 			<div class="col-xs-12 col-sm-9 content">
-
-				<div class="media">
-					<a class="pull-left" href="#"> 
-						<img class="media-object myapps-img" src="/GardenPlatformWeb/resource/img/my_app_sample2.png">
-					</a>
-					<div class="media-body">
-						<h4 class="media-heading">Sample App 1</h4>
-						<h5>
-							<small>This app is public and available to all users.</small>
-						</h5>
-						<div class="row">
-							<div class="col-md-4">App ID</div>
-							<div class="col-md-8">App Secret</div>
-						</div>
-						<div class="row">
-							<div class="col-md-4">
-								<input type="text" class="form-control" placeholder="Username">
-							</div>
-							<div class="col-md-6">
-								<div class="input-group">
-									<input type="text" class="form-control" placeholder="Username">
-									<span class="input-group-addon">Show</span>
+				<div class="panel panel-default">
+				  <div class="panel-heading"><h4 class="no_margin">Dashboard</h4></div>
+				  <ul class="list-group">
+				    <li class="list-group-item">
+				    	<div class="form-group">
+					    	<div class="media">
+								<a class="pull-left" href="#"> 
+									<img class="media-object myapps-img" src="https://fbcdn-photos-c-a.akamaihd.net/hphotos-ak-xpa1/t39.2081-0/p128x128/851578_455087414601994_1601110696_n.png">
+								</a>
+								<div class="media-body">
+									<h2 class="media-heading">${appName}</h2>
+									<h4>
+										<small>This app is public and available to all users.</small>
+									</h4>
+									<div class="row">
+										<div class="col-md-5">
+											<label class="control-label">App ID</label>
+											<input id="app_id" type="text" class="form-control" placeholder="Username" disabled="disabled" value="${appID}">
+										</div>
+										<div class="col-md-7">
+											<label class="control-label">App Secret</label>
+											<div class="input-group">
+												<input id="app_secret" type="text" class="form-control" placeholder="Username" disabled="disabled" value="*******">
+												<span class="input-group-btn">
+													<button class="btn btn-default" type="button" id="app_secret_show">Show</button>
+											    </span>
+											</div>
+										</div>
+											
+									</div>
 								</div>
 							</div>
+					    </div>
+					    <div class="form-group">
+					    	<label class="control-label">URL</label>
+					    	<input id="app_url" type="text" class="form-control" value="${appUrl}">
 						</div>
-						<h1> 필요한 정보 쓰삼 </h1>
-						app name : ${appName} <br/>
-						app url : ${appUrl}  <br/>
-						app redirect url : ${appRedirectUrl}  <br/>
-						app type : ${appType}  <br/>
-						app id : ${appID} <br/>
-						app Secret : ${appSecret}  <br/>
-					</div>
+					    <div class="form-group">
+					    	<label class="control-label">Redirect URL</label>
+					    	<input id="app_redirecturl" type="text" class="form-control" value="${appRedirectUrl}">
+						</div>
+				    </li>
+				  </ul>
 				</div>
 			</div>
 		</div>
