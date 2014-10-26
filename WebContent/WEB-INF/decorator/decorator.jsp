@@ -127,14 +127,14 @@
 							<label class="control-label">URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="사용할 App의 이름"></span></label>
 							<input id="appUrl" class="form-control" type="tel" placeholder="www.snac.org"></input>
 							<span id="appurl_success" class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
-							<span id="appurl_success" class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
+							<span id="appurl_fail" class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
 						</div>
 						
 						<div id="reurl_div" class="form-group has-feedback">
 							<label class="control-label">Redirect URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="사용할 App의 이름"></span></label>
 							<input id="reUrl" class="form-control" type="tel" placeholder="redirect URL"></input>
 							<span id="reurl_success" class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
-							<span id="reurl_success"class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
+							<span id="reurl_fail"class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
 						</div>
 						
 		            </div>

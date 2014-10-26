@@ -22,8 +22,10 @@
 					var obj = jQuery.parseJSON(data);
 					console.log(obj);
 					if(obj.status=="success") {
-						alert("성공적으로 등록되었습니다.");
-						location.href = "/GardenPlatformWeb/home.do";
+						setSuccess("성공적으로 등록되었습니다.");
+						setTimeout(function(){
+							location.href = "/GardenPlatformWeb/home.do";
+						}, 500);
 					}
 					else{
 						location.href="/GardenPlatformWeb/error.do?status="+obj.status+"&msg="+obj.msg;
@@ -125,12 +127,16 @@ $('#appUrl').change(function(){
 	//이건 어케해야될지 잘 ㅋ
 	$('#appurl_div').addClass('has-success');
 	$('#appurl_success').removeClass('hidden');
+	//$('#appurl_div').addClass('has-error');
+	//$('#appurl_fail').removeClass('hidden');
 });
 
 $('#reUrl').change(function(){
 	//이건 어케해야될지 잘 ㅋ
-	$('#reurl_div').addClass('has-success');
-	$('#reurl_success').removeClass('hidden');
+	//$('#reurl_div').addClass('has-success');
+	//$('#reurl_success').removeClass('hidden');
+	$('#reurl_div').addClass('has-error');
+	$('#reurl_fail').removeClass('hidden');
 });
 
 //모달 초기화
