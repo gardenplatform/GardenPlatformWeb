@@ -28,7 +28,8 @@
 						}, 500);
 					}
 					else{
-						location.href="/GardenPlatformWeb/error.do?status="+obj.status+"&msg="+obj.msg;
+						setError(obj.msg);
+						//location.href="/GardenPlatformWeb/error.do?status="+obj.status+"&msg="+obj.msg;
 					}
 				},
 				error : function(xhr, status, error) {

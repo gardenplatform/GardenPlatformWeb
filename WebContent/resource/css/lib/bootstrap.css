@@ -4533,7 +4533,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 	width: 40px;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	border-radius: 8px;
+	border-radius: 50%;
 }
 
 .navbar-brand:hover,
