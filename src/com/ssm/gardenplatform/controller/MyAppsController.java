@@ -104,6 +104,16 @@ public class MyAppsController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/my_apps/roles.do", method = RequestMethod.GET)
+	public ModelAndView getMyapps_Roles(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		logMgr.printLog(request);
+		
+		ModelAndView mav = new ModelAndView("/my_apps/roles");
+		mav.addObject("msg", "Garden Platform");
+		return mav;
+	}
+	
 	@RequestMapping(value = "/webRegister.do", method = RequestMethod.POST)
 	public void postClient(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		

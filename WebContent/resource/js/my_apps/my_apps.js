@@ -5,8 +5,6 @@ $(document).ready(function(){
 });
 
 $('#app_secret_show').click(function(){
-	//show 눌리면 App Secret 지우고 그안에 값 넣어주셈
-	//$('#app_secret').addClass("hidden");
 	var appSecretInputTag = $('#app_secret');
 
 	if(appSecretInputTag.attr("type")=="password") {
