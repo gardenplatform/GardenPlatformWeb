@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.HttpHeaders;
@@ -32,15 +33,12 @@ public class MyAppsController {
 	LogManager logMgr = new LogManager();
 	RestManager restMgr = new RestManager();
 	
-	//start my_apps pages
 	@RequestMapping(value = "/my_apps/index.do", method = RequestMethod.GET)
 	public ModelAndView getMyapps_Index(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
 		logMgr.printLog(request);
 
 		String appName = request.getParameter("appName");
-		
-		System.out.println(appName);
 		
 		Map<String, Object> result = null;
 		
@@ -88,9 +86,11 @@ public class MyAppsController {
 	public ModelAndView getMyapps_Apps_Detail(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
 		logMgr.printLog(request);
+
+		String appName = request.getParameter("appName");
 		
 		ModelAndView mav = new ModelAndView("/my_apps/apps_detail");
-		mav.addObject("msg", "Garden Platform");
+		mav.addObject("appName", appName);
 		return mav;
 	}
 	
@@ -98,9 +98,11 @@ public class MyAppsController {
 	public ModelAndView getMyapps_Setting(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
 		logMgr.printLog(request);
+
+		String appName = request.getParameter("appName");
 		
 		ModelAndView mav = new ModelAndView("/my_apps/setting");
-		mav.addObject("msg", "Garden Platform");
+		mav.addObject("appName", appName);
 		return mav;
 	}
 	
@@ -108,9 +110,44 @@ public class MyAppsController {
 	public ModelAndView getMyapps_Roles(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
 		logMgr.printLog(request);
+
+		String appName = request.getParameter("appName");
 		
-		ModelAndView mav = new ModelAndView("/my_apps/roles");
-		mav.addObject("msg", "Garden Platform");
+		Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+		String token = session.getAttribute("token").toString();
+		
+		String url = RestInfo.restURL+"/teams/"+appName+"/members";
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		result = restMgr.getWithHeader(url, vars, headers);
+		
+		ModelAndView mav = new ModelAndView();
+		if(result.get("status").equals("error")){
+			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
+		}
+		else {
+			mav.setViewName("/my_apps/roles");
+			mav.addObject("appName", appName);
+			try {
+				System.out.println(result.get("result").toString());
+				JSONArray jsonArr = new JSONArray(result.get("result").toString());
+				for(int i=0; i<jsonArr.length(); i++) {
+					JSONObject jsonObj = new JSONObject(jsonArr.getJSONObject(i).toString());
+					System.out.println(jsonObj.get("member").toString());
+				}
+				
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}
 		return mav;
 	}
 	
@@ -149,18 +186,12 @@ public class MyAppsController {
 			if(result.get("status").toString().equals("success")) {
 
 				JSONObject jsonObj = new JSONObject(result.get("result").toString());
-				obj.put("status", "success");
+				obj.put("status", result.get("status").toString());
 				obj.put("msg", "Can use ID");
 			}
 			else{
-				if(result.get("msg").toString().equals("409 CONFLICT")) {
-					obj.put("status", "conflict");
-					obj.put("msg", "App Name is already taken");
-				}
-				else {
-					obj.put("status", "error");
-					obj.put("msg", result.get("msg"));
-				}
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", result.get("msg").toString());
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -169,5 +200,56 @@ public class MyAppsController {
 		PrintWriter writer = response.getWriter();
 		writer.write(obj.toString());
 	}
+	
+	@RequestMapping(value = "/addDeveloper.do", method = RequestMethod.POST)
+	public void addDeveloper(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		logMgr.printLog(request);
+		
+		String appName = request.getParameter("appName");
+		String appUrl = request.getParameter("appUrl");
+		String appRedirectUrl = request.getParameter("appRedirectUrl");
+		String appType = "0";
+		
+		Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+		String token = session.getAttribute("token").toString();
+		
+		String url = RestInfo.restURL+"/clients";
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+
+		vars.add("name", appName);
+		vars.add("url", appUrl);
+		vars.add("redirect_uri", appRedirectUrl);
+		vars.add("client_type", appType);
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		result = restMgr.postWithHeader(url, vars, headers);
+		
+		JSONObject obj = new JSONObject();
+		try {
+			if(result.get("status").toString().equals("success")) {
+
+				JSONObject jsonObj = new JSONObject(result.get("result").toString());
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", "Can use ID");
+			}
+			else{
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", result.get("msg").toString());
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		PrintWriter writer = response.getWriter();
+		writer.write(obj.toString());
+	}
+	
 	
 }

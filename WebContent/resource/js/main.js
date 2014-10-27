@@ -253,9 +253,8 @@ function signin(id, pwd) {
 			if(obj.status=="success") {
 				location.href="home.do";
 			}
-			else {
-				//location.href="error.do?status="+obj.status+"&msg="+obj.msg;
-				setError("아이디나 비밀번호가 일치하지 않습니다.");
+			else if(obj.status=="error") {
+				setError(obj.msg);
 			}
 		},
 		error : function(xhr, status, error) {

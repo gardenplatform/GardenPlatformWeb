@@ -17,3 +17,10 @@ $('#app_secret_show').click(function(){
 		$('#app_secret_show').text("Show");
 	}
 });
+
+$('#add_developer').click(function(){
+	var appName = $('#appName').text();
+	
+	
+});
+

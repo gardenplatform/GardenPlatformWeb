@@ -3,11 +3,14 @@ package com.ssm.gardenplatform.rest;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
@@ -33,10 +36,29 @@ public class RestManager {
 
 			result.put("status", "success");
 			result.put("result", resultString);
-		}catch(Exception e){
-			System.out.println(e+"");
+
+		}catch(HttpClientErrorException  e1) {
+
+			System.out.println(e1+"");
+			System.out.println(e1.getResponseBodyAsString());
+			
+			if(e1.getMessage().equals("409 CONFLICT"))
+				result.put("status", "conflict");
+			else
+				result.put("status", "error");
+			
+			JSONObject jsonObj;
+			try {
+				jsonObj = new JSONObject(e1.getResponseBodyAsString());
+				result.put("msg", jsonObj.get("error").toString());
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}catch(Exception e2){
+			System.out.println(e2+"");
 			result.put("status", "error");
-			result.put("msg", e.getMessage()+"");
+			result.put("msg", e2.getMessage()+"");
 		}
 		
 		return result;
@@ -53,10 +75,29 @@ public class RestManager {
 
 			result.put("status", "success");
 			result.put("result", resultString);
-		}catch(Exception e){
-			System.out.println(e+"");
+
+		}catch(HttpClientErrorException  e1) {
+
+			System.out.println(e1+"");
+			System.out.println(e1.getResponseBodyAsString());
+			
+			if(e1.getMessage().equals("409 CONFLICT"))
+				result.put("status", "conflict");
+			else
+				result.put("status", "error");
+			
+			JSONObject jsonObj;
+			try {
+				jsonObj = new JSONObject(e1.getResponseBodyAsString());
+				result.put("msg", jsonObj.get("error").toString());
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}catch(Exception e2){
+			System.out.println(e2+"");
 			result.put("status", "error");
-			result.put("msg", e.getMessage()+"");
+			result.put("msg", e2.getMessage()+"");
 		}
 		
 		return result;
@@ -74,10 +115,28 @@ public class RestManager {
 
 			result.put("status", "success");
 			result.put("result", resultString);
-		}catch(Exception e){
-			System.out.println(e+"");
+		}catch(HttpClientErrorException  e1) {
+
+			System.out.println(e1+"");
+			System.out.println(e1.getResponseBodyAsString());
+			
+			if(e1.getMessage().equals("409 CONFLICT"))
+				result.put("status", "conflict");
+			else
+				result.put("status", "error");
+			
+			JSONObject jsonObj;
+			try {
+				jsonObj = new JSONObject(e1.getResponseBodyAsString());
+				result.put("msg", jsonObj.get("error").toString());
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}catch(Exception e2){
+			System.out.println(e2+"");
 			result.put("status", "error");
-			result.put("msg", e.getMessage()+"");
+			result.put("msg", e2.getMessage()+"");
 		}
 		
 		return result;
@@ -95,10 +154,28 @@ public class RestManager {
 
 			result.put("status", "success");
 			result.put("result", resultString);
-		}catch(Exception e){
-			System.out.println(e+"");
+		}catch(HttpClientErrorException  e1) {
+
+			System.out.println(e1+"");
+			System.out.println(e1.getResponseBodyAsString());
+			
+			if(e1.getMessage().equals("409 CONFLICT"))
+				result.put("status", "conflict");
+			else
+				result.put("status", "error");
+			
+			JSONObject jsonObj;
+			try {
+				jsonObj = new JSONObject(e1.getResponseBodyAsString());
+				result.put("msg", jsonObj.get("error").toString());
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}catch(Exception e2){
+			System.out.println(e2+"");
 			result.put("status", "error");
-			result.put("msg", e.getMessage()+"");
+			result.put("msg", e2.getMessage()+"");
 		}
 		
 		return result;
@@ -116,10 +193,28 @@ public class RestManager {
 
 			result.put("status", "success");
 			result.put("result", resultString);
-		}catch(Exception e){
-			System.out.println(e+"");
+		}catch(HttpClientErrorException  e1) {
+
+			System.out.println(e1+"");
+			System.out.println(e1.getResponseBodyAsString());
+			
+			if(e1.getMessage().equals("409 CONFLICT"))
+				result.put("status", "conflict");
+			else
+				result.put("status", "error");
+			
+			JSONObject jsonObj;
+			try {
+				jsonObj = new JSONObject(e1.getResponseBodyAsString());
+				result.put("msg", jsonObj.get("error").toString());
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}catch(Exception e2){
+			System.out.println(e2+"");
 			result.put("status", "error");
-			result.put("msg", e.getMessage()+"");
+			result.put("msg", e2.getMessage()+"");
 		}
 		
 		return result;
