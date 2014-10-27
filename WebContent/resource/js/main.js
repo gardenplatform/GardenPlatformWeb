@@ -197,7 +197,7 @@
 					}, 300);
 				}
 				else {
-					location.href="/GardenPlatformWeb/error.do?status="+obj.status+"&msg="+obj.msg;
+					setError(obj.msg);
 				}
 			},
 			error : function(xhr, status, error) {
@@ -245,15 +245,15 @@ function signin(id, pwd) {
 	
 	$.ajax({
 		type : "POST",
-		url : "signin.do",
+		url : "/GardenPlatformWeb/signin.do",
 		data : userInfo,
 		success : function(data) {
 			var obj = jQuery.parseJSON(data);
 			console.log(obj);
 			if(obj.status=="success") {
-				location.href="home.do";
+				location.href="/GardenPlatformWeb/home.do";
 			}
-			else if(obj.status=="error") {
+			else {
 				setError(obj.msg);
 			}
 		},
