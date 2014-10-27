@@ -65,11 +65,11 @@ public class UserController {
 
 		try {		
 			if(result.get("status").toString().equals("success")) {
-				obj.put("status", "success");
+				obj.put("status", result.get("status").toString());
 				obj.put("msg", "Sign up Success");
 			}
 			else{
-				obj.put("status", "error");
+				obj.put("status", result.get("status").toString());
 				obj.put("msg", result.get("msg"));
 			}
 			
@@ -115,12 +115,12 @@ public class UserController {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				obj.put("status", "success");
+
+				obj.put("status", result.get("status").toString());
 				obj.put("msg", "Sign in Success");
 			}
 			else{
-				obj.put("status", "error");
+				obj.put("status", result.get("status").toString());
 				obj.put("msg", result.get("msg"));
 			}
 		} catch (JSONException e) {
@@ -146,60 +146,12 @@ public class UserController {
 		JSONObject obj = new JSONObject();
 		try {
 			if(result.get("status").toString().equals("success")) {
-				obj.put("status", "success");
+				obj.put("status", result.get("status").toString());
 				obj.put("msg", "Can use ID");
 			}
-			else{
-				if(result.get("msg").toString().equals("409 CONFLICT")) {
-					obj.put("status", "conflict");
-					obj.put("msg", "ID is already taken");
-				}
-				else {
-					obj.put("status", "error");
-					obj.put("msg", result.get("msg"));
-				}
-			}
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-		
-		PrintWriter writer = response.getWriter();
-		writer.write(obj.toString());
-	}
-	
-	@RequestMapping(value = "/checkPwd.do", method = RequestMethod.POST)
-	public void checkPwd(HttpServletRequest request, HttpServletResponse response) throws IOException{
-
-		logMgr.printLog(request);
-
-		Map<String, Object> result = null;
-		
-		String id = request.getParameter("id");
-		String pwd = request.getParameter("pwd");
-		
-		String url = RestInfo.restURL+"/tokens";
-		
-		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
-		vars.add("username", id);
-		vars.add("password", pwd);
-		
-		result = restMgr.post(url, vars);
-		
-		JSONObject obj = new JSONObject();
-		try {
-			if(result.get("status").toString().equals("success")) {
-				obj.put("status", "success");
-				obj.put("msg", "Right Password");
-			}
-			else{
-				if(result.get("msg").toString().equals("400 BAD REQUEST")) {
-					obj.put("status", "failure");
-					obj.put("msg", "Check your password");
-				}
-				else {
-					obj.put("status", "error");
-					obj.put("msg", result.get("msg"));
-				}
+			else {
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", result.get("msg").toString());
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -318,23 +270,17 @@ public class UserController {
 				result = restMgr.putWithHeader(url, vars, headers);
 				
 				if(result.get("status").toString().equals("success")) {
-					obj.put("status", "success");
+					obj.put("status", result.get("status").toString());
 					obj.put("msg", "Profile update success");
 				}
 				else {
-					obj.put("status", "error");
-					obj.put("msg", result.get("msg"));
+					obj.put("status", result.get("status").toString());
+					obj.put("msg", result.get("msg").toString());
 				}
 			}
 			else{
-				if(result.get("msg").toString().equals("400 BAD REQUEST")) {
-					obj.put("status", "faliure");
-					obj.put("msg", "Check your password");
-				}
-				else {
-					obj.put("status", "error");
-					obj.put("msg", result.get("msg"));
-				}
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", result.get("msg").toString());
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();

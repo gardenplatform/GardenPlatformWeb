@@ -3,38 +3,18 @@
 var newpasswordgroup = $('#newpassword').add('#newpasswordconfirm'); 
 
 $('#password').keyup(function(){
-	var id = $('#userid').html();
-	var pwd = $(this).val();
-	
-	var userInfo = {
-			id    : id,
-			pwd   : pwd
-	};
-	
-	console.log(userInfo);
-	$.ajax({
-		type : "POST",
-		url : "/GardenPlatformWeb/checkPwd.do",
-		data : userInfo,
-		success : function(data) {
-			var obj = jQuery.parseJSON(data);
-			console.log(obj);
-			if(obj.status=="success") {
-				$(newpasswordgroup).removeAttr('disabled');
-				$('#modify').removeAttr('disabled');
-			}
-			else if(obj.status=="failure"){
-				$(newpasswordgroup).attr('disabled', 'disabled').val('');
-				$('#modify').attr('disabled', 'disabled').val('');
-			}
-			else{
-				location.href="/GardenPlatformWeb/error.do?status="+obj.status+"&msg="+obj.msg;
-			}
-		},
-		error : function(xhr, status, error) {
-			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
-		}
-	});	
+
+	var password = $('#password').val();
+	console.log(password);
+	console.log(password.length);
+	if(password.length > 0) {
+		$(newpasswordgroup).removeAttr('disabled');
+		$('#modify').removeAttr('disabled');
+	}
+	else {
+		$(newpasswordgroup).attr('disabled', 'disabled').val('');
+		$('#modify').attr('disabled', 'disabled').val('');
+	}
 });
 
 $('button#modify').click(function(){
@@ -60,19 +40,15 @@ $('button#modify').click(function(){
 	
 	if(phone=="" || email=="" || pwd=="") {
 		setError("입력하지 않은 항목이 있습니다.");
-		//alert("입력하지 않은 항목이 있습니다.");
 	}
 	else if(!phoneRegEx.test(phone)) {
 		setError("핸드폰 번호 입력 양식이 틀립니다.");
-//		alert("핸드폰 번호 입력 양식이 틀립니다.");
 	}
 	else if(!emailRegEx.test(email)) {
 		setError("Email 입력 양식이 틀립니다.");
-//		alert("email 입력 양식이 틀립니다.");
 	}
 	else if(newPwd1 != newPwd2) {
 		setError("새로운 비밀번호를 확인해주세요.");
-		//alert("새로운 비밀번호를 확인해주세요.");
 	}
 	else {
 		$.ajax({
@@ -81,17 +57,12 @@ $('button#modify').click(function(){
 			data : userInfo,
 			success : function(data) {
 				var obj = jQuery.parseJSON(data);
-				console.log(obj);
 				if(obj.status=="success") {
 					setSuccess("성공적으로 변경되었습니다.");
-					//alert("성공적으로 변경되었습니다.");
 					location.href = "/GardenPlatformWeb/user/profile.do";
 				}
-				else if(obj.status=="failure"){
-					alert("비밀번호가 틀렸습니다.");
-				}
 				else{
-					location.href="/GardenPlatformWeb/error.do?status="+obj.status+"&msg="+obj.msg;
+					setError(obj.msg);
 				}
 			},
 			error : function(xhr, status, error) {

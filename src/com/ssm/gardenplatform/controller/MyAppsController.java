@@ -32,7 +32,6 @@ public class MyAppsController {
 	LogManager logMgr = new LogManager();
 	RestManager restMgr = new RestManager();
 	
-	//start my_apps pages
 	@RequestMapping(value = "/my_apps/index.do", method = RequestMethod.GET)
 	public ModelAndView getMyapps_Index(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
@@ -139,18 +138,12 @@ public class MyAppsController {
 			if(result.get("status").toString().equals("success")) {
 
 				JSONObject jsonObj = new JSONObject(result.get("result").toString());
-				obj.put("status", "success");
+				obj.put("status", result.get("status").toString());
 				obj.put("msg", "Can use ID");
 			}
 			else{
-				if(result.get("msg").toString().equals("409 CONFLICT")) {
-					obj.put("status", "conflict");
-					obj.put("msg", "App Name is already taken");
-				}
-				else {
-					obj.put("status", "error");
-					obj.put("msg", result.get("msg"));
-				}
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", result.get("msg").toString());
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -158,6 +151,57 @@ public class MyAppsController {
 		
 		PrintWriter writer = response.getWriter();
 		writer.write(obj.toString());
+	}
+	
+	@RequestMapping(value = "/my_apps/roles.do", method = RequestMethod.GET)
+	public ModelAndView getMyapps_roles(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		logMgr.printLog(request);
+
+		String appName = request.getParameter("appName");
+		
+		System.out.println(appName);
+		
+		Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+		String token = session.getAttribute("token").toString();
+		
+		String url = RestInfo.restURL+"/clients/"+appName;
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		result = restMgr.getWithHeader(url, vars, headers);
+		
+		ModelAndView mav = new ModelAndView();
+		if(result.get("status").equals("error")){
+			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
+		}
+		else {
+			mav.setViewName("/my_apps/index");
+			try {
+				JSONObject jsonObj = new JSONObject(result.get("result").toString());
+				mav.addObject("appName", jsonObj.get("name"));
+				mav.addObject("appUrl", jsonObj.get("url"));
+				mav.addObject("appRedirectUrl", jsonObj.get("redirect_uri"));
+				mav.addObject("appID", jsonObj.get("client_id"));
+				mav.addObject("appSecret", jsonObj.get("client_secret"));
+				
+				if(jsonObj.get("client_type").toString().equals("0"))
+					mav.addObject("appType", "Web");
+				else if(jsonObj.get("client_type").toString().equals("1"))
+					mav.addObject("appType", "Native");
+				
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		return mav;
 	}
 	
 }
