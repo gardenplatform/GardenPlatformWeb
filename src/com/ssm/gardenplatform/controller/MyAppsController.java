@@ -136,12 +136,19 @@ public class MyAppsController {
 			mav.setViewName("/my_apps/roles");
 			mav.addObject("appName", appName);
 			try {
-				System.out.println(result.get("result").toString());
 				JSONArray jsonArr = new JSONArray(result.get("result").toString());
+				LinkedList<String> developerList = new LinkedList<>();
 				for(int i=0; i<jsonArr.length(); i++) {
 					JSONObject jsonObj = new JSONObject(jsonArr.getJSONObject(i).toString());
-					System.out.println(jsonObj.get("member").toString());
+					if(jsonObj.get("is_owner").toString().equals("true")){
+						mav.addObject("owner", jsonObj.get("member"));
+					}
+					else {
+						developerList.add(jsonObj.get("member").toString());
+					}
+					//System.out.println(jsonObj.get("member").toString());
 				}
+				mav.addObject("developerList", developerList);
 				
 			} catch (JSONException e) {
 				e.printStackTrace();
@@ -201,29 +208,24 @@ public class MyAppsController {
 		writer.write(obj.toString());
 	}
 	
-	@RequestMapping(value = "/addDeveloper.do", method = RequestMethod.POST)
-	public void addDeveloper(HttpServletRequest request, HttpServletResponse response) throws IOException{
+	@RequestMapping(value = "/addMember.do", method = RequestMethod.POST)
+	public void addMember(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
 		logMgr.printLog(request);
 		
 		String appName = request.getParameter("appName");
-		String appUrl = request.getParameter("appUrl");
-		String appRedirectUrl = request.getParameter("appRedirectUrl");
-		String appType = "0";
+		String memberID = request.getParameter("memberID");
 		
 		Map<String, Object> result = null;
 		
 		HttpSession session = request.getSession(false);
 		String token = session.getAttribute("token").toString();
-		
-		String url = RestInfo.restURL+"/clients";
+
+		String url = RestInfo.restURL+"/teams/"+appName+"/members";
 		
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
 
-		vars.add("name", appName);
-		vars.add("url", appUrl);
-		vars.add("redirect_uri", appRedirectUrl);
-		vars.add("client_type", appType);
+		vars.add("member", memberID);
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization","token "+token);
@@ -237,9 +239,9 @@ public class MyAppsController {
 
 				JSONObject jsonObj = new JSONObject(result.get("result").toString());
 				obj.put("status", result.get("status").toString());
-				obj.put("msg", "Can use ID");
+				obj.put("msg", "Member add success");
 			}
-			else{
+			else {
 				obj.put("status", result.get("status").toString());
 				obj.put("msg", result.get("msg").toString());
 			}
