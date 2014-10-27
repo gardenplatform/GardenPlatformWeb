@@ -24,15 +24,15 @@
 			<!-- main area -->
 			<div class="col-xs-12 col-sm-9 content">
 				<div class="panel panel-default">
-				  <div class="panel-heading">WebSite</div>
+				  <div class="panel-heading"><h4 class="no_margin">틀</h4></div>
 				  <ul class="list-group">
 				    <li class="list-group-item">
 				    	<div class="form-group">
-					    	<label class="control-label">Site URL</label>
+					    	<label class="control-label">틀</label>
 					    	<input type="text" class="form-control">
 					    </div>
 					    <div class="form-group">
-					    	<label class="control-label">Redirect URL</label>
+					    	<label class="control-label">니</label>
 					    	<input type="text" class="form-control">
 						</div>
 				    </li>

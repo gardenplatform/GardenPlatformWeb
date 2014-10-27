@@ -24,22 +24,23 @@
 			<!-- main area -->
 			<div class="col-xs-12 col-sm-9 content">
 				<div class="panel panel-default">
-				  <div class="panel-heading">App info</div>
+				  <div class="panel-heading"><h4 class="no_margin">App info</h4></div>
 				  <ul class="list-group">
-				    <li class="list-group-item">App Center.</li>
 				    <li class="list-group-item">
-				    	<div class="row">
-				    		<div class="col-xs-6 col-md-6">
-				    		<label class="control-label">Short Description</label>
-				    			<input type="text" class="form-control">
-				    		</div>
-				    		<div class="col-xs-6 col-md-6">
-				    		<label class="control-label">라벨</label>
-				    			<input type="text" class="form-control">
-				    		</div>
-				    	</div>
+				    	<div class="form-group">
+					    	<label class="control-label">URL</label>
+					    	<input id="app_url" type="text" class="form-control" value="${appUrl}">
+						</div>
+					    <div class="form-group">
+					    	<label class="control-label">Redirect URL</label>
+					    	<input id="app_redirecturl" type="text" class="form-control" value="${appRedirectUrl}">
+						</div>
 				    </li>
 				  </ul>
+				  <div class="panel-footer">
+					<button type="button" class="btn btn-primary btn-sm" id="update_detail">수정</button>
+				  	<button type="button" class="btn btn-default btn-sm">취소</button>
+				  </div>
 				</div>
 			</div>
 		</div>

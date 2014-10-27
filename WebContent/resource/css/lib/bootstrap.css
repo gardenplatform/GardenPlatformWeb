@@ -5830,6 +5830,9 @@ a.list-group-item.active:focus .list-group-item-text {
   border-top: 1px solid #dddddd;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+ 
+  /*custom*/
+  text-align: right;
 }
 
 .panel-group .panel {
