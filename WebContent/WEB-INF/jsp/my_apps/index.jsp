@@ -45,7 +45,7 @@
 										<div class="col-md-7">
 											<label class="control-label">App Secret</label>
 											<div class="input-group">
-												<input id="app_secret" type="text" class="form-control" disabled="disabled" value="*******">
+												<input id="app_secret" type="password" class="form-control" disabled="disabled" value="${appSecret}">
 												<span class="input-group-btn">
 													<button class="btn btn-default" type="button" id="app_secret_show">Show</button>
 											    </span>
