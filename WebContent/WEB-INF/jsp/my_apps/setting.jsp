@@ -17,8 +17,8 @@
 				<ul class="snb nav">
 					<li><a href="/GardenPlatformWeb/my_apps/index.do?appName=${appName}"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
 					<li><a href="/GardenPlatformWeb/my_apps/apps_detail.do"><span class="glyphicon glyphicon-time"></span> App Detail</a></li>
-					<li class="active"><a href="/GardenPlatformWeb/my_apps/setting.do"><span class="glyphicon glyphicon-cog"></span> Setting</a></li>
 					<li><a href="/GardenPlatformWeb/my_apps/roles.do"><span class="glyphicon glyphicon-user"></span> Roles</a></li>
+					<li class="active"><a href="/GardenPlatformWeb/my_apps/setting.do"><span class="glyphicon glyphicon-cog"></span> Setting</a></li>
 				</ul>
 			</div>
 			<!-- main area -->
