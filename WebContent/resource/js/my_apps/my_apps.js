@@ -18,8 +18,15 @@ $('#app_secret_show').click(function(){
 	}
 });
 
+
+//index
+
+//app detail
+
+//roles
 $('#add_developer').click(function(){
 	var findid = $('#findid').val();
 	console.log(findid);
 });
 
+//setting

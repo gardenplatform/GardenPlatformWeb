@@ -7,3 +7,19 @@
 div.form {
 	max-width: 600px;
 }
+
+.ellipsis {
+    width: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+}
+
+.ellipsis-suv {
+	width: 137px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+}
