@@ -13,7 +13,15 @@
 		<div class="row row-offcanvas row-offcanvas-left">
 			<!-- sidebar -->
 			<div class="col-xs-5 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
-				<h4 id="appName">${appName}</h4>
+				<ul class="snb nav">
+					<li><a href="#" data-toggle="collapse" data-target="#sub1"><b class="ellipsis"><span class="glyphicon glyphicon-list-alt"></span> ${appName} <span class="caret"></span></b></a>
+						<ul class="nav collapse" id="sub1">
+							<c:forEach var="item" items="${sessionScope.appList}">
+                            	<li><a class="ellipsis-suv" href="/GardenPlatformWeb/my_apps/index.do?appName=${item}">${item}</a></li>
+						    </c:forEach>
+						</ul>
+					</li>
+				</ul>
 				<ul class="snb nav">
 					<li><a href="/GardenPlatformWeb/my_apps/index.do?appName=${appName}"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
 					<li><a href="/GardenPlatformWeb/my_apps/apps_detail.do?appName=${appName}"><span class="glyphicon glyphicon-time"></span> App Detail</a></li>
