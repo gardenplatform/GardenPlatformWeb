@@ -19,8 +19,7 @@ $('#app_secret_show').click(function(){
 });
 
 $('#add_developer').click(function(){
-	var appName = $('#appName').text();
-	
-	
+	var findid = $('#findid').val();
+	console.log(findid);
 });
 

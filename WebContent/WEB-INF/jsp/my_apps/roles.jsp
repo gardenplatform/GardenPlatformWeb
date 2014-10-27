@@ -40,7 +40,7 @@
 				  </ul>
 				</div>
 				<div class="panel panel-default">
-				  <div class="panel-heading"><h4 class="no_margin">Developers<button class="btn btn-default btn-xs pull-right" type="button" id="add_developer">Add Developers</button></h4></div>
+				  <div class="panel-heading"><h4 class="no_margin">Developers<button class="btn btn-default btn-xs pull-right" type="button" data-toggle="modal" data-target="#add_developer_modal">Add Developers</button></h4></div>
 				  <ul class="list-group">
 				    <li class="list-group-item">
 				    	<div class="media">
@@ -58,6 +58,23 @@
 		</div>
 		<!-- /.col-xs-12 main -->
 	</div><!--/.row-->
+
+		<div class="modal fade" id="add_developer_modal">
+		    <div class="modal-dialog modal-vertical-centered">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <h4 class="modal-title">Add Developers</h4>
+		            </div>
+		            <div class="modal-body">
+						<input class="form-control" id="findid" type="text" placeholder="user id">
+		            </div>
+		            <div class="modal-footer">
+	                	<button class="btn btn-mint" type="button" id="add_developer">추가</button>  
+		                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+		            </div>
+		        </div>
+		    </div>
+		</div>
 
 	<script src="/GardenPlatformWeb/resource/js/my_apps/my_apps.js"></script>
 </body>
