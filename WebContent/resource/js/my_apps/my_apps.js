@@ -5,11 +5,9 @@ $(document).ready(function(){
 });
 
 $('#app_secret_show').click(function(){
-<<<<<<< HEAD
 	//show 눌리면 App Secret 지우고 그안에 값 넣어주셈
 	$('#app_secret').val("1234");
 	//$('#app_secret').addClass("hidden");
-=======
 	var appSecretInputTag = $('#app_secret');
 
 	if(appSecretInputTag.attr("type")=="password") {
@@ -22,5 +20,4 @@ $('#app_secret_show').click(function(){
 		$('#app_secret_show').text("Show");
 	}
 	
->>>>>>> 49489023a663d96c1573a8c85aae00214fa32efd
 });
