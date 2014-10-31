@@ -34,9 +34,8 @@
 			<div class="col-xs-12 col-sm-9 content">
 				<div class="panel panel-default">
 				  <div class="panel-heading"><h4 class="no_margin">Project Leader</h4></div>
-				  <ul class="list-group">
-				    <li class="list-group-item">
-				    	<div class="media">
+				  <div class="panel-body">
+				  	<div class="media">
 					      <a class="pull-left" href="#">
 					        <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/p50x50/10641274_727231190703971_7622922369219706929_n.jpg?oh=be0fa48dec6ea450bb12670ae01438b2&amp;oe=54AFFF2F&amp;__gda__=1423917107_a57e6875d154889b3a00d7ebaee7f3ad" style="width: 64px; height: 64px;">
 					      </a>
@@ -44,14 +43,13 @@
 					        <h4 class="media-heading" id="pl_name">${owner}</h4>
 					      </div>
 					    </div>
-				    </li>
-				  </ul>
+				  </div>
+				  
 				</div>
 				<div class="panel panel-default">
 				  <div class="panel-heading"><h4 class="no_margin">Developers<button class="btn btn-default btn-xs pull-right" type="button" data-toggle="modal" data-target="#add_developer_modal">Add Developers</button></h4></div>
-				  <ul class="list-group">
-				    <li class="list-group-item">
-					    <c:forEach var="item" items="${developerList}">
+				  <div class="panel-body">
+				  	 <c:forEach var="item" items="${developerList}">
                         <div class="media">
 					      <a class="pull-left" href="#">
 					        <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/p50x50/10641274_727231190703971_7622922369219706929_n.jpg?oh=be0fa48dec6ea450bb12670ae01438b2&amp;oe=54AFFF2F&amp;__gda__=1423917107_a57e6875d154889b3a00d7ebaee7f3ad" style="width: 64px; height: 64px;">
@@ -61,8 +59,7 @@
 					      </div>
 					    </div>
 					    </c:forEach>
-				    </li>
-				  </ul>
+				  </div>
 				</div>
 			</div>
 		</div>

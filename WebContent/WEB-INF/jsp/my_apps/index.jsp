@@ -33,14 +33,15 @@
 
 			<!-- main area -->
 			<div class="col-xs-12 col-sm-9 content">
+			
 				<div class="panel panel-default">
-				  <div class="panel-heading"><h4 class="no_margin">Dashboard</h4></div>
-				  <ul class="list-group">
-				    <li class="list-group-item">
-				    	<div class="form-group">
-					    	<div class="media">
+				  <div class="panel-heading">
+				  	<h4 class="no_margin">Dashboard</h4>
+				  </div>
+				  <div class="panel-body">
+				  	<div class="media">
 								<a class="pull-left" href="#"> 
-									<img class="media-object myapps-img" src="https://fbcdn-photos-c-a.akamaihd.net/hphotos-ak-xpa1/t39.2081-0/p128x128/851578_455087414601994_1601110696_n.png">
+									<img class="media-object myapps-img" src="/GardenPlatformWeb/resource/img/dashboard_default_img.png">
 								</a>
 								<div class="media-body">
 									<h2 class="media-heading">${appName}</h2>
@@ -64,18 +65,16 @@
 									</div>
 								</div>
 							</div>
-					    </div>
-					    <div class="form-group">
-					    	<label class="control-label">URL</label>
-					    	<input id="app_url" type="text" class="form-control" value="${appUrl}">
-						</div>
-					    <div class="form-group">
-					    	<label class="control-label">Redirect URL</label>
-					    	<input id="app_redirecturl" type="text" class="form-control" value="${appRedirectUrl}">
-						</div>
-				    </li>
-				  </ul>
+				  		</div>
 				</div>
+				
+				<div class="panel panel-default">
+					<div class="panel-body">
+				   	 <h3 class="no_margin">Getting Start</h3>
+				   	 <button class="btn btn-default pull-right">Getting Started</button>
+				  	</div>
+				</div>
+				
 			</div>
 		</div>
 		<!-- /.col-xs-12 main -->
