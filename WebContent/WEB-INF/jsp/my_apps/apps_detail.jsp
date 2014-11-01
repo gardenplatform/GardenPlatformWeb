@@ -45,10 +45,15 @@
 						</div>
 				    </li>
 				  </ul>
-				  <div class="panel-footer">
-					<button type="button" class="btn btn-primary btn-sm" id="update_detail">수정</button>
-				  	<button type="button" class="btn btn-default btn-sm">취소</button>
-				  </div>
+				</div>
+				
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="btn-pull-right">
+							<button class="btn btn-primary btn-sm" id="detail_update">수정</button>
+							<a href="/GardenPlatformWeb/my_apps/apps_detail.do?appName=${appName}"><button class="btn btn-default btn-sm" >취소</button></a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

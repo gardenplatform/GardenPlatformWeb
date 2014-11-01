@@ -23,6 +23,7 @@ $('#app_secret_show').click(function(){
 
 //app detail
 
+
 //roles
 $('#add_developer').click(function(){
 	
@@ -56,3 +57,10 @@ $('#add_developer').click(function(){
 });
 
 //setting
+$('#setting_update').click(function(){
+	//Setting update
+});
+
+$('#deleteApp').click(function(){
+	//Setting update
+});

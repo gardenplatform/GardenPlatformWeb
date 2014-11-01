@@ -23,3 +23,7 @@ div.form {
     white-space: nowrap;
     display: block;
 }
+
+.btn-pull-right {
+	text-align: right;
+}

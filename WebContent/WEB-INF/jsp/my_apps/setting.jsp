@@ -46,6 +46,16 @@
 				    </li>
 				  </ul>
 				</div>
+				
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<button class="btn btn-danger btn-sm pull-left" id="deleteApp">Delete App</button>
+						<div class="btn-pull-right">
+							<button class="btn btn-primary btn-sm" id="setting_update">수정</button>
+							<a href="/GardenPlatformWeb/my_apps/setting.do?appName=${appName}"><button class="btn btn-default btn-sm" >취소</button></a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<!-- /.col-xs-12 main -->

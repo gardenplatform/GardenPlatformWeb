@@ -119,8 +119,8 @@
            				</form>
 		            </div>
 		            <div class="modal-footer">
-		                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 	                	<button class="btn btn-mint" type="button" id="signupBtn" disabled="disabled">가입</button>  
+		                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 		            </div>
 		        </div>
 		    </div>

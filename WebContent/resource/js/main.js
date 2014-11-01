@@ -225,7 +225,7 @@
 		var pwd = $('#signinPwd').val();
 		
 		if(id  == "" || pwd  == "") {	
-			console.log("All fileds are required.");
+			setError("아이디와 비밀번호를 입력해주세요.");
 		}
 		else {
 			signin(id,pwd);
