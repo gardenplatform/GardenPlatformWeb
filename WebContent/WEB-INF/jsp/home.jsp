@@ -13,12 +13,14 @@
 		
 			<form method=get action="http://www.google.co.kr/search" target="_blank" >
 				<div class="input-group">
-			      <input id="search_input" type="text" class="form-control" name=q size=20 maxlength=255 value="">
+			      <input id="search_input" type="text" class="form-control" name=q maxlength=255 value="">
 			      <span class="input-group-btn">
-			        <button id="google_search" class="btn btn-default" type="submit" name=btnG>Google 검색</button>
+			        <button class="btn btn-default" type="submit" name=btnG id="google_search">Google 검색</button>
 			      </span>
 			    </div>
 		    </form>
+		   
+		    
 		    <br>
 		    <br>
 		    
