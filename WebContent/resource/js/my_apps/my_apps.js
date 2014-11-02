@@ -22,7 +22,26 @@ $('#app_secret_show').click(function(){
 //index
 
 //app detail
-
+$('#detail_update').click(function(){
+	var tag1 = $('#tag1').val();
+	var tag2 = $('#tag2').val();
+	var tag3 = $('#tag3').val();
+	
+	var short_desc = $('#short_desc').val();
+	var long_desc = $('#long_desc').val();
+	var category = $('#category').val();
+	var permissions = $('#permissions').val();
+	
+	console.log(tag1);
+	console.log(tag2);
+	console.log(tag3);
+	console.log(short_desc);
+	console.log(long_desc);
+	console.log(category);
+	console.log(permissions);
+	
+	
+});
 
 //roles
 $('#add_developer').click(function(){

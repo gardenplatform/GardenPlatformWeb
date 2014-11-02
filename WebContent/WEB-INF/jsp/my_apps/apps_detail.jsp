@@ -33,18 +33,58 @@
 			<div class="col-xs-12 col-sm-9 content">
 				<div class="panel panel-default">
 				  <div class="panel-heading"><h4 class="no_margin">App info</h4></div>
-				  <ul class="list-group">
-				    <li class="list-group-item">
-				    	<div class="form-group">
-					    	<label class="control-label">URL</label>
-					    	<input id="app_url" type="text" class="form-control" value="${appUrl}">
-						</div>
-					    <div class="form-group">
-					    	<label class="control-label">Redirect URL</label>
-					    	<input id="app_redirecturl" type="text" class="form-control" value="${appRedirectUrl}">
-						</div>
-				    </li>
-				  </ul>
+				  <div class="panel-body">
+				  <div class="form-group">
+				  	<div class="row">
+				  		<div class="col-md-4">
+				  			<label class="control-label">Tag1</label>
+					    	<input id="tag1" type="text" class="form-control" value="${Tag1}">
+				  		</div>
+				  		<div class="col-md-4">
+				  			<label class="control-label">Tag2</label>
+					    	<input id="tag2" type="text" class="form-control" value="${Tag3}">
+				  		</div>
+				  		<div class="col-md-4">
+				  			<label class="control-label">Tag3</label>
+					    	<input id="tag3" type="text" class="form-control" value="${Tag3}">
+				  		</div>
+				  	</div>
+				  </div>	
+				  
+				  <div class="form-group">
+				  	<div class="row">
+				  		<div class="col-md-6">
+				  			<label class="control-label">Short Description</label>
+					    	<input id="short_desc" type="text" class="form-control" value="${short_description}">
+					    	
+					    	<label class="control-label">Category</label>
+						    	<select class="form-control" id="category">
+						    	  <option>카테고리를 선택하세요</option>
+								  <option>Apps for Pages</option>
+								  <option>Books</option>
+								  <option>Business</option>
+								  <option>Communication</option>
+								  <option>Education</option>
+								  <option>Entertainment</option>
+								  <option>기타</option>
+								</select>
+				  		</div>
+				  		
+				  		<div class="col-md-6">
+				  			<label class="control-label">Long Description</label>
+					    	<textarea id="long_desc" class="form-control" rows="4"></textarea>
+				  		</div>
+				  		
+				  	</div>
+				  </div>
+				  
+				  <div class="form-group">
+				  	<label class="control-label">Explanation for Permissions</label>
+					<textarea id="permissions" class="form-control" rows="4"></textarea>
+				  </div>
+				  
+				  </div>
+				  
 				</div>
 				
 				<div class="panel panel-default">
