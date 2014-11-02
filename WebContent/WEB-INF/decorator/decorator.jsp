@@ -122,24 +122,42 @@
 							<span id="appname_success" class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
 							<span id="appname_fail" class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
 						</div>
-						
+						 
 						<div id="appurl_div" class="form-group has-feedback">
 							<label class="control-label">URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="사용할 App의 이름"></span></label>
-							<input id="appUrl" class="form-control" type="tel" placeholder="www.snac.org"></input>
+							<div class="input-group">
+								<div class="input-group-btn">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="type">http://</button>
+							        <ul class="dropdown-menu" id="typedropdown">
+							          <li><a href="#">http://</a></li>
+							          <li><a href="#">https://</a></li>
+							        </ul>
+								</div>
+								<input id="appUrl" class="form-control" type="tel" placeholder="www.snac.org"></input>
+							</div>
 							<span id="appurl_success" class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
 							<span id="appurl_fail" class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
 						</div>
 						
 						<div id="reurl_div" class="form-group has-feedback">
 							<label class="control-label">Redirect URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="사용할 App의 이름"></span></label>
-							<input id="reUrl" class="form-control" type="tel" placeholder="redirect URL"></input>
+							<div class="input-group">
+								<div class="input-group-btn">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="re_type">http://</button>
+							        <ul class="dropdown-menu" id="re_typedropdown">
+							          <li><a href="#">http://</a></li>
+							          <li><a href="#">https://</a></li>
+							        </ul>
+								</div>
+								<input id="reUrl" class="form-control" type="tel" placeholder="redirect URL"></input>
+							</div>
 							<span id="reurl_success" class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
-							<span id="reurl_fail"class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
+							<span id="reurl_fail" class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
 						</div>
 						
 		            </div>
 		            <div class="modal-footer">
-	                	<button class="btn btn-mint" type="button" id="btn_web_register">등록</button>  
+	                	<button class="btn btn-mint" type="button" id="btn_web_register" disabled="disabled">등록</button>  
 		                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 		            </div>
 		        </div>

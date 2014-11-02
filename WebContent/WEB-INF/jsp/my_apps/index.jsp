@@ -38,34 +38,49 @@
 				  <div class="panel-heading">
 				  	<h4 class="no_margin">Dashboard</h4>
 				  </div>
-				  <div class="panel-body">
-				  	<div class="media">
-								<a class="pull-left" href="#"> 
-									<img class="media-object myapps-img" src="/GardenPlatformWeb/resource/img/dashboard_default_img.png">
-								</a>
-								<div class="media-body">
-									<h2 class="media-heading">${appName}</h2>
-									<h4>
-										<small>This app is public and available to all users.</small>
-									</h4>
-									<div class="row">
-										<div class="col-md-5">
-											<label class="control-label">App ID</label>
-											<input id="app_id" type="text" class="form-control" disabled="disabled" value="${appID}">
-										</div>
-										<div class="col-md-7">
-											<label class="control-label">App Secret</label>
-											<div class="input-group">
-												<input id="app_secret" type="password" class="form-control" disabled="disabled" value="${appSecret}">
-												<span class="input-group-btn">
-													<button class="btn btn-default" type="button" id="app_secret_show">Show</button>
-											    </span>
-											</div>
+					<div class="panel-body">
+						<div class="media">
+							<a class="pull-left" href="#"> <img
+								class="media-object myapps-img"
+								src="/GardenPlatformWeb/resource/img/dashboard_default_img.png">
+							</a>
+							<div class="media-body">
+								<h2 class="media-heading">${appName}</h2>
+								<h4>
+									<small>This app is public and available to all users.</small>
+								</h4>
+								<div class="row">
+									<div class="col-md-5">
+										<label class="control-label">App ID</label> <input id="app_id"
+											type="text" class="form-control" disabled="disabled"
+											value="${appID}">
+									</div>
+									<div class="col-md-7">
+										<label class="control-label">App Secret</label>
+										<div class="input-group">
+											<input id="app_secret" type="password" class="form-control"
+												disabled="disabled" value="${appSecret}"> <span
+												class="input-group-btn">
+												<button class="btn btn-default" type="button"
+													id="app_secret_show">Show</button>
+											</span>
 										</div>
 									</div>
 								</div>
 							</div>
-				  		</div>
+						</div>
+					</div>
+					
+					<div class="panel-body">
+				    	<div class="form-group">
+					    	<label class="control-label">URL</label>
+					    	<input id="app_url" type="text" class="form-control" value="${appUrl}">
+						</div>
+					    <div class="form-group">
+					    	<label class="control-label">Redirect URL</label>
+					    	<input id="app_redirecturl" type="text" class="form-control" value="${appRedirectUrl}">
+						</div>
+					</div>
 				</div>
 				
 				<div class="panel panel-default">

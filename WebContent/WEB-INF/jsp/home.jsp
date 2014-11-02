@@ -10,6 +10,18 @@
 
     <body>
 		<div class="container">
+		
+			<form method=get action="http://www.google.co.kr/search" target="_blank" >
+				<div class="input-group">
+			      <input id="search_input" type="text" class="form-control" name=q size=20 maxlength=255 value="">
+			      <span class="input-group-btn">
+			        <button id="google_search" class="btn btn-default" type="submit" name=btnG>Google 검색</button>
+			      </span>
+			    </div>
+		    </form>
+		    <br>
+		    <br>
+		    
 			<div class="row">
 				<div class="col-xs-6 col-md-3">
 					<a href="#" class="thumbnail"> <img
@@ -98,5 +110,7 @@
 			</div>
 	
 		</div>
+		
+		<script src="/GardenPlatformWeb/resource/js/home.js"></script>
 </body>
 </html>

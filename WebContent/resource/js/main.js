@@ -147,7 +147,6 @@
 	
 	$('#genderdropdown li a').click(function(){
 		$('#inputgender').html($(this).html());
-		console.log($('#inputgender').html());
 	});
 	
 	function toggleButton(){
