@@ -52,10 +52,11 @@
 					</div>
 					
 					<div class="form-group">
-					    <label class="control-label">출시</label>
+					    <label class="control-label">출시(이건 아직 하는중 script 짜서 해놈 ㄱㄷ)</label>
 					    <p>
 					    <input id="switch-state" type="checkbox" checked>
 					    </p>
+					    <button type="button" data-get="state" class="btn btn-default">Switch 상태 보기</button>
 					</div>
 				  </div>
 				</div>
