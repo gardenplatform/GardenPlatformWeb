@@ -151,7 +151,14 @@ $('#index_app_redirecturl').keyup(function(){
 	 toggle_update_Button();
 });
 
-
+function toggle_update_Button(){
+	if(reurl_ok && url_ok){
+		$('#index_update').removeAttr('disabled');
+	}
+	else{
+		$('#index_update').attr('disabled', 'disabled');
+	}
+}
 
 // ---------------------------------------------- roles
 $('#add_developer').click(function(){

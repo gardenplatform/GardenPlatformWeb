@@ -124,7 +124,7 @@
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div class="btn-pull-right">
-							<button class="btn btn-primary btn-sm" id="index_update">수정</button>
+							<button class="btn btn-primary btn-sm" id="index_update" disabled="disabled">수정</button>
 							<a href="/GardenPlatformWeb/my_apps/index.do?appName=${appName}"><button class="btn btn-default btn-sm" >취소</button></a>
 						</div>
 					</div>
