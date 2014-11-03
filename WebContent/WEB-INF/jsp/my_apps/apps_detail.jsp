@@ -14,7 +14,7 @@
 			<!-- sidebar -->
 			<div class="col-xs-5 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
 				<ul class="snb nav">
-					<li><a href="#" data-toggle="collapse" data-target="#sub1"><b class="ellipsis"><span class="glyphicon glyphicon-list-alt"></span> ${appName} <span class="caret"></span></b></a>
+					<li><a href="#" data-toggle="collapse" data-target="#sub1" id="appName"><b class="ellipsis"><span class="glyphicon glyphicon-list-alt"></span>${appName}<span class="caret"></span></b></a>
 						<ul class="nav collapse" id="sub1">
 							<c:forEach var="item" items="${sessionScope.appList}">
                             	<li><a class="ellipsis-suv" href="/GardenPlatformWeb/my_apps/index.do?appName=${item}">${item}</a></li>
@@ -38,15 +38,15 @@
 				  	<div class="row">
 				  		<div class="col-md-4">
 				  			<label class="control-label">Tag1</label>
-					    	<input id="tag1" type="text" class="form-control" value="${Tag1}">
+					    	<input id="tag1" type="text" class="form-control" value="${tag1}">
 				  		</div>
 				  		<div class="col-md-4">
 				  			<label class="control-label">Tag2</label>
-					    	<input id="tag2" type="text" class="form-control" value="${Tag3}">
+					    	<input id="tag2" type="text" class="form-control" value="${tag2}">
 				  		</div>
 				  		<div class="col-md-4">
 				  			<label class="control-label">Tag3</label>
-					    	<input id="tag3" type="text" class="form-control" value="${Tag3}">
+					    	<input id="tag3" type="text" class="form-control" value="${tag3}">
 				  		</div>
 				  	</div>
 				  </div>	
@@ -72,7 +72,7 @@
 				  		
 				  		<div class="col-md-6">
 				  			<label class="control-label">Long Description</label>
-					    	<textarea id="long_desc" class="form-control" rows="4"></textarea>
+					    	<textarea id="long_desc" class="form-control" rows="4">${long_description}</textarea>
 				  		</div>
 				  		
 				  	</div>
@@ -80,7 +80,7 @@
 				  
 				  <div class="form-group">
 				  	<label class="control-label">Explanation for Permissions</label>
-					<textarea id="permissions" class="form-control" rows="4"></textarea>
+					<textarea id="permissions" class="form-control" rows="4">${permission_explanation}</textarea>
 				  </div>
 				  
 				  </div>

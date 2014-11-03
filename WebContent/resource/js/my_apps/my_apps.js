@@ -23,22 +23,47 @@ $('#app_secret_show').click(function(){
 
 //app detail
 $('#detail_update').click(function(){
+
+	var appName = $('#appName').text(); 
 	var tag1 = $('#tag1').val();
 	var tag2 = $('#tag2').val();
 	var tag3 = $('#tag3').val();
 	
-	var short_desc = $('#short_desc').val();
-	var long_desc = $('#long_desc').val();
+	var short_description = $('#short_desc').val();
+	var long_description = $('#long_desc').val();
 	var category = $('#category').val();
-	var permissions = $('#permissions').val();
+	var permission_explanation = $('#permissions').val();
 	
-	console.log(tag1);
-	console.log(tag2);
-	console.log(tag3);
-	console.log(short_desc);
-	console.log(long_desc);
-	console.log(category);
-	console.log(permissions);
+	var data = {
+			appName : appName,
+			tag1    : tag1,
+			tag2    : tag2,
+			tag3    : tag3,
+			short_description   : short_description,
+			long_description   : long_description,
+			category   : category,
+			permission_explanation   : permission_explanation
+	};
+	
+	console.log(data);
+	$.ajax({
+		type : "POST",
+		url : "/GardenPlatformWeb/postAppDetail.do",
+		data : data,
+		success : function(data) {
+			var obj = jQuery.parseJSON(data);
+			if(obj.status=="success") {
+				setSuccess(obj.msg);
+				//location.href="/GardenPlatformWeb/my_apps/roles.do?appName="+appName;
+			}
+			else{
+				setError(obj.msg);
+			}
+		},
+		error : function(xhr, status, error) {
+			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+		}
+	});
 	
 	
 });
@@ -53,7 +78,6 @@ $('#add_developer').click(function(){
 			appName    : appName,
 			memberID   : memberID
 	};
-	
 	$.ajax({
 		type : "POST",
 		url : "/GardenPlatformWeb/addMember.do",

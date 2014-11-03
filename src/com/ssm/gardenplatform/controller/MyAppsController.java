@@ -87,10 +87,55 @@ public class MyAppsController {
 		
 		logMgr.printLog(request);
 
+		/*
 		String appName = request.getParameter("appName");
 		
 		ModelAndView mav = new ModelAndView("/my_apps/apps_detail");
 		mav.addObject("appName", appName);
+		return mav;
+		*/
+		
+		logMgr.printLog(request);
+
+		String appName = request.getParameter("appName");
+		
+		Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+		String token = session.getAttribute("token").toString();
+		
+		String url = RestInfo.restURL+"/clients/"+appName+"/details";
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		result = restMgr.getWithHeader(url, vars, headers);
+		
+		ModelAndView mav = new ModelAndView();
+		if(result.get("status").equals("error")){
+			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
+		}
+		else {
+			mav.setViewName("/my_apps/apps_detail");
+			try {
+				JSONObject jsonObj = new JSONObject(result.get("result").toString());
+				mav.addObject("appName", appName);
+				mav.addObject("tag1", jsonObj.get("tag1"));
+				mav.addObject("tag2", jsonObj.get("tag2"));
+				mav.addObject("tag3", jsonObj.get("tag3"));
+				mav.addObject("category", jsonObj.get("category"));
+				mav.addObject("short_description", jsonObj.get("short_description"));
+				mav.addObject("long_description", jsonObj.get("long_description"));
+				mav.addObject("permission_explanation", jsonObj.get("permission_explanation"));
+				
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}
 		return mav;
 	}
 	
@@ -146,7 +191,6 @@ public class MyAppsController {
 					else {
 						developerList.add(jsonObj.get("member").toString());
 					}
-					//System.out.println(jsonObj.get("member").toString());
 				}
 				mav.addObject("developerList", developerList);
 				
@@ -227,6 +271,64 @@ public class MyAppsController {
 
 		vars.add("member", memberID);
 
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		result = restMgr.postWithHeader(url, vars, headers);
+		
+		JSONObject obj = new JSONObject();
+		try {
+			if(result.get("status").toString().equals("success")) {
+
+				JSONObject jsonObj = new JSONObject(result.get("result").toString());
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", "Member add success");
+			}
+			else {
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", result.get("msg").toString());
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		PrintWriter writer = response.getWriter();
+		writer.write(obj.toString());
+	}
+	
+	
+	@RequestMapping(value = "/postAppDetail.do", method = RequestMethod.POST)
+	public void postAppDetail(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		logMgr.printLog(request);
+
+		String appName = request.getParameter("appName");
+		String tag1 = request.getParameter("tag1");
+		String tag2 = request.getParameter("tag2");
+		String tag3 = request.getParameter("tag3");
+		String short_description = request.getParameter("short_description");
+		String long_description = request.getParameter("long_description");
+		String category = request.getParameter("category");
+		String permission_explanation = request.getParameter("permission_explanation");
+		
+		Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+		String token = session.getAttribute("token").toString();
+
+		String url = RestInfo.restURL+"/clients/"+appName+"/details";
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+
+		vars.add("tag1", tag1);
+		vars.add("tag2", tag2);
+		vars.add("tag3", tag3);
+		vars.add("short_description", short_description);
+		vars.add("long_description", long_description);
+		vars.add("category", category);
+		vars.add("permission_explanation", permission_explanation);
+		
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
