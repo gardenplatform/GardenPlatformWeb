@@ -72,24 +72,71 @@
 					</div>
 					
 					<div class="panel-body">
+					
+					<!-- 
 				    	<div class="form-group">
 					    	<label class="control-label">URL</label>
 					    	<input id="app_url" type="text" class="form-control" value="${appUrl}">
 						</div>
+					 -->
+						
+						<div id="index_appurl_div" class="form-group has-feedback">
+							<label class="control-label">URL</label>
+							<div class="input-group">
+								<div class="input-group-btn">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="index_type">http://</button>
+							        <ul class="dropdown-menu" id="index_typedropdown">
+							          <li><a href="#">http://</a></li>
+							          <li><a href="#">https://</a></li>
+							        </ul>
+								</div>
+								<input id="index_app_url" class="form-control" value="${appUrl}"></input>
+							</div>
+							<span id="index_appurl_success" class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
+							<span id="index_appurl_fail" class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
+						</div>
+
+						<!-- 
 					    <div class="form-group">
 					    	<label class="control-label">Redirect URL</label>
 					    	<input id="app_redirecturl" type="text" class="form-control" value="${appRedirectUrl}">
+						</div>
+						 -->
+						
+						<div id="index_reurl_div" class="form-group has-feedback">
+							<label class="control-label">Redirect URL </label>
+							<div class="input-group">
+								<div class="input-group-btn">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="index_re_type">http://</button>
+							        <ul class="dropdown-menu" id="index_re_typedropdown">
+							          <li><a href="#">http://</a></li>
+							          <li><a href="#">https://</a></li>
+							        </ul>
+								</div>
+								<input id="index_app_redirecturl" class="form-control" value="${appRedirectUrl}"></input>
+							</div>
+							<span id="index_reurl_success" class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
+							<span id="index_reurl_fail" class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
 						</div>
 					</div>
 				</div>
 				
 				<div class="panel panel-default">
 					<div class="panel-body">
+						<div class="btn-pull-right">
+							<button class="btn btn-primary btn-sm" id="index_update">수정</button>
+							<a href="/GardenPlatformWeb/my_apps/index.do?appName=${appName}"><button class="btn btn-default btn-sm" >취소</button></a>
+						</div>
+					</div>
+				</div>
+				<!-- 
+				<div class="panel panel-default">
+					<div class="panel-body">
 				   	 <h3 class="no_margin">Getting Start</h3>
 				   	 <button class="btn btn-default pull-right">Getting Started</button>
 				  	</div>
 				</div>
-				
+				 -->
 			</div>
 		</div>
 		<!-- /.col-xs-12 main -->

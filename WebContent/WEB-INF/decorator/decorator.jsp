@@ -118,7 +118,7 @@
 		            	
 		            	<div id="appname_div" class="form-group has-feedback">
 							<label class="control-label">App Name <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="사용할 App의 이름을 입력해야 합니다. 중복된 이름은 등록할 수 없습니다."></span></label>
-							<input id="appName" class="form-control" placeholder="Snac"></input>
+							<input id="appname_check" class="form-control" placeholder="Snac"></input>
 							<span id="appname_success" class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
 							<span id="appname_fail" class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
 						</div>

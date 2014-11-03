@@ -19,9 +19,16 @@ $('#app_secret_show').click(function(){
 });
 
 
-//index
+// ----------------------------------------- index
+$('#index_update').click(function(){
+	var url = $('#app_url').val();
+	var re_url = $('#app_redirecturl').val();
+	//업뎃하셈
+});
 
-//app detail
+
+
+// --------------------------------------------- app detail
 $('#detail_update').click(function(){
 
 	var appName = $('#appName').text(); 
@@ -49,7 +56,6 @@ $('#detail_update').click(function(){
 
 	if(category_index === 0) {
 		setError("카테고리를 선택하세요");
-		alert("카테고리를 선택하세요");
 	}
 	else {
 		$.ajax({
@@ -59,8 +65,10 @@ $('#detail_update').click(function(){
 			success : function(data) {
 				var obj = jQuery.parseJSON(data);
 				if(obj.status=="success") {
-					setSuccess(obj.msg);
-					location.href = location.href;
+					setSuccess("수정이 완료되었습니다");
+					setTimeout(function(){
+						location.href = location.href;
+					}, 500);
 				}
 				else{
 					setError(obj.msg);
@@ -71,10 +79,81 @@ $('#detail_update').click(function(){
 			}
 		});
 	}
-	
 });
 
-//roles
+
+var url_ok = false;
+var reurl_ok = false;
+
+$('#index_app_url').keyup(function(){
+	 var appurl = $(this).val();
+	 
+	 var re = /^(https?:\/\/)?((([a-z\d](([a-z\d-]*[a-z\d]))|([ㄱ-힣])*)\.)+(([a-zㄱ-힣]{2,}))|((\d{1,3}\.){3}\d{1,3}))(\:\d+)?(\/[-a-z\d%_.~+]*)*(\?[;&a-z\d%_.~+=-]*)?(\#[-a-z\d_]*)?$/;
+
+	 if (appurl.length == 0){
+		 $('#index_appurl_div').removeClass('has-success');
+		 $('#index_appurl_div').removeClass('has-error');
+		 $('#index_appurl_success').addClass('hidden');
+		 $('#index_appurl_fail').addClass('hidden');
+		 $('#index_type').removeClass('btn-success');
+		 $('#index_type').removeClass('btn-danger');
+		 url_ok = false;
+    } else if (re.test(appurl)){
+   	$('#index_appurl_div').addClass('has-success');
+   	$('#index_appurl_success').removeClass('hidden');
+   	$('#index_appurl_fail').addClass('hidden');
+   	$('#index_type').addClass('btn-success');
+   	$('#index_type').removeClass('btn-danger');
+   	url_ok = true;
+    } 
+	 else {
+		$('#index_appurl_div').addClass('has-error');
+		$('#index_appurl_fail').removeClass('hidden');
+		$('#index_appurl_div').removeClass('has-success');
+		$('#index_appurl_success').addClass('hidden');
+		$('#index_type').addClass('btn-danger');
+		$('#index_type').removeClass('btn-success');
+		url_ok = false;
+	 }
+	 toggle_update_Button();
+});
+
+$('#index_app_redirecturl').keyup(function(){
+	 
+	 var reurl = $(this).val();
+	 var re = /^(https?:\/\/)?((([a-z\d](([a-z\d-]*[a-z\d]))|([ㄱ-힣])*)\.)+(([a-zㄱ-힣]{2,}))|((\d{1,3}\.){3}\d{1,3}))(\:\d+)?(\/[-a-z\d%_.~+]*)*(\?[;&a-z\d%_.~+=-]*)?(\#[-a-z\d_]*)?$/;
+
+	 if (reurl.length == 0){
+		 $('#index_reurl_div').removeClass('has-success');
+		 $('#index_reurl_div').removeClass('has-error');
+		 $('#index_reurl_success').addClass('hidden');
+		 $('#index_reurl_fail').addClass('hidden');
+		 $('#index_re_type').removeClass('btn-success');
+		 $('#index_re_type').removeClass('btn-danger');
+		 reurl_ok = false;
+    } else if (re.test(reurl)){
+   	$('#index_reurl_div').addClass('has-success');
+   	$('#index_reurl_success').removeClass('hidden');
+   	$('#index_reurl_fail').addClass('hidden');
+   	$('#index_re_type').addClass('btn-success');
+   	$('#index_re_type').removeClass('btn-danger');
+   	reurl_ok = true;
+    } 
+	 else {
+		$('#index_reurl_div').addClass('has-error');
+		$('#index_reurl_fail').removeClass('hidden');
+		$('#index_reurl_div').removeClass('has-success');
+		$('#index_reurl_success').addClass('hidden');
+		$('#index_re_type').addClass('btn-danger');
+		$('#index_re_type').removeClass('btn-success');
+		reurl_ok = false;
+	 }
+	 toggle_update_Button();
+});
+
+
+
+// ---------------------------------------------- roles
 $('#add_developer').click(function(){
 	
 	var appName = $('#appName').text(); 
@@ -105,7 +184,8 @@ $('#add_developer').click(function(){
 	
 });
 
-//setting
+//----------------------------------------------setting
+
 $('#setting_update').click(function(){
 	//Setting update
 });
@@ -114,7 +194,7 @@ $('#deleteApp').click(function(){
 	//Setting update
 });
 
-
+/*
 // 출시할때 checkbox 애니메이션 넣어줌
 $(function() {
 	  var $window = $(window);
@@ -178,3 +258,5 @@ $(function() {
 	    $('#switch-' + type).bootstrapSwitch(type, value);
 	  });
 	});
+*/
+
