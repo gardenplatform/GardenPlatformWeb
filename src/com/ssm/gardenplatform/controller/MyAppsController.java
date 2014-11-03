@@ -64,8 +64,17 @@ public class MyAppsController {
 			try {
 				JSONObject jsonObj = new JSONObject(result.get("result").toString());
 				mav.addObject("appName", jsonObj.get("name"));
-				mav.addObject("appUrl", jsonObj.get("url"));
-				mav.addObject("appRedirectUrl", jsonObj.get("redirect_uri"));
+				
+				if(jsonObj.get("url").toString().startsWith("https://"))
+					mav.addObject("appUrl", jsonObj.get("url").toString().replace("https://", ""));
+				else if(jsonObj.get("url").toString().startsWith("http://"))
+					mav.addObject("appUrl", jsonObj.get("url").toString().replace("http://", ""));
+
+				if(jsonObj.get("redirect_uri").toString().startsWith("https://"))
+					mav.addObject("appRedirectUrl", jsonObj.get("redirect_uri").toString().replace("https://", ""));
+				else if(jsonObj.get("redirect_uri").toString().startsWith("http://"))
+					mav.addObject("appRedirectUrl", jsonObj.get("redirect_uri").toString().replace("http://", ""));
+					
 				mav.addObject("appID", jsonObj.get("client_id"));
 				mav.addObject("appSecret", jsonObj.get("client_secret"));
 				
@@ -84,16 +93,6 @@ public class MyAppsController {
 	
 	@RequestMapping(value = "/my_apps/apps_detail.do", method = RequestMethod.GET)
 	public ModelAndView getMyapps_Apps_Detail(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
-		logMgr.printLog(request);
-
-		/*
-		String appName = request.getParameter("appName");
-		
-		ModelAndView mav = new ModelAndView("/my_apps/apps_detail");
-		mav.addObject("appName", appName);
-		return mav;
-		*/
 		
 		logMgr.printLog(request);
 
