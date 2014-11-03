@@ -34,6 +34,8 @@ $('#detail_update').click(function(){
 	var category = $('#category').val();
 	var permission_explanation = $('#permissions').val();
 	
+	var category_index = $("#category option").index($("#category option:selected"));
+
 	var data = {
 			appName : appName,
 			tag1    : tag1,
@@ -44,27 +46,31 @@ $('#detail_update').click(function(){
 			category   : category,
 			permission_explanation   : permission_explanation
 	};
-	
-	console.log(data);
-	$.ajax({
-		type : "POST",
-		url : "/GardenPlatformWeb/postAppDetail.do",
-		data : data,
-		success : function(data) {
-			var obj = jQuery.parseJSON(data);
-			if(obj.status=="success") {
-				setSuccess(obj.msg);
-				//location.href="/GardenPlatformWeb/my_apps/roles.do?appName="+appName;
+
+	if(category_index === 0) {
+		setError("카테고리를 선택하세요");
+		alert("카테고리를 선택하세요");
+	}
+	else {
+		$.ajax({
+			type : "POST",
+			url : "/GardenPlatformWeb/postAppDetail.do",
+			data : data,
+			success : function(data) {
+				var obj = jQuery.parseJSON(data);
+				if(obj.status=="success") {
+					setSuccess(obj.msg);
+					location.href = location.href;
+				}
+				else{
+					setError(obj.msg);
+				}
+			},
+			error : function(xhr, status, error) {
+				location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
 			}
-			else{
-				setError(obj.msg);
-			}
-		},
-		error : function(xhr, status, error) {
-			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
-		}
-	});
-	
+		});
+	}
 	
 });
 
@@ -115,7 +121,7 @@ $(function() {
 	  var sectionTop = $('.top').outerHeight() + 20;
 
 	  // initialize highlight.js
-	  hljs.initHighlightingOnLoad();
+	  //hljs.initHighlightingOnLoad();
 
 	  // navigation
 	  $('a[href*="#"]').on('click', function(event) {

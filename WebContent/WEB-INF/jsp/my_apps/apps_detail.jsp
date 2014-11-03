@@ -56,7 +56,6 @@
 				  		<div class="col-md-6">
 				  			<label class="control-label">Short Description</label>
 					    	<input id="short_desc" type="text" class="form-control" value="${short_description}">
-					    	
 					    	<label class="control-label">Category</label>
 						    	<select class="form-control" id="category">
 						    	  <option>카테고리를 선택하세요</option>
@@ -68,6 +67,12 @@
 								  <option>Entertainment</option>
 								  <option>기타</option>
 								</select>
+								<script>
+									var category = "${category}";
+									console.log(category);
+									if(category != "")
+										$("#category").val(category);
+								</script>
 				  		</div>
 				  		
 				  		<div class="col-md-6">
