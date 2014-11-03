@@ -6,6 +6,8 @@
 <html>
 <head>
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/my_apps/my_apps.css">
+	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/bootstrap-switch.min.css">
+	
 </head>
 
 <body>
@@ -32,19 +34,30 @@
 			<!-- main area -->
 			<div class="col-xs-12 col-sm-9 content">
 				<div class="panel panel-default">
-				  <div class="panel-heading"><h4 class="no_margin">틀</h4></div>
-				  <ul class="list-group">
-				    <li class="list-group-item">
-				    	<div class="form-group">
-					    	<label class="control-label">틀</label>
-					    	<input type="text" class="form-control">
-					    </div>
-					    <div class="form-group">
-					    	<label class="control-label">니</label>
-					    	<input type="text" class="form-control">
-						</div>
-				    </li>
-				  </ul>
+
+				  <div class="panel-heading">
+				  		<h4 class="no_margin">Setting</h4>
+				  </div>
+				 
+				  <div class="panel-body">
+				  
+				  	<div class="form-group">
+					    <label class="control-label">Display Name</label>
+					    <input type="text" class="form-control">
+					</div>
+					
+					<div class="form-group">
+					    <label class="control-label">Contact Email</label>
+					    <input type="text" class="form-control">
+					</div>
+					
+					<div class="form-group">
+					    <label class="control-label">출시</label>
+					    <p>
+					    <input id="switch-state" type="checkbox" checked>
+					    </p>
+					</div>
+				  </div>
 				</div>
 				
 				<div class="panel panel-default">
@@ -62,5 +75,7 @@
 	</div><!--/.container-->
 
 	<script src="/GardenPlatformWeb/resource/js/my_apps/my_apps.js"></script>
+	<script src="/GardenPlatformWeb/resource/js/lib/bootstrap-switch.min.js"></script>
+	<script src="/GardenPlatformWeb/resource/js/lib/highlight.js"></script>
 </body>
 </html>
