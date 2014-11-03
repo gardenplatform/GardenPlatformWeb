@@ -143,19 +143,20 @@ $(function() {
 
 	  $('[data-get]').on("click", function() {
 	    var type = $(this).data('get');
-
+	    console.log(type);
+	    console.log($('#switch-' + type).bootstrapSwitch(type));
 	    alert($('#switch-' + type).bootstrapSwitch(type));
 	  });
 
 	  $('[data-set]').on('click', function() {
 	    var type = $(this).data('set');
-
+	    console.log(type);
 	    $('#switch-' + type).bootstrapSwitch(type, $(this).data('value'));
 	  });
 
 	  $('[data-toggle]').on('click', function() {
 	    var type = $(this).data('toggle');
-
+	    console.log(type);
 	    $('#switch-' + type).bootstrapSwitch('toggle' + type.charAt(0).toUpperCase() + type.slice(1));
 	  });
 
