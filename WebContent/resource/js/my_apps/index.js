@@ -49,13 +49,42 @@ $('#app_secret_show').click(function(){
 });
 
 $('#index_update').click(function(){
-	var url = $('#index_app_url').val();
-	var re_url = $('#index_app_redirecturl').val();
-	//업뎃하셈
+	
+	var appName = $('#appName').text(); 
+	var appUrl =  $('#index_type').html() + $('#index_app_url').val();
+	var appRedirectUrl = $('#index_re_type').html() + $('#index_app_redirecturl').val();
+	
+	var data = {
+			appName : appName,
+			appUrl : appUrl,
+			appRedirectUrl    : appRedirectUrl
+	};
+	$.ajax({
+		type : "POST",
+		url : "/GardenPlatformWeb/updateClient.do",
+		data : data,
+		success : function(data) {
+			var obj = jQuery.parseJSON(data);
+			if(obj.status=="success") {
+				setSuccess("수정이 완료되었습니다");
+				setTimeout(function(){
+					location.href = location.href;
+				}, 500);
+			}
+			else{
+				setError(obj.msg);
+			}
+		},
+		error : function(xhr, status, error) {
+			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+		}
+	});
+	console.log(data);
+
 });
 
-var url_ok = true;
-var re_url_ok = true;
+var url_ok = false;
+var reurl_ok = false;
 
 $('#index_app_url').keyup(function(){
 	 var appurl = $(this).val();
@@ -71,13 +100,13 @@ $('#index_app_url').keyup(function(){
 		 $('#index_type').removeClass('btn-danger');
 		 url_ok = false;
     } else if (re.test(appurl)){
-	   	$('#index_appurl_div').addClass('has-success');
-	   	$('#index_appurl_success').removeClass('hidden');
-	   	$('#index_appurl_fail').addClass('hidden');
-	   	$('#index_type').addClass('btn-success');
-	   	$('#index_type').removeClass('btn-danger');
-	   	url_ok = true;
-    }
+   	$('#index_appurl_div').addClass('has-success');
+   	$('#index_appurl_success').removeClass('hidden');
+   	$('#index_appurl_fail').addClass('hidden');
+   	$('#index_type').addClass('btn-success');
+   	$('#index_type').removeClass('btn-danger');
+   	url_ok = true;
+    } 
 	 else {
 		$('#index_appurl_div').addClass('has-error');
 		$('#index_appurl_fail').removeClass('hidden');
@@ -88,8 +117,6 @@ $('#index_app_url').keyup(function(){
 		url_ok = false;
 	 }
 	 toggle_update_Button();
-	 console.log(url_ok);
-	 console.log(re_url_ok);
 });
 
 $('#index_app_redirecturl').keyup(function(){
@@ -104,32 +131,29 @@ $('#index_app_redirecturl').keyup(function(){
 		 $('#index_reurl_fail').addClass('hidden');
 		 $('#index_re_type').removeClass('btn-success');
 		 $('#index_re_type').removeClass('btn-danger');
-		 re_url_ok = false; 
+		 reurl_ok = false;
     } else if (re.test(reurl)){
-	     $('#index_reurl_div').addClass('has-success');
-	   	 $('#index_reurl_success').removeClass('hidden');
-	   	 $('#index_reurl_fail').addClass('hidden');
-	   	 $('#index_re_type').addClass('btn-success');
-	   	 $('#index_re_type').removeClass('btn-danger');
-	   	re_url_ok = true;
-    }
+   	$('#index_reurl_div').addClass('has-success');
+   	$('#index_reurl_success').removeClass('hidden');
+   	$('#index_reurl_fail').addClass('hidden');
+   	$('#index_re_type').addClass('btn-success');
+   	$('#index_re_type').removeClass('btn-danger');
+   	reurl_ok = true;
+    } 
 	 else {
-		 $('#index_reurl_div').addClass('has-error');
-		 $('#index_reurl_fail').removeClass('hidden');
-		 $('#index_reurl_div').removeClass('has-success');
-		 $('#index_reurl_success').addClass('hidden');
-		 $('#index_re_type').addClass('btn-danger');
-		 $('#index_re_type').removeClass('btn-success');
-		 re_url_ok = false;
+		$('#index_reurl_div').addClass('has-error');
+		$('#index_reurl_fail').removeClass('hidden');
+		$('#index_reurl_div').removeClass('has-success');
+		$('#index_reurl_success').addClass('hidden');
+		$('#index_re_type').addClass('btn-danger');
+		$('#index_re_type').removeClass('btn-success');
+		reurl_ok = false;
 	 }
-	 
 	 toggle_update_Button();
-	 console.log(url_ok);
-	 console.log(re_url_ok);
 });
 
 function toggle_update_Button(){
-	if(re_url_ok && url_ok){
+	if(reurl_ok && url_ok){
 		$('#index_update').removeAttr('disabled');
 	}
 	else{

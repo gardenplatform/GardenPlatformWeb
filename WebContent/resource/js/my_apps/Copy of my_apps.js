@@ -46,14 +46,44 @@ $('#app_secret_show').click(function(){
 		appSecretInputTag.attr("type","password");
 		$('#app_secret_show').text("Show");
 	}
+
 });
 
 
 // ----------------------------------------- index
 $('#index_update').click(function(){
-	var url = $('#app_url').val();
-	var re_url = $('#app_redirecturl').val();
-	//업뎃하셈
+	
+	var appName = $('#appName').text(); 
+	var appUrl =  $('#index_type').html() + $('#index_app_url').val();
+	var appRedirectUrl = $('#index_re_type').html() + $('#index_app_redirecturl').val();
+	
+	var data = {
+			appName : appName,
+			appUrl : appUrl,
+			appRedirectUrl    : appRedirectUrl
+	};
+	$.ajax({
+		type : "POST",
+		url : "/GardenPlatformWeb/updateClient.do",
+		data : data,
+		success : function(data) {
+			var obj = jQuery.parseJSON(data);
+			if(obj.status=="success") {
+				setSuccess("수정이 완료되었습니다");
+				setTimeout(function(){
+					location.href = location.href;
+				}, 500);
+			}
+			else{
+				setError(obj.msg);
+			}
+		},
+		error : function(xhr, status, error) {
+			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+		}
+	});
+	console.log(data);
+
 });
 
 

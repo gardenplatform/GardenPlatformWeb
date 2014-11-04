@@ -82,6 +82,56 @@ public class MyAppsController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/updateClient.do", method = RequestMethod.POST)
+	public void updateClient(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		logMgr.printLog(request);
+
+		String appName = request.getParameter("appName");
+		String appUrl = request.getParameter("appUrl");
+		String appRedirectUrl = request.getParameter("appRedirectUrl");
+		
+		Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+		String token = session.getAttribute("token").toString();
+
+		String url = RestInfo.restURL+"/clients/"+appName;
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+
+		vars.add("appUrl", appUrl);
+		vars.add("appRedirectUrl", appRedirectUrl);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		result = restMgr.putWithHeader(url, vars, headers);
+		
+		JSONObject obj = new JSONObject();
+		try {
+			if(result.get("status").toString().equals("success")) {
+
+				JSONObject jsonObj = new JSONObject(result.get("result").toString());
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", "Update success");
+			}
+			else {
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", result.get("msg").toString());
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		PrintWriter writer = response.getWriter();
+		writer.write(obj.toString());
+	}
+	
+	
+	
+	
 	@RequestMapping(value = "/my_apps/apps_detail.do", method = RequestMethod.GET)
 	public ModelAndView getMyapps_Apps_Detail(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
@@ -331,7 +381,7 @@ public class MyAppsController {
 
 				JSONObject jsonObj = new JSONObject(result.get("result").toString());
 				obj.put("status", result.get("status").toString());
-				obj.put("msg", "Member add success");
+				obj.put("msg", "Update success");
 			}
 			else {
 				obj.put("status", result.get("status").toString());
