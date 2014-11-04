@@ -8,21 +8,30 @@ $(document).ready(function(){
 	
 	if(appURL.match("^http://")) {
 		$('#index_app_url').val(appURL.replace("http://",""));
-		
+		$('#index_type').html("http://");
 	}
 	else if(appURL.match("^https://")) {
 		$('#index_app_url').val(appURL.replace("https://",""));
-
+		$('#index_type').html("https://");
 	}
 	
 	if(appRedirectUrl.match("^http://")) {
 		$('#index_app_redirecturl').val(appURL.replace("http://",""));
+		$('#index_re_type').html("http://");
 		
 	}
 	else if(appRedirectUrl.match("^https://")) {
 		$('#index_app_redirecturl').val(appURL.replace("https://",""));
-
+		$('#index_re_type').html("https://");
 	}
+});
+
+$('#index_typedropdown li a').click(function(){
+	$('#index_type').html($(this).html());
+});
+
+$('#index_re_typedropdown li a').click(function(){
+	$('#index_re_type').html($(this).html());
 });
 
 $('#app_secret_show').click(function(){

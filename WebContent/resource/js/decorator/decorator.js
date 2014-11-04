@@ -8,7 +8,7 @@ $('#btn_web_register').click(function(){
 		var type = $('#type').html();
 		var re_type = $('#re_type').html();
 		
-		var appName = $('#appName').val();
+		var appName = $('#appname_check').val();
 		var appUrl = type + $('#appUrl').val();
 		var appRedirectUrl = re_type + $('#reUrl').val();
 		
@@ -135,7 +135,7 @@ $('#reUrl').keyup(function(){
 //모달 초기화
 $('#app').click(function() {
 	console.log("click");
-	$('#appName').val("");
+	$('#appname_check').val("");
 	$('#appUrl').val("");
 	$('#reUrl').val("");
 	
