@@ -9,6 +9,7 @@ $(document).ready(function(){
 	if(appURL.match("^http://")) {
 		$('#index_app_url').val(appURL.replace("http://",""));
 		
+		
 	}
 	else if(appURL.match("^https://")) {
 		$('#index_app_url').val(appURL.replace("https://",""));
