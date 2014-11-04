@@ -16,7 +16,10 @@ $('#add_developer').click(function(){
 		success : function(data) {
 			var obj = jQuery.parseJSON(data);
 			if(obj.status=="success") {
-				setSuccess(obj.msg);
+				setSuccess("수정이 완료되었습니다");
+				setTimeout(function(){
+					location.href = location.href;
+				}, 500);
 				location.href="/GardenPlatformWeb/my_apps/roles.do?appName="+appName;
 			}
 			else{
