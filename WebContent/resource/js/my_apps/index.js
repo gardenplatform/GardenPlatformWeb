@@ -16,12 +16,12 @@ $(document).ready(function(){
 	}
 	
 	if(appRedirectUrl.match("^http://")) {
-		$('#index_app_redirecturl').val(appURL.replace("http://",""));
+		$('#index_app_redirecturl').val(appRedirectUrl.replace("http://",""));
 		$('#index_re_type').html("http://");
 		
 	}
 	else if(appRedirectUrl.match("^https://")) {
-		$('#index_app_redirecturl').val(appURL.replace("https://",""));
+		$('#index_app_redirecturl').val(appRedirectUrl.replace("https://",""));
 		$('#index_re_type').html("https://");
 	}
 });

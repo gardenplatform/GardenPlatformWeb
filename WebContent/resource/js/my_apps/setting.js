@@ -10,7 +10,6 @@ $('#deleteApp').click(function(){
 	//Setting update
 });
 
-/*
 // 출시할때 checkbox 애니메이션 넣어줌
 $(function() {
 	  var $window = $(window);
@@ -74,5 +73,4 @@ $(function() {
 	    $('#switch-' + type).bootstrapSwitch(type, value);
 	  });
 	});
-*/
 
