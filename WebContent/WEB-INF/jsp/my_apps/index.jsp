@@ -152,6 +152,6 @@
 					</li>
 					 -->
 
-	<script src="/GardenPlatformWeb/resource/js/my_apps/my_apps.js"></script>
+	<script src="/GardenPlatformWeb/resource/js/my_apps/index.js"></script>
 </body>
 </html>

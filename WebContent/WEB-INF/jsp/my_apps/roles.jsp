@@ -83,6 +83,6 @@
 		    </div>
 		</div>
 
-	<script src="/GardenPlatformWeb/resource/js/my_apps/my_apps.js"></script>
+	<script src="/GardenPlatformWeb/resource/js/my_apps/roles.js"></script>
 </body>
 </html>
