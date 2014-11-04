@@ -75,7 +75,7 @@
 		<!-- /.col-xs-12 main -->
 	</div><!--/.container-->
 
-	<script src="/GardenPlatformWeb/resource/js/my_apps/my_apps.js"></script>
+	<script src="/GardenPlatformWeb/resource/js/my_apps/setting.js"></script>
 	<script src="/GardenPlatformWeb/resource/js/lib/bootstrap-switch.min.js"></script>
 	<script src="/GardenPlatformWeb/resource/js/lib/highlight.js"></script>
 </body>

@@ -104,6 +104,6 @@
 		<!-- /.col-xs-12 main -->
 	</div><!--/.container-->
 
-	<script src="/GardenPlatformWeb/resource/js/my_apps/my_apps.js"></script>
+	<script src="/GardenPlatformWeb/resource/js/my_apps/apps_detail.js"></script>
 </body>
 </html>
