@@ -64,17 +64,8 @@ public class MyAppsController {
 			try {
 				JSONObject jsonObj = new JSONObject(result.get("result").toString());
 				mav.addObject("appName", jsonObj.get("name"));
-				
-				if(jsonObj.get("url").toString().startsWith("https://"))
-					mav.addObject("appUrl", jsonObj.get("url").toString().replace("https://", ""));
-				else if(jsonObj.get("url").toString().startsWith("http://"))
-					mav.addObject("appUrl", jsonObj.get("url").toString().replace("http://", ""));
-
-				if(jsonObj.get("redirect_uri").toString().startsWith("https://"))
-					mav.addObject("appRedirectUrl", jsonObj.get("redirect_uri").toString().replace("https://", ""));
-				else if(jsonObj.get("redirect_uri").toString().startsWith("http://"))
-					mav.addObject("appRedirectUrl", jsonObj.get("redirect_uri").toString().replace("http://", ""));
-					
+				mav.addObject("appUrl", jsonObj.get("url"));
+				mav.addObject("appRedirectUrl", jsonObj.get("redirect_uri"));
 				mav.addObject("appID", jsonObj.get("client_id"));
 				mav.addObject("appSecret", jsonObj.get("client_secret"));
 				

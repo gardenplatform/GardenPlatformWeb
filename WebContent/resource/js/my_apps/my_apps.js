@@ -2,6 +2,27 @@
 
 $(document).ready(function(){
 	$('#nav-myapps').addClass('active');
+	
+	var appURL = $('#index_app_url').val();
+	var appRedirectUrl = $('#index_app_redirecturl').val();
+	
+	if(appURL.match("^http://")) {
+		$('#index_app_url').val(appURL.replace("http://",""));
+		
+	}
+	else if(appURL.match("^https://")) {
+		$('#index_app_url').val(appURL.replace("https://",""));
+
+	}
+	
+	if(appRedirectUrl.match("^http://")) {
+		$('#index_app_redirecturl').val(appURL.replace("http://",""));
+		
+	}
+	else if(appRedirectUrl.match("^https://")) {
+		$('#index_app_redirecturl').val(appURL.replace("https://",""));
+
+	}
 });
 
 $('#app_secret_show').click(function(){

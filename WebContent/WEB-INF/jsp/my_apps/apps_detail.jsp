@@ -69,7 +69,6 @@
 								</select>
 								<script>
 									var category = "${category}";
-									console.log(category);
 									if(category != "")
 										$("#category").val(category);
 								</script>
