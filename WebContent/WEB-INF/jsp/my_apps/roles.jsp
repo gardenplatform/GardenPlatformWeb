@@ -54,8 +54,8 @@
 				  	</c:if>
 				  	<c:forEach var="item" items="${developerList}">
                         <div class="media">
-					      <a class="pull-left" href="#">
-					        <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/p50x50/10641274_727231190703971_7622922369219706929_n.jpg?oh=be0fa48dec6ea450bb12670ae01438b2&amp;oe=54AFFF2F&amp;__gda__=1423917107_a57e6875d154889b3a00d7ebaee7f3ad" style="width: 64px; height: 64px;">
+					      <a class="media-left media-middle" href="#">
+					        <img data-src="holder.js/64x64" alt="64x64" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/p50x50/10641274_727231190703971_7622922369219706929_n.jpg?oh=be0fa48dec6ea450bb12670ae01438b2&amp;oe=54AFFF2F&amp;__gda__=1423917107_a57e6875d154889b3a00d7ebaee7f3ad" style="width: 64px; height: 64px;">
 					      </a>
 					      <div class="media-body">
 					        <h4 class="media-heading" id="pl_name">${item}</h4>
