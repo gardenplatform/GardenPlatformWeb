@@ -99,10 +99,10 @@ public class MyAppsController {
 		String url = RestInfo.restURL+"/clients/"+appName;
 		
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
-
-		vars.add("appUrl", appUrl);
-		vars.add("appRedirectUrl", appRedirectUrl);
 		
+		vars.add("url", appUrl);
+		vars.add("redirect_uri", appRedirectUrl);
+
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
@@ -343,8 +343,38 @@ public class MyAppsController {
 
 		String appName = request.getParameter("appName");
 		
-		ModelAndView mav = new ModelAndView("/my_apps/setting");
-		mav.addObject("appName", appName);
+		Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+		String token = session.getAttribute("token").toString();
+		
+		String url = RestInfo.restURL+"/clients/"+appName+"/setting";
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		result = restMgr.getWithHeader(url, vars, headers);
+		
+		ModelAndView mav = new ModelAndView();
+		if(result.get("status").equals("error")){
+			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
+		}
+		else {
+			mav.setViewName("/my_apps/setting");
+			try {
+				JSONObject jsonObj = new JSONObject(result.get("result").toString());
+				mav.addObject("appName", appName);
+				mav.addObject("displayName", jsonObj.get("display_name"));
+				mav.addObject("contactEmail", jsonObj.get("contact_email"));
+				mav.addObject("publish", jsonObj.get("publish"));
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}
 		return mav;
 	}
 	
@@ -368,15 +398,11 @@ public class MyAppsController {
 
 		String url = RestInfo.restURL+"/clients/"+appName+"/setting";
 		
-		System.out.println(url);
-		
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
 
-		vars.add("displayname", displayName);
+		vars.add("display_name", displayName);
 		vars.add("contact_email", contactEmail);
-		vars.add("publish", true);
-		
-		System.out.println(vars.toString());
+		vars.add("publish", publish);
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization","token "+token);

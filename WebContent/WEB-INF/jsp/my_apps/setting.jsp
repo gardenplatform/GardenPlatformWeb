@@ -43,18 +43,29 @@
 				  
 				  	<div class="form-group">
 					    <label class="control-label">Display Name</label>
-					    <input type="text" class="form-control" id="displayName">
+					    <input type="text" class="form-control" id="displayName" value="${displayName}">
 					</div>
 					
 					<div class="form-group">
 					    <label class="control-label">Contact Email</label>
-					    <input type="text" class="form-control" id="contactEmail">
+					    <input type="text" class="form-control" id="contactEmail" value="${contactEmail}">
 					</div>
 					
 					<div class="form-group">
 					    <label class="control-label">출시(이건 아직 하는중 script 짜서 해놈 ㄱㄷ)</label>
 					    <p>
-					    <input id="switch-state" type="checkbox" checked>
+					    ${publish}
+					    <c:choose>
+					    
+						    <c:when test="${publish}">
+						    	<input id="switch-state" type="checkbox" checked>
+						    	true
+						    </c:when>
+						    <c:otherwise>
+						    	false
+						    	<input id="switch-state" type="checkbox">
+						    </c:otherwise>
+					    </c:choose>
 					    </p>
 					    <button type="button" data-get="state" class="btn btn-default">Switch 상태 보기</button>
 					</div>
