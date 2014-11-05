@@ -15,9 +15,6 @@ $(function() {
 	  var $window = $(window);
 	  var sectionTop = $('.top').outerHeight() + 20;
 
-	  // initialize highlight.js
-	  //hljs.initHighlightingOnLoad();
-
 	  // navigation
 	  $('a[href*="#"]').on('click', function(event) {
 	    event.preventDefault();
@@ -49,17 +46,6 @@ $(function() {
 	    alert($('#switch-' + type).bootstrapSwitch(type));
 	  });
 
-	  $('[data-set]').on('click', function() {
-	    var type = $(this).data('set');
-	    console.log(type);
-	    $('#switch-' + type).bootstrapSwitch(type, $(this).data('value'));
-	  });
-
-	  $('[data-toggle]').on('click', function() {
-	    var type = $(this).data('toggle');
-	    console.log(type);
-	    $('#switch-' + type).bootstrapSwitch('toggle' + type.charAt(0).toUpperCase() + type.slice(1));
-	  });
 
 	  $('[data-set-text]').on('change', function(event) {
 	    event.preventDefault();
