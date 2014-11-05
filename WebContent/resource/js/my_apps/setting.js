@@ -41,7 +41,33 @@ $('#setting_update').click(function(){
 });
 
 $('#deleteApp').click(function(){
-	//Setting update
+	var appName = $('#appName').text(); 
+	
+	var data = {
+			appName : appName,
+	};
+	
+	console.log(data);
+	$.ajax({
+		type : "POST",
+		url : "/GardenPlatformWeb/deleteClient.do",
+		data : data,
+		success : function(data) {
+			var obj = jQuery.parseJSON(data);
+			if(obj.status=="success") {
+				setSuccess("삭제가 완료되었습니다.");
+				setTimeout(function(){
+					location.href = "/GardenPlatformWeb/home.do";
+				}, 500);
+			}
+			else{
+				setError(obj.msg);
+			}
+		},
+		error : function(xhr, status, error) {
+			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+		}
+	});
 });
 
 // 출시할때 checkbox 애니메이션 넣어줌

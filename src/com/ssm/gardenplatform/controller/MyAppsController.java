@@ -13,6 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.LinkedMultiValueMap;
@@ -53,7 +54,7 @@ public class MyAppsController {
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-		result = restMgr.getWithHeader(url, vars, headers);
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
 		
 		ModelAndView mav = new ModelAndView();
 		if(result.get("status").equals("error")){
@@ -107,14 +108,12 @@ public class MyAppsController {
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-		result = restMgr.putWithHeader(url, vars, headers);
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.PUT);
 		
 		JSONObject obj = new JSONObject();
 		try {
 			if(result.get("status").toString().equals("success")) {
-
-				JSONObject jsonObj = new JSONObject(result.get("result").toString());
-				obj.put("status", result.get("status").toString());
+				obj.put("status", "success");
 				obj.put("msg", "Update success");
 			}
 			else {
@@ -152,7 +151,7 @@ public class MyAppsController {
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-		result = restMgr.getWithHeader(url, vars, headers);
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
 		
 		ModelAndView mav = new ModelAndView();
 		if(result.get("status").equals("error")){
@@ -215,14 +214,12 @@ public class MyAppsController {
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-		result = restMgr.postWithHeader(url, vars, headers);
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
 		
 		JSONObject obj = new JSONObject();
 		try {
 			if(result.get("status").toString().equals("success")) {
-
-				JSONObject jsonObj = new JSONObject(result.get("result").toString());
-				obj.put("status", result.get("status").toString());
+				obj.put("status", "success");
 				obj.put("msg", "Update success");
 			}
 			else {
@@ -258,7 +255,7 @@ public class MyAppsController {
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-		result = restMgr.getWithHeader(url, vars, headers);
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
 		
 		ModelAndView mav = new ModelAndView();
 		if(result.get("status").equals("error")){
@@ -313,14 +310,12 @@ public class MyAppsController {
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-		result = restMgr.postWithHeader(url, vars, headers);
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
 		
 		JSONObject obj = new JSONObject();
 		try {
 			if(result.get("status").toString().equals("success")) {
-
-				JSONObject jsonObj = new JSONObject(result.get("result").toString());
-				obj.put("status", result.get("status").toString());
+				obj.put("status", "success");
 				obj.put("msg", "Member add success");
 			}
 			else {
@@ -356,7 +351,7 @@ public class MyAppsController {
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-		result = restMgr.getWithHeader(url, vars, headers);
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
 		
 		ModelAndView mav = new ModelAndView();
 		if(result.get("status").equals("error")){
@@ -377,9 +372,6 @@ public class MyAppsController {
 		}
 		return mav;
 	}
-	
-	
-	
 
 	@RequestMapping(value = "/updateSetting.do", method = RequestMethod.POST)
 	public void updateSetting(HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -408,14 +400,52 @@ public class MyAppsController {
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-		result = restMgr.postWithHeader(url, vars, headers);
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
 		
 		JSONObject obj = new JSONObject();
 		try {
 			if(result.get("status").toString().equals("success")) {
-
-				JSONObject jsonObj = new JSONObject(result.get("result").toString());
+				obj.put("status", "success");
+				obj.put("msg", "Update success");
+			}
+			else {
 				obj.put("status", result.get("status").toString());
+				obj.put("msg", result.get("msg").toString());
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		PrintWriter writer = response.getWriter();
+		writer.write(obj.toString());
+	}
+	
+	@RequestMapping(value = "/deleteClient.do", method = RequestMethod.POST)
+	public void deleteClient(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		logMgr.printLog(request);
+
+		String appName = request.getParameter("appName");
+		
+		Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+		String token = session.getAttribute("token").toString();
+
+		String url = RestInfo.restURL+"/clients/"+appName;
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.DELETE);
+		
+		JSONObject obj = new JSONObject();
+		try {
+			if(result.get("status").toString().equals("success")) {
+				obj.put("status", "success");
 				obj.put("msg", "Update success");
 			}
 			else {

@@ -14,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.LinkedMultiValueMap;
@@ -198,8 +199,8 @@ public class UserController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		
-		result = restMgr.getWithHeader(url, vars, headers);
+
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
 		
 		ModelAndView mav = new ModelAndView();
 		if(result.get("status").equals("success")){
@@ -267,7 +268,7 @@ public class UserController {
 				else
 					vars.add("password", newPwd);
 
-				result = restMgr.putWithHeader(url, vars, headers);
+				result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.PUT);
 				
 				if(result.get("status").toString().equals("success")) {
 					obj.put("status", result.get("status").toString());
