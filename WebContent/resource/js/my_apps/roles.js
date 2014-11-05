@@ -20,7 +20,6 @@ $('#add_developer').click(function(){
 				setTimeout(function(){
 					location.href = location.href;
 				}, 500);
-				location.href="/GardenPlatformWeb/my_apps/roles.do?appName="+appName;
 			}
 			else{
 				setError(obj.msg);

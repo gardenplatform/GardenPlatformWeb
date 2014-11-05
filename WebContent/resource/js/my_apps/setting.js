@@ -3,7 +3,41 @@
 //----------------------------------------------setting
 
 $('#setting_update').click(function(){
-	//Setting update
+
+    var type = $('[data-get]').data('get');
+	
+	var appName = $('#appName').text(); 
+	var displayName = $('#displayName').val();
+	var contactEmail = $('#contactEmail').val();
+	var publish = $('#switch-' + type).bootstrapSwitch(type);
+	
+	var data = {
+			appName : appName,
+			displayName    : displayName,
+			contactEmail    : contactEmail,
+			publish    : publish,
+	};
+	
+	$.ajax({
+		type : "POST",
+		url : "/GardenPlatformWeb/updateSetting.do",
+		data : data,
+		success : function(data) {
+			var obj = jQuery.parseJSON(data);
+			if(obj.status=="success") {
+				setSuccess("수정이 완료되었습니다");
+				setTimeout(function(){
+					location.href = location.href;
+				}, 500);
+			}
+			else{
+				setError(obj.msg);
+			}
+		},
+		error : function(xhr, status, error) {
+			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+		}
+	});
 });
 
 $('#deleteApp').click(function(){

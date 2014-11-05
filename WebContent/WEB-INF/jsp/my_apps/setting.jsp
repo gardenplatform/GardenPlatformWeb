@@ -43,12 +43,12 @@
 				  
 				  	<div class="form-group">
 					    <label class="control-label">Display Name</label>
-					    <input type="text" class="form-control">
+					    <input type="text" class="form-control" id="displayName">
 					</div>
 					
 					<div class="form-group">
 					    <label class="control-label">Contact Email</label>
-					    <input type="text" class="form-control">
+					    <input type="text" class="form-control" id="contactEmail">
 					</div>
 					
 					<div class="form-group">

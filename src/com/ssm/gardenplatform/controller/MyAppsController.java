@@ -179,165 +179,7 @@ public class MyAppsController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/my_apps/setting.do", method = RequestMethod.GET)
-	public ModelAndView getMyapps_Setting(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
-		logMgr.printLog(request);
 
-		String appName = request.getParameter("appName");
-		
-		ModelAndView mav = new ModelAndView("/my_apps/setting");
-		mav.addObject("appName", appName);
-		return mav;
-	}
-	
-	@RequestMapping(value = "/my_apps/roles.do", method = RequestMethod.GET)
-	public ModelAndView getMyapps_Roles(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
-		logMgr.printLog(request);
-
-		String appName = request.getParameter("appName");
-		
-		Map<String, Object> result = null;
-		
-		HttpSession session = request.getSession(false);
-		String token = session.getAttribute("token").toString();
-		
-		String url = RestInfo.restURL+"/teams/"+appName+"/members";
-		
-		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("Authorization","token "+token);
-		headers.setContentType(MediaType.APPLICATION_JSON);
-
-		result = restMgr.getWithHeader(url, vars, headers);
-		
-		ModelAndView mav = new ModelAndView();
-		if(result.get("status").equals("error")){
-			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
-		}
-		else {
-			mav.setViewName("/my_apps/roles");
-			mav.addObject("appName", appName);
-			try {
-				JSONArray jsonArr = new JSONArray(result.get("result").toString());
-				LinkedList<String> developerList = new LinkedList<>();
-				for(int i=0; i<jsonArr.length(); i++) {
-					JSONObject jsonObj = new JSONObject(jsonArr.getJSONObject(i).toString());
-					if(jsonObj.get("is_owner").toString().equals("true")){
-						mav.addObject("owner", jsonObj.get("member"));
-					}
-					else {
-						developerList.add(jsonObj.get("member").toString());
-					}
-				}
-				mav.addObject("developerList", developerList);
-				
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-			
-		}
-		return mav;
-	}
-	
-	@RequestMapping(value = "/webRegister.do", method = RequestMethod.POST)
-	public void postClient(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
-		logMgr.printLog(request);
-		
-		String appName = request.getParameter("appName");
-		String appUrl = request.getParameter("appUrl");
-		String appRedirectUrl = request.getParameter("appRedirectUrl");
-		String appType = "0";
-		
-		Map<String, Object> result = null;
-		
-		HttpSession session = request.getSession(false);
-		String token = session.getAttribute("token").toString();
-		
-		String url = RestInfo.restURL+"/clients";
-		
-		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
-
-		vars.add("name", appName);
-		vars.add("url", appUrl);
-		vars.add("redirect_uri", appRedirectUrl);
-		vars.add("client_type", appType);
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("Authorization","token "+token);
-		headers.setContentType(MediaType.APPLICATION_JSON);
-
-		result = restMgr.postWithHeader(url, vars, headers);
-		
-		JSONObject obj = new JSONObject();
-		try {
-			if(result.get("status").toString().equals("success")) {
-
-				JSONObject jsonObj = new JSONObject(result.get("result").toString());
-				obj.put("status", result.get("status").toString());
-				obj.put("msg", "Can use ID");
-			}
-			else{
-				obj.put("status", result.get("status").toString());
-				obj.put("msg", result.get("msg").toString());
-			}
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-		
-		PrintWriter writer = response.getWriter();
-		writer.write(obj.toString());
-	}
-	
-	@RequestMapping(value = "/addMember.do", method = RequestMethod.POST)
-	public void addMember(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
-		logMgr.printLog(request);
-		
-		String appName = request.getParameter("appName");
-		String memberID = request.getParameter("memberID");
-		
-		Map<String, Object> result = null;
-		
-		HttpSession session = request.getSession(false);
-		String token = session.getAttribute("token").toString();
-
-		String url = RestInfo.restURL+"/teams/"+appName+"/members";
-		
-		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
-
-		vars.add("member", memberID);
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("Authorization","token "+token);
-		headers.setContentType(MediaType.APPLICATION_JSON);
-
-		result = restMgr.postWithHeader(url, vars, headers);
-		
-		JSONObject obj = new JSONObject();
-		try {
-			if(result.get("status").toString().equals("success")) {
-
-				JSONObject jsonObj = new JSONObject(result.get("result").toString());
-				obj.put("status", result.get("status").toString());
-				obj.put("msg", "Member add success");
-			}
-			else {
-				obj.put("status", result.get("status").toString());
-				obj.put("msg", result.get("msg").toString());
-			}
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-		
-		PrintWriter writer = response.getWriter();
-		writer.write(obj.toString());
-	}
-	
-	
 	@RequestMapping(value = "/postAppDetail.do", method = RequestMethod.POST)
 	public void postAppDetail(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
@@ -395,5 +237,171 @@ public class MyAppsController {
 		writer.write(obj.toString());
 	}
 	
+	
+	@RequestMapping(value = "/my_apps/roles.do", method = RequestMethod.GET)
+	public ModelAndView getMyapps_Roles(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		logMgr.printLog(request);
+
+		String appName = request.getParameter("appName");
+		
+		Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+		String token = session.getAttribute("token").toString();
+		
+		String url = RestInfo.restURL+"/teams/"+appName+"/members";
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		result = restMgr.getWithHeader(url, vars, headers);
+		
+		ModelAndView mav = new ModelAndView();
+		if(result.get("status").equals("error")){
+			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
+		}
+		else {
+			mav.setViewName("/my_apps/roles");
+			mav.addObject("appName", appName);
+			try {
+				JSONArray jsonArr = new JSONArray(result.get("result").toString());
+				LinkedList<String> developerList = new LinkedList<>();
+				for(int i=0; i<jsonArr.length(); i++) {
+					JSONObject jsonObj = new JSONObject(jsonArr.getJSONObject(i).toString());
+					if(jsonObj.get("is_owner").toString().equals("true")){
+						mav.addObject("owner", jsonObj.get("member"));
+					}
+					else {
+						developerList.add(jsonObj.get("member").toString());
+					}
+				}
+				mav.addObject("developerList", developerList);
+				
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		return mav;
+	}
+	
+	
+	@RequestMapping(value = "/addMember.do", method = RequestMethod.POST)
+	public void addMember(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		logMgr.printLog(request);
+		
+		String appName = request.getParameter("appName");
+		String memberID = request.getParameter("memberID");
+		
+		Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+		String token = session.getAttribute("token").toString();
+
+		String url = RestInfo.restURL+"/teams/"+appName+"/members";
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+
+		vars.add("member", memberID);
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		result = restMgr.postWithHeader(url, vars, headers);
+		
+		JSONObject obj = new JSONObject();
+		try {
+			if(result.get("status").toString().equals("success")) {
+
+				JSONObject jsonObj = new JSONObject(result.get("result").toString());
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", "Member add success");
+			}
+			else {
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", result.get("msg").toString());
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		PrintWriter writer = response.getWriter();
+		writer.write(obj.toString());
+	}
+	
+	
+	@RequestMapping(value = "/my_apps/setting.do", method = RequestMethod.GET)
+	public ModelAndView getMyapps_Setting(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		logMgr.printLog(request);
+
+		String appName = request.getParameter("appName");
+		
+		ModelAndView mav = new ModelAndView("/my_apps/setting");
+		mav.addObject("appName", appName);
+		return mav;
+	}
+	
+	
+	
+
+	@RequestMapping(value = "/updateSetting.do", method = RequestMethod.POST)
+	public void updateSetting(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		logMgr.printLog(request);
+
+		String appName = request.getParameter("appName");
+		String displayName = request.getParameter("displayName");
+		String contactEmail = request.getParameter("contactEmail");
+		String publish = request.getParameter("publish");
+		
+		Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+		String token = session.getAttribute("token").toString();
+
+		String url = RestInfo.restURL+"/clients/"+appName+"/setting";
+		
+		System.out.println(url);
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+
+		vars.add("displayname", displayName);
+		vars.add("contact_email", contactEmail);
+		vars.add("publish", true);
+		
+		System.out.println(vars.toString());
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		result = restMgr.postWithHeader(url, vars, headers);
+		
+		JSONObject obj = new JSONObject();
+		try {
+			if(result.get("status").toString().equals("success")) {
+
+				JSONObject jsonObj = new JSONObject(result.get("result").toString());
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", "Update success");
+			}
+			else {
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", result.get("msg").toString());
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		PrintWriter writer = response.getWriter();
+		writer.write(obj.toString());
+	}
 	
 }
