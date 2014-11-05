@@ -7,6 +7,7 @@
 <head>
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/my_apps/my_apps.css">
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/bootstrap-switch.min.css">
+	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/docs.css">
 	
 </head>
 
@@ -63,7 +64,7 @@
 				
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<button class="btn btn-danger btn-sm pull-left" id="deleteApp">Delete App</button>
+						<button class="btn btn-danger btn-sm pull-left" data-toggle="modal" data-target="#delete_modal">Delete App</button>
 						<div class="btn-pull-right">
 							<button class="btn btn-primary btn-sm" id="setting_update">수정</button>
 							<a href="/GardenPlatformWeb/my_apps/setting.do?appName=${appName}"><button class="btn btn-default btn-sm" >취소</button></a>
@@ -74,6 +75,25 @@
 		</div>
 		<!-- /.col-xs-12 main -->
 	</div><!--/.container-->
+	
+	<div class="modal fade" id="delete_modal">
+		    <div class="modal-dialog modal-vertical-centered">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <h4 class="modal-title">Delete App</h4>
+		            </div>
+		            <div class="modal-body">
+     					<p class="text-danger"><strong>${appName}</strong></p>
+     					<p><strong>삭제 후에는 복구할 수 없습니다. 삭제 하시겠습니까? </strong></p>
+					</div>
+						
+		            <div class="modal-footer">
+	                	<button class="btn btn-mint" type="button" id="deleteApp">삭제</button>  
+		                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+		            </div>
+		           </div>
+		    </div>
+	 </div>
 
 	<script src="/GardenPlatformWeb/resource/js/my_apps/setting.js"></script>
 	<script src="/GardenPlatformWeb/resource/js/lib/bootstrap-switch.min.js"></script>

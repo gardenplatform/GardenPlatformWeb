@@ -33,7 +33,6 @@
 
 			<!-- main area -->
 			<div class="col-xs-12 col-sm-9 content">
-			
 				<div class="panel panel-default">
 				  <div class="panel-heading">
 				  	<h4 class="no_margin">Dashboard</h4>
@@ -141,16 +140,6 @@
 		</div>
 		<!-- /.col-xs-12 main -->
 	</div><!--/.row-->
-	
-	<!--
-					<li><a href="#" data-toggle="collapse" data-target="#sub1"> Dropdown <span class="caret"></span></a>
-						<ul class="nav collapse" id="sub1">
-							<li><a href="#">Sub Link 1</a></li>
-							<li><a href="#">Sub Link 2</a></li>
-							<li><a href="#">Sub Link 3</a></li>
-						</ul>
-					</li>
-					 -->
 
 	<script src="/GardenPlatformWeb/resource/js/my_apps/index.js"></script>
 </body>
