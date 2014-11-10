@@ -10,9 +10,9 @@
 
 <body>
 	<div class="container">
-		<div class="row row-offcanvas row-offcanvas-left">
+		<div class="row">
 			<!-- sidebar -->
-			<div class="col-xs-5 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+			<div class="col-md-3" role="navigation">
 				<ul class="snb nav">
 					<li><a href="#" data-toggle="collapse" data-target="#sub1" id="appName"><b class="ellipsis"><span class="glyphicon glyphicon-list-alt"></span>${appName}<span class="caret"></span></b></a>
 						<ul class="nav collapse" id="sub1">
@@ -30,7 +30,7 @@
 				</ul>
 			</div>
 			<!-- main area -->
-			<div class="col-xs-12 col-sm-9 content">
+			<div class="col-md-9">
 				<div class="panel panel-default">
 				  <div class="panel-heading"><h4 class="no_margin">App info</h4></div>
 				  <div class="panel-body">
