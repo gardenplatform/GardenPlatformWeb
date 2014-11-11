@@ -51,9 +51,11 @@ $('#app_secret_show').click(function(){
 $('#index_update').click(function(){
 	
 	var appName = $('#appName').text(); 
+	console.log(appName);
 	var appUrl =  $('#index_type').html() + $('#index_app_url').val();
+	console.log(appUrl);
 	var appRedirectUrl = $('#index_re_type').html() + $('#index_app_redirecturl').val();
-	
+	console.log(appRedirectUrl);
 	var data = {
 			appName : appName,
 			appUrl : appUrl,
@@ -76,16 +78,16 @@ $('#index_update').click(function(){
 			}
 		},
 		error : function(xhr, status, error) {
-			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+			//location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+			setError("몰라");
 		}
 	});
 	console.log(data);
 
 });
 
-var url_ok = false;
-var reurl_ok = false;
-
+var index_url_ok = true;
+var index_reurl_ok = true;
 $('#index_app_url').keyup(function(){
 	 var appurl = $(this).val();
 	 
@@ -98,15 +100,15 @@ $('#index_app_url').keyup(function(){
 		 $('#index_appurl_fail').addClass('hidden');
 		 $('#index_type').removeClass('btn-success');
 		 $('#index_type').removeClass('btn-danger');
-		 url_ok = false;
+		 index_url_ok = false;
     } else if (re.test(appurl)){
-   	$('#index_appurl_div').addClass('has-success');
-   	$('#index_appurl_success').removeClass('hidden');
-   	$('#index_appurl_fail').addClass('hidden');
-   	$('#index_type').addClass('btn-success');
-   	$('#index_type').removeClass('btn-danger');
-   	url_ok = true;
-    } 
+	   	$('#index_appurl_div').addClass('has-success');
+	   	$('#index_appurl_success').removeClass('hidden');
+	   	$('#index_appurl_fail').addClass('hidden');
+	   	$('#index_type').addClass('btn-success');
+	   	$('#index_type').removeClass('btn-danger');
+	   	index_url_ok = true;
+    }
 	 else {
 		$('#index_appurl_div').addClass('has-error');
 		$('#index_appurl_fail').removeClass('hidden');
@@ -114,7 +116,7 @@ $('#index_app_url').keyup(function(){
 		$('#index_appurl_success').addClass('hidden');
 		$('#index_type').addClass('btn-danger');
 		$('#index_type').removeClass('btn-success');
-		url_ok = false;
+		index_url_ok = false;
 	 }
 	 toggle_update_Button();
 });
@@ -131,14 +133,14 @@ $('#index_app_redirecturl').keyup(function(){
 		 $('#index_reurl_fail').addClass('hidden');
 		 $('#index_re_type').removeClass('btn-success');
 		 $('#index_re_type').removeClass('btn-danger');
-		 reurl_ok = false;
+		 index_reurl_ok = false;
     } else if (re.test(reurl)){
-   	$('#index_reurl_div').addClass('has-success');
-   	$('#index_reurl_success').removeClass('hidden');
-   	$('#index_reurl_fail').addClass('hidden');
-   	$('#index_re_type').addClass('btn-success');
-   	$('#index_re_type').removeClass('btn-danger');
-   	reurl_ok = true;
+	   	$('#index_reurl_div').addClass('has-success');
+	   	$('#index_reurl_success').removeClass('hidden');
+	   	$('#index_reurl_fail').addClass('hidden');
+	   	$('#index_re_type').addClass('btn-success');
+	   	$('#index_re_type').removeClass('btn-danger');
+	   	index_reurl_ok = true;
     } 
 	 else {
 		$('#index_reurl_div').addClass('has-error');
@@ -147,13 +149,13 @@ $('#index_app_redirecturl').keyup(function(){
 		$('#index_reurl_success').addClass('hidden');
 		$('#index_re_type').addClass('btn-danger');
 		$('#index_re_type').removeClass('btn-success');
-		reurl_ok = false;
+		index_reurl_ok = false;
 	 }
 	 toggle_update_Button();
 });
 
 function toggle_update_Button(){
-	if(reurl_ok && url_ok){
+	if(index_reurl_ok && index_url_ok){
 		$('#index_update').removeAttr('disabled');
 	}
 	else{

@@ -12,9 +12,9 @@
 
 	<div class="container">
 
-		<div class="row row-offcanvas row-offcanvas-left">
+		<div class="row">
 			<!-- sidebar -->
-			<div class="col-xs-5 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+			<div class="col-md-3 role="navigation">
 				<h4>Developer</h4>
 				<ul class="snb nav">
 					<li class="active"><a href="/GardenPlatformWeb/my_apps/index.do">Getting Start</a></li>
@@ -30,7 +30,7 @@
 			</div>
 
 			<!-- main area -->
-			<div class="col-xs-12 col-sm-9 content">
+			<div class="col-md-9">
 				컨텐츠
 			</div>
 		</div>

@@ -10,9 +10,9 @@
 
 <body>
 	<div class="container">
-		<div class="row row-offcanvas row-offcanvas-left">
+		<div class="row">
 			<!-- sidebar -->
-			<div class="col-xs-5 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+			<div class="col-md-3" role="navigation">
 				<ul class="snb nav">
 					<li><a href="#" data-toggle="collapse" data-target="#sub1" id="appName"><b class="ellipsis"><span class="glyphicon glyphicon-list-alt"></span>${appName}<span class="caret"></span></b></a>
 						<ul class="nav collapse" id="sub1">
@@ -31,7 +31,7 @@
 			</div>
 
 			<!-- main area -->
-			<div class="col-xs-12 col-sm-9 content">
+			<div class="col-md-9">
 				<div class="panel panel-default">
 				  <div class="panel-heading"><h4 class="no_margin">Project Leader</h4></div>
 				  <div class="panel-body">
@@ -54,8 +54,8 @@
 				  	</c:if>
 				  	<c:forEach var="item" items="${developerList}">
                         <div class="media">
-					      <a class="pull-left" href="#">
-					        <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/p50x50/10641274_727231190703971_7622922369219706929_n.jpg?oh=be0fa48dec6ea450bb12670ae01438b2&amp;oe=54AFFF2F&amp;__gda__=1423917107_a57e6875d154889b3a00d7ebaee7f3ad" style="width: 64px; height: 64px;">
+					      <a class="media-left media-middle" href="#">
+					        <img data-src="holder.js/64x64" alt="64x64" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/p50x50/10641274_727231190703971_7622922369219706929_n.jpg?oh=be0fa48dec6ea450bb12670ae01438b2&amp;oe=54AFFF2F&amp;__gda__=1423917107_a57e6875d154889b3a00d7ebaee7f3ad" style="width: 64px; height: 64px;">
 					      </a>
 					      <div class="media-body">
 					        <h4 class="media-heading" id="pl_name">${item}</h4>
