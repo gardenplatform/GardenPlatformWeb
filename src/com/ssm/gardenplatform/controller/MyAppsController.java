@@ -54,6 +54,7 @@ public class MyAppsController {
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
+		System.out.println(url);
 		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
 		
 		ModelAndView mav = new ModelAndView();

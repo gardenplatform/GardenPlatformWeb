@@ -183,7 +183,7 @@
 		
 		$.ajax({
 			type : "POST",
-			url : "signup.do",
+			url : "/GardenPlatformWeb/signup.do",
 			data : userInfo,
 			success : function(data) {
 				var obj = jQuery.parseJSON(data);

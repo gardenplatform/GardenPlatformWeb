@@ -34,7 +34,7 @@ public class SessionFilter implements Filter {
 		
 		boolean login = false;
 		if(session != null){
-			if(session.getAttribute("user") != null){
+			if(session.getAttribute("token") != null){
 				login = true;
 			}
 		}
