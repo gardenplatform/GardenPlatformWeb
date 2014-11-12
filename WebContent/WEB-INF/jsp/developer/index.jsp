@@ -35,7 +35,11 @@
 
 			<!-- main area -->
 			<div class="col-md-9">
-				컨텐츠
+				<div class="jumbotron">
+  <h1>Getting Start!</h1>
+  <p>밥줘영</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+</div>
 			</div>
 		</div>
 		<!-- /.col-xs-12 main -->

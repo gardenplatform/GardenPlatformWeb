@@ -33,31 +33,31 @@
 				<div class="row">
 			      <div class="col-md-4">
 			        <div class="thumbnail">
-							<img src="/GardenPlatformWeb/resource/img/300x200_sample.png" alt="300x200" data-src="holder.js/300x200" style="width: 300px; height: 200px;">
+							<img src="/GardenPlatformWeb/resource/img/youTube.png" alt="300x200" data-src="holder.js/300x200" style="width: 300px; height: 200px;">
 							<div class="caption">
 								<h4>Display Name</h4>
 								<p>팀장 이름</p>
-								<a class="btn btn-primary" href="#">View</a>
+								<a class="btn btn-mint" href="#">View</a>
 							</div>
 						</div>
 			      </div>
 			      <div class="col-md-4">
 			        <div class="thumbnail">
-							<img src="/GardenPlatformWeb/resource/img/300x200_sample.png" alt="300x200" data-src="holder.js/300x200" style="width: 300px; height: 200px;">
+							<img src="/GardenPlatformWeb/resource/img/angry.png" alt="300x200" data-src="holder.js/300x200" style="width: 300px; height: 200px;">
 							<div class="caption">
 								<h4>Display Name</h4>
 								<p>팀장 이름</p>
-								<a class="btn btn-primary" href="#">View</a>
+								<a class="btn btn-mint" href="#">View</a>
 							</div>
 						</div>
 			      </div>
 			      <div class="col-md-4">
 			        <div class="thumbnail">
-							<img src="/GardenPlatformWeb/resource/img/300x200_sample.png" alt="300x200" data-src="holder.js/300x200" style="width: 300px; height: 200px;">
+							<img src="/GardenPlatformWeb/resource/img/tool.png" alt="300x200" data-src="holder.js/300x200" style="width: 300px; height: 200px;">
 							<div class="caption">
 								<h4>Display Name</h4>
 								<p>팀장 이름</p>
-								<a class="btn btn-primary" href="#">View</a>
+								<a class="btn btn-mint" href="#">View</a>
 							</div>
 						</div>
 			      </div>
