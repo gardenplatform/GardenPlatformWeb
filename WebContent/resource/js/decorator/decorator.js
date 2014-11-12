@@ -1,8 +1,8 @@
 //적용예정 기달
-/*
+
 $(function () { 
     $("[data-toggle='tooltip']").tooltip(); 
-});*/
+});
 
 $('#btn_web_register').click(function(){
 		var type = $('#type').html();

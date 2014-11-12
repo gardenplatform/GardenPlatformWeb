@@ -13,8 +13,9 @@
 		<div class="row">
 			<!-- sidebar -->
 			<div class="col-md-3" role="navigation">
+			<div class="well">
 				<ul class="snb nav">
-					<li><a href="#" data-toggle="collapse" data-target="#sub1" id="appName"><b class="ellipsis"><span class="glyphicon glyphicon-list-alt"></span>${appName}<span class="caret"></span></b></a>
+					<li><a href="#" data-toggle="collapse" data-target="#sub1" id="appName"><b class="ellipsis"><span class="glyphicon glyphicon-list-alt"></span> ${appName}<span class="caret"></span></b></a>
 						<ul class="nav collapse" id="sub1">
 							<c:forEach var="item" items="${sessionScope.appList}">
                             	<li><a class="ellipsis-suv" href="/GardenPlatformWeb/my_apps/index.do?appName=${item}">${item}</a></li>
@@ -22,12 +23,15 @@
 						</ul>
 					</li>
 				</ul>
+			</div>
+			<div class="well">
 				<ul class="snb nav">
 					<li><a href="/GardenPlatformWeb/my_apps/index.do?appName=${appName}"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
 					<li class="active"><a href="/GardenPlatformWeb/my_apps/apps_detail.do?appName=${appName}"><span class="glyphicon glyphicon-time"></span> App Detail</a></li>
 					<li><a href="/GardenPlatformWeb/my_apps/roles.do?appName=${appName}"><span class="glyphicon glyphicon-user"></span> Roles</a></li>
 					<li><a href="/GardenPlatformWeb/my_apps/setting.do?appName=${appName}"><span class="glyphicon glyphicon-cog"></span> Setting</a></li>
 				</ul>
+				</div>
 			</div>
 			<!-- main area -->
 			<div class="col-md-9">
