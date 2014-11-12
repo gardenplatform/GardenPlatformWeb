@@ -13,6 +13,9 @@
 	<div class="row">
 		<div class="col-md-3" role="navigation">
 		<div class="well">
+			<h4>Store</h4>
+		</div>
+		<div class="well">
 				<ul class="snb nav">
 					<li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 					<li><a href="#" data-toggle="collapse" data-target="#sub1"><span class="glyphicon glyphicon-tags"></span> Category <span class="caret"></span></a>

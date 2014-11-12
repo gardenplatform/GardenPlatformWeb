@@ -15,7 +15,10 @@
 		<div class="row">
 			<!-- sidebar -->
 			<div class="col-md-3 role="navigation">
+				<div class="well">
 				<h4>Developer</h4>
+				</div>
+				<div class="well">
 				<ul class="snb nav">
 					<li class="active"><a href="/GardenPlatformWeb/my_apps/index.do">Getting Start</a></li>
 					<li><a href="/GardenPlatformWeb/my_apps/apps_detail.do">Apps Detail</a></li>
@@ -27,6 +30,7 @@
 						</ul>
 					</li>
 				</ul>
+				</div>
 			</div>
 
 			<!-- main area -->
