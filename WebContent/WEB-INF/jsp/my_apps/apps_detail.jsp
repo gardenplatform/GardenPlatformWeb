@@ -69,7 +69,7 @@
 								  <option>Communication</option>
 								  <option>Education</option>
 								  <option>Entertainment</option>
-								  <option>기타</option>
+								  <option>etc</option>
 								</select>
 								<script>
 									var category = "${category}";

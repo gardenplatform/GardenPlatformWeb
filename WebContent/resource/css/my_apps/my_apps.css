@@ -7,7 +7,7 @@
 div.form {
 	max-width: 600px;
 }
-
+/*
 .ellipsis {
     width: 190px;
     text-overflow: ellipsis;
@@ -23,7 +23,23 @@ div.form {
     white-space: nowrap;
     display: block;
 }
+*/
 
+.ellipsis {
+	display: block;
+	overflow: hidden;
+	position: relative;
+	white-space: nowrap;
+}
+
+.ellipsis-suv {
+	display: block;
+	overflow: hidden;
+	position: relative;
+	white-space: nowrap;
+}
+	
+	
 .btn-pull-right {
 	text-align: right;
 }
