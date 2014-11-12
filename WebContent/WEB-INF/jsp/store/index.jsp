@@ -22,8 +22,12 @@
 					<li><a href="#" data-toggle="collapse" data-target="#sub1"><span class="glyphicon glyphicon-tags"></span> Category <span class="caret"></span></a>
 						<ul class="nav collapse" id="sub1">
 							<li><a href="#">WebApps</a></li>
-							<li><a href="#">Sub Link 2</a></li>
-							<li><a href="#">Sub Link 3</a></li>
+							<li><a href="#">Books</a></li>
+							<li><a href="#">Business</a></li>
+							<li><a href="#">Communication</a></li>
+							<li><a href="#">Education</a></li>
+							<li><a href="#">Entertainment</a></li>
+							<li><a href="#">etc</a></li>
 						</ul>
 					</li>
 				</ul>

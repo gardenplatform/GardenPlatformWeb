@@ -63,7 +63,7 @@
 					    	<label class="control-label">Category</label>
 						    	<select class="form-control" id="category">
 						    	  <option>카테고리를 선택하세요</option>
-								  <option>Apps for Pages</option>
+								  <option>Webapp</option>
 								  <option>Books</option>
 								  <option>Business</option>
 								  <option>Communication</option>
