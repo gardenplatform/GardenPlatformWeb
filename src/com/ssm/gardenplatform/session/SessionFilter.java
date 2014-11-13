@@ -72,6 +72,9 @@ public class SessionFilter implements Filter {
 		else if(uri.startsWith("/GardenPlatformWeb/signin.do")){
 			return true;
 		}
+		else if(uri.startsWith("/GardenPlatformWeb/checkID.do")){
+			return true;
+		}
 		else if(uri.startsWith("/GardenPlatformWeb/signup.do")){
 			return true;
 		}

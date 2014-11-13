@@ -39,7 +39,7 @@ public class MyAppsController {
 		
 		logMgr.printLog(request);
 
-		String appName = request.getParameter("appName");
+		String appName = request.getParameter("appName").trim();
 		
 		Map<String, Object> result = null;
 		
@@ -54,7 +54,6 @@ public class MyAppsController {
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-		System.out.println(url);
 		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
 		
 		ModelAndView mav = new ModelAndView();
@@ -89,7 +88,7 @@ public class MyAppsController {
 		
 		logMgr.printLog(request);
 
-		String appName = request.getParameter("appName");
+		String appName = request.getParameter("appName").trim();
 		String appUrl = request.getParameter("appUrl");
 		String appRedirectUrl = request.getParameter("appRedirectUrl");
 		
@@ -137,7 +136,7 @@ public class MyAppsController {
 		
 		logMgr.printLog(request);
 
-		String appName = request.getParameter("appName");
+		String appName = request.getParameter("appName").trim();
 		
 		Map<String, Object> result = null;
 		
@@ -185,7 +184,7 @@ public class MyAppsController {
 		
 		logMgr.printLog(request);
 
-		String appName = request.getParameter("appName");
+		String appName = request.getParameter("appName").trim();
 		String tag1 = request.getParameter("tag1");
 		String tag2 = request.getParameter("tag2");
 		String tag3 = request.getParameter("tag3");
@@ -241,7 +240,7 @@ public class MyAppsController {
 		
 		logMgr.printLog(request);
 
-		String appName = request.getParameter("appName");
+		String appName = request.getParameter("appName").trim();
 		
 		Map<String, Object> result = null;
 		
@@ -293,7 +292,7 @@ public class MyAppsController {
 		
 		logMgr.printLog(request);
 		
-		String appName = request.getParameter("appName");
+		String appName = request.getParameter("appName").trim();
 		String memberID = request.getParameter("memberID");
 		
 		Map<String, Object> result = null;
@@ -337,7 +336,7 @@ public class MyAppsController {
 		
 		logMgr.printLog(request);
 
-		String appName = request.getParameter("appName");
+		String appName = request.getParameter("appName").trim();
 		
 		Map<String, Object> result = null;
 		
@@ -379,7 +378,7 @@ public class MyAppsController {
 		
 		logMgr.printLog(request);
 
-		String appName = request.getParameter("appName");
+		String appName = request.getParameter("appName").trim();
 		String displayName = request.getParameter("displayName");
 		String contactEmail = request.getParameter("contactEmail");
 		String publish = request.getParameter("publish");
@@ -426,7 +425,7 @@ public class MyAppsController {
 		
 		logMgr.printLog(request);
 
-		String appName = request.getParameter("appName");
+		String appName = request.getParameter("appName").trim();
 		
 		Map<String, Object> result = null;
 		
