@@ -135,7 +135,7 @@
      					<p class="text-danger"><strong>${appName}</strong></p>
      					<p><strong>삭제 후에는 복구할 수 없습니다. 삭제 하시겠습니까? </strong></p>
 					</div>
-						
+
 		            <div class="modal-footer">
 	                	<button class="btn btn-mint" type="button" id="deleteApp">삭제</button>  
 		                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
