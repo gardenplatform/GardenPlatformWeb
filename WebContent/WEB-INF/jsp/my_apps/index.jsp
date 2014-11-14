@@ -15,7 +15,7 @@
 			<div class="col-md-3" role="navigation">
 				<div class="well">
 				<ul class="snb nav">
-					<li><a href="#" data-toggle="collapse" data-target="#sub1" id="appName"><b class="ellipsis"><span class="glyphicon glyphicon-list-alt"></span> ${appName}<span class="caret"></span></b></a>
+					<li><a href="#" data-toggle="collapse" data-target="#sub1" id="appName"><b class="ellipsis"><span class="glyphicon glyphicon-list-alt"></span>${appName}<span class="caret"></span></b></a>
 						<ul class="nav collapse" id="sub1">
 							<c:forEach var="item" items="${sessionScope.appList}">
                             	<li><a class="ellipsis-suv" href="/GardenPlatformWeb/my_apps/index.do?appName=${item}"> ${item}</a></li>
@@ -48,9 +48,7 @@
 							</a>
 							<div class="media-body">
 								<h2 class="media-heading">${appName}</h2>
-								<h4>
-									<small>This app is public and available to all users.</small>
-								</h4>
+								<h4 id="launch_status"><small>아직 출시되지 않은 상태입니다.</small></h4>
 								<div class="row">
 									<div class="col-md-5">
 										<label class="control-label">App ID</label> <input id="app_id"
@@ -74,14 +72,6 @@
 					</div>
 					
 					<div class="panel-body">
-					
-					<!-- 
-				    	<div class="form-group">
-					    	<label class="control-label">URL</label>
-					    	<input id="app_url" type="text" class="form-control" value="${appUrl}">
-						</div>
-					 -->
-						
 						<div id="index_appurl_div" class="form-group has-feedback">
 							<label class="control-label">URL</label>
 							<div class="input-group">
@@ -97,13 +87,6 @@
 							<span id="index_appurl_success" class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
 							<span id="index_appurl_fail" class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
 						</div>
-
-						<!-- 
-					    <div class="form-group">
-					    	<label class="control-label">Redirect URL</label>
-					    	<input id="app_redirecturl" type="text" class="form-control" value="${appRedirectUrl}">
-						</div>
-						 -->
 						
 						<div id="index_reurl_div" class="form-group has-feedback">
 							<label class="control-label">Redirect URL </label>
@@ -131,14 +114,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- 
-				<div class="panel panel-default">
-					<div class="panel-body">
-				   	 <h3 class="no_margin">Getting Start</h3>
-				   	 <button class="btn btn-default pull-right">Getting Started</button>
-				  	</div>
-				</div>
-				 -->
+				
 			</div>
 		</div>
 		<!-- /.col-xs-12 main -->

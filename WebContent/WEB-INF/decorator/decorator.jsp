@@ -53,9 +53,8 @@
                 
                 <ul class="nav navbar-nav navbar-right">
                 	<li class="dropdown" id="nav-userinfo">
-                		<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="name" style="padding: 0px 0px 0px 0px;">
-                		<span style="margin:20px;">${sessionScope.userID}</span>
-                		<img class="img" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/p50x50/10565031_677986682295089_5741239171452330999_n.jpg?oh=faa04656774966b37e0299b613620304&amp;oe=54CA4714&amp;__gda__=1420806770_6480a830c55fb7891ca0298622dee634" alt="">
+                		<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="name">
+                		${sessionScope.userID}<b class="caret"></b>
                 		</a>
                 		<ul class="dropdown-menu">
                 			<li><a href="/GardenPlatformWeb/user/profile.do">내 정보</a>

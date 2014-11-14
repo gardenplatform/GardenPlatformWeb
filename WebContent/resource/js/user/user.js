@@ -1,5 +1,10 @@
 // user js
 
+$(document).ready(function(){
+	$('#nav-userinfo').addClass('active');
+});
+
+
 var newpasswordgroup = $('#newpassword').add('#newpasswordconfirm'); 
 
 $('#password').keyup(function(){
