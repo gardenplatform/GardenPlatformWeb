@@ -65,6 +65,7 @@
 										    	<input id="switch-state" type="checkbox">
 										    </c:otherwise>
 									    </c:choose>
+									    <button type="button" data-get="state" class="btn btn-default hidden"></button>
 									</div>
 								</div>
 							</div>

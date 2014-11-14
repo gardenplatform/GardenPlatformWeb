@@ -5,7 +5,6 @@
 $('#setting_update').click(function(){
 
     var type = $('[data-get]').data('get');
-	
 	var appName = $('#appName').text(); 
 	var displayName = $('#displayName').val();
 	var contactEmail = $('#contactEmail').val();
@@ -70,7 +69,7 @@ $('#deleteApp').click(function(){
 	});
 });
 
-// 출시할때 checkbox 애니메이션 넣어줌
+// checkbox 애니메이션 넣어줌
 $(function() {
 	  var $window = $(window);
 	  var sectionTop = $('.top').outerHeight() + 20;
