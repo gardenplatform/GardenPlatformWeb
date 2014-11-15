@@ -23,7 +23,12 @@
 				    </div>
 			    </form>
 				</div>
+		
 		</div>
+		
+		<audio autoplay>
+			<source src="/GardenPlatformWeb/resource/video/ell.mp3" type="audio/mp3">
+		</audio>
 		<script src="/GardenPlatformWeb/resource/js/home.js"></script>
 </body>
 </html>

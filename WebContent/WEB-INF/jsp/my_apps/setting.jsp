@@ -7,8 +7,6 @@
 <head>
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/my_apps/my_apps.css">
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/bootstrap-switch.min.css">
-	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/docs.css">
-	
 </head>
 
 <body>
