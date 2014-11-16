@@ -16,14 +16,13 @@ $('#btn_web_register').click(function(){
 		var appName = $('#appname_check').val();
 		var appUrl = type + $('#appUrl').val();
 		var appRedirectUrl = re_type + $('#reUrl').val();
-		
-		// 이거 추가해서느셈
-		var permission = $('#input_permission').html();
+		var appPermission = $('#input_permission').html();
 		
 		var appInfo = {
 				appName 	: appName,
 				appUrl   : appUrl,
-				appRedirectUrl   : appRedirectUrl
+				appRedirectUrl   : appRedirectUrl,
+				appPermission : appPermission
 		};
 		
 		if(appName=="" || appUrl=="" || appRedirectUrl=="") {

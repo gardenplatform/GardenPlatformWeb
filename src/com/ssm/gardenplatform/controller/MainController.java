@@ -97,6 +97,7 @@ public class MainController {
 		String appUrl = request.getParameter("appUrl");
 		String appRedirectUrl = request.getParameter("appRedirectUrl");
 		String appType = "confidential";
+		String appPermission = request.getParameter("appPermission");
 		// confidential,(web) public(native)
 		
 		Map<String, Object> result = null;
@@ -110,8 +111,9 @@ public class MainController {
 
 		vars.add("name", appName);
 		vars.add("url", appUrl);
-		vars.add("redirect_uri", appRedirectUrl);
+		vars.add("redirect_uris", appRedirectUrl);
 		vars.add("client_type", appType);
+		vars.add("authorization_grant_type", appPermission);
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization","token "+token);
@@ -123,9 +125,8 @@ public class MainController {
 		try {
 			if(result.get("status").toString().equals("success")) {
 
-				JSONObject jsonObj = new JSONObject(result.get("result").toString());
 				obj.put("status", result.get("status").toString());
-				obj.put("msg", "Can use ID");
+				obj.put("msg", "App Register Success");
 			}
 			else{
 				obj.put("status", result.get("status").toString());
