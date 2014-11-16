@@ -5327,6 +5327,40 @@ a.list-group-item.active > .badge,
           transition: all 0.2s ease-in-out;
 }
 
+.thumbnail-round {
+  display: inline-block;
+  height: auto;
+  max-width: 100%;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.428571429;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 50%;
+  -webkit-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+}
+
+.thumbnail-round > img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+a.thumbnail-round:hover,
+a.thumbnail-round:focus,
+a.thumbnail-round.active {
+  border-color: #428bca;
+}
+
+.thumbnail-round .caption {
+  padding: 9px;
+  color: #333333;
+}
+
+
 .thumbnail > img {
   display: block;
   height: auto;

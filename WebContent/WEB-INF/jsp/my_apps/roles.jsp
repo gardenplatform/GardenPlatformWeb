@@ -42,7 +42,7 @@
 				  <div class="text-center">
 					  <div class="row">
 					    <div class="col-md-12">
-						  	<img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ1LjUiIHk9IjcwIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTQweDE0MDwvdGV4dD48L2c+PC9zdmc+" data-holder-rendered="true" style="width: 140px; height: 140px;">
+						  	<img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="/GardenPlatformWeb/resource/img/testimg.png" data-holder-rendered="true" style="width: 140px; height: 140px;">
 							<h3 id="pl_name"><small>${owner}</small></h3>
 					    </div>
 					  	
@@ -71,24 +71,13 @@
 					  	<div class="text-center">
 					  		<c:forEach var="item" items="${developerList}">
 						  		<div class="col-md-6">
-						  			<img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ1LjUiIHk9IjcwIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTQweDE0MDwvdGV4dD48L2c+PC9zdmc+" data-holder-rendered="true" style="width: 140px; height: 140px;">
+						  			<a href="#" class="thumbnail-round"><img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="/GardenPlatformWeb/resource/img/testimg.png" data-holder-rendered="true" style="width: 140px; height: 140px;"></a>
 						  			<h3 id="pl_name"><small>${item}</small></h3>
 						  		</div>
 					  		</c:forEach>
 					  	</div>
 				  	</div>
-				  	<!-- 
-				  	<c:forEach var="item" items="${developerList}">
-                        <div class="media">
-					      <a class="media-left media-middle" href="#">
-					        <img data-src="holder.js/64x64" alt="64x64" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/p50x50/10641274_727231190703971_7622922369219706929_n.jpg?oh=be0fa48dec6ea450bb12670ae01438b2&amp;oe=54AFFF2F&amp;__gda__=1423917107_a57e6875d154889b3a00d7ebaee7f3ad" style="width: 64px; height: 64px;">
-					      </a>
-					      <div class="media-body">
-					        <h4 class="media-heading" id="pl_name">${item}</h4>
-					      </div>
-					    </div>
-					</c:forEach>
-				  	 -->
+				  	
 				  </div>
 				</div>
 			</div>
