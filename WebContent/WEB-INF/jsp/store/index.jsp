@@ -21,6 +21,7 @@
 					<li><a href="#" data-toggle="collapse" data-target="#sub1"><span class="glyphicon glyphicon-tags"></span> Category <span class="caret"></span></a>
 						<ul class="nav collapse" id="sub1">
 							<li><a href="/GardenPlatformWeb/store/index.do?category=Webapp">Webapp</a></li>
+							<li><a href="/GardenPlatformWeb/store/index.do?category=Native">Native</a></li>
 							<li><a href="/GardenPlatformWeb/store/index.do?category=Books">Books</a></li>
 							<li><a href="/GardenPlatformWeb/store/index.do?category=Business">Business</a></li>
 							<li><a href="/GardenPlatformWeb/store/index.do?category=Communication">Communication</a></li>
@@ -41,6 +42,7 @@
 						<div class="caption">
 							<h4 class="ellipsis">${item.displayName}</h4>
 							<p><h5 class="ellipsis"><small>${item.category}</small></h5></p>
+							<button class="btn btn-mint" id="store_register">추가</button>
 						</div>
 					</div>
 		    	</div>

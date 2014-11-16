@@ -8,7 +8,6 @@ $('#permission_dropdown li a').click(function(){
 	$('#input_permission').html($(this).html());
 });
 
-
 $('#btn_web_register').click(function(){
 		var type = $('#type').html();
 		var re_type = $('#re_type').html();
