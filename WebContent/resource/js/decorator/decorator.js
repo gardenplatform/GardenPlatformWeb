@@ -4,6 +4,11 @@ $(function () {
     $("[data-toggle='tooltip']").tooltip(); 
 });
 
+$('#permission_dropdown li a').click(function(){
+	$('#input_permission').html($(this).html());
+});
+
+
 $('#btn_web_register').click(function(){
 		var type = $('#type').html();
 		var re_type = $('#re_type').html();
@@ -11,6 +16,9 @@ $('#btn_web_register').click(function(){
 		var appName = $('#appname_check').val();
 		var appUrl = type + $('#appUrl').val();
 		var appRedirectUrl = re_type + $('#reUrl').val();
+		
+		// 이거 추가해서느셈
+		var permission = $('#input_permission').html();
 		
 		var appInfo = {
 				appName 	: appName,

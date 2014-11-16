@@ -154,6 +154,16 @@
 							<span id="reurl_fail" class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
 						</div>
 						
+						<div id="permission_div" class="form-group has-feedback">
+							<label class="control-label">Permission 설정 <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="설명추가."></span></label>
+									<button type="button" class="btn btn-default dropdown-toggle" id="input_permission" data-toggle="dropdown" style="width: 100%">authorization-code</button>
+									<ul class="dropdown-menu" id="permission_dropdown">
+										<li><a href="#">authorization-code</a></li>
+										<li><a href="#">implicit</a></li>
+										<li><a href="#">password</a></li>
+									</ul>
+						</div>
+						
 		            </div>
 		            <div class="modal-footer">
 	                	<button class="btn btn-mint" type="button" id="btn_web_register" disabled="disabled">등록</button>  
