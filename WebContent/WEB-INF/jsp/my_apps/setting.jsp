@@ -54,7 +54,6 @@
 										<h4 id="launch_status"><small>아직 출시되지 않은 상태입니다.</small></h4>
 									</div>
 									<div class="col-md-3">
-										${publish}
 									    <c:choose>
 										    <c:when test="${publish}">
 										    	<input id="switch-state" type="checkbox" checked>

@@ -1,6 +1,16 @@
 // setting js
 
 //----------------------------------------------setting
+$(document).ready(function(){
+	var type = $('[data-get]').data('get');
+	var launch = $('#switch-' + type).bootstrapSwitch(type);
+	console.log(launch);
+	if(launch){
+		$('#launch_status').html("<small>출시 된 상태입니다.</small>");
+	} else {
+		$('#launch_status').html("<small>출시되지 않은 상태입니다.</small>");
+	}
+});
 
 $('#setting_update').click(function(){
 

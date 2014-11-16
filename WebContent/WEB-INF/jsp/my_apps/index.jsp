@@ -48,7 +48,7 @@
 							</a>
 							<div class="media-body">
 								<h2 class="media-heading">${appName}</h2>
-								<h4 id="launch_status"><small>아직 출시되지 않은 상태입니다.</small></h4>
+								<h4 id="launch_status"><small>출시되지 않은 상태입니다.</small></h4>
 								<div class="row">
 									<div class="col-md-5">
 										<label class="control-label">App ID</label> <input id="app_id"
