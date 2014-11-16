@@ -57,6 +57,7 @@ public class MyAppsController {
 		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
 		
 		ModelAndView mav = new ModelAndView();
+		
 		if(result.get("status").equals("error")){
 			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
 		}
@@ -74,12 +75,28 @@ public class MyAppsController {
 					mav.addObject("appType", "Web");
 				else if(jsonObj.get("client_type").toString().equals("1"))
 					mav.addObject("appType", "Native");
-				
+
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
 			
 		}
+		
+		url = RestInfo.restURL+"/clients/"+appName+"/setting";
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
+		
+		if(result.get("status").equals("error")){
+			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
+		}
+		else {
+			try {
+				JSONObject jsonObj = new JSONObject(result.get("result").toString());
+				mav.addObject("appPublish", jsonObj.get("publish"));
+			}catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		return mav;
 	}
 	

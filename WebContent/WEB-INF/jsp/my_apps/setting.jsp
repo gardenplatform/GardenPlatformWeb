@@ -51,7 +51,14 @@
 								<h2 class="media-heading">${appName}</h2>
 								<div class="row">
 									<div class="col-md-9">
-										<h4 id="launch_status"><small>아직 출시되지 않은 상태입니다.</small></h4>
+									    <c:choose>
+											<c:when test="${publish}">
+												<h4 id="launch_status"><small>출시 중인 상태입니다.</small></h4>
+										    </c:when>
+										    <c:otherwise>
+												<h4 id="launch_status"><small>아직 출시되지 않은 상태입니다.</small></h4>
+										    </c:otherwise>
+									    </c:choose>
 									</div>
 									<div class="col-md-3">
 									    <c:choose>
