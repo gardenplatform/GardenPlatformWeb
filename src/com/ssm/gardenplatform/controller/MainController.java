@@ -96,7 +96,8 @@ public class MainController {
 		String appName = request.getParameter("appName");
 		String appUrl = request.getParameter("appUrl");
 		String appRedirectUrl = request.getParameter("appRedirectUrl");
-		String appType = "0";
+		String appType = "confidential";
+		// confidential,(web) public(native)
 		
 		Map<String, Object> result = null;
 		

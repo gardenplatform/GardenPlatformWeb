@@ -67,13 +67,13 @@ public class MyAppsController {
 				JSONObject jsonObj = new JSONObject(result.get("result").toString());
 				mav.addObject("appName", jsonObj.get("name"));
 				mav.addObject("appUrl", jsonObj.get("url"));
-				mav.addObject("appRedirectUrl", jsonObj.get("redirect_uri"));
+				mav.addObject("appRedirectUrl", jsonObj.get("redirect_uris"));
 				mav.addObject("appID", jsonObj.get("client_id"));
 				mav.addObject("appSecret", jsonObj.get("client_secret"));
 				
-				if(jsonObj.get("client_type").toString().equals("0"))
+				if(jsonObj.get("client_type").toString().equals("confidential"))
 					mav.addObject("appType", "Web");
-				else if(jsonObj.get("client_type").toString().equals("1"))
+				else if(jsonObj.get("client_type").toString().equals("public"))
 					mav.addObject("appType", "Native");
 
 			} catch (JSONException e) {
@@ -119,7 +119,7 @@ public class MyAppsController {
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
 		
 		vars.add("url", appUrl);
-		vars.add("redirect_uri", appRedirectUrl);
+		vars.add("redirect_uris", appRedirectUrl);
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization","token "+token);
