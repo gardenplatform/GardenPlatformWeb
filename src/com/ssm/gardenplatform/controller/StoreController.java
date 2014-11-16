@@ -49,8 +49,6 @@ public class StoreController {
 		if(request.getParameter("category") != null) 
 			url += "?category="+request.getParameter("category").toString();
 		
-		System.out.println(url);
-		
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
 
 		HttpHeaders headers = new HttpHeaders();
