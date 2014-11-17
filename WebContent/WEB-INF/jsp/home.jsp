@@ -45,7 +45,7 @@
 					<a href="#" class="thumbnail-round"><img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="/GardenPlatformWeb/resource/img/testimg.png" data-toggle="tooltip" data-placement="top" data-original-title="개 존잘 ;;" style="width: 140px; height: 140px;"></a>
 				</div>
 				<div class="col-xs-3 col-md-3 text-center">
-					<a href="#" class="thumbnail-round"><img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="/GardenPlatformWeb/resource/img/testimg2.png" data-toggle="tooltip" data-placement="top" data-original-title="분위기있는척 ㄴㄴ" style="width: 140px; height: 140px;"></a>
+					<a href="#" class="thumbnail-round"><img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="/GardenPlatformWeb/resource/img/testimg2.png" data-toggle="tooltip" data-placement="top" data-original-title="상우찡" style="width: 140px; height: 140px;"></a>
 				</div>
 				<div class="col-xs-3 col-md-3 text-center">
 					<a href="#" class="thumbnail-round"><img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="/GardenPlatformWeb/resource/img/testimg1.jpg" data-toggle="tooltip" data-placement="top" data-original-title="호로록" style="width: 140px; height: 140px;"></a>
