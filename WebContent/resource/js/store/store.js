@@ -4,9 +4,9 @@ $(document).ready(function(){
 	$('#nav-store').addClass('active');
 });
 
-$('.test').click(function(){
+$('.show_detail').click(function(){
 
-	var index = $(this).index('.test');
+	var index = $(this).index('.show_detail');
 	var appName = $('.appName').eq(index).val();
 	
 	data = {
@@ -38,5 +38,8 @@ $('.test').click(function(){
 			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
 		}
 	});
-	
+});
+
+$('.store_register').click(function(){
+	//앱 추가
 });

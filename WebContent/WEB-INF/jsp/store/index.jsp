@@ -39,7 +39,7 @@
 				<div class="col-md-3">
 					<a href="/GardenPlatformWeb/store/detail.do?appName="${item.appName}>
 		        	<div class="thumbnail">
-						<a class="thumbnail show_detail"><img class="test" src="https://lh6.ggpht.com/sJMM68hWF0hlzwANvG2sOvvHx-ApEfPyzUd63eXGAv-3I5IUXYt9hO8zmY1hmOlzjQ=w170-rw" alt="300x200" data-src="holder.js/300x200"></a>
+						<a class="thumbnail" style="margin-bottom: 0px;"><img class="show_detail" src="https://lh6.ggpht.com/1eVPA6Iukw-F4i5xq1ZWicaKBzmprLGw98YhdG20E-wlsHHg3PcKJqbY_fWLdJeGRw=w170-rw" alt="300x200" data-src="holder.js/300x200"></a>
 						<div class="caption">
 							<h4 class="ellipsis">${item.displayName}</h4>
 							<p><h5 class="ellipsis"><small>${item.category}</small></h5></p>
