@@ -117,7 +117,7 @@
 		            	
 		            	<div id="appname_div" class="form-group has-feedback">
 							<label class="control-label">App Name <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="사용할 App의 이름을 입력해야 합니다. 중복된 이름은 등록할 수 없습니다."></span></label>
-							<input id="appname_check" class="form-control" placeholder="Snac"></input>
+							<input id="appname_check" class="form-control" placeholder="App name"></input>
 							<span id="appname_success" class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
 							<span id="appname_fail" class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
 						</div>
@@ -132,7 +132,7 @@
 							          <li><a href="#">https://</a></li>
 							        </ul>
 								</div>
-								<input id="appUrl" class="form-control" type="tel" placeholder="www.snac.org"></input>
+								<input id="appUrl" class="form-control" type="tel" placeholder="www.swmem.org"></input>
 							</div>
 							<span id="appurl_success" class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
 							<span id="appurl_fail" class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
@@ -148,7 +148,7 @@
 							          <li><a href="#">https://</a></li>
 							        </ul>
 								</div>
-								<input id="reUrl" class="form-control" type="tel" placeholder="redirect URL"></input>
+								<input id="reUrl" class="form-control" type="tel" placeholder="www.swmem.org"></input>
 							</div>
 							<span id="reurl_success" class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
 							<span id="reurl_fail" class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
@@ -180,30 +180,10 @@
 		                <h4 class="modal-title">NativeApp 등록</h4>
 		            </div>
 		            <div class="modal-body">
-		            	<div class="form-group row">
-							<h5 class="col-xs-4">App Name<span class="glyphicon glyphicon-info-sign"></span></h5>
-							<div class="col-xs-8">
-								<input id="appName" class="form-control" type="tel" placeholder="Snac"></input>
-							</div>
-						</div>
-						
-						<div class="form-group row">
-							<h5 class="col-xs-4">URL<span class="glyphicon glyphicon-info-sign"></span></h5>
-							<div class="col-xs-8">
-								<input id="appUrl" class="form-control" type="tel" placeholder="www.snac.org"></input>
-							</div>
-						</div>
-						
-						<div class="form-group row">
-							<h5 class="col-xs-4">Redirect URL<span class="glyphicon glyphicon-info-sign"></span></h5>
-							<div class="col-xs-8">
-								<input id="reUrl" class="form-control" type="tel" placeholder="Re..."></input>
-							</div>
-						</div>
+		            	<strong>준비 중입니다.</strong>
 		            </div>
 		            <div class="modal-footer">
-	                	<button class="btn btn-mint" type="button" id="btn_native_register">등록</button>  
-		                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+		                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 		            </div>
 		        </div>
 		    </div>
