@@ -30,7 +30,7 @@
 				</div>
 				
 				<div class="col-xs-3 col-md-3 text-center">
-					<a href="#" class="thumbnail-round"><img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="https://lh6.ggpht.com/sJMM68hWF0hlzwANvG2sOvvHx-ApEfPyzUd63eXGAv-3I5IUXYt9hO8zmY1hmOlzjQ=w170-rw" data-toggle="tooltip" data-placement="top" data-original-title="Sample App1" style="width: 140px; height: 140px;"></a>
+					<a href="#" class="thumbnail-round"><img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="/GardenPlatformWeb/resource/img/favicon.png" data-toggle="tooltip" data-placement="top" data-original-title="수원 통합 관리 시스템" style="width: 140px; height: 140px;"></a>
 				</div>
 				<div class="col-xs-3 col-md-3 text-center">
 					<a href="#" class="thumbnail-round"><img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="https://lh4.ggpht.com/NsQkpzyYF8M4lmk9AFkjUNHYyoUROhwGvczdsSaQRwHOrvWPMKWS8E_2kURxEGA1Vg=w170-rw" data-toggle="tooltip" data-placement="top" data-original-title="블리츠 브리게이드" style="width: 140px; height: 140px;"></a>
