@@ -4,9 +4,9 @@ $(document).ready(function(){
 	$('#nav-store').addClass('active');
 });
 
-$('.appImg').click(function(){
+$('.show_detail').click(function(){
 
-	var index = $(this).index('.appImg');
+	var index = $(this).index('.show_detail');
 	var appName = $('.appName').eq(index).val();
 	
 	data = {
@@ -28,6 +28,7 @@ $('.appImg').click(function(){
 				$('#contact_email').html(obj.contactEmail);
 				$('#category').html(obj.category);
 				
+				$('#detail_realAppName').val(appName);
 				$('div#store_modal').modal('show');
 			}
 			else{
@@ -38,13 +39,12 @@ $('.appImg').click(function(){
 			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
 		}
 	});
-	
 });
 
 
 $('#addApp').click(function(){
 
-	var appName = $('.modal-title').html();
+	var appName = $('#detail_realAppName').val();
 	
 	data = {
 			appName : appName
@@ -72,12 +72,4 @@ $('#addApp').click(function(){
 			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
 		}
 	});
-	
 });
-
-/*$('.thumbnail test').each(function(index){
-$(this).click(function(event){
-console.log(index);
-$('div#store_modal').modal('show');
-});
-});*/

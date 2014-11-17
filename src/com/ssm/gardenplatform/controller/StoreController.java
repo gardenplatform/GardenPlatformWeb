@@ -123,6 +123,8 @@ public class StoreController {
 				obj.put("contactEmail", jsonObj.get("contact_email").toString());
 				obj.put("shortDescription", jsonObj.get("short_description").toString());
 				obj.put("longDescription", jsonObj.get("long_description").toString());
+				
+				obj.put("appName", appName);
 			}
 			else {
 				obj.put("status", result.get("status").toString());
@@ -156,17 +158,15 @@ public class StoreController {
 		
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
 
-		vars.add("client_name ", appName);
-
+		vars.add("client_name", appName);
+		
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-		System.out.println(appName);
-		System.out.println(url);
-		System.out.println(vars.toString());
-
 		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
+		
+		System.out.println(headers.toString());
 		
 		JSONObject obj = new JSONObject();
 		try {
@@ -181,7 +181,6 @@ public class StoreController {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		
 		PrintWriter writer = response.getWriter();
 		writer.write(obj.toString());
 	}

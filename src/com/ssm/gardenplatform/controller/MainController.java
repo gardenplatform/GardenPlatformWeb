@@ -2,6 +2,7 @@ package com.ssm.gardenplatform.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
@@ -57,6 +58,7 @@ public class MainController {
 		
 		HttpSession session = request.getSession(false);
 		String token = session.getAttribute("token").toString();
+		String userID = session.getAttribute("userID").toString();
 		
 		String url = RestInfo.restURL+"/clients";
 		
@@ -84,6 +86,31 @@ public class MainController {
 			}
 			session.setAttribute("appList", appList);
 			
+		}
+		else {
+			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));			
+		}
+		
+		url = RestInfo.restURL+"/users/"+userID+"/apps";
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
+		
+		if(result.get("status").equals("success")){
+			try {
+				JSONArray jsonArr = new JSONArray(result.get("result").toString());
+				LinkedList<Map<String, String>> bookmarkAppList = new LinkedList<Map<String, String>>();
+				for(int i=0; i<jsonArr.length(); i++) {
+					JSONObject jsonObj = new JSONObject(jsonArr.getJSONObject(i).toString());
+					
+					Map<String, String> app = new HashMap<String, String>();
+					app.put("displayName", jsonObj.get("display_name").toString());
+					app.put("url", jsonObj.get("url").toString());
+					
+					bookmarkAppList.add(app);
+				}
+				mav.addObject("bookmarkAppList", bookmarkAppList);
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
 		}
 		else {
 			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));			

@@ -51,16 +51,17 @@ $('#app_secret_show').click(function(){
 $('#index_update').click(function(){
 	
 	var appName = $('#appName').text(); 
-	console.log(appName);
 	var appUrl =  $('#index_type').html() + $('#index_app_url').val();
-	console.log(appUrl);
 	var appRedirectUrl = $('#index_re_type').html() + $('#index_app_redirecturl').val();
-	console.log(appRedirectUrl);
+
 	var data = {
 			appName : appName,
 			appUrl : appUrl,
 			appRedirectUrl    : appRedirectUrl
 	};
+	
+	console.log(data);
+	
 	$.ajax({
 		type : "POST",
 		url : "/GardenPlatformWeb/updateClient.do",
@@ -78,12 +79,9 @@ $('#index_update').click(function(){
 			}
 		},
 		error : function(xhr, status, error) {
-			//location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
-			setError("몰라");
+//			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
 		}
 	});
-	console.log(data);
-
 });
 
 var index_url_ok = true;

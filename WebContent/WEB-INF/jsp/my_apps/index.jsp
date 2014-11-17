@@ -42,9 +42,8 @@
 				  </div>
 					<div class="panel-body">
 						<div class="media">
-							<a class="pull-left" href="#"> <img
-								class="media-object myapps-img"
-								src="/GardenPlatformWeb/resource/img/dashboard_default_img.png">
+							<a class="pull-left" data-toggle="modal" data-target="#appIconModal"> 
+							<img class="media-object myapps-img" src="/GardenPlatformWeb/resource/img/dashboard_default_img.png">
 							</a>
 							<div class="media-body">
 								<h2 class="media-heading">${appName}</h2>
@@ -126,7 +125,29 @@
 		</div>
 		<!-- /.col-xs-12 main -->
 	</div><!--/.row-->
-
+	
+	<div class="modal fade" id="appIconModal">
+	    <div class="modal-dialog modal-vertical-centered">
+	        <div class="modal-content">
+	          	<form action="/GardenPlatformWeb/postAppIcon.do" method="POST" enctype="multipart/form-data">
+	        	<div class="modal-header">
+	                <h4 class="modal-title"></h4>
+	            </div>
+	            <div class="modal-body">
+	            	<input type="file" name="imgFile" id="imgFile">
+                	<input type="hidden" name="appName" value="${appName}">
+	            </div>
+	            <div class="modal-footer">
+                	<!-- <button class="btn btn-mint" type="button" id="submitAppIcon" >등록</button> --> 
+                	<input class="btn btn-mint" type="submit" value="등록">
+	                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+	            </div>
+	            </form>
+	        </div>
+	    </div>
+	</div>
+	
+	
 	<script src="/GardenPlatformWeb/resource/js/my_apps/index.js"></script>
 </body>
 </html>

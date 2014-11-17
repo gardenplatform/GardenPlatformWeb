@@ -20,6 +20,9 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -102,6 +105,62 @@ public class MyAppsController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/postAppIcon.do", method=RequestMethod.POST )
+    public @ResponseBody void postAppIcon(HttpServletRequest request, HttpServletResponse response,
+    		@RequestParam("imgFile") final MultipartFile imgFile, @RequestParam("appName") String appName) throws IOException{
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+    	
+    	Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+		String token = session.getAttribute("token").toString();
+
+		String url = RestInfo.restURL+"/clients/"+appName+"/icons";
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+		
+		vars.add("icon", imgFile);
+//		vars.add("icon", new org.springframework.core.io.ByteArrayResource(imgFile.getBytes(), imgFile.getOriginalFilename()) {
+//		    @Override
+//		    public String getFilename() throws IllegalStateException {
+//		        return imgFile.getOriginalFilename();
+//		    }
+//		});
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+//		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		System.out.println(appName);
+		System.out.println(imgFile.getName());
+		System.out.println(imgFile.getOriginalFilename());
+		System.out.println(imgFile.getSize());
+		System.out.println(url);
+		System.out.println(vars.toString());
+
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
+
+		JSONObject obj = new JSONObject();
+		try {
+			if(result.get("status").toString().equals("success")) {
+				obj.put("status", "success");
+				obj.put("msg", "Update success");
+			}
+			else {
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", result.get("msg").toString());
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		PrintWriter writer = response.getWriter();
+		writer.write(obj.toString());
+    }
+	
+	
 	@RequestMapping(value = "/updateClient.do", method = RequestMethod.POST)
 	public void updateClient(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
@@ -131,9 +190,6 @@ public class MyAppsController {
 
 		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.PUT);
 
-		System.out.println(appName);
-		System.out.println(url);
-		System.out.println(vars.toString());
 		JSONObject obj = new JSONObject();
 		try {
 			if(result.get("status").toString().equals("success")) {
@@ -151,8 +207,6 @@ public class MyAppsController {
 		PrintWriter writer = response.getWriter();
 		writer.write(obj.toString());
 	}
-	
-	
 	
 	
 	@RequestMapping(value = "/my_apps/apps_detail.do", method = RequestMethod.GET)
@@ -243,7 +297,10 @@ public class MyAppsController {
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
 		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
-		
+
+		System.out.println(appName);
+		System.out.println(url);
+		System.out.println(vars.toString());
 		JSONObject obj = new JSONObject();
 		try {
 			if(result.get("status").toString().equals("success")) {
