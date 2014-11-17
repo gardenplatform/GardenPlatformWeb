@@ -14,10 +14,3 @@ $('img.test').click(function(index){
 	
 	$('div#store_modal').modal('show');
 });
-
-/*$('.thumbnail test').each(function(index){
-$(this).click(function(event){
-console.log(index);
-$('div#store_modal').modal('show');
-});
-});*/

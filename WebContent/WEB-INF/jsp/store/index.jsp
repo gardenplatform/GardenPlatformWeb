@@ -38,7 +38,7 @@
 			<c:forEach var="item" items="${appList}">
 				<div class="col-md-3">
 		        	<div class="thumbnail">
-						<a class="thumbnail"><img class="test" src="https://lh6.ggpht.com/sJMM68hWF0hlzwANvG2sOvvHx-ApEfPyzUd63eXGAv-3I5IUXYt9hO8zmY1hmOlzjQ=w170-rw" alt="300x200" data-src="holder.js/300x200"></a>
+						<a class="thumbnail show_detail"><img class="test" src="https://lh6.ggpht.com/sJMM68hWF0hlzwANvG2sOvvHx-ApEfPyzUd63eXGAv-3I5IUXYt9hO8zmY1hmOlzjQ=w170-rw" alt="300x200" data-src="holder.js/300x200"></a>
 						<div class="caption">
 							<h4 class="ellipsis">${item.displayName}</h4>
 							<p><h5 class="ellipsis"><small>${item.category}</small></h5></p>
