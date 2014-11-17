@@ -37,7 +37,9 @@ public class MainController {
 	// main page
 	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
 	public ModelAndView getMain(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 		
 		ModelAndView mav = new ModelAndView("main");
@@ -46,7 +48,9 @@ public class MainController {
 	
 	@RequestMapping(value = "/home.do", method = RequestMethod.GET)
 	public ModelAndView getHome(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 		
 		Map<String, Object> result = null;
@@ -90,7 +94,9 @@ public class MainController {
 
 	@RequestMapping(value = "/webRegister.do", method = RequestMethod.POST)
 	public void postClient(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 		
 		String appName = request.getParameter("appName");

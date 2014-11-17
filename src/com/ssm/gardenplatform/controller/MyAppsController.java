@@ -36,7 +36,9 @@ public class MyAppsController {
 	
 	@RequestMapping(value = "/my_apps/index.do", method = RequestMethod.GET)
 	public ModelAndView getMyapps_Index(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
 		String appName = request.getParameter("appName").trim();
@@ -102,7 +104,9 @@ public class MyAppsController {
 	
 	@RequestMapping(value = "/updateClient.do", method = RequestMethod.POST)
 	public void updateClient(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
 		String appName = request.getParameter("appName").trim();
@@ -150,7 +154,9 @@ public class MyAppsController {
 	
 	@RequestMapping(value = "/my_apps/apps_detail.do", method = RequestMethod.GET)
 	public ModelAndView getMyapps_Apps_Detail(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
 		String appName = request.getParameter("appName").trim();
@@ -198,7 +204,9 @@ public class MyAppsController {
 
 	@RequestMapping(value = "/postAppDetail.do", method = RequestMethod.POST)
 	public void postAppDetail(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
 		String appName = request.getParameter("appName").trim();
@@ -254,7 +262,9 @@ public class MyAppsController {
 	
 	@RequestMapping(value = "/my_apps/roles.do", method = RequestMethod.GET)
 	public ModelAndView getMyapps_Roles(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
 		String appName = request.getParameter("appName").trim();
@@ -306,7 +316,9 @@ public class MyAppsController {
 	
 	@RequestMapping(value = "/addMember.do", method = RequestMethod.POST)
 	public void addMember(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 		
 		String appName = request.getParameter("appName").trim();
@@ -350,7 +362,9 @@ public class MyAppsController {
 	
 	@RequestMapping(value = "/my_apps/setting.do", method = RequestMethod.GET)
 	public ModelAndView getMyapps_Setting(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
 		String appName = request.getParameter("appName").trim();
@@ -392,7 +406,9 @@ public class MyAppsController {
 
 	@RequestMapping(value = "/updateSetting.do", method = RequestMethod.POST)
 	public void updateSetting(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
 		String appName = request.getParameter("appName").trim();
@@ -439,7 +455,9 @@ public class MyAppsController {
 	
 	@RequestMapping(value = "/deleteClient.do", method = RequestMethod.POST)
 	public void deleteClient(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
 		String appName = request.getParameter("appName").trim();

@@ -26,7 +26,9 @@ public class DeveloperController {
 	//start developer pages
 	@RequestMapping(value = "/developer/index.do", method = RequestMethod.GET)
 	public ModelAndView getDeveloper_Index(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 		
 		ModelAndView mav = new ModelAndView("/developer/index");
@@ -37,7 +39,9 @@ public class DeveloperController {
 	// test page
 	@RequestMapping(value = "/test.do", method = RequestMethod.GET)
 	public ModelAndView getTest(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 		
 		BoardDAO boardDao = new BoardDAO();
@@ -51,7 +55,9 @@ public class DeveloperController {
 	
 	@RequestMapping(value = "/postBoard.do", method = RequestMethod.POST)
 	public String postBoard(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 		
 		Date dt = new Date();

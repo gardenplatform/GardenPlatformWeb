@@ -19,7 +19,9 @@ public class ErrorController {
 
 	@RequestMapping(value = "/error.do", method = RequestMethod.GET)
 	public ModelAndView getError(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 		
 		String statusStr = request.getParameter("status");

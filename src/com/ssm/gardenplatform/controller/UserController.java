@@ -37,6 +37,8 @@ public class UserController {
 	@RequestMapping(value = "/signup.do", method = RequestMethod.POST)
 	public void postSignup(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 		
 		Map<String, Object> result = null;
@@ -59,7 +61,7 @@ public class UserController {
 		vars.add("phone", phone);	
 		vars.add("class_num", classNum);	
 		vars.add("gender", gender);	
-	
+
 		result = restMgr.post(url, vars);
 		
 		JSONObject obj = new JSONObject();
@@ -85,6 +87,8 @@ public class UserController {
 	@RequestMapping(value = "/signin.do", method = RequestMethod.POST)
 	public void postSignin(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
 		Map<String, Object> result = null;
@@ -135,6 +139,8 @@ public class UserController {
 	@RequestMapping(value = "/checkID.do", method = RequestMethod.POST)
 	public void checkID(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
 		Map<String, Object> result = null;
@@ -165,6 +171,8 @@ public class UserController {
 	@RequestMapping(value = "/signout.do", method = RequestMethod.GET)
 	public ModelAndView getSignout(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 		
 		HttpSession session = request.getSession(false);
@@ -182,6 +190,8 @@ public class UserController {
 	@RequestMapping(value = "/user/profile.do", method = RequestMethod.GET)
 	public ModelAndView getProfile(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
 		Map<String, Object> result = null;
@@ -227,6 +237,8 @@ public class UserController {
 	@RequestMapping(value = "/updateUser.do", method = RequestMethod.POST)
 	public void updateUser(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
 		Map<String, Object> result = null;
