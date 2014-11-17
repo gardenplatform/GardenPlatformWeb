@@ -39,7 +39,7 @@
 				<div class="col-md-3">
 					<a href="/GardenPlatformWeb/store/detail.do?appName="${item.appName}>
 		        	<div class="thumbnail">
-						<a class="thumbnail"><img class="test" src="https://lh6.ggpht.com/sJMM68hWF0hlzwANvG2sOvvHx-ApEfPyzUd63eXGAv-3I5IUXYt9hO8zmY1hmOlzjQ=w170-rw" alt="300x200" data-src="holder.js/300x200"></a>
+						<a class="thumbnail"><img class="appImg" src="https://lh6.ggpht.com/sJMM68hWF0hlzwANvG2sOvvHx-ApEfPyzUd63eXGAv-3I5IUXYt9hO8zmY1hmOlzjQ=w170-rw" alt="300x200" data-src="holder.js/300x200"></a>
 						<div class="caption">
 							<h4 class="ellipsis">${item.displayName}</h4>
 							<p><h5 class="ellipsis"><small>${item.category}</small></h5></p>
@@ -71,7 +71,7 @@
 	            	</div>
 	            </div>
 	            <div class="modal-footer">
-                	<button class="btn btn-mint" type="button" id="store_register" >추가</button>  
+                	<button class="btn btn-mint" type="button" id="addApp" >추가</button>  
 	                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 	            </div>
 	        </div>

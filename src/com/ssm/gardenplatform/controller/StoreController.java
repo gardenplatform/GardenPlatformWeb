@@ -102,37 +102,82 @@ public class StoreController {
 		HttpSession session = request.getSession(false);
 		String token = session.getAttribute("token").toString();
 
-		String url = RestInfo.restURL+"/clients/"+appName;
+		String url = RestInfo.restURL+"/stores/"+appName;
 		
-//		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
-//		
-//		vars.add("url", appUrl);
-//		vars.add("redirect_uris", appRedirectUrl);
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-//		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.PUT);
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
 		
 		JSONObject obj = new JSONObject();
 		try {
-			obj.put("status", "success");
-			
-			obj.put("displayName", "test Name");
-			obj.put("category", "Webapp");
-			obj.put("contactEmail", "test@gmail.com");
-			obj.put("shortDescription", "test Short Description");
-			obj.put("longDescription", "가나다라 롱 디스크립션임 길다 ㅁㄴ어라ㅣㅂ저ㅔㄷ루타ㅐ추ㅡ파ㅐㅔㅁㄴㄷㅇ겨ㅓㅁㄴㅇ우러차리");
-			
-//			if(result.get("status").toString().equals("success")) {
-//				obj.put("status", "success");
-//				obj.put("msg", "Update success");
-//			}
-//			else {
-//				obj.put("status", result.get("status").toString());
-//				obj.put("msg", result.get("msg").toString());
-//			}
+			if(result.get("status").toString().equals("success")) {
+				obj.put("status", "success");
+				
+				JSONObject jsonObj = new JSONObject(result.get("result").toString());
+				obj.put("displayName", jsonObj.get("display_name").toString());
+				obj.put("category",  jsonObj.get("category").toString());
+				obj.put("contactEmail", jsonObj.get("contact_email").toString());
+				obj.put("shortDescription", jsonObj.get("short_description").toString());
+				obj.put("longDescription", jsonObj.get("long_description").toString());
+			}
+			else {
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", result.get("msg").toString());
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		PrintWriter writer = response.getWriter();
+		writer.write(obj.toString());
+	}
+	
+	
+	@RequestMapping(value = "/addApp.do", method = RequestMethod.POST)
+	public void addApp(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		logMgr.printLog(request);
+
+		String appName = request.getParameter("appName").trim();
+		
+		Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+		String token = session.getAttribute("token").toString();
+		String userID = session.getAttribute("userID").toString();
+
+		String url = RestInfo.restURL+"/users/"+userID+"/apps";
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+
+		vars.add("client_name ", appName);
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		System.out.println(appName);
+		System.out.println(url);
+		System.out.println(vars.toString());
+
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
+		
+		JSONObject obj = new JSONObject();
+		try {
+			if(result.get("status").toString().equals("success")) {
+				obj.put("status", "success");
+				obj.put("msg", "Add success");
+			}
+			else {
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", result.get("msg").toString());
+			}
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

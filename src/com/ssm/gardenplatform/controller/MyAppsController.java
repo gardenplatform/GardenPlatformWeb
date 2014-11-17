@@ -130,7 +130,10 @@ public class MyAppsController {
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
 		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.PUT);
-		
+
+		System.out.println(appName);
+		System.out.println(url);
+		System.out.println(vars.toString());
 		JSONObject obj = new JSONObject();
 		try {
 			if(result.get("status").toString().equals("success")) {
