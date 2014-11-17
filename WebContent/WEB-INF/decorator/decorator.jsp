@@ -87,18 +87,12 @@
 								<a href="#" class="thumbnail" data-toggle="modal" data-target="#web_register" data-dismiss="modal"> 
 									<img src="/GardenPlatformWeb/resource/img/www.png" style="width:200px; height:200px">
 								</a>
+								<h4 style="text-align:center;">Web App</h4>
 							</div>
 							<div class="col-md-6">
 								<a href="#" class="thumbnail" data-toggle="modal" data-target="#native_register" data-dismiss="modal">
 									<img src="/GardenPlatformWeb/resource/img/icons/iMac@2x.png" style="width:200px; height:200px">
 								</a>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<h4 style="text-align:center;">Web App</h4>
-							</div>
-							<div class="col-md-6">
 								<h4 style="text-align:center;">Native App</h4>
 							</div>
 						</div>

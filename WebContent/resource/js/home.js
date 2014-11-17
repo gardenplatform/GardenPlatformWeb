@@ -3,3 +3,7 @@ $('#google_search').click(function () {
 		$('#search_input').val("");
 	}, 300);
 });
+
+$(function () { 
+    $("[data-toggle='tooltip']").tooltip(); 
+});
