@@ -4,15 +4,41 @@ $(document).ready(function(){
 	$('#nav-store').addClass('active');
 });
 
-$('img.test').click(function(index){
-		
-	$('.modal-title').html("App Name");
-	$('#short_des').html("short");
-	$('#long_des').html("long");
-	$('#contact_email').html("email");
-	$('#category').html("category");
+$('.test').click(function(){
+
+	var index = $(this).index('.test');
+	var appName = $('.appName').eq(index).val();
 	
-	$('div#store_modal').modal('show');
+	data = {
+			appName : appName
+	};
+	
+	$.ajax({
+		type : "GET",
+		url : "/GardenPlatformWeb/getStoreDetail.do",
+		data : data,
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+		success : function(data) {
+			var obj = jQuery.parseJSON(data);
+			console.log(obj);
+			if(obj.status=="success") {
+				$('.modal-title').html(obj.status);
+				$('#short_des').html(obj.shortDescription);
+				$('#long_des').html(obj.longDescription);
+				$('#contact_email').html(obj.contactEmail);
+				$('#category').html(obj.category);
+				
+				$('div#store_modal').modal('show');
+			}
+			else{
+				setError(obj.msg);
+			}
+		},
+		error : function(xhr, status, error) {
+			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+		}
+	});
+	
 });
 
 /*$('.thumbnail test').each(function(index){

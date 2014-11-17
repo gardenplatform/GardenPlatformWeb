@@ -1,6 +1,7 @@
 package com.ssm.gardenplatform.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -36,7 +37,9 @@ public class StoreController {
 	
 	@RequestMapping(value = "/store/index.do", method = RequestMethod.GET)
 	public ModelAndView getStoreIndex(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
 		Map<String, Object> result = null;
@@ -85,55 +88,56 @@ public class StoreController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/store/detail.do", method = RequestMethod.GET)
-	public ModelAndView getStoreDetail(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+	@RequestMapping(value = "/getStoreDetail.do", method = RequestMethod.GET)
+	public void getStoreDetail(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
-		String appName = request.getParameter("appName");
+		String appName = request.getParameter("appName").trim();
 		
 		Map<String, Object> result = null;
 		
 		HttpSession session = request.getSession(false);
 		String token = session.getAttribute("token").toString();
 
-		String url = RestInfo.restURL+"/stores";
-
-		if(request.getParameter("category") != null) 
-			url += "?category="+request.getParameter("category").toString();
+		String url = RestInfo.restURL+"/clients/"+appName;
 		
-		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+//		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+//		
+//		vars.add("url", appUrl);
+//		vars.add("redirect_uris", appRedirectUrl);
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
+//		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.PUT);
 		
-		ModelAndView mav = new ModelAndView();
-		if(result.get("status").equals("error")){
-			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
-		}
-		else {
-			mav.setViewName("/store/detail");
-			try {
-				JSONArray jsonArr = new JSONArray(result.get("result").toString());
-				LinkedList<Map<String, String>> appList = new LinkedList<Map<String, String>>();
-				for(int i=0; i<jsonArr.length(); i++) {
-					JSONObject jsonObj = new JSONObject(jsonArr.getJSONObject(i).toString());
-					
-					Map<String, String> app = new HashMap<String, String>();
-					app.put("displayName", jsonObj.get("display_name").toString());
-					app.put("category", jsonObj.get("category").toString());
-					
-					appList.add(app);
-				}
-				mav.addObject("appList", appList);
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
+		JSONObject obj = new JSONObject();
+		try {
+			obj.put("status", "success");
 			
+			obj.put("displayName", "test Name");
+			obj.put("category", "Webapp");
+			obj.put("contactEmail", "test@gmail.com");
+			obj.put("shortDescription", "test Short Description");
+			obj.put("longDescription", "가나다라 롱 디스크립션임 길다 ㅁㄴ어라ㅣㅂ저ㅔㄷ루타ㅐ추ㅡ파ㅐㅔㅁㄴㄷㅇ겨ㅓㅁㄴㅇ우러차리");
+			
+//			if(result.get("status").toString().equals("success")) {
+//				obj.put("status", "success");
+//				obj.put("msg", "Update success");
+//			}
+//			else {
+//				obj.put("status", result.get("status").toString());
+//				obj.put("msg", result.get("msg").toString());
+//			}
+		} catch (JSONException e) {
+			e.printStackTrace();
 		}
-		return mav;
+		
+		PrintWriter writer = response.getWriter();
+		writer.write(obj.toString());
 	}
 }
