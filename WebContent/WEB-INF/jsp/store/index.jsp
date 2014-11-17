@@ -36,6 +36,7 @@
 		<div class="col-md-9">
 			<c:forEach var="item" items="${appList}">
 				<div class="col-md-3">
+					<a href="/GardenPlatformWeb/store/detail.do?appName="${item.appName}>
 		        	<div class="thumbnail">
 						<img src="https://lh6.ggpht.com/sJMM68hWF0hlzwANvG2sOvvHx-ApEfPyzUd63eXGAv-3I5IUXYt9hO8zmY1hmOlzjQ=w170-rw" alt="300x200" data-src="holder.js/300x200">
 						<div class="caption">
@@ -43,10 +44,10 @@
 							<p><h5 class="ellipsis"><small>${item.category}</small></h5></p>
 						</div>
 					</div>
+					</a>
 		    	</div>
 			</c:forEach>
 		</div>
-		
 	</div>
 	</div>
 

@@ -70,6 +70,59 @@ public class StoreController {
 					JSONObject jsonObj = new JSONObject(jsonArr.getJSONObject(i).toString());
 					
 					Map<String, String> app = new HashMap<String, String>();
+					app.put("appName", jsonObj.get("client_name").toString());
+					app.put("displayName", jsonObj.get("display_name").toString());
+					app.put("category", jsonObj.get("category").toString());
+					
+					appList.add(app);
+				}
+				mav.addObject("appList", appList);
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		return mav;
+	}
+	
+	@RequestMapping(value = "/store/detail.do", method = RequestMethod.GET)
+	public ModelAndView getStoreDetail(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		logMgr.printLog(request);
+
+		String appName = request.getParameter("appName");
+		
+		Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+		String token = session.getAttribute("token").toString();
+
+		String url = RestInfo.restURL+"/stores";
+
+		if(request.getParameter("category") != null) 
+			url += "?category="+request.getParameter("category").toString();
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
+		
+		ModelAndView mav = new ModelAndView();
+		if(result.get("status").equals("error")){
+			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
+		}
+		else {
+			mav.setViewName("/store/detail");
+			try {
+				JSONArray jsonArr = new JSONArray(result.get("result").toString());
+				LinkedList<Map<String, String>> appList = new LinkedList<Map<String, String>>();
+				for(int i=0; i<jsonArr.length(); i++) {
+					JSONObject jsonObj = new JSONObject(jsonArr.getJSONObject(i).toString());
+					
+					Map<String, String> app = new HashMap<String, String>();
 					app.put("displayName", jsonObj.get("display_name").toString());
 					app.put("category", jsonObj.get("category").toString());
 					
