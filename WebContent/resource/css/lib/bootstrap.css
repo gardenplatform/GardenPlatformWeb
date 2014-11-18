@@ -6122,6 +6122,15 @@ button.close {
   margin-left: auto;
 }
 
+.modal-dialog-long {
+  position: relative;
+  z-index: 1050;
+  width: 900px;
+  padding: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .modal-content {
   position: relative;
   background-color: #ffffff;
