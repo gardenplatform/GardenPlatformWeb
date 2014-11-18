@@ -123,6 +123,12 @@ public class StoreController {
 				obj.put("contactEmail", jsonObj.get("contact_email").toString());
 				obj.put("shortDescription", jsonObj.get("short_description").toString());
 				obj.put("longDescription", jsonObj.get("long_description").toString());
+				obj.put("permissionExplanation", jsonObj.get("permission_explanation").toString());
+				obj.put("tag1", jsonObj.get("tag1").toString());
+				obj.put("tag2", jsonObj.get("tag2").toString());
+				obj.put("tag3", jsonObj.get("tag3").toString());
+				obj.put("createdAt", jsonObj.get("created_at").toString());
+				
 				
 				obj.put("appName", appName);
 			}

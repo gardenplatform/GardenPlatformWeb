@@ -20,7 +20,6 @@ $('.show_detail').click(function(){
 		contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
 		success : function(data) {
 			var obj = jQuery.parseJSON(data);
-			console.log(obj);
 			if(obj.status=="success") {
 				$('.modal-title').html(obj.displayName);
 				$('#short_des').html(obj.shortDescription);
@@ -30,6 +29,12 @@ $('.show_detail').click(function(){
 				
 				$('#detail_realAppName').val(appName);
 				$('div#store_modal').modal('show');
+				
+				console.log(obj.createdAt);
+				console.log(obj.tag1);
+				console.log(obj.tag2);
+				console.log(obj.tag3);
+				console.log(obj.permissionExplanation);
 			}
 			else{
 				setError(obj.msg);
