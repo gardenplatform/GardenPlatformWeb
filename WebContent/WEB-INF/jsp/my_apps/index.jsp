@@ -121,7 +121,6 @@
 						</div>
 					</div>
 				</div>
-				
 			</div>
 		</div>
 		<!-- /.col-xs-12 main -->
@@ -141,7 +140,7 @@
 					  <div>
 					    <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span>
 					    <span class="fileinput-exists">Change</span>
-					    <input type="file" name="imgFile" id="imgFile"></span>
+					    <input type="file" name="imgFile" id="imgFile" accept="image/x-png, image/jpeg"></span>
 					    <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
 					  </div>
 		             </div>
