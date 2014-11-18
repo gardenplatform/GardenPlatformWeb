@@ -121,16 +121,17 @@ public class MyAppsController {
 		
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
 		
-		vars.add("icon", imgFile);
-//		vars.add("icon", new org.springframework.core.io.ByteArrayResource(imgFile.getBytes(), imgFile.getOriginalFilename()) {
-//		    @Override
-//		    public String getFilename() throws IllegalStateException {
-//		        return imgFile.getOriginalFilename();
-//		    }
-//		});
+//		vars.add("icon", imgFile);
+		vars.add("icon", new org.springframework.core.io.ByteArrayResource(imgFile.getBytes(), imgFile.getOriginalFilename()) {
+		    @Override
+		    public String getFilename() throws IllegalStateException {
+		        return imgFile.getOriginalFilename();
+		    }
+		});
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 //		headers.setContentType(MediaType.APPLICATION_JSON);
 
 		System.out.println(appName);

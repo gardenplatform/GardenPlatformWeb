@@ -123,6 +123,33 @@ public class StoreController {
 				obj.put("contactEmail", jsonObj.get("contact_email").toString());
 				obj.put("shortDescription", jsonObj.get("short_description").toString());
 				obj.put("longDescription", jsonObj.get("long_description").toString());
+				obj.put("permissionExplanation", jsonObj.get("permission_explanation").toString());
+				obj.put("tag1", jsonObj.get("tag1").toString());
+				obj.put("tag2", jsonObj.get("tag2").toString());
+				obj.put("tag3", jsonObj.get("tag3").toString());
+				obj.put("createdAt", jsonObj.get("created_at").toString());
+				
+				if(obj.get("shortDescription").toString().equals(""))
+					obj.put("shortDescription", "없음");
+
+				if(obj.get("longDescription").toString().equals(""))
+					obj.put("longDescription", "없음");
+				
+				if(obj.get("category").toString().equals(""))
+					obj.put("category", "없음");
+				
+				if(obj.get("permissionExplanation").toString().equals(""))
+					obj.put("permissionExplanation", "없음");
+				
+				if(obj.get("tag1").toString().equals(""))
+					obj.put("tag1", "없음");
+				
+				if(obj.get("tag2").toString().equals(""))
+					obj.put("tag2", "없음");
+				
+				if(obj.get("tag3").toString().equals(""))
+					obj.put("tag3", "없음");
+				
 				
 				obj.put("appName", appName);
 			}
