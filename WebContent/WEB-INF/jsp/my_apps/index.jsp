@@ -145,7 +145,6 @@
 					  </div>
 		             </div>
 					</div>
-				
 	            </div>
 	            <div class="modal-footer">
                 	<input class="btn btn-mint" type="submit" value="등록">

@@ -104,7 +104,7 @@ $('#addApp').click(function(){
 			var obj = jQuery.parseJSON(data);
 			console.log(obj);
 			if(obj.status=="success") {
-				setSuccess("수정이 완료되었습니다");
+				setSuccess("추가가 완료되었습니다");
 				setTimeout(function(){
 					location.href = location.href;
 				}, 500);
