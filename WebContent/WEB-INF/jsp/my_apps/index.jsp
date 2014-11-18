@@ -134,7 +134,7 @@
 	                <h4 class="modal-title"></h4>
 	            </div>
 	            <div class="modal-body">
-	            	<input type="file" name="imgFile" id="imgFile">
+	            	<input type="file" name="imgFile" id="imgFile" accept="image/x-png, image/jpeg" />
                 	<input type="hidden" name="appName" value="${appName}">
 	            </div>
 	            <div class="modal-footer">

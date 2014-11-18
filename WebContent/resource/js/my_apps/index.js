@@ -48,6 +48,20 @@ $('#app_secret_show').click(function(){
 	}
 });
 
+$('#app_secret_show').click(function(){
+	var appSecretInputTag = $('#app_secret');
+
+	if(appSecretInputTag.attr("type")=="password") {
+		appSecretInputTag.attr("type","text");
+		$('#app_secret_show').text("Hide");
+		
+	}
+	else if(appSecretInputTag.attr("type")=="text") {
+		appSecretInputTag.attr("type","password");
+		$('#app_secret_show').text("Show");
+	}
+});
+
 $('#index_update').click(function(){
 	
 	var appName = $('#appName').text(); 
@@ -79,10 +93,37 @@ $('#index_update').click(function(){
 			}
 		},
 		error : function(xhr, status, error) {
-//			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
 		}
 	});
 });
+
+$("#imgFile").change(function() {
+	if(!checkImgFile()){
+		setError("이미지 파일을 선택해주세요.");
+		$("#imgFile").val("");
+		
+	}
+});
+
+  
+function checkImgFile() {
+    var fileName = $("#imgFile").val();
+    var suffix = fileName.split(".")[1];
+    
+    if (fileName == "") {
+        return false;
+    }
+    else if (suffix.toUpperCase() == "PNG" || suffix.toUpperCase() == "JPG" || suffix.toUpperCase() == "PNG") {
+    	return true;
+    }
+    else {
+        return false;
+    }
+    return true;
+}
+
+
 
 var index_url_ok = true;
 var index_reurl_ok = true;
