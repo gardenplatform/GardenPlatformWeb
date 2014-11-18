@@ -55,20 +55,30 @@
 	</div>
 	
 	<div class="modal fade" id="store_modal">
-	    <div class="modal-dialog modal-vertical-centered">
+	    <div class="modal-dialog-long modal-vertical-centered">
 	        <div class="modal-content">
 	        	<div class="modal-header">
-	                <h4 class="modal-title"></h4>
+	        		<div class="row">
+	        		<div class="col-md-2 text-center">
+	        		 <img src="https://lh6.ggpht.com/1eVPA6Iukw-F4i5xq1ZWicaKBzmprLGw98YhdG20E-wlsHHg3PcKJqbY_fWLdJeGRw=w170-rw" style="width:73px; height:73px;">
+	        		</div>
+	        		<div class="col-md-10">
+		                <h3 class="modal-title"></h3>
+		                <h4><small id="category"></small></h4>
+	        		</div>	        		
+	        		</div>
 	            </div>
 	            <div class="modal-body">
-	            	<div id="short_des">
-	            	</div>
+	            	<h3>설명</h3>
+	            	<h4><strong id="short_des"></strong></h4>
 	            	<div id="long_des">
 	            	</div>
+	            	<!-- 
 	            	<div id="contact_email">
 	            	</div>
 	            	<div id="category">
 	            	</div>
+	            	 -->
 					<input type="hidden" id="detail_realAppName">
 	            </div>
 	            <div class="modal-footer">
