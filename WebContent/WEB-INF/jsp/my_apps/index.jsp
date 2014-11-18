@@ -135,10 +135,6 @@
 	                <h4 class="modal-title">App Icon 업로드</h4>
 	            </div>
 	            <div class="modal-body">
-	            <!-- 
-	            	<input class="form-control" type="file" name="imgFile" id="imgFile">
-                	<input type="hidden" name="appName" value="${appName}">
-	             -->
 		             <div class="text-center">
 		             <div class="fileinput fileinput-new" data-provides="fileinput">
 					  <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 200px;"></div>
@@ -153,7 +149,6 @@
 				
 	            </div>
 	            <div class="modal-footer">
-                	<!-- <button class="btn btn-mint" type="button" id="submitAppIcon" >등록</button> --> 
                 	<input class="btn btn-mint" type="submit" value="등록">
 	                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 	            </div>
