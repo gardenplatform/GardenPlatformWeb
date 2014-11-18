@@ -69,17 +69,26 @@
 	        		</div>
 	            </div>
 	            <div class="modal-body">
-	            	<h3>설명</h3>
-	            	<h4><strong id="short_des"></strong></h4>
-	            	<div id="long_des">
-	            	</div>
-	            	<!-- 
-	            	<div id="contact_email">
-	            	</div>
-	            	<div id="category">
-	            	</div>
-	            	 -->
-					<input type="hidden" id="detail_realAppName">
+		            <div class="row">
+		        		<div class="col-md-9">
+		            	<h4><strong>설명</strong></h4>
+		            	<h5><strong id="short_des"></strong></h5>
+		            	<div id="long_des">
+		            	</div>
+		            	<!-- 
+		            	<div id="contact_email">
+		            	</div>
+		            	<div id="category">
+		            	</div>
+		            	 -->
+						<input type="hidden" id="detail_realAppName">
+		        		</div>
+		        		<div class="col-md-3">
+			        		<div class="well well-lg">
+			        			
+			        		</div>
+		        		</div>
+					</div>
 	            </div>
 	            <div class="modal-footer">
                 	<button class="btn btn-mint" type="button" id="addApp" >추가</button>  
