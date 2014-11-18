@@ -42,9 +42,8 @@
 						<a class="thumbnail" style="margin-bottom: 0px;"><img class="show_detail" src="https://lh6.ggpht.com/1eVPA6Iukw-F4i5xq1ZWicaKBzmprLGw98YhdG20E-wlsHHg3PcKJqbY_fWLdJeGRw=w170-rw" alt="300x200" data-src="holder.js/300x200"></a>
 						<div class="caption">
 							<h4 class="ellipsis">${item.displayName}</h4>
-							<p><h5 class="ellipsis"><small>${item.category}</small></h5></p>
+							<h5 class="ellipsis"><small>　${item.category}</small></h5>
 							<input type="hidden" class="appName" value="${item.appName}">
-							<!--  <button class="btn btn-mint" id="store_register">추가</button> -->
 						</div>
 					</div>
 					</a>
@@ -73,20 +72,20 @@
 		        		<div class="col-md-9">
 		            	<h4><strong>설명</strong></h4>
 		            	<h5><strong id="short_des"></strong></h5>
-		            	<div id="long_des">
-		            	</div>
-		            	<!-- 
-		            	<div id="contact_email">
-		            	</div>
-		            	<div id="category">
-		            	</div>
-		            	 -->
+		            	<h5 id="long_des">
+		            	</h5>
+		            	<br>
+		            	<h4><strong>약관</strong></h4>
+		        		<div id="permissionexplanation">
+		        		</div>
 						<input type="hidden" id="detail_realAppName">
 		        		</div>
 		        		<div class="col-md-3">
-			        		<div class="well well-lg">
-			        			
-			        		</div>
+			        		<ul class="list-group" style="margin-top: 30px;">
+							  <li class="list-group-item ellipsis" data-toggle="tooltip" data-placement="left" data-original-title="개발자 이메일"><span class="glyphicon glyphicon-wrench"></span>　<small id="contact_email"></small></li>
+							  <li class="list-group-item ellipsis" data-toggle="tooltip" data-placement="left" data-original-title="앱 생성일"><span class="glyphicon glyphicon-cloud"></span>　<small id="created_at"></small></li>
+							  <li class="list-group-item ellipsis" data-toggle="tooltip" data-placement="left" data-original-title="태그"><span class="glyphicon glyphicon-tags"></span>　<small id="tags"></small></li>
+							</ul>
 		        		</div>
 					</div>
 	            </div>

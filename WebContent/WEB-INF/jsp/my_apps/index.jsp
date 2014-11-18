@@ -6,6 +6,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/my_apps/my_apps.css">
+	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/jasny-bootstrap.css">
 </head>
 
 <body>
@@ -42,7 +43,7 @@
 				  </div>
 					<div class="panel-body">
 						<div class="media">
-							<a class="pull-left" data-toggle="modal" data-target="#appIconModal"> 
+							<a href="#" class="pull-left" data-toggle="modal" data-target="#appIconModal"> 
 							<img class="media-object myapps-img" src="/GardenPlatformWeb/resource/img/dashboard_default_img.png">
 							</a>
 							<div class="media-body">
@@ -127,15 +128,29 @@
 	</div><!--/.row-->
 	
 	<div class="modal fade" id="appIconModal">
-	    <div class="modal-dialog modal-vertical-centered">
+	    <div class="modal-dialog-short modal-vertical-centered">
 	        <div class="modal-content">
 	          	<form action="/GardenPlatformWeb/postAppIcon.do" method="POST" enctype="multipart/form-data">
 	        	<div class="modal-header">
-	                <h4 class="modal-title"></h4>
+	                <h4 class="modal-title">App Icon 업로드</h4>
 	            </div>
 	            <div class="modal-body">
-	            	<input type="file" name="imgFile" id="imgFile">
+	            <!-- 
+	            	<input class="form-control" type="file" name="imgFile" id="imgFile">
                 	<input type="hidden" name="appName" value="${appName}">
+	             -->
+		             <div class="text-center">
+		             <div class="fileinput fileinput-new" data-provides="fileinput">
+					  <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 200px;"></div>
+					  <div>
+					    <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span>
+					    <span class="fileinput-exists">Change</span>
+					    <input type="file" name="imgFile" id="imgFile"></span>
+					    <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+					  </div>
+		             </div>
+					</div>
+				
 	            </div>
 	            <div class="modal-footer">
                 	<!-- <button class="btn btn-mint" type="button" id="submitAppIcon" >등록</button> --> 
@@ -149,5 +164,6 @@
 	
 	
 	<script src="/GardenPlatformWeb/resource/js/my_apps/index.js"></script>
+	<script src="/GardenPlatformWeb/resource/js/lib/jasny-bootstrap.js"></script>
 </body>
 </html>

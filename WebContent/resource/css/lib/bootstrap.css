@@ -6125,7 +6125,16 @@ button.close {
 .modal-dialog-long {
   position: relative;
   z-index: 1050;
-  width: 900px;
+  width: 1000px;
+  padding: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.modal-dialog-short {
+  position: relative;
+  z-index: 1050;
+  width: 300px;
   padding: 10px;
   margin-right: auto;
   margin-left: auto;

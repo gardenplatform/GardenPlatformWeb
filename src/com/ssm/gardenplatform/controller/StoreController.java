@@ -129,6 +129,9 @@ public class StoreController {
 				obj.put("tag3", jsonObj.get("tag3").toString());
 				obj.put("createdAt", jsonObj.get("created_at").toString());
 				
+				if(obj.get("contactEmail").toString().equals(""))
+					obj.put("contactEmail", "없음");
+				
 				if(obj.get("shortDescription").toString().equals(""))
 					obj.put("shortDescription", "없음");
 

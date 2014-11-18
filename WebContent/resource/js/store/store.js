@@ -4,6 +4,10 @@ $(document).ready(function(){
 	$('#nav-store').addClass('active');
 });
 
+$(function () { 
+    $("[data-toggle='tooltip']").tooltip();
+});
+
 $('.show_detail').click(function(){
 
 	var index = $(this).index('.show_detail');
@@ -21,20 +25,56 @@ $('.show_detail').click(function(){
 		success : function(data) {
 			var obj = jQuery.parseJSON(data);
 			if(obj.status=="success") {
+				var developer_email;
+				var tag;
+				var short_des;
+				var long_des;
+				var per;
+				
 				$('.modal-title').html(obj.displayName);
-				$('#short_des').html(obj.shortDescription);
-				$('#long_des').html(obj.longDescription);
-				$('#contact_email').html(obj.contactEmail);
+				
+				if(obj.shortDescription == "없음"){
+					short_des = "설명이 등록되지 않았습니다.";
+					$('#short_des').html(short_des);
+				} else {
+					short_des = obj.shortDescription;
+					$('#short_des').html(short_des);
+				}
+				
+				if(obj.longDescription == "없음"){
+					long_des = "설명이 등록되지 않았습니다.";
+					$('#long_des').html('<small>'+long_des+'</small>');
+				} else {
+					long_des = obj.longDescription;
+					$('#long_des').html(long_des);
+				}
+				
+				if(obj.contactEmail == "없음"){
+					developer_email = "메일이 등록되지 않았습니다.";
+				} else {
+					developer_email = obj.contactEmail;
+				}
+				$('#contact_email').html(developer_email);
 				$('#category').html(obj.category);
+				$('#created_at').html(obj.createdAt);
+				
+				if(obj.tag1 == "없음" && obj.tag2 == "없음" && obj.tag3 == "없음"){
+					tag = "등록된 태그가 없습니다.";
+				} else {
+					tag = obj.tag1 + ", " + obj.tag2 + ", "+ obj.tag3;
+				}
+				$('#tags').html(tag);
+				
+				if(obj.permissionExplanation == "없음"){
+					per = "등록된 약관이 없습니다.";
+				} else {
+					per = obj.permissionExplanation;
+				}
+				$('#permissionexplanation').html(per);
 				
 				$('#detail_realAppName').val(appName);
 				$('div#store_modal').modal('show');
 				
-				console.log(obj.createdAt);
-				console.log(obj.tag1);
-				console.log(obj.tag2);
-				console.log(obj.tag3);
-				console.log(obj.permissionExplanation);
 			}
 			else{
 				setError(obj.msg);
