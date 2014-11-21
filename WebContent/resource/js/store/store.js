@@ -86,6 +86,39 @@ $('.show_detail').click(function(){
 	});
 });
 
+$('#m_addApp').click(function(){
+	var index = $(this).index('#m_addApp');
+	var appName = $('.appName').eq(index).val();
+	
+	data = {
+			appName : appName
+	};
+	
+	$.ajax({
+		type : "POST",
+		url : "/GardenPlatformWeb/addApp.do",
+		data : data,
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+		success : function(data) {
+			var obj = jQuery.parseJSON(data);
+			console.log(obj);
+			if(obj.status=="success") {
+				setSuccess("추가가 완료되었습니다");
+				setTimeout(function(){
+					location.href = location.href;
+				}, 500);
+			}
+			else{
+				setError(obj.msg);
+			}
+		},
+		error : function(xhr, status, error) {
+			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+		}
+	});
+});
+
+
 
 $('#addApp').click(function(){
 

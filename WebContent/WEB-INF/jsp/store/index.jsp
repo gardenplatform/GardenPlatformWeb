@@ -6,6 +6,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/store/store.css">
+	<link rel="stylesheet" type="text/css" href="/GardenPlatformWeb/resource/css/lib/component.css" />
 </head>
 
 <body>
@@ -35,6 +36,31 @@
 		</div>
 			
 		<div class="col-md-9">
+
+			<ul class="grid cs-style-3">
+			<div class="row">
+				<c:forEach var="item" items="${appList}">
+					<div class="col-md-4">
+						<li>
+						<figure>
+							<img class="thumbnail" src="/GardenPlatformWeb/resource/img/angry.png" alt="img04" style="width:170px; height:170px;">
+							<figcaption>
+								<h4>${item.displayName}</h4>
+								<span>${item.category}</span>
+								<div class="pull-right">
+								<button id="m_addApp" class="btn btn-mint btn-sm">추가</button>
+								<button class="btn btn-default btn-sm show_detail">정보</button>
+								</div>
+								<input type="hidden" class="appName" value="${item.appName}">
+							</figcaption>
+						</figure>
+						</li>
+					</div>
+				</c:forEach>
+			</div>
+			</ul>
+		
+		<!-- 
 			<c:forEach var="item" items="${appList}">
 				<div class="col-md-3">
 					<a href="/GardenPlatformWeb/store/detail.do?appName="${item.appName}>
@@ -49,6 +75,7 @@
 					</a>
 		    	</div>
 			</c:forEach>
+		 -->
 		</div>
 	</div>
 	</div>
@@ -97,6 +124,7 @@
 	    </div>
 	</div>
 
+	<script src="/GardenPlatformWeb/resource/js/lib/modernizr.custom.js"></script>
 	<script src="/GardenPlatformWeb/resource/js/store/store.js"></script>
 </body>
 </html>
