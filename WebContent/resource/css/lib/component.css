@@ -30,7 +30,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	padding: 20px;
+	padding: 20px 10px 20px 10px;
 	background: #2c3f52;
 	color: #ed4e6e;
 }
@@ -47,11 +47,14 @@
 	color: #fff;
 }
 
-/*
-.grid figcaption span:before {
-	content: 'by ';
+.grid figcaption h5 {
+	margin: 0;
+	padding: 0;
+	color: #fff;
 }
-*/
+
+.grid figcaption span:before {
+}
 
 .grid figcaption a {
 	text-align: center;

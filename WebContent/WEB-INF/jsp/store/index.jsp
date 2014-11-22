@@ -45,8 +45,8 @@
 						<figure>
 							<img class="thumbnail" src="/GardenPlatformWeb/resource/img/angry.png" alt="img04" style="width:170px; height:170px;">
 							<figcaption>
-								<h4>${item.displayName}</h4>
-								<span>${item.category}</span>
+								<h5 class="ellipsis">${item.displayName}</h5>
+								<h6>${item.category}</h6>
 								<div class="pull-right">
 								<button class="btn btn-mint btn-sm m_addApp">추가</button>
 								<button class="btn btn-default btn-sm show_detail">정보</button>
