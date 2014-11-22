@@ -86,10 +86,11 @@ $('.show_detail').click(function(){
 	});
 });
 
-$('#m_addApp').click(function(){
-	var index = $(this).index('#m_addApp');
+$('.m_addApp').click(function(){
+	var index = $(this).index('.m_addApp');
 	var appName = $('.appName').eq(index).val();
-	
+	console.log(appName);
+	console.log(index);
 	data = {
 			appName : appName
 	};

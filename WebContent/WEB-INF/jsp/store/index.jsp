@@ -48,7 +48,7 @@
 								<h4>${item.displayName}</h4>
 								<span>${item.category}</span>
 								<div class="pull-right">
-								<button id="m_addApp" class="btn btn-mint btn-sm">추가</button>
+								<button class="btn btn-mint btn-sm m_addApp">추가</button>
 								<button class="btn btn-default btn-sm show_detail">정보</button>
 								</div>
 								<input type="hidden" class="appName" value="${item.appName}">

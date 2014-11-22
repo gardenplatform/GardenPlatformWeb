@@ -5,6 +5,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="/GardenPlatformWeb/resource/css/lib/common.css" />
+	<link rel="stylesheet" type="text/css" href="/GardenPlatformWeb/resource/css/lib/style3.css" />
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/my_apps/my_apps.css">
 </head>
 
@@ -42,8 +44,17 @@
 				  <div class="text-center">
 					  <div class="row">
 					    <div class="col-md-12">
-						  	<img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="/GardenPlatformWeb/resource/img/testimg2.png" data-holder-rendered="true" style="width: 140px; height: 140px;">
-							<h3 id="pl_name"><small>${owner}</small></h3>
+					     <ul class="ch-grid">
+							<li>
+								<div class="ch-item">	
+									<div class="ch-info">
+										<h3>박성호</h3>
+										<p>${owner} <a href="#">View on Userinfo</a></p>
+									</div>
+									<div class="ch-thumb ch-img-1" style="background-image: url(/GardenPlatformWeb/resource/img/testimg.png);"></div>
+								</div>
+							</li>
+						</ul>
 					    </div>
 					  	
 					  </div>
@@ -55,14 +66,27 @@
 				  <div class="panel-heading"><h4 class="no_margin">Developers<button class="btn btn-default btn-xs pull-right" type="button" data-toggle="modal" data-target="#add_developer_modal">Add Developers</button></h4></div>
 				  <div class="panel-body">
 				  	<c:if test="${empty developerList}">
-						<h3 class="text-center"><small>등록된 멤버가 없습니다.</small></h5>
+						<h3 class="text-center"><small>등록된 멤버가 없습니다.</small></h3>
 				  	</c:if>
 				  	<div class="row">
 					  	<div class="text-center">
 					  		<c:forEach var="item" items="${developerList}">
 						  		<div class="col-md-6">
+						  		<!-- 
 						  			<a href="#" class="thumbnail-round"><img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="/GardenPlatformWeb/resource/img/testimg.png" data-holder-rendered="true" style="width: 140px; height: 140px;"></a>
 						  			<h3 id="pl_name"><small>${item}</small></h3>
+						  		 -->
+						  		 <ul class="ch-grid">
+									<li>
+										<div class="ch-item">	
+											<div class="ch-info">
+												<h3>이 름</h3>
+												<p>${item} <a href="#">View on Userinfo</a></p>
+											</div>
+											<div class="ch-thumb ch-img-1" style="background-image: url(/GardenPlatformWeb/resource/img/testimg2.png);"></div>
+										</div>
+									</li>
+								</ul>
 						  		</div>
 					  		</c:forEach>
 					  	</div>
@@ -91,7 +115,8 @@
 		        </div>
 		    </div>
 		</div>
-
+		
+	<script src="/GardenPlatformWeb/resource/js/lib/modernizr.custom.79639.js"></script> 
 	<script src="/GardenPlatformWeb/resource/js/my_apps/roles.js"></script>
 </body>
 </html>

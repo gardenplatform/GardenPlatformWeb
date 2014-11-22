@@ -12,7 +12,6 @@
     <body>
 		<div class="container">
 			<div class="row">
-			
 				<div class="col-md-12">
 					<div class="text-center" style="margin-top:100px;">
 					<img src="/GardenPlatformWeb/resource/img/Garden-Logo.png">

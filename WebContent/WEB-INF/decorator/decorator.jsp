@@ -117,7 +117,7 @@
 						</div>
 						 
 						<div id="appurl_div" class="form-group has-feedback">
-							<label class="control-label">URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="Web의 URL을 입력해야 합니다."></span></label>
+							<label class="control-label">URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="Web의 URL을 입력하세요."></span></label>
 							<div class="input-group">
 								<div class="input-group-btn">
 									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="type">http://</button>
@@ -126,14 +126,14 @@
 							          <li><a href="#">https://</a></li>
 							        </ul>
 								</div>
-								<input id="appUrl" class="form-control" type="tel" placeholder="www.swmem.org"></input>
+								<input id="appUrl" class="form-control" type="tel" placeholder="www.swmem.org/login/"></input>
 							</div>
 							<span id="appurl_success" class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
 							<span id="appurl_fail" class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
 						</div>
 						
 						<div id="reurl_div" class="form-group has-feedback">
-							<label class="control-label">Redirect URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="리다이렉트 URL을 입력해야 합니다."></span></label>
+							<label class="control-label">Redirect URL <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="" data-original-title="로그인 후 이동될 URL을 입력하세요."></span></label>
 							<div class="input-group">
 								<div class="input-group-btn">
 									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="re_type">http://</button>
@@ -142,7 +142,7 @@
 							          <li><a href="#">https://</a></li>
 							        </ul>
 								</div>
-								<input id="reUrl" class="form-control" type="tel" placeholder="www.swmem.org"></input>
+								<input id="reUrl" class="form-control" type="tel" placeholder="www.swmem.org/main/"></input>
 							</div>
 							<span id="reurl_success" class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
 							<span id="reurl_fail" class="glyphicon glyphicon-remove form-control-feedback hidden"></span>
