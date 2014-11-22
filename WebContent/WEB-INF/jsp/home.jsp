@@ -6,7 +6,6 @@
 <html>
     <head>
         <link rel="stylesheet" href="/GardenPlatformWeb/resource/css/home.css">
-		
     </head>
 
     <body>
@@ -29,15 +28,15 @@
 				</div>
 
 				<c:forEach var="item" items="${bookmarkAppList}">
-				<div class="col-xs-6 col-md-3 text-center">
-					<a href="${item.url}" class="thumbnail-round">
-						<img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="/GardenPlatformWeb/resource/img/favicon.png" data-toggle="tooltip" data-placement="top" data-original-title="${item.displayName}" style="width: 140px; height: 140px;">
-					</a>
-				</div>
+					<div class="col-xs-6 col-md-3 text-center">
+						<a href="${item.url}" class="thumbnail-round">
+							<img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="/GardenPlatformWeb/resource/img/favicon.png" data-toggle="tooltip" data-placement="top" data-original-title="${item.displayName}" style="width: 140px; height: 140px;">
+						</a>
+					</div>
 				</c:forEach>
+				 	
 			</div>
 		</div>
-		
 		<script src="/GardenPlatformWeb/resource/js/home.js"></script>
 </body>
 </html>

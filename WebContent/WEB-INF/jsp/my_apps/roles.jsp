@@ -6,7 +6,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="/GardenPlatformWeb/resource/css/lib/common.css" />
-	<link rel="stylesheet" type="text/css" href="/GardenPlatformWeb/resource/css/lib/style3.css" />
+	<link rel="stylesheet" type="text/css" href="/GardenPlatformWeb/resource/css/lib/role_hover.css" />
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/my_apps/my_apps.css">
 </head>
 
@@ -98,7 +98,6 @@
 		</div>
 		<!-- /.col-xs-12 main -->
 	</div><!--/.row-->
-
 		<div class="modal fade" id="add_developer_modal">
 		    <div class="modal-dialog modal-vertical-centered">
 		        <div class="modal-content">
@@ -116,7 +115,6 @@
 		    </div>
 		</div>
 		
-	<script src="/GardenPlatformWeb/resource/js/lib/modernizr.custom.79639.js"></script> 
 	<script src="/GardenPlatformWeb/resource/js/my_apps/roles.js"></script>
 </body>
 </html>
