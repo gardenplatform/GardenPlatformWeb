@@ -138,9 +138,10 @@
 		             <div class="fileinput fileinput-new" data-provides="fileinput">
 					  <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 200px;"></div>
 					  <div>
+					    <input type="hidden" name="appName" id="formAppName" value="${appName}" />
 					    <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span>
 					    <span class="fileinput-exists">Change</span>
-					    <input type="file" name="imgFile" id="imgFile" accept="image/x-png, image/jpeg"></span>
+					    <input type="file" name="imgFile" id="imgFile" accept="image/x-png, image/jpeg"/></span>
 					    <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
 					  </div>
 		             </div>

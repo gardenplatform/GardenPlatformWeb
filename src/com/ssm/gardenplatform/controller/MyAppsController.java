@@ -2,6 +2,7 @@ package com.ssm.gardenplatform.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
@@ -116,6 +117,7 @@ public class MyAppsController {
 		
 		HttpSession session = request.getSession(false);
 		String token = session.getAttribute("token").toString();
+		
 
 		String url = RestInfo.restURL+"/clients/"+appName+"/icons";
 		
@@ -354,14 +356,20 @@ public class MyAppsController {
 			mav.addObject("appName", appName);
 			try {
 				JSONArray jsonArr = new JSONArray(result.get("result").toString());
-				LinkedList<String> developerList = new LinkedList<>();
+				LinkedList<Map<String, String>> developerList = new LinkedList<Map<String, String>>();
 				for(int i=0; i<jsonArr.length(); i++) {
 					JSONObject jsonObj = new JSONObject(jsonArr.getJSONObject(i).toString());
+
 					if(jsonObj.get("is_owner").toString().equals("true")){
-						mav.addObject("owner", jsonObj.get("member"));
+						mav.addObject("ownerID", jsonObj.get("member"));
+						mav.addObject("ownerName", jsonObj.get("real_name"));
 					}
 					else {
-						developerList.add(jsonObj.get("member").toString());
+						Map<String, String> developer = new HashMap<String, String>();
+						developer.put("developerID", jsonObj.get("member").toString());
+						developer.put("developerName", jsonObj.get("real_name").toString());
+						
+						developerList.add(developer);
 					}
 				}
 				mav.addObject("developerList", developerList);

@@ -48,8 +48,11 @@
 							<li>
 								<div class="ch-item">	
 									<div class="ch-info">
-										<h3>박성호</h3>
+										<h3>${ownerName}</h3>
+										<!-- 
 										<p>${owner} <a href="#" data-toggle="modal" data-target="#info_developer_modal">View on Userinfo</a></p>
+										 -->
+										<p><span id="owner">${ownerID}</span> <a href="#" class="userInfo">View on Userinfo</a></p>
 									</div>
 									<div class="ch-thumb ch-img-1" style="background-image: url(/GardenPlatformWeb/resource/img/testimg.png);"></div>
 								</div>
@@ -79,8 +82,11 @@
 									<li>
 										<div class="ch-item">	
 											<div class="ch-info">
-												<h3>이 름</h3>
+												<h3>${item.developerName}</h3>
+												<!-- 
 												<p>${item} <a href="#" data-toggle="modal" data-target="#info_developer_modal">View on Userinfo</a></p>
+												 -->
+												<p><span class="member">${item.developerID}</span> <a href="#" class="userInfo">View on Userinfo</a></p>
 											</div>
 											<div class="ch-thumb ch-img-1" style="background-image: url(/GardenPlatformWeb/resource/img/testimg2.png);"></div>
 										</div>
@@ -123,23 +129,23 @@
 		            <div class="modal-body">
 		            	<div class="form-group">
 							<label class="control-label">이름</label>
-							<h5>이름</h5>
+							<h5 id="modalUserName"></h5>
 						</div>
 						<div class="form-group">
 							<label class="control-label">아이디</label>
-							<h5>아이디</h5>
+							<h5 id="modalUserID"></h5>
 						</div>
 						<div class="form-group">
 							<label class="control-label">기수</label>
-							<h5>기수</h5>
+							<h5 id="modalUserClass"></h5>
 						</div>
 						<div class="form-group">
 							<label class="control-label">핸드폰</label>
-							<h5>핸드폰</h5>
+							<h5 id="modalUserPhone"></h5>
 						</div>
 						<div class="form-group">
 							<label class="control-label">이메일</label>
-							<h5>이메일</h5>
+							<h5 id="modalUserEmail"></h5>
 						</div>
 		            </div>
 		            <div class="modal-footer">

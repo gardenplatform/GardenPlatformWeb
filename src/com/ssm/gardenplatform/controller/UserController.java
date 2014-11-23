@@ -302,4 +302,53 @@ public class UserController {
 		PrintWriter writer = response.getWriter();
 		writer.write(obj.toString());
 	}
+	
+	@RequestMapping(value = "/userInfo.do", method = RequestMethod.GET)
+	public void getUserInfo(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		logMgr.printLog(request);
+
+		Map<String, Object> result = null;
+		HttpSession session = request.getSession(false);
+		
+		String token = session.getAttribute("token").toString();
+		String userID = request.getParameter("userID");
+		
+		String url = RestInfo.restURL+"/users/"+userID;
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
+		
+		JSONObject obj = new JSONObject();
+		try {
+			if(result.get("status").toString().equals("success")) {
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", "get UserInfo success");
+				
+				JSONObject jsonObj = new JSONObject(result.get("result").toString());
+				obj.put("username", jsonObj.get("username").toString());
+				obj.put("email", jsonObj.get("email").toString());
+				obj.put("phone", jsonObj.get("phone").toString());
+				obj.put("real_name", jsonObj.get("real_name").toString());
+				obj.put("class_num", jsonObj.get("class_num").toString());
+				obj.put("gender", jsonObj.get("gender").toString());
+			}
+			else{
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", result.get("msg").toString());
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		PrintWriter writer = response.getWriter();
+		writer.write(obj.toString());
+	}
 }

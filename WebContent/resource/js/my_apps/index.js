@@ -114,7 +114,7 @@ function checkImgFile() {
     if (fileName == "") {
         return false;
     }
-    else if (suffix.toUpperCase() == "PNG" || suffix.toUpperCase() == "JPG" || suffix.toUpperCase() == "PNG") {
+    else if (suffix.toUpperCase() == "PNG" || suffix.toUpperCase() == "JPG" ) {
     	return true;
     }
     else {
