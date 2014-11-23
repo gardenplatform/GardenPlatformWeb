@@ -11,6 +11,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
@@ -138,10 +139,16 @@ public class RestManager {
 				e.printStackTrace();
 			}
 			
-		}catch(Exception e2){
-			System.out.println(e2+"");
+		}catch(HttpServerErrorException e2){
+			//System.out.println(e2.get);
 			result.put("status", "error");
 			result.put("msg", e2.getMessage()+"");
+			//result.put("msg", e2.getResponseBodyAsString());
+		}
+		catch(Exception e3){
+			System.out.println(e3+"");
+			result.put("status", "error");
+			result.put("msg", e3.getMessage()+"");
 		}
 		
 		return result;

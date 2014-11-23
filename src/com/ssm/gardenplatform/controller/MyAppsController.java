@@ -123,7 +123,6 @@ public class MyAppsController {
 		
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
 		
-//		vars.add("icon", imgFile);
 		vars.add("icon", new org.springframework.core.io.ByteArrayResource(imgFile.getBytes(), imgFile.getOriginalFilename()) {
 		    @Override
 		    public String getFilename() throws IllegalStateException {
@@ -134,14 +133,6 @@ public class MyAppsController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.MULTIPART_FORM_DATA);
-//		headers.setContentType(MediaType.APPLICATION_JSON);
-
-		System.out.println(appName);
-		System.out.println(imgFile.getName());
-		System.out.println(imgFile.getOriginalFilename());
-		System.out.println(imgFile.getSize());
-		System.out.println(url);
-		System.out.println(vars.toString());
 
 		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
 
@@ -409,6 +400,51 @@ public class MyAppsController {
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
 		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
+		
+		JSONObject obj = new JSONObject();
+		try {
+			if(result.get("status").toString().equals("success")) {
+				obj.put("status", "success");
+				obj.put("msg", "Member add success");
+			}
+			else {
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", result.get("msg").toString());
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		PrintWriter writer = response.getWriter();
+		writer.write(obj.toString());
+	}
+	
+	@RequestMapping(value = "/deleteMember.do", method = RequestMethod.POST)
+	public void deleteMember(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		logMgr.printLog(request);
+		
+		String appName = request.getParameter("appName").trim();
+		String memberID = request.getParameter("memberID");
+		
+		Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+		String token = session.getAttribute("token").toString();
+
+		String url = RestInfo.restURL+"/teams/"+appName+"/members";
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+
+		vars.add("member", memberID);
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.DELETE);
 		
 		JSONObject obj = new JSONObject();
 		try {

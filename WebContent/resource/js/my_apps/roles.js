@@ -76,23 +76,24 @@ $('.userInfo').click(function(){
 
 
 $('#delete_developer').click(function(){
-	
-	var userID = $('#modalUserID').html();
+
+	var appName = $('#appName').text();
+	var memberID = $('#modalUserID').html();
 	var data = {
-			userID : userID
+			appName    : appName,
+			memberID : memberID
 	};
-	
-	console.log(userID);
-	
-	/*
 	$.ajax({
-		type : "GET",
-		url : "/GardenPlatformWeb/deleteDeveloper.do",
+		type : "POST",
+		url : "/GardenPlatformWeb/deleteMember.do",
 		data : data,
 		success : function(data) {
 			var obj = jQuery.parseJSON(data);
 			if(obj.status=="success") {
-				
+				setSuccess("멤버 삭제가 완료되었습니다");
+				setTimeout(function(){
+					location.href = location.href;
+				}, 500);
 			}
 			else{
 				setError(obj.msg);
@@ -102,7 +103,6 @@ $('#delete_developer').click(function(){
 			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
 		}
 	});
-	*/
 });
 
 
