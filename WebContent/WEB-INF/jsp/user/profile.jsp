@@ -6,6 +6,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/user/user.css">
+	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/jasny-bootstrap.css">
 </head>
 
 <body>
@@ -14,9 +15,22 @@
 	<h3>개인 정보</h3>
 	<h4><small>개인 정보를 수정할 수 있습니다.</small></h4>
 
-	
-	
 	<div class="form center-block">
+	
+		<div class="form-group row">
+			<h5 class="col-xs-4">프로필 사진</h5>
+				<div class="fileinput fileinput-new" data-provides="fileinput">
+				  <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+				    <img src="/GardenPlatformWeb/resource/img/no_profile_img.jpg" alt="...">
+				  </div>
+				  <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 150px; max-height: 150px;"></div>
+				  <div>
+				    <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+				    <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+				  </div>
+				</div>
+		</div>
+		
 		<div class="form-group row">
 			<h5 class="col-xs-4">ID</h5>
 			<h5 id="userid" class="col-xs-8">${id}</h5>
@@ -73,5 +87,6 @@
 	</div>
 
 	<script src="/GardenPlatformWeb/resource/js/user/user.js"></script>
+	<script src="/GardenPlatformWeb/resource/js/lib/jasny-bootstrap.js"></script>
 </body>
 </html>
