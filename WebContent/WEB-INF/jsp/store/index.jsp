@@ -46,6 +46,9 @@
 							<img class="thumbnail" src="/GardenPlatformWeb/resource/img/angry.png" alt="img04" style="width:170px; height:170px;">
 							<figcaption>
 								<h5 class="ellipsis">${item.displayName}</h5>
+								<c:if test="${empty item.category}">
+									<h6>Empty Category</h6>
+								</c:if>
 								<h6>${item.category}</h6>
 								<div class="pull-right">
 								<button class="btn btn-mint btn-sm m_addApp">추가</button>
@@ -85,42 +88,39 @@
 	        <div class="modal-content">
 	        	<div class="modal-header">
 	        		<div class="row">
-	        		<div class="col-md-2 text-center">
-	        		 <img src="https://lh6.ggpht.com/1eVPA6Iukw-F4i5xq1ZWicaKBzmprLGw98YhdG20E-wlsHHg3PcKJqbY_fWLdJeGRw=w170-rw" style="width:73px; height:73px;">
-	        		</div>
-	        		<div class="col-md-6">
-		                <h3 class="modal-title"></h3>
-		                <h4><small id="category"></small></h4>
-	        		</div>
 	        		
-	        		<div class="col-md-4">
-	        			
-	        		</div>
-	        		
+		        		<div class="col-md-2 text-center">
+		        		 <img src="https://lh6.ggpht.com/1eVPA6Iukw-F4i5xq1ZWicaKBzmprLGw98YhdG20E-wlsHHg3PcKJqbY_fWLdJeGRw=w170-rw" style="width:73px; height:73px;">
+		        		</div>
+		        		
+		        		<div class="col-md-10">
+			                <h3 class="modal-title"></h3>
+			                <h4><small id="category"></small></h4>
+		        		</div>
 	        		</div>
 	            </div>
 	            <div class="modal-body">
 		            <div class="row">
 		        		<div class="col-md-12">
-		            	<h4><strong>설명</strong></h4>
-		            	<h5><strong id="short_des"></strong></h5>
-		            	<h5 id="long_des">
-		            	</h5>
-		            	<br>
-		            	<h4><strong>약관</strong></h4>
-		        		<div id="permissionexplanation">
+		        			<div class="form-group">
+			            		<h4><strong>설명</strong></h4>
+			            		<h5><strong id="short_des"></strong></h5>
+			            		<h5 id="long_des"></h5>
+		        			</div>
+
+		            	<div class="form-group">
+			            	<h4><strong>약관</strong></h4>
+			        		<div id="permissionexplanation"></div>
 		        		</div>
+		        		
+		        		<ul class="list-group">
+							  <li class="list-group-item ellipsis"><span class="glyphicon glyphicon-wrench"></span>　<small id="contact_email"></small></li>
+							  <li class="list-group-item ellipsis"><span class="glyphicon glyphicon-cloud"></span>　<small id="created_at"></small></li>
+							  <li class="list-group-item ellipsis"><span class="glyphicon glyphicon-tags"></span>　<small id="tags"></small></li>
+						</ul>
+		        		
 						<input type="hidden" id="detail_realAppName">
 		        		</div>
-		        		<!-- 
-		        		<div class="col-md-3">
-			        		<ul class="list-group" style="margin-top: 30px;">
-							  <li class="list-group-item ellipsis" data-toggle="tooltip" data-placement="left" data-original-title="개발자 이메일"><span class="glyphicon glyphicon-wrench"></span>　<small id="contact_email"></small></li>
-							  <li class="list-group-item ellipsis" data-toggle="tooltip" data-placement="left" data-original-title="앱 생성일"><span class="glyphicon glyphicon-cloud"></span>　<small id="created_at"></small></li>
-							  <li class="list-group-item ellipsis" data-toggle="tooltip" data-placement="left" data-original-title="태그"><span class="glyphicon glyphicon-tags"></span>　<small id="tags"></small></li>
-							</ul>
-		        		</div>
-		        		 -->
 					</div>
 	            </div>
 	            <div class="modal-footer">

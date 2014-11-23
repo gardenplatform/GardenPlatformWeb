@@ -30,6 +30,7 @@ $('.show_detail').click(function(){
 				var short_des;
 				var long_des;
 				var per;
+				var category;
 				
 				$('.modal-title').html(obj.displayName);
 				
@@ -55,7 +56,15 @@ $('.show_detail').click(function(){
 					developer_email = obj.contactEmail;
 				}
 				$('#contact_email').html(developer_email);
-				$('#category').html(obj.category);
+				
+				
+				if(obj.category == "없음"){
+					category = "카테고리가 등록되지 않았습니다.";
+				} else {
+					category = obj.category;
+				}
+				$('#category').html(category);
+
 				$('#created_at').html(obj.createdAt);
 				
 				if(obj.tag1 == "없음" && obj.tag2 == "없음" && obj.tag3 == "없음"){
