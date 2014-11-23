@@ -81,22 +81,27 @@
 	</div>
 	
 	<div class="modal fade" id="store_modal">
-	    <div class="modal-dialog-long modal-vertical-centered">
+	    <div class="modal-dialog modal-vertical-centered">
 	        <div class="modal-content">
 	        	<div class="modal-header">
 	        		<div class="row">
 	        		<div class="col-md-2 text-center">
 	        		 <img src="https://lh6.ggpht.com/1eVPA6Iukw-F4i5xq1ZWicaKBzmprLGw98YhdG20E-wlsHHg3PcKJqbY_fWLdJeGRw=w170-rw" style="width:73px; height:73px;">
 	        		</div>
-	        		<div class="col-md-10">
+	        		<div class="col-md-6">
 		                <h3 class="modal-title"></h3>
 		                <h4><small id="category"></small></h4>
-	        		</div>	        		
+	        		</div>
+	        		
+	        		<div class="col-md-4">
+	        			
+	        		</div>
+	        		
 	        		</div>
 	            </div>
 	            <div class="modal-body">
 		            <div class="row">
-		        		<div class="col-md-9">
+		        		<div class="col-md-12">
 		            	<h4><strong>설명</strong></h4>
 		            	<h5><strong id="short_des"></strong></h5>
 		            	<h5 id="long_des">
@@ -107,6 +112,7 @@
 		        		</div>
 						<input type="hidden" id="detail_realAppName">
 		        		</div>
+		        		<!-- 
 		        		<div class="col-md-3">
 			        		<ul class="list-group" style="margin-top: 30px;">
 							  <li class="list-group-item ellipsis" data-toggle="tooltip" data-placement="left" data-original-title="개발자 이메일"><span class="glyphicon glyphicon-wrench"></span>　<small id="contact_email"></small></li>
@@ -114,6 +120,7 @@
 							  <li class="list-group-item ellipsis" data-toggle="tooltip" data-placement="left" data-original-title="태그"><span class="glyphicon glyphicon-tags"></span>　<small id="tags"></small></li>
 							</ul>
 		        		</div>
+		        		 -->
 					</div>
 	            </div>
 	            <div class="modal-footer">

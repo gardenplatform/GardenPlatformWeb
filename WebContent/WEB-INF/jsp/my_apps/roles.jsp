@@ -49,14 +49,13 @@
 								<div class="ch-item">	
 									<div class="ch-info">
 										<h3>박성호</h3>
-										<p>${owner} <a href="#">View on Userinfo</a></p>
+										<p>${owner} <a href="#" data-toggle="modal" data-target="#info_developer_modal">View on Userinfo</a></p>
 									</div>
 									<div class="ch-thumb ch-img-1" style="background-image: url(/GardenPlatformWeb/resource/img/testimg.png);"></div>
 								</div>
 							</li>
 						</ul>
 					    </div>
-					  	
 					  </div>
 				  </div>
 				  </div>
@@ -81,7 +80,7 @@
 										<div class="ch-item">	
 											<div class="ch-info">
 												<h3>이 름</h3>
-												<p>${item} <a href="#">View on Userinfo</a></p>
+												<p>${item} <a href="#" data-toggle="modal" data-target="#info_developer_modal">View on Userinfo</a></p>
 											</div>
 											<div class="ch-thumb ch-img-1" style="background-image: url(/GardenPlatformWeb/resource/img/testimg2.png);"></div>
 										</div>
@@ -110,6 +109,42 @@
 		            <div class="modal-footer">
 	                	<button class="btn btn-mint" type="button" id="add_developer">추가</button>  
 		                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		
+		<div class="modal fade" id="info_developer_modal">
+		    <div class="modal-dialog modal-vertical-centered">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <h4 class="modal-title"><strong>유저 정보</strong></h4>
+		            </div>
+		            <div class="modal-body">
+		            	<div class="form-group">
+							<label class="control-label">이름</label>
+							<h5>이름</h5>
+						</div>
+						<div class="form-group">
+							<label class="control-label">아이디</label>
+							<h5>아이디</h5>
+						</div>
+						<div class="form-group">
+							<label class="control-label">기수</label>
+							<h5>기수</h5>
+						</div>
+						<div class="form-group">
+							<label class="control-label">핸드폰</label>
+							<h5>핸드폰</h5>
+						</div>
+						<div class="form-group">
+							<label class="control-label">이메일</label>
+							<h5>이메일</h5>
+						</div>
+		            </div>
+		            <div class="modal-footer">
+	                	<button class="btn btn-danger" type="button" id="delete_developer">삭제</button>  
+		                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 		            </div>
 		        </div>
 		    </div>
