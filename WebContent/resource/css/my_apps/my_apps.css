@@ -25,6 +25,10 @@ div.form {
 }
 */
 
+.control-label{
+	margin-top : 5px;
+}
+
 .ellipsis {
 	display: block;
 	overflow: hidden;
