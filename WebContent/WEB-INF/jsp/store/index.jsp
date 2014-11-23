@@ -20,7 +20,7 @@
 				<ul class="snb nav">
 					<li class="active"><a href="/GardenPlatformWeb/store/index.do"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 					<li><a href="#" data-toggle="collapse" data-target="#sub1"><span class="glyphicon glyphicon-tags"></span> Category <span class="caret"></span></a>
-						<ul class="nav collapse" id="sub1">
+						<ul class="nav in" id="sub1">
 							<li><a href="/GardenPlatformWeb/store/index.do?category=Webapp">Webapp</a></li>
 							<li><a href="/GardenPlatformWeb/store/index.do?category=Native">Native</a></li>
 							<li><a href="/GardenPlatformWeb/store/index.do?category=Books">Books</a></li>
@@ -36,7 +36,22 @@
 		</div>
 			
 		<div class="col-md-9">
-
+			<div class="col-md-12">
+			<div class="input-group form-group">
+      			<div class="input-group-btn">
+	        		<button id="searchmode" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">앱이름 <span class="caret"></span></button>
+	        		<ul class="dropdown-menu" id="searchmodedropdown">
+	          			<li><a href="#">앱이름</a></li>
+	          			<li><a href="#">태그</a></li>
+	        		</ul>        		
+      			</div>      			
+      			<input type="text" class="form-control" id="searchinput">
+      			<span class="input-group-btn">
+       			<button class="btn btn-default" type="button" id="searchbutton">검색</button>
+      			</span>
+    		</div>
+			</div>
+    		
 			<ul class="grid cs-style-3">
 			<div class="row">
 				<c:forEach var="item" items="${appList}">

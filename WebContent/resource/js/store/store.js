@@ -8,6 +8,24 @@ $(function () {
     $("[data-toggle='tooltip']").tooltip();
 });
 
+$('#searchmodedropdown li a').click(function(){
+	$('#searchmode').html($(this).html() + ' <span class="caret"></span>');
+	mode = $(this).parent().index();
+});
+
+// 엔터 인식
+$('#searchinput').keydown(function(){
+	if(event.keyCode == 13){
+		event.preventDefault();
+		$('#searchbutton').trigger('click');
+		return false;
+	}
+});
+
+$('#searchbutton').click(function(){
+
+});
+
 $('.show_detail').click(function(){
 
 	var index = $(this).index('.show_detail');
