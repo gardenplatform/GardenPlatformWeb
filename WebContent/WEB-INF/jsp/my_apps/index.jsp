@@ -44,7 +44,7 @@
 					<div class="panel-body">
 						<div class="media">
 							<a href="#" class="pull-left" data-toggle="modal" data-target="#appIconModal"> 
-							<img class="media-object myapps-img" src="/GardenPlatformWeb/resource/img/dashboard_default_img.png">
+								<img class="media-object myapps-img" src="${appImgUrl}" style="width:128px; height:128px">
 							</a>
 							<div class="media-body">
 								<h2 class="media-heading">${appName}</h2>
@@ -141,14 +141,14 @@
 					    <input type="hidden" name="appName" id="formAppName" value="${appName}" />
 					    <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span>
 					    <span class="fileinput-exists">Change</span>
-					    <input type="file" name="imgFile" id="imgFile" accept="image/x-png, image/jpeg"/></span>
+					    <input type="file" name="imgFile" id="imgFile" accept="image/x-png, image/jpeg" value="${appImgUrl}"/></span>
 					    <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
 					  </div>
 		             </div>
 					</div>
 	            </div>
 	            <div class="modal-footer">
-                	<input class="btn btn-mint" type="submit" value="등록">
+                	<input id="imgSubmit" class="btn btn-mint hidden" type="submit" value="등록">
 	                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 	            </div>
 	            </form>
@@ -157,7 +157,7 @@
 	</div>
 	
 	
-	<script src="/GardenPlatformWeb/resource/js/my_apps/index.js"></script>
 	<script src="/GardenPlatformWeb/resource/js/lib/jasny-bootstrap.js"></script>
+	<script src="/GardenPlatformWeb/resource/js/my_apps/index.js"></script>
 </body>
 </html>

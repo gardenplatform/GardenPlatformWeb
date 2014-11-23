@@ -81,6 +81,8 @@ public class MyAppsController {
 					mav.addObject("appType", "Web");
 				else if(jsonObj.get("client_type").toString().equals("public"))
 					mav.addObject("appType", "Native");
+				
+				mav.addObject("appImgUrl", RestInfo.restURL+jsonObj.get("app_icon"));
 
 			} catch (JSONException e) {
 				e.printStackTrace();
@@ -107,7 +109,7 @@ public class MyAppsController {
 	}
 	
 	@RequestMapping(value="/postAppIcon.do", method=RequestMethod.POST )
-    public @ResponseBody void postAppIcon(HttpServletRequest request, HttpServletResponse response,
+    public @ResponseBody ModelAndView postAppIcon(HttpServletRequest request, HttpServletResponse response,
     		@RequestParam("imgFile") final MultipartFile imgFile, @RequestParam("appName") String appName) throws IOException{
 
 		request.setCharacterEncoding("UTF-8");
@@ -136,22 +138,15 @@ public class MyAppsController {
 
 		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
 
-		JSONObject obj = new JSONObject();
-		try {
-			if(result.get("status").toString().equals("success")) {
-				obj.put("status", "success");
-				obj.put("msg", "Update success");
-			}
-			else {
-				obj.put("status", result.get("status").toString());
-				obj.put("msg", result.get("msg").toString());
-			}
-		} catch (JSONException e) {
-			e.printStackTrace();
+		ModelAndView mav = new ModelAndView();
+		if(result.get("status").equals("error")){
+			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
 		}
+		else {
+			mav.setView(new RedirectView("/GardenPlatformWeb/my_apps/index.do?appName="+appName));
+		}
+		return mav;
 		
-		PrintWriter writer = response.getWriter();
-		writer.write(obj.toString());
     }
 	
 	
@@ -501,6 +496,8 @@ public class MyAppsController {
 				mav.addObject("displayName", jsonObj.get("display_name"));
 				mav.addObject("contactEmail", jsonObj.get("contact_email"));
 				mav.addObject("publish", jsonObj.get("publish"));
+
+				mav.addObject("appImgUrl", RestInfo.restURL+jsonObj.get("app_icon"));
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}

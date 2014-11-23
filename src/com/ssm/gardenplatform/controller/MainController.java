@@ -104,6 +104,7 @@ public class MainController {
 					Map<String, String> app = new HashMap<String, String>();
 					app.put("displayName", jsonObj.get("display_name").toString());
 					app.put("url", jsonObj.get("url").toString());
+					app.put("appImgUrl", RestInfo.restURL+jsonObj.get("app_icon"));
 					
 					bookmarkAppList.add(app);
 				}

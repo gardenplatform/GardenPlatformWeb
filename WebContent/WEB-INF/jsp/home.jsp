@@ -13,7 +13,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="text-center" style="margin-top:100px;">
-					<img src="/GardenPlatformWeb/resource/img/Garden-Logo.png">
+						<img src="/GardenPlatformWeb/resource/img/Garden-Logo.png">
 					</div>
 					<div class="text-center" style="margin-bottom:30px;">
 					<form method=get action="http://www.google.co.kr/search" target="_blank" >
@@ -30,7 +30,7 @@
 				<c:forEach var="item" items="${bookmarkAppList}">
 					<div class="col-xs-6 col-md-3 text-center">
 						<a href="${item.url}" class="thumbnail-round">
-							<img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="/GardenPlatformWeb/resource/img/favicon.png" data-toggle="tooltip" data-placement="top" data-original-title="${item.displayName}" style="width: 140px; height: 140px;">
+							<img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="${item.appImgUrl}" data-toggle="tooltip" data-placement="top" data-original-title="${item.displayName}" style="width: 140px; height: 140px;">
 						</a>
 					</div>
 				</c:forEach>

@@ -140,10 +140,9 @@ public class RestManager {
 			}
 			
 		}catch(HttpServerErrorException e2){
-			//System.out.println(e2.get);
+			System.out.println(e2.getMessage()+"");
 			result.put("status", "error");
-			result.put("msg", e2.getMessage()+"");
-			//result.put("msg", e2.getResponseBodyAsString());
+			result.put("msg", e2.getResponseBodyAsString());
 		}
 		catch(Exception e3){
 			System.out.println(e3+"");

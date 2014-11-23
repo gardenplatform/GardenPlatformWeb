@@ -40,7 +40,6 @@ $('#app_secret_show').click(function(){
 	if(appSecretInputTag.attr("type")=="password") {
 		appSecretInputTag.attr("type","text");
 		$('#app_secret_show').text("Hide");
-		
 	}
 	else if(appSecretInputTag.attr("type")=="text") {
 		appSecretInputTag.attr("type","password");
@@ -85,20 +84,24 @@ $('#index_update').click(function(){
 });
 
 $("#imgFile").change(function() {
+
 	if(!checkImgFile()){
-		setError("이미지 파일을 선택해주세요.");
 		$("#imgFile").val("");
-		
+		$('#imgSubmit').addClass("hidden");
+	}
+	else{
+		$('#imgSubmit').removeClass("hidden");
 	}
 });
 
   
 function checkImgFile() {
+	
     var fileName = $("#imgFile").val();
     var suffix = fileName.split(".")[1];
     
-    if (fileName == "") {
-        return false;
+    if(fileName=="") {
+    	return false;
     }
     else if (suffix.toUpperCase() == "PNG" || suffix.toUpperCase() == "JPG" ) {
     	return true;
@@ -106,7 +109,6 @@ function checkImgFile() {
     else {
         return false;
     }
-    return true;
 }
 
 

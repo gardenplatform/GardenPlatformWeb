@@ -123,29 +123,30 @@
 		<div class="modal fade" id="info_developer_modal">
 		    <div class="modal-dialog modal-vertical-centered">
 		        <div class="modal-content">
+		        	
 		            <div class="modal-header">
 		                <h4 class="modal-title"><strong>유저 정보</strong></h4>
 		            </div>
 		            <div class="modal-body">
-		            	<div class="form-group">
-							<label class="control-label">이름</label>
-							<h5 id="modalUserName"></h5>
+		            	<div class="form-group row">
+							<label class="control-label col-xs-4">이름</label>
+							<h5 class="col-xs-8" id="modalUserName"></h5>
 						</div>
-						<div class="form-group">
-							<label class="control-label">아이디</label>
-							<h5 id="modalUserID"></h5>
+						<div class="form-group row">
+							<label class="control-label col-xs-4">아이디</label>
+							<h5 class="col-xs-8" id="modalUserID"></h5>
 						</div>
-						<div class="form-group">
-							<label class="control-label">기수</label>
-							<h5 id="modalUserClass"></h5>
+						<div class="form-group row">
+							<label class="control-label col-xs-4">기수</label>
+							<h5 class="col-xs-8" id="modalUserClass"></h5>
 						</div>
-						<div class="form-group">
-							<label class="control-label">핸드폰</label>
-							<h5 id="modalUserPhone"></h5>
+						<div class="form-group row">
+							<label class="control-label col-xs-4">핸드폰</label>
+							<h5 class="col-xs-8" id="modalUserPhone"></h5>
 						</div>
-						<div class="form-group">
-							<label class="control-label">이메일</label>
-							<h5 id="modalUserEmail"></h5>
+						<div class="form-group row">
+							<label class="control-label col-xs-4">이메일</label>
+							<h5 class="col-xs-8" id="modalUserEmail"></h5>
 						</div>
 		            </div>
 		            <div class="modal-footer">

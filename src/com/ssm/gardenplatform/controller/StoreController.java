@@ -49,8 +49,20 @@ public class StoreController {
 
 		String url = RestInfo.restURL+"/stores";
 
-		if(request.getParameter("category") != null) 
+		if(request.getParameter("category") != null){ 
 			url += "?category="+request.getParameter("category").toString();
+		}
+		else if(request.getParameter("search") != null) {
+			String search = request.getParameter("search");
+			String tag = request.getParameter("tag");
+			
+			search = search.replaceAll(" ", "+");
+			
+			System.out.println(search);
+			
+			url += "?search="+search+"&tag="+tag;
+		}
+		
 		
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
 
@@ -76,6 +88,7 @@ public class StoreController {
 					app.put("appName", jsonObj.get("client_name").toString());
 					app.put("displayName", jsonObj.get("display_name").toString());
 					app.put("category", jsonObj.get("category").toString());
+					app.put("appImgUrl", RestInfo.restURL+jsonObj.get("app_icon"));
 					
 					appList.add(app);
 				}
@@ -155,6 +168,9 @@ public class StoreController {
 				
 				
 				obj.put("appName", appName);
+				
+				obj.put("appImgUrl", RestInfo.restURL+jsonObj.get("app_icon"));
+				
 			}
 			else {
 				obj.put("status", result.get("status").toString());

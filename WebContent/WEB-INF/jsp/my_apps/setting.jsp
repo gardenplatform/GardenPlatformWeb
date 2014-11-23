@@ -45,7 +45,7 @@
 					<div class="panel-body">
 						<div class="media">
 							<a class="pull-left" href="#"> 
-							<img class="media-object myapps-img" src="/GardenPlatformWeb/resource/img/dashboard_default_img.png">
+								<img class="media-object myapps-img" src="${appImgUrl}" style="width:128px; height:128px">
 							</a>
 							<div class="media-body">
 								<h2 class="media-heading">${appName}</h2>
