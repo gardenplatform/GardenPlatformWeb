@@ -157,7 +157,7 @@
 	</div>
 	
 	
-	<script src="/GardenPlatformWeb/resource/js/my_apps/index.js"></script>
 	<script src="/GardenPlatformWeb/resource/js/lib/jasny-bootstrap.js"></script>
+	<script src="/GardenPlatformWeb/resource/js/my_apps/index.js"></script>
 </body>
 </html>
