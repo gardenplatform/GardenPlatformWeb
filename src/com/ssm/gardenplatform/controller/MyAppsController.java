@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.ssm.gardenplatform.log.LogManager;
@@ -37,6 +38,60 @@ public class MyAppsController {
 	
 	LogManager logMgr = new LogManager();
 	RestManager restMgr = new RestManager();
+	
+	@RequestMapping(value = "/webRegister.do", method = RequestMethod.POST)
+	public void postClient(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		logMgr.printLog(request);
+		
+		String appName = request.getParameter("appName");
+		String appUrl = request.getParameter("appUrl");
+		String appRedirectUrl = request.getParameter("appRedirectUrl");
+		String appType = "confidential";
+		String appPermission = request.getParameter("appPermission");
+		// confidential,(web) public(native)
+		
+		Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+		String token = session.getAttribute("token").toString();
+		
+		String url = RestInfo.restURL+"/clients";
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+
+		vars.add("name", appName);
+		vars.add("url", appUrl);
+		vars.add("redirect_uris", appRedirectUrl);
+		vars.add("client_type", appType);
+		vars.add("authorization_grant_type", appPermission);
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
+		
+		JSONObject obj = new JSONObject();
+		try {
+			if(result.get("status").toString().equals("success")) {
+
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", "App Register Success");
+			}
+			else{
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", result.get("msg").toString());
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		PrintWriter writer = response.getWriter();
+		writer.write(obj.toString());
+	}
 	
 	@RequestMapping(value = "/my_apps/index.do", method = RequestMethod.GET)
 	public ModelAndView getMyapps_Index(HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -51,7 +106,7 @@ public class MyAppsController {
 		
 		HttpSession session = request.getSession(false);
 		String token = session.getAttribute("token").toString();
-		
+
 		String url = RestInfo.restURL+"/clients/"+appName;
 		
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
@@ -63,7 +118,7 @@ public class MyAppsController {
 		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
 		
 		ModelAndView mav = new ModelAndView();
-		
+
 		if(result.get("status").equals("error")){
 			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
 		}
@@ -83,7 +138,7 @@ public class MyAppsController {
 					mav.addObject("appType", "Native");
 				
 				mav.addObject("appImgUrl", RestInfo.restURL+jsonObj.get("app_icon"));
-
+				
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
@@ -109,17 +164,17 @@ public class MyAppsController {
 	}
 	
 	@RequestMapping(value="/postAppIcon.do", method=RequestMethod.POST )
-    public @ResponseBody ModelAndView postAppIcon(HttpServletRequest request, HttpServletResponse response,
+    public @ResponseBody ModelAndView postAppIcon(HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirectAttributes,
     		@RequestParam("imgFile") final MultipartFile imgFile, @RequestParam("appName") String appName) throws IOException{
 
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-    	
+		logMgr.printLog(request);
+		
     	Map<String, Object> result = null;
 		
 		HttpSession session = request.getSession(false);
 		String token = session.getAttribute("token").toString();
-		
 
 		String url = RestInfo.restURL+"/clients/"+appName+"/icons";
 		
@@ -143,7 +198,8 @@ public class MyAppsController {
 			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
 		}
 		else {
-			mav.setView(new RedirectView("/GardenPlatformWeb/my_apps/index.do?appName="+appName));
+			mav.setView(new RedirectView("/GardenPlatformWeb/my_apps/index.do"));
+			redirectAttributes.addAttribute("appName", appName);
 		}
 		return mav;
 		
@@ -287,9 +343,6 @@ public class MyAppsController {
 
 		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
 
-		System.out.println(appName);
-		System.out.println(url);
-		System.out.println(vars.toString());
 		JSONObject obj = new JSONObject();
 		try {
 			if(result.get("status").toString().equals("success")) {
@@ -349,11 +402,13 @@ public class MyAppsController {
 					if(jsonObj.get("is_owner").toString().equals("true")){
 						mav.addObject("ownerID", jsonObj.get("member"));
 						mav.addObject("ownerName", jsonObj.get("real_name"));
+						mav.addObject("ownerProfileImg", RestInfo.restURL+jsonObj.get("profile_img"));
 					}
 					else {
 						Map<String, String> developer = new HashMap<String, String>();
 						developer.put("developerID", jsonObj.get("member").toString());
 						developer.put("developerName", jsonObj.get("real_name").toString());
+						developer.put("developerProfileImg", RestInfo.restURL+jsonObj.get("profile_img"));
 						
 						developerList.add(developer);
 					}
@@ -429,11 +484,9 @@ public class MyAppsController {
 		HttpSession session = request.getSession(false);
 		String token = session.getAttribute("token").toString();
 
-		String url = RestInfo.restURL+"/teams/"+appName+"/members";
+		String url = RestInfo.restURL+"/teams/"+appName+"/members?username="+memberID;
 		
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
-
-		vars.add("member", memberID);
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization","token "+token);
@@ -555,21 +608,21 @@ public class MyAppsController {
 		writer.write(obj.toString());
 	}
 	
-	@RequestMapping(value = "/deleteClient.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/deleteMemeber.do", method = RequestMethod.POST)
 	public void deleteClient(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
-		String appName = request.getParameter("appName").trim();
+		String memberID = request.getParameter("memberID");
 		
 		Map<String, Object> result = null;
 		
 		HttpSession session = request.getSession(false);
 		String token = session.getAttribute("token").toString();
 
-		String url = RestInfo.restURL+"/clients/"+appName;
+		String url = RestInfo.restURL+"/teams/members?username="+memberID;
 		
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
 		

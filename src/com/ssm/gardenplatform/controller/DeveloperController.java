@@ -1,5 +1,6 @@
 package com.ssm.gardenplatform.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,9 +9,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ssm.gardenplatform.dao.BoardDAO;
@@ -19,9 +24,37 @@ import com.ssm.gardenplatform.model.Board;
 
 
 @Controller
-public class DeveloperController {
+public class DeveloperController implements ApplicationContextAware{
 	
 	LogManager logMgr = new LogManager();
+	private WebApplicationContext context = null;
+	
+	@RequestMapping(value = "/downloadSDK.do", method = RequestMethod.GET)
+	public ModelAndView getDownload(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		logMgr.printLog(request);
+
+		File downloadFile = getSDKFile();
+		
+		ModelAndView mav = new ModelAndView("downloadView");
+		mav.addObject("downloadFile", downloadFile);
+		
+		return mav;
+	}
+
+	private File getSDKFile() {
+		
+		String path = context.getServletContext().getRealPath("/sdk/gardenSDK-1.01.jar");
+
+		return new File(path);
+	} 
+	
+	@Override
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+		this.context = (WebApplicationContext) applicationContext;
+	}
 	
 	//start developer pages
 	@RequestMapping(value = "/developer/index.do", method = RequestMethod.GET)

@@ -102,6 +102,7 @@ public class MainController {
 					
 					Map<String, String> app = new HashMap<String, String>();
 					app.put("displayName", jsonObj.get("display_name").toString());
+					app.put("realName", jsonObj.get("name").toString());
 					app.put("url", jsonObj.get("url").toString());
 					app.put("appImgUrl", RestInfo.restURL+jsonObj.get("app_icon"));
 					
@@ -120,49 +121,38 @@ public class MainController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/webRegister.do", method = RequestMethod.POST)
-	public void postClient(HttpServletRequest request, HttpServletResponse response) throws IOException{
+	@RequestMapping(value = "/deleteBookmark.do", method = RequestMethod.POST)
+	public void deleteBookmark(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
-		
-		String appName = request.getParameter("appName");
-		String appUrl = request.getParameter("appUrl");
-		String appRedirectUrl = request.getParameter("appRedirectUrl");
-		String appType = "confidential";
-		String appPermission = request.getParameter("appPermission");
-		// confidential,(web) public(native)
+
+		String appName = request.getParameter("appName").trim();
 		
 		Map<String, Object> result = null;
 		
 		HttpSession session = request.getSession(false);
 		String token = session.getAttribute("token").toString();
-		
-		String url = RestInfo.restURL+"/clients";
+		String userID = session.getAttribute("userID").toString();
+
+		String url = RestInfo.restURL+"/users/"+userID+"/apps?name="+appName;
 		
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
-
-		vars.add("name", appName);
-		vars.add("url", appUrl);
-		vars.add("redirect_uris", appRedirectUrl);
-		vars.add("client_type", appType);
-		vars.add("authorization_grant_type", appPermission);
-
+		
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.DELETE);
 		
 		JSONObject obj = new JSONObject();
 		try {
 			if(result.get("status").toString().equals("success")) {
-
-				obj.put("status", result.get("status").toString());
-				obj.put("msg", "App Register Success");
+				obj.put("status", "success");
+				obj.put("msg", "Update success");
 			}
-			else{
+			else {
 				obj.put("status", result.get("status").toString());
 				obj.put("msg", result.get("msg").toString());
 			}
@@ -173,4 +163,5 @@ public class MainController {
 		PrintWriter writer = response.getWriter();
 		writer.write(obj.toString());
 	}
+
 }

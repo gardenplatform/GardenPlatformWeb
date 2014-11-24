@@ -29,6 +29,7 @@
 
 				<c:forEach var="item" items="${bookmarkList}">
 					<div class="col-xs-6 col-md-3 text-center">
+						<input class="realName" type="hidden" value="${item.realName}">
 						<button type="button" class="close delete_app"><span aria-hidden="true">&times;</span></button>
 						<a href="${item.url}" class="thumbnail-round">
 							<img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="${item.appImgUrl}" data-toggle="tooltip" data-placement="top" data-original-title="${item.displayName}" style="width: 140px; height: 140px;">

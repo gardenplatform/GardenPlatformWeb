@@ -38,7 +38,7 @@
 				<div class="jumbotron">
   <h1>Getting Start!</h1>
   <p>밥줘영</p>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+  <p><a class="btn btn-primary btn-lg" href="/GardenPlatformWeb/downloadSDK.do" role="button">SDK Download</a></p>
 </div>
 			</div>
 		</div>
