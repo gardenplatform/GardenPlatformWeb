@@ -7,3 +7,8 @@ $('#google_search').click(function () {
 $(function () { 
     $("[data-toggle='tooltip']").tooltip();
 });
+
+
+$('.delete_app').click(function () {
+	console.log("클릭");
+});
