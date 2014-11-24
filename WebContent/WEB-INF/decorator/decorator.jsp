@@ -41,7 +41,12 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Apps<b class="caret"></b></a>
                         <ul class="dropdown-menu">
 						    <c:forEach var="item" items="${sessionScope.myAppList}">
-                            	<li id="nav-myapps"><a href="${item.url}">${item.displayName}</a></li>
+                            	<li id="nav-myapps">
+                            		<a href="${item.url}">
+	                            		<img data-src="holder.js/30x30" class="pull-left img-circle" alt="30x30" src="${item.appImgUrl}" data-toggle="tooltip" data-placement="top" data-original-title="${item.displayName}" style="width: 30px; height: 30px;">
+	                            		 ${item.displayName}
+                            		</a>
+                            	</li>
 						    </c:forEach>
                         </ul>
                     </li>
