@@ -39,13 +39,23 @@
 			<div class="col-md-12">
 			<div class="input-group form-group">
       			<div class="input-group-btn">
-	        		<button id="searchmode" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">앱이름 <span class="caret"></span></button>
+	        		<button id="searchmode" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+	        			 <c:choose>
+							<c:when test="${tag}">
+								태그
+						    </c:when>
+						    <c:otherwise>
+								앱이름
+						    </c:otherwise>
+					    </c:choose>
+	        			<span class="caret"></span>
+	        		</button>
 	        		<ul class="dropdown-menu" id="searchmodedropdown">
 	          			<li><a href="#">앱이름</a></li>
 	          			<li><a href="#">태그</a></li>
 	        		</ul>        		
-      			</div>      			
-      			<input type="text" class="form-control" id="searchinput">
+      			</div>
+      			<input type="text" class="form-control" id="searchinput" value="${search}">
       			<span class="input-group-btn">
        			<button class="btn btn-default" type="button" id="searchbutton">검색</button>
       			</span>

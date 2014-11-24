@@ -41,6 +41,8 @@ public class StoreController {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
+		
+		ModelAndView mav = new ModelAndView();
 
 		Map<String, Object> result = null;
 		
@@ -57,10 +59,10 @@ public class StoreController {
 			String tag = request.getParameter("tag");
 			
 			search = search.replaceAll(" ", "+");
-			
-			System.out.println(search);
-			
 			url += "?search="+search+"&tag="+tag;
+			
+			mav.addObject("tag", tag);
+			mav.addObject("search", search);
 		}
 		
 		
@@ -72,7 +74,7 @@ public class StoreController {
 
 		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
 		
-		ModelAndView mav = new ModelAndView();
+		
 		if(result.get("status").equals("error")){
 			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
 		}
