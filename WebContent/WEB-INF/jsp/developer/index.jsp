@@ -16,7 +16,7 @@
 			<!-- sidebar -->
 			<div class="col-md-3 role="navigation">
 				<div class="well">
-				<h4>Developer</h4>
+				<h4>Developers</h4>
 				</div>
 				<div class="well">
 				<ul class="snb nav">

@@ -37,18 +37,29 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                	<li class="dropdown" id="nav-myapps">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Apps <b class="caret"></b></a>
+                	<li class="dropdown" id="navMyapps">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Apps<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+						    <c:forEach var="item" items="${sessionScope.myAppList}">
+                            	<li id="nav-myapps"><a href="${item.url}">${item.displayName}</a></li>
+						    </c:forEach>
+                        </ul>
+                    </li>
+                    
+               		<li id="nav-store"><a href="/GardenPlatformWeb/store/index.do">Store</a></li>
+               		
+               		<li class="dropdown" id="navDeveloperApps">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a id="app" data-toggle="modal" data-target="#app_modal">앱 등록</a></li>
                             <li class="divider"></li>
-						    <c:forEach var="item" items="${sessionScope.appList}">
+						    <c:forEach var="item" items="${sessionScope.developerAppList}">
                             	<li id="nav-myapps"><a href="/GardenPlatformWeb/my_apps/index.do?appName=${item}">${item}</a></li>
 						    </c:forEach>
                         </ul>
                     </li>
-               		<li id="nav-store"><a href="/GardenPlatformWeb/store/index.do">Store</a></li>
-               		<li id="nav-developer"><a href="/GardenPlatformWeb/developer/index.do">Developer</a></li>
+                    
+               		<li id="nav-developer"><a href="/GardenPlatformWeb/developer/index.do">Docs</a></li>
                 </ul>
                 
                 <ul class="nav navbar-nav navbar-right">

@@ -73,19 +73,18 @@ public class MainController {
 			
 		ModelAndView mav = new ModelAndView();
 		if(result.get("status").equals("success")){
-			LinkedList<String> appList= new LinkedList<>();
+			LinkedList<String> developerAppList= new LinkedList<>();
 			try {
 				JSONArray jsonArr = new JSONArray(result.get("result").toString());
 				for(int i=0; i<jsonArr.length() ;i++) {
 					JSONObject item = new JSONObject(jsonArr.get(i).toString());
-					appList.add(item.getString("name"));
+					developerAppList.add(item.getString("name"));
 				}
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			session.setAttribute("appList", appList);
-			
+			session.setAttribute("developerAppList", developerAppList);
 		}
 		else {
 			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));			
@@ -97,7 +96,7 @@ public class MainController {
 		if(result.get("status").equals("success")){
 			try {
 				JSONArray jsonArr = new JSONArray(result.get("result").toString());
-				LinkedList<Map<String, String>> bookmarkAppList = new LinkedList<Map<String, String>>();
+				LinkedList<Map<String, String>> myAppList = new LinkedList<Map<String, String>>();
 				for(int i=0; i<jsonArr.length(); i++) {
 					JSONObject jsonObj = new JSONObject(jsonArr.getJSONObject(i).toString());
 					
@@ -106,9 +105,10 @@ public class MainController {
 					app.put("url", jsonObj.get("url").toString());
 					app.put("appImgUrl", RestInfo.restURL+jsonObj.get("app_icon"));
 					
-					bookmarkAppList.add(app);
+					myAppList.add(app);
 				}
-				mav.addObject("bookmarkAppList", bookmarkAppList);
+				session.setAttribute("myAppList", myAppList);
+				
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
