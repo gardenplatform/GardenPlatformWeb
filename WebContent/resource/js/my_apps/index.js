@@ -107,6 +107,7 @@ function checkImgFile() {
     	return true;
     }
     else {
+    	setError("이미지 파일을 선택해 주세요.");
         return false;
     }
 }

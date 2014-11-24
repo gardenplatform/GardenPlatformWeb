@@ -21,6 +21,9 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -232,6 +235,53 @@ public class UserController {
 		}
 		return mav;
 	}
+	
+	@RequestMapping(value="/postProfileImg.do", method=RequestMethod.POST )
+    public @ResponseBody ModelAndView postProfileImg(HttpServletRequest request, HttpServletResponse response,
+    		@RequestParam("imgFile") final MultipartFile imgFile) throws IOException{
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+    	
+    	Map<String, Object> result = null;
+		
+		HttpSession session = request.getSession(false);
+
+		String userID = session.getAttribute("userID").toString();
+		String token = session.getAttribute("token").toString();
+
+		String url = RestInfo.restURL+"/users/"+userID;
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+		
+		vars.add("icon", new org.springframework.core.io.ByteArrayResource(imgFile.getBytes(), imgFile.getOriginalFilename()) {
+		    @Override
+		    public String getFilename() throws IllegalStateException {
+		        return imgFile.getOriginalFilename();
+		    }
+		});
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","token "+token);
+		headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+		
+		System.out.println(imgFile.getOriginalFilename());
+//
+//		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
+//
+//		ModelAndView mav = new ModelAndView();
+//		if(result.get("status").equals("error")){
+//			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
+//		}
+//		else {
+//			mav.setView(new RedirectView("/GardenPlatformWeb/user/profile.do"));
+//		}
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setView(new RedirectView("/GardenPlatformWeb/user/profile.do"));
+		return mav;
+		
+    }
 	
 
 	@RequestMapping(value = "/updateUser.do", method = RequestMethod.POST)

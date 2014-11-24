@@ -136,12 +136,15 @@
 	            <div class="modal-body">
 		             <div class="text-center">
 		             <div class="fileinput fileinput-new" data-provides="fileinput">
-					  <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 200px;"></div>
+					  <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+					  	<img src="${appImgUrl}" style="width: 150px; height: 150px;">
+					  </div>
+					  <div class="fileinput-preview fileinput-exists thumbnail" style="width: 150px; height: 150px;"></div>
 					  <div>
 					    <input type="hidden" name="appName" id="formAppName" value="${appName}" />
 					    <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span>
 					    <span class="fileinput-exists">Change</span>
-					    <input type="file" name="imgFile" id="imgFile" accept="image/x-png, image/jpeg" value="${appImgUrl}"/></span>
+					    <input type="file" name="imgFile" id="imgFile" accept="image/x-png, image/jpeg"/></span>
 					    <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
 					  </div>
 		             </div>

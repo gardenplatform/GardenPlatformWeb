@@ -22,6 +22,35 @@ $('#password').keyup(function(){
 	}
 });
 
+$("#imgFile").change(function() {
+
+	if(!checkImgFile()){
+		$("#imgFile").val("");
+		$('#imgSubmit').addClass("hidden");
+	}
+	else{
+		$('#imgSubmit').removeClass("hidden");
+	}
+});
+
+  
+function checkImgFile() {
+	
+    var fileName = $("#imgFile").val();
+    var suffix = fileName.split(".")[1];
+    
+    if(fileName=="") {
+    	return false;
+    }
+    else if (suffix.toUpperCase() == "PNG" || suffix.toUpperCase() == "JPG" ) {
+    	return true;
+    }
+    else {
+    	setError("이미지 파일을 선택해 주세요.");
+        return false;
+    }
+}
+
 $('button#modify').click(function(){
 	var ispasswordchanged = $(newpasswordgroup).attr('disabled') == undefined? true : false;
 
@@ -64,7 +93,9 @@ $('button#modify').click(function(){
 				var obj = jQuery.parseJSON(data);
 				if(obj.status=="success") {
 					setSuccess("성공적으로 변경되었습니다.");
-					location.href = "/GardenPlatformWeb/user/profile.do";
+					setTimeout(function(){
+						location.href = location.href;
+					}, 500);
 				}
 				else{
 					setError(obj.msg);

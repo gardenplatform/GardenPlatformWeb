@@ -19,16 +19,9 @@
 	
 		<div class="form-group row">
 			<h5 class="col-xs-4">프로필 사진</h5>
-				<div class="fileinput fileinput-new" data-provides="fileinput">
-				  <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
-				    <img src="/GardenPlatformWeb/resource/img/no_profile_img.jpg" alt="...">
-				  </div>
-				  <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 150px; max-height: 150px;"></div>
-				  <div>
-				    <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
-				    <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-				  </div>
-				</div>
+			<a href="#" class="pull-left" data-toggle="modal" data-target="#profileImgModal"> 
+		    	<img src="/GardenPlatformWeb/resource/img/no_profile_img.jpg" alt="profile" style="width: 150px; height: 150px;">
+		    </a>
 		</div>
 		
 		<div class="form-group row">
@@ -84,6 +77,38 @@
 		<button id="modify" type="button" class="btn btn-primary btn-block" disabled="disabled">수정</button>
 	</div>
 		
+	</div>
+	
+	<div class="modal fade" id="profileImgModal">
+	    <div class="modal-dialog-short modal-vertical-centered">
+	        <div class="modal-content">
+	          	<form action="/GardenPlatformWeb/postProfileImg.do" method="POST" enctype="multipart/form-data">
+	        	<div class="modal-header">
+	                <h4 class="modal-title">프로필 사진 업로드</h4>
+	            </div>
+	            <div class="modal-body">
+		             <div class="text-center">
+		             <div class="fileinput fileinput-new" data-provides="fileinput">
+					  <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+					  	<img src="/GardenPlatformWeb/resource/img/no_profile_img.jpg" style="width: 150px; height: 150px;">
+					  </div>
+					  <div class="fileinput-preview fileinput-exists thumbnail" style="width: 150px; height: 150px;"></div>
+					  <div>
+					    <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span>
+					    <span class="fileinput-exists">Change</span>
+					    <input type="file" name="imgFile" id="imgFile" accept="image/x-png, image/jpeg"/></span>
+					    <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+					  </div>
+		             </div>
+					</div>
+	            </div>
+	            <div class="modal-footer">
+                	<input id="imgSubmit" class="btn btn-mint hidden" type="submit" value="등록">
+	                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+	            </div>
+	            </form>
+	        </div>
+	    </div>
 	</div>
 
 	<script src="/GardenPlatformWeb/resource/js/user/user.js"></script>
