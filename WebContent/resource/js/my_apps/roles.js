@@ -100,7 +100,8 @@ $('#delete_developer').click(function(){
 			}
 		},
 		error : function(xhr, status, error) {
-			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+			//location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+			setError("멤버 삭제에 실패하였습니다.");
 		}
 	});
 });

@@ -74,7 +74,8 @@ $('#deleteApp').click(function(){
 			}
 		},
 		error : function(xhr, status, error) {
-			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+			//location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+			setError("앱 삭제에 실패하였습니다. 프로젝트 리더만 앱을 삭제할 수 있습니다.");
 		}
 	});
 });
