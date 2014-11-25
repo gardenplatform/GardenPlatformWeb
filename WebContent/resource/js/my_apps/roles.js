@@ -18,7 +18,7 @@ $('#add_developer').click(function(){
 			if(obj.status=="success") {
 				setSuccess("멤버 추가가 완료되었습니다");
 				setTimeout(function(){
-					location.href = location.href;
+					location.href = "/GardenPlatformWeb/my_apps/roles.do?appName="+appName;
 				}, 500);
 			}
 			else{
@@ -36,6 +36,7 @@ $('.userInfo').click(function(){
 	
 	var index = $(this).index('.userInfo');
 	var userID = $('#owner').html();
+	
 	if(index!=0) {
 		userID = $('.member').eq(index-1).html();
 		$('#delete_developer').show();
@@ -83,6 +84,7 @@ $('#delete_developer').click(function(){
 			appName    : appName,
 			memberID : memberID
 	};
+	console.log(data);
 	$.ajax({
 		type : "POST",
 		url : "/GardenPlatformWeb/deleteMember.do",
@@ -92,7 +94,7 @@ $('#delete_developer').click(function(){
 			if(obj.status=="success") {
 				setSuccess("멤버 삭제가 완료되었습니다");
 				setTimeout(function(){
-					location.href = location.href;
+					location.href = "/GardenPlatformWeb/my_apps/roles.do?appName="+appName;
 				}, 500);
 			}
 			else{

@@ -214,8 +214,6 @@ public class StoreController {
 
 		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
 		
-		System.out.println(headers.toString());
-		
 		JSONObject obj = new JSONObject();
 		try {
 			if(result.get("status").toString().equals("success")) {

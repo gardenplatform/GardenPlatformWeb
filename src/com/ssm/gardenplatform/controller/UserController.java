@@ -226,6 +226,8 @@ public class UserController {
 				mav.addObject("name", jsonObj.get("real_name"));
 				mav.addObject("class_num", jsonObj.get("class_num"));
 				mav.addObject("gender", jsonObj.get("gender"));
+				
+				mav.addObject("profileImg", RestInfo.restURL+jsonObj.get("profile_img"));
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
@@ -242,6 +244,8 @@ public class UserController {
 
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		
+		logMgr.printLog(request);
     	
     	Map<String, Object> result = null;
 		
@@ -250,7 +254,7 @@ public class UserController {
 		String userID = session.getAttribute("userID").toString();
 		String token = session.getAttribute("token").toString();
 
-		String url = RestInfo.restURL+"/users/"+userID;
+		String url = RestInfo.restURL+"/users/"+userID+"/icons";
 		
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
 		
@@ -264,21 +268,17 @@ public class UserController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.MULTIPART_FORM_DATA);
-		
-		System.out.println(imgFile.getOriginalFilename());
-//
-//		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
-//
-//		ModelAndView mav = new ModelAndView();
-//		if(result.get("status").equals("error")){
-//			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
-//		}
-//		else {
-//			mav.setView(new RedirectView("/GardenPlatformWeb/user/profile.do"));
-//		}
-		
+
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
+
 		ModelAndView mav = new ModelAndView();
-		mav.setView(new RedirectView("/GardenPlatformWeb/user/profile.do"));
+		if(result.get("status").equals("error")){
+			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));
+		}
+		else {
+			mav.setView(new RedirectView("/GardenPlatformWeb/user/profile.do"));
+		}
+		
 		return mav;
 		
     }
@@ -367,6 +367,8 @@ public class UserController {
 		String userID = request.getParameter("userID");
 		
 		String url = RestInfo.restURL+"/users/"+userID;
+		
+		System.out.println(url);
 		
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
 		

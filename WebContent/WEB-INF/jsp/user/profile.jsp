@@ -20,7 +20,7 @@
 		<div class="form-group row">
 			<h5 class="col-xs-4">프로필 사진</h5>
 			<a href="#" class="pull-left" data-toggle="modal" data-target="#profileImgModal"> 
-		    	<img src="/GardenPlatformWeb/resource/img/no_profile_img.jpg" alt="profile" style="width: 150px; height: 150px;">
+		    	<img src="${profileImg}" alt="profile" style="width: 150px; height: 150px;">
 		    </a>
 		</div>
 		
@@ -90,7 +90,7 @@
 		             <div class="text-center">
 		             <div class="fileinput fileinput-new" data-provides="fileinput">
 					  <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
-					  	<img src="/GardenPlatformWeb/resource/img/no_profile_img.jpg" style="width: 150px; height: 150px;">
+					  	<img src="${profileImg}" style="width: 150px; height: 150px;">
 					  </div>
 					  <div class="fileinput-preview fileinput-exists thumbnail" style="width: 150px; height: 150px;"></div>
 					  <div>

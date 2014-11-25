@@ -17,7 +17,7 @@
 			<div class="col-md-3" role="navigation">
 			<div class="well">
 				<ul class="snb nav">
-					<li><a href="#" data-toggle="collapse" data-target="#sub1" id="appName"><b class="ellipsis"><span class="glyphicon glyphicon-list-alt"></span>${appName}<span class="caret"></span></b></a>
+					<li><a href="#" data-toggle="collapse" data-target="#sub1" id="appName"><b class="ellipsis"><span class="glyphicon glyphicon-list-alt"></span> ${appName}<span class="caret"></span></b></a>
 						<ul class="nav collapse" id="sub1">
 							<c:forEach var="item" items="${sessionScope.appList}">
                             	<li><a class="ellipsis-suv" href="/GardenPlatformWeb/my_apps/index.do?appName=${item}">${item}</a></li>
@@ -54,7 +54,7 @@
 										 -->
 										<p><span id="owner">${ownerID}</span> <a href="#" class="userInfo">View on Userinfo</a></p>
 									</div>
-									<div class="ch-thumb ch-img-1" style="background-image: url(/GardenPlatformWeb/resource/img/testimg.png);"></div>
+									<div class="ch-thumb ch-img-1" style="background-image: url(${ownerProfileImg});"></div>
 								</div>
 							</li>
 						</ul>
@@ -88,7 +88,7 @@
 												 -->
 												<p><span class="member">${item.developerID}</span> <a href="#" class="userInfo">View on Userinfo</a></p>
 											</div>
-											<div class="ch-thumb ch-img-1" style="background-image: url(/GardenPlatformWeb/resource/img/testimg2.png);"></div>
+											<div class="ch-thumb ch-img-1" style="background-image: url(${item.developerProfileImg});"></div>
 										</div>
 									</li>
 								</ul>
