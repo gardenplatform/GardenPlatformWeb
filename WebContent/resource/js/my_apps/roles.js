@@ -57,16 +57,40 @@ $('#searchmodedropdown li a').click(function(){
 });
 
 $('#searchbutton').click(function(){
-	setProgress("검색 중입니다.");
-	
-	var string = '<tbody>';
 	
 	var search = $('#searchinput').val();
 	var mode = $('#searchmode').text();
 	
+	var data = {
+			mode : mode,
+			search : search
+	};
+	
+	console.log(data);
+	if(search == ""){
+		setError("아이디 또는 이름을 입력해주세요.");
+	}
+	else {
+		setProgress("검색 중입니다.");
+		$.ajax({
+			type : "GET",
+			url : "/GardenPlatformWeb/searchUser.do",
+			data : data,
+			success : function(data) {
+				var obj = jQuery.parseJSON(data);
+				console.log(obj);
+			},
+			error : function(xhr, status, error) {
+				location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+			}
+		});
+	}
+	
+	/*
 	var name = "이름";
 	var id = "아이디";
 	var id1 = "namespace92"
+	var string = '<tbody>';
 	
 	if(mode.trim()=="이름") {
 		string += '<tr><td class="text-center">'+id+'</td><td class="text-center">'+name+'</td></tr><tr><td class="text-center">'+id1+'</td><td class="text-center">'+name+'</td></tr>';
@@ -90,45 +114,44 @@ $('#searchbutton').click(function(){
 		var memberID = $(this).find(':first-child').html();
 		console.log(memberID);
 
-		$('#add_developer').click(function(){
-			
-			var appName = $('#appName').text(); 
-			//var memberID = $('#findid').val();
-			
-			var search = $('#search_result');
-			
-			var data = {
-					appName    : appName,
-					memberID   : memberID
-			};
-			$.ajax({
-				type : "POST",
-				url : "/GardenPlatformWeb/addMember.do",
-				data : data,
-				success : function(data) {
-					var obj = jQuery.parseJSON(data);
-					if(obj.status=="success") {
-						setSuccess("멤버 추가가 완료되었습니다");
-						setTimeout(function(){
-							location.href = "/GardenPlatformWeb/my_apps/roles.do?appName="+appName;
-						}, 500);
-					}
-					else{
-						setError(obj.msg);
-					}
-				},
-				error : function(xhr, status, error) {
-					location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
-				}
-			});
-			
-		});
-
 		
 	});
 	
 	
 	dismissProgress();
+	*/
+});
+
+$('#add_developer').click(function(){
+	
+	var appName = $('#appName').text(); 
+	var memberID = $('#search_result tr.success').find(':first-child').html();
+	
+	var data = {
+			appName    : appName,
+			memberID   : memberID
+	};
+	$.ajax({
+		type : "POST",
+		url : "/GardenPlatformWeb/addMember.do",
+		data : data,
+		success : function(data) {
+			var obj = jQuery.parseJSON(data);
+			if(obj.status=="success") {
+				setSuccess("멤버 추가가 완료되었습니다");
+				setTimeout(function(){
+					location.href = "/GardenPlatformWeb/my_apps/roles.do?appName="+appName;
+				}, 500);
+			}
+			else{
+				setError(obj.msg);
+			}
+		},
+		error : function(xhr, status, error) {
+			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+		}
+	});
+	
 });
 
 $('#delete_developer').click(function(){
