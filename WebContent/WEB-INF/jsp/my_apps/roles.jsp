@@ -49,9 +49,6 @@
 								<div class="ch-item">	
 									<div class="ch-info">
 										<h3>${ownerName}</h3>
-										<!-- 
-										<p>${owner} <a href="#" data-toggle="modal" data-target="#info_developer_modal">View on Userinfo</a></p>
-										 -->
 										<p><span id="owner">${ownerID}</span> <a href="#" class="userInfo">View on Userinfo</a></p>
 									</div>
 									<div class="ch-thumb ch-img-1" style="background-image: url(${ownerProfileImg});"></div>
@@ -110,7 +107,37 @@
 		                <h4 class="modal-title">Add Developers</h4>
 		            </div>
 		            <div class="modal-body">
+						<!-- 
 						<input class="form-control" id="findid" type="text" placeholder="user id">
+						 -->
+						 <div class="input-group form-group">
+			      			<div class="input-group-btn">
+				        		<button id="searchmode" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				        			 <c:choose>
+										<c:when test="${tag}">
+											이름
+									    </c:when>
+									    <c:otherwise>
+											아이디
+									    </c:otherwise>
+								    </c:choose>
+				        			<span class="caret"></span>
+				        		</button>
+				        		<ul class="dropdown-menu" id="searchmodedropdown">
+				          			<li><a href="#">이름</a></li>
+				          			<li><a href="#">아이디</a></li>
+				        		</ul>        		
+			      			</div>
+			      			<input type="text" class="form-control" id="searchinput" value="${search}">
+			      			<span class="input-group-btn">
+			       			<button class="btn btn-default" type="button" id="searchbutton">검색</button>
+			      			</span>
+			    		</div>
+			    		
+			    		<table id="search_result" class="table table-hover">
+			       			<tbody>
+			       			</tbody>
+			       		</table>
 		            </div>
 		            <div class="modal-footer">
 	                	<button class="btn btn-mint" type="button" id="add_developer">추가</button>  

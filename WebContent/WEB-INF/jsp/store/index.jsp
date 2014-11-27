@@ -87,23 +87,6 @@
 				</c:forEach>
 			</div>
 			</ul>
-		
-		<!-- 
-			<c:forEach var="item" items="${appList}">
-				<div class="col-md-3">
-					<a href="/GardenPlatformWeb/store/detail.do?appName="${item.appName}>
-		        	<div class="thumbnail">
-						<a class="thumbnail" style="margin-bottom: 0px;"><img class="show_detail" src="https://lh6.ggpht.com/1eVPA6Iukw-F4i5xq1ZWicaKBzmprLGw98YhdG20E-wlsHHg3PcKJqbY_fWLdJeGRw=w170-rw" alt="300x200" data-src="holder.js/300x200"></a>
-						<div class="caption">
-							<h4 class="ellipsis">${item.displayName}</h4>
-							<h5 class="ellipsis"><small>　${item.category}</small></h5>
-							<input type="hidden" class="appName" value="${item.appName}">
-						</div>
-					</div>
-					</a>
-		    	</div>
-			</c:forEach>
-		 -->
 		</div>
 	</div>
 	</div>
