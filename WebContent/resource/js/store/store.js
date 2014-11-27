@@ -23,8 +23,10 @@ $('#searchinput').keydown(function(){
 });
 
 $('#searchbutton').click(function(){
+
 	var search = $('#searchinput').val();
 	var mode = $('#searchmode').text();
+
 	
 	if(mode.trim()=="앱이름") {
 		location.href="/GardenPlatformWeb/store/index.do?search="+search+"&tag=false";
@@ -32,7 +34,6 @@ $('#searchbutton').click(function(){
 	else if(mode.trim()=="태그") {
 		location.href="/GardenPlatformWeb/store/index.do?search="+search+"&tag=true";
 	}
-	//$('#searchinput').val(search);
 });
 
 $('.show_detail').click(function(){

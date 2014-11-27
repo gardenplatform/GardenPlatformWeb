@@ -217,6 +217,16 @@
 		$('#signupClass').val("");
 	});
 	
+	
+	// 엔터 인식
+	$('#signinPwd').keydown(function(){
+		if(event.keyCode == 13){
+			event.preventDefault();
+			$('#signinBtn').trigger('click');
+			return false;
+		}
+	});
+	
   	// 로그인 이벤트
 	$('#signinBtn' ).click(function() {
 		
