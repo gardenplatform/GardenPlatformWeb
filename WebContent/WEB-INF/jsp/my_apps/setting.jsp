@@ -45,7 +45,7 @@
 					<div class="panel-body">
 						<div class="media">
 							<a class="pull-left" href="#"> 
-								<img class="media-object myapps-img" src="${appImgUrl}" style="width:128px; height:128px">
+								<img class="media-object myapps-img thumbnail" src="${appImgUrl}" style="width:128px; height:128px">
 							</a>
 							<div class="media-body">
 								<h2 class="media-heading">${appName}</h2>
@@ -93,26 +93,7 @@
 					    <label class="control-label">Contact Email</label>
 					    <input type="text" class="form-control" id="contactEmail" value="${contactEmail}">
 					</div>
-					<!-- 
-					<div class="form-group">
-					    <label class="control-label">출시(이건 아직 하는중 script 짜서 해놈 ㄱㄷ)</label>
-					    <p>
-					    ${publish}
-					    <c:choose>
-					    
-						    <c:when test="${publish}">
-						    	<input id="switch-state" type="checkbox" checked>
-						    	true
-						    </c:when>
-						    <c:otherwise>
-						    	false
-						    	<input id="switch-state" type="checkbox">
-						    </c:otherwise>
-					    </c:choose>
-					    </p>
-					    <button type="button" data-get="state" class="btn btn-default">Switch 상태 보기</button>
-					</div>
-					 -->
+					
 				  </div>
 				</div>
 				
@@ -137,12 +118,11 @@
 		                <h4 class="modal-title">Delete App</h4>
 		            </div>
 		            <div class="modal-body">
-     					<p class="text-danger"><strong>${appName}</strong></p>
-     					<p><strong>삭제 후에는 복구할 수 없습니다. 삭제 하시겠습니까? </strong></p>
+     					<p>삭제 후에는 복구할 수 없습니다. <strong>${appName}</strong>를 삭제 하시겠습니까?</p>
 					</div>
 
 		            <div class="modal-footer">
-	                	<button class="btn btn-mint" type="button" id="deleteApp">삭제</button>  
+	                	<button class="btn btn-danger" type="button" id="deleteApp">삭제</button>  
 		                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 		            </div>
 		           </div>
