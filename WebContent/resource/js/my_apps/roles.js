@@ -86,9 +86,9 @@ $('#searchbutton').click(function(){
 		});
 	}
 	
-	/*
 	var name = "이름";
 	var id = "아이디";
+	var url = "";
 	
 	if(mode.trim()=="이름") {
 		string += '<tr><td class="text-center">'+id+'</td><td class="text-center">'+name+'</td></tr><tr><td class="text-center">'+id1+'</td><td class="text-center">'+name+'</td></tr>';
@@ -110,7 +110,6 @@ $('#searchbutton').click(function(){
 	
 	
 	dismissProgress();
-	*/
 });
 
 $('#add_developer').click(function(){

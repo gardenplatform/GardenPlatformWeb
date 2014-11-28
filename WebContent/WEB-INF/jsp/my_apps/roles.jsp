@@ -126,6 +126,11 @@
 			    		
 			    		<table id="search_result" class="table table-hover">
 			       			<tbody>
+			       				<tr>
+			       					<td class="text-center">
+			       						<img style="width:40px; height:40px;  margin-bottom: 0px"class="thumbnail-round" src="/GardenPlatformWeb/resource/img/testimg.png">
+			       					</td>
+			       				</tr>
 			       			</tbody>
 			       		</table>
 		            </div>
