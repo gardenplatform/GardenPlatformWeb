@@ -232,7 +232,7 @@
 		
 		var id = $('#signinId').val();
 		var pwd = $('#signinPwd').val();
-		pwd = sha256_digest(pwd);
+		//pwd = sha256_digest(pwd);
 		console.log(pwd);
 		
 		if(id  == "" || pwd  == "") {	
