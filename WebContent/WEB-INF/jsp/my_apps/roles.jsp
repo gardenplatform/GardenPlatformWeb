@@ -128,7 +128,16 @@
 			       			<tbody>
 			       				<tr>
 			       					<td class="text-center">
-			       						<img style="width:40px; height:40px;  margin-bottom: 0px"class="thumbnail-round" src="/GardenPlatformWeb/resource/img/testimg.png">
+			       						<img style="width:50px; height:50px; margin-bottom:0px" class="thumbnail-round" src="/GardenPlatformWeb/resource/img/testimg.png">
+			       					</td>
+			       					<td class="text-center">
+			       						23-1
+			       					</td>
+			       					<td class="text-center">
+			       						이름
+			       					</td>
+			       					<td class="text-center">
+			       						아이디
 			       					</td>
 			       				</tr>
 			       			</tbody>
