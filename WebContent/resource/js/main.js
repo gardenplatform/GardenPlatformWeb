@@ -163,7 +163,6 @@
 		var id = $('#signupId').val();
 		var pwd1 = $('#signupPwd1').val();
 		pwd1 = sha256_digest(pwd1);
-		console.log(pwd1);
 		var pwd2 = $('#signupPwd2').val();
 		var name = $('#signupName').val();
 		var email = $('#signupEmail').val();
@@ -233,7 +232,6 @@
 		var id = $('#signinId').val();
 		var pwd = $('#signinPwd').val();
 		pwd = sha256_digest(pwd);
-		console.log(pwd);
 		
 		if(id  == "" || pwd  == "") {	
 			setError("아이디와 비밀번호를 입력해주세요.");

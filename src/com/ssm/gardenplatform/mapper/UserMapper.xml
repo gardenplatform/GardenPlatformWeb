@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.ssm.gardenplatform.mapper.UserMapper">
+	
+	<resultMap id="user" type="com.ssm.gardenplatform.model.User">
+	</resultMap>
+	
+	<select id="selectUser" parameterType="String" resultType="user">
+		SELECT * FROM users_gardenuser 
+		WHERE username = #{userID}
+	</select>
+	
+	<select id="selectAllUser" resultMap="user">
+		SELECT * FROM users_gardenuser
+	</select>
+	
+	<select id="selectSSMUser" resultMap="user">
+		SELECT * FROM users_gardenuser
+		WHERE last_login="0000-00-00 00:00:00";
+	</select>
+	
+</mapper>

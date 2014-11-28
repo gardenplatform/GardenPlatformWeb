@@ -2,15 +2,13 @@ package com.ssm.gardenplatform.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.HttpHeaders;
@@ -27,7 +25,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.ssm.gardenplatform.dao.UserDAO;
 import com.ssm.gardenplatform.log.LogManager;
+import com.ssm.gardenplatform.model.User;
 import com.ssm.gardenplatform.rest.RestInfo;
 import com.ssm.gardenplatform.rest.RestManager;
 
@@ -64,6 +64,8 @@ public class UserController {
 		vars.add("phone", phone);	
 		vars.add("class_num", classNum);	
 		vars.add("gender", gender);	
+		
+		System.out.println(vars.toString());
 
 		result = restMgr.post(url, vars);
 		
@@ -104,6 +106,8 @@ public class UserController {
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
 		vars.add("username", id);
 		vars.add("password", pwd);
+		
+		System.out.println(vars.toString());
 		
 		result = restMgr.post(url, vars);
 		
@@ -313,6 +317,8 @@ public class UserController {
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		
+		System.out.println(vars.toString());
+		
 		// 아이디 비밀번호 확인
 		result = restMgr.post(url, vars);
 		
@@ -330,6 +336,7 @@ public class UserController {
 				else
 					vars.add("password", newPwd);
 
+				System.out.println(vars.toString());
 				result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.PUT);
 				
 				if(result.get("status").toString().equals("success")) {
@@ -461,4 +468,34 @@ public class UserController {
 		PrintWriter writer = response.getWriter();
 		writer.write(obj.toString());
 	}
+	
+	
+	@RequestMapping(value = "/setSSMUserPwd.do", method = RequestMethod.GET)
+	public void setSSMUserPwd(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		logMgr.printLog(request);
+		
+		UserDAO userDao = new UserDAO();
+		List<User> userList = userDao.selectSSMUser();
+		
+		for(User user : userList) {
+			Map<String, Object> result = null;
+			
+			String url = RestInfo.restURL+"/password";
+			
+			MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+			vars.add("username", user.getUsername());
+			vars.add("password", user.getPassword());
+			
+			result = restMgr.post(url, vars);
+			System.out.println(user.getUsername()+ " "+user.getReal_name()+ " "+user.getPassword());
+		}
+		
+		
+		
+		
+	}
+		
 }

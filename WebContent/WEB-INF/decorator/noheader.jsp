@@ -39,5 +39,6 @@
 		
 		<!-- script -->
 		<script src="/GardenPlatformWeb/resource/js/decorator/noheader.js"></script>
+	    <script src="/GardenPlatformWeb/resource/js/lib/sha256.js"></script>
     </body>
 </html>

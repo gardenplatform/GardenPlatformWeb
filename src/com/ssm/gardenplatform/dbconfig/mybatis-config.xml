@@ -20,6 +20,6 @@
 	</environments>
 	<mappers>
 		<mapper resource="com/ssm/gardenplatform/mapper/BoardMapper.xml" />
-
+		<mapper resource="com/ssm/gardenplatform/mapper/UserMapper.xml" />
 	</mappers>
 </configuration>
