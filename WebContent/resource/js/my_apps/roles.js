@@ -77,8 +77,10 @@ $('#searchbutton').click(function(){
 			data : data,
 			success : function(data) {
 				var obj = jQuery.parseJSON(data);
+				
 				var string='';
 				string += '<tbody>';
+				console.log(obj.userList.length);
 				for(var i=0; i<obj.userList.length; i++){
 					string += '<tr>';
 					string += '<td class="text-center"><img style="width:50px; height:50px; margin-bottom:0px" class="thumbnail-round" src="'+obj.userList[i].profile_img+'"></td>';
@@ -86,17 +88,16 @@ $('#searchbutton').click(function(){
 					string += '<td class="text-center">'+obj.userList[i].real_name+'</td>';
 					string += '<td class="text-center">'+obj.userList[i].username+'</td>';
 					string += '</tr>';
-					
-					$('#search_result').html(string);
-
-					// 테이블 tr 클릭
-					$('#search_result tr').click(function(){
-						console.log("click");
-						$('#search_result tr').removeClass('success');
-						$(this).addClass('success');
-					});
 				}
 				string += '</tbody>';
+				$('#search_result').html(string);
+
+				// 테이블 tr 클릭
+				$('#search_result tr').click(function(){
+					console.log("click");
+					$('#search_result tr').removeClass('success');
+					$(this).addClass('success');
+				});
 			},
 			error : function(xhr, status, error) {
 				location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
