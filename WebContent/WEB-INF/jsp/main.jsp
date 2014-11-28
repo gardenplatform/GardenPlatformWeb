@@ -128,6 +128,7 @@
 	
 		<!-- script -->
 	    <script src="/GardenPlatformWeb/resource/js/main.js"></script>
+	    <script src="/GardenPlatformWeb/resource/js/lib/sha256.js"></script>
     
     </body>
 </html>
