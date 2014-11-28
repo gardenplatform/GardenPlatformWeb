@@ -15,6 +15,8 @@ desc users_gardenuser;
 ALTER TABLE users_gardenuser MODIFY is_activate tinyint(1) DEFAULT '1';
 ALTER TABLE users_gardenuser MODIFY is_admin tinyint(1) DEFAULT '0';
 ALTER TABLE users_gardenuser MODIFY is_staff tinyint(1) DEFAULT '0';
+ALTER TABLE users_gardenuser MODIFY is_superuser tinyint(1) DEFAULT '0';
+ALTER TABLE users_gardenuser MODIFY last_login tinyint(1) DEFAULT '2014-01-01 00:00:00';
 ALTER TABLE users_gardenuser MODIFY email varchar(255) DEFAULT 'test@email.com';
 ALTER TABLE users_gardenuser MODIFY profile_img varchar(100) DEFAULT 'profile/GardenUserDefault.png';
 
@@ -22,4 +24,7 @@ ALTER TABLE users_gardenuser MODIFY profile_img varchar(100) DEFAULT 'profile/Ga
 SELECT *FROM users_gardenuser;
 
 SELECT *FROM users_gardenuser
-WHERE last_login=""
+WHERE last_login="0000-00-00 00:00:00";
+
+SELECT *FROM users_gardenuser
+WHERE username="pooingx2";
