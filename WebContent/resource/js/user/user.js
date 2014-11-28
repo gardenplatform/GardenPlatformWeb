@@ -61,6 +61,10 @@ $('button#modify').click(function(){
 	var newPwd1 = $('#newpassword').val();
 	var newPwd2 = $('#newpasswordconfirm').val();
 	
+	pwd = sha256_digest(pwd);
+	newPwd1 = sha256_digest(newPwd1);
+	newPwd2 = sha256_digest(newPwd2);
+	
 	var phoneRegEx = /01[0-9]-[0-9]{4}-[0-9]{4}/;
 	var emailRegEx = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{2,5}$/;
 	

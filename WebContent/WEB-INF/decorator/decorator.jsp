@@ -185,5 +185,6 @@
 			
 		<!-- script -->
         <script src="/GardenPlatformWeb/resource/js/decorator/decorator.js"></script>
+	    <script src="/GardenPlatformWeb/resource/js/lib/sha256.js"></script>
     </body>
 </html>
