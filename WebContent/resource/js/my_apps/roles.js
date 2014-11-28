@@ -71,7 +71,6 @@ $('#searchbutton').click(function(){
 		setError("아이디 또는 이름을 입력해주세요.");
 	}
 	else {
-		setProgress("검색 중입니다.");
 		$.ajax({
 			type : "GET",
 			url : "/GardenPlatformWeb/searchUser.do",
@@ -89,7 +88,6 @@ $('#searchbutton').click(function(){
 					string += '</tr>';
 					
 					$('#search_result').html(string);
-					dismissProgress();
 
 					// 테이블 tr 클릭
 					$('#search_result tr').click(function(){
@@ -111,41 +109,7 @@ $('#searchbutton').click(function(){
 $('#add_developer').click(function(){
 	
 	var appName = $('#appName').text(); 
-	var memberID = $('#search_result tr.success').find(':third-child').html();
-	
-	var data = {
-			appName    : appName,
-			memberID   : memberID
-	};
-	$.ajax({
-		type : "POST",
-		url : "/GardenPlatformWeb/addMember.do",
-		data : data,
-		success : function(data) {
-			var obj = jQuery.parseJSON(data);
-			if(obj.status=="success") {
-				setSuccess("멤버 추가가 완료되었습니다");
-				setTimeout(function(){
-					location.href = "/GardenPlatformWeb/my_apps/roles.do?appName="+appName;
-				}, 500);
-			}
-			else{
-				setError(obj.msg);
-			}
-		},
-		error : function(xhr, status, error) {
-			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
-		}
-	});
-	
-});
-
-$('#add_developer').click(function(){
-	
-	var appName = $('#appName').text().trim(); 
-	var memberID = $('#search_result tr.success').find(':first-child').html();
-	console.log(memberID);
-	var search = $('#search_result');
+	var memberID = $('#search_result tr.success').find(':fourth-child').html();
 	
 	var data = {
 			appName    : appName,
