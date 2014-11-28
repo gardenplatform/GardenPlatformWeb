@@ -454,7 +454,8 @@ public class UserController {
 				obj.put("msg", "get UserInfo success");
 				
 				JSONObject jsonObj = new JSONObject(result.get("result").toString());
-				obj.put("userList", jsonObj);
+				JSONArray userList = new JSONArray(jsonObj.get("user_list").toString());
+				obj.put("userList", userList);
 			}
 			else{
 				obj.put("status", result.get("status").toString());
