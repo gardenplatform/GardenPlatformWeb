@@ -2,6 +2,8 @@ package com.ssm.gardenplatform.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.HttpHeaders;
@@ -428,10 +431,10 @@ public class UserController {
 
 		String url = RestInfo.restURL+"/search";
 
-		if(request.getParameter("mode").equals("이름")) {
+		if(mode.equals("이름")) {
 			url += "?real_name="+search;
 		}
-		else if(request.getParameter("mode").equals("아이디")) {
+		else if(mode.equals("아이디")) {
 			url += "?username="+search;
 		}
 		
@@ -445,24 +448,45 @@ public class UserController {
 		
 		JSONObject obj = new JSONObject();
 		try {
+			
 			if(result.get("status").toString().equals("success")) {
 				obj.put("status", result.get("status").toString());
-				obj.put("msg", "search User success");
+				obj.put("msg", "get UserInfo success");
 				
-				/*
 				JSONObject jsonObj = new JSONObject(result.get("result").toString());
-				obj.put("username", jsonObj.get("username").toString());
-				obj.put("email", jsonObj.get("email").toString());
-				obj.put("phone", jsonObj.get("phone").toString());
-				obj.put("real_name", jsonObj.get("real_name").toString());
-				obj.put("class_num", jsonObj.get("class_num").toString());
-				obj.put("gender", jsonObj.get("gender").toString());
-				*/
+				obj.put("userList", jsonObj);
 			}
 			else{
 				obj.put("status", result.get("status").toString());
 				obj.put("msg", result.get("msg").toString());
 			}
+			/*
+			JSONArray jsonArr = new JSONArray(result.get("result").toString());
+			LinkedList<Map<String, String>> userList = new LinkedList<Map<String, String>>();
+			
+			if(result.get("status").toString().equals("success")) {
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", "search User success");
+				
+				for(int i=0; i<jsonArr.length(); i++) {
+					JSONObject jsonObj = new JSONObject(jsonArr.getJSONObject(i).toString());
+					
+					Map<String, String> user = new HashMap<String, String>();
+					user.put("username", jsonObj.get("username").toString());
+					user.put("email", jsonObj.get("real_name").toString());
+					user.put("profile", RestInfo.restURL+jsonObj.get("profile_img").toString());
+					user.put("class_num", jsonObj.get("class_num").toString());
+					
+					userList.add(user);
+				}
+				obj.put("userList", userList);
+				
+			}
+			else{
+				obj.put("status", result.get("status").toString());
+				obj.put("msg", result.get("msg").toString());
+			}
+			*/
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -470,6 +494,7 @@ public class UserController {
 		PrintWriter writer = response.getWriter();
 		writer.write(obj.toString());
 	}
+	
 	
 	
 	/*
