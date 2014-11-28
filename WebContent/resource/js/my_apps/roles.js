@@ -66,7 +66,6 @@ $('#searchbutton').click(function(){
 			search : search
 	};
 	
-	console.log(data);
 	if(search == ""){
 		setError("아이디 또는 이름을 입력해주세요.");
 	}
@@ -80,25 +79,29 @@ $('#searchbutton').click(function(){
 				var obj = jQuery.parseJSON(data);
 				var string='';
 				string += '<tbody>';
-				for(var i=0; i<obj.userList.length; i++){
-					string += '<tr>';
-					string += '<td class="text-center"><img style="width:50px; height:50px; margin-bottom:0px" class="thumbnail-round" src="'+obj.userList[i].profile_img+'"></td>';
-					string += '<td class="text-center">'+obj.userList[i].class_num+'</td>';
-					string += '<td class="text-center">'+obj.userList[i].real_name+'</td>';
-					string += '<td class="text-center">'+obj.userList[i].username+'</td>';
-					string += '</tr>';
-					
-					$('#search_result').html(string);
-					dismissProgress();
-
-					// 테이블 tr 클릭
-					$('#search_result tr').click(function(){
-						console.log("click");
-						$('#search_result tr').removeClass('success');
-						$(this).addClass('success');
-					});
+				
+				if(obj.userList.length==0) 
+					string += '<tr><td class="text-center">검색결과가 없습니다.</td></tr>';
+				else {
+					for(var i=0; i<obj.userList.length; i++){
+						string += '<tr>';
+						string += '<td class="text-center"><img style="width:50px; height:50px; margin-bottom:0px" class="thumbnail-round" src="'+obj.userList[i].profile_img+'"></td>';
+						string += '<td class="text-center">'+obj.userList[i].class_num+'</td>';
+						string += '<td class="text-center">'+obj.userList[i].real_name+'</td>';
+						string += '<td class="text-center">'+obj.userList[i].username+'</td>';
+						string += '</tr>';
+					}
 				}
+				dismissProgress();
+
 				string += '</tbody>';
+				$('#search_result').html(string);
+
+				// 테이블 tr 클릭
+				$('#search_result tr').click(function(){
+					$('#search_result tr').removeClass('success');
+					$(this).addClass('success');
+				});
 			},
 			error : function(xhr, status, error) {
 				location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
@@ -111,12 +114,13 @@ $('#searchbutton').click(function(){
 $('#add_developer').click(function(){
 	
 	var appName = $('#appName').text(); 
-	var memberID = $('#search_result tr.success').find(':third-child').html();
+	var memberID = $('#search_result tr.success').find(':fourth-child').html();
 	
 	var data = {
 			appName    : appName,
 			memberID   : memberID
 	};
+	
 	$.ajax({
 		type : "POST",
 		url : "/GardenPlatformWeb/addMember.do",
@@ -140,39 +144,6 @@ $('#add_developer').click(function(){
 	
 });
 
-$('#add_developer').click(function(){
-	
-	var appName = $('#appName').text().trim(); 
-	var memberID = $('#search_result tr.success').find(':first-child').html();
-	console.log(memberID);
-	var search = $('#search_result');
-	
-	var data = {
-			appName    : appName,
-			memberID   : memberID
-	};
-	$.ajax({
-		type : "POST",
-		url : "/GardenPlatformWeb/addMember.do",
-		data : data,
-		success : function(data) {
-			var obj = jQuery.parseJSON(data);
-			if(obj.status=="success") {
-				setSuccess("멤버 추가가 완료되었습니다");
-				setTimeout(function(){
-					location.href = "/GardenPlatformWeb/my_apps/roles.do?appName="+appName;
-				}, 500);
-			}
-			else{
-				setError(obj.msg);
-			}
-		},
-		error : function(xhr, status, error) {
-			location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
-		}
-	});
-	
-});
 
 $('#delete_developer').click(function(){
 
