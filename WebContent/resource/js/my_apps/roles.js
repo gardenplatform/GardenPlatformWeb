@@ -89,12 +89,6 @@ $('#searchbutton').click(function(){
 	/*
 	var name = "이름";
 	var id = "아이디";
-<<<<<<< HEAD
-	var id1 = "test2"
-=======
-	var id1 = "namespace92"
-	var string = '<tbody>';
->>>>>>> 15da096e9545c0467f8a1fa365fa2e463b481dcd
 	
 	if(mode.trim()=="이름") {
 		string += '<tr><td class="text-center">'+id+'</td><td class="text-center">'+name+'</td></tr><tr><td class="text-center">'+id1+'</td><td class="text-center">'+name+'</td></tr>';
@@ -112,16 +106,6 @@ $('#searchbutton').click(function(){
 		console.log("click");
 		$('#search_result tr').removeClass('success');
 		$(this).addClass('success');
-<<<<<<< HEAD
-=======
-		
-		
-		//아이디를 여기서 선언해야됨. 추가 버튼 누를시 보냄.
-		var memberID = $(this).find(':first-child').html();
-		console.log(memberID);
-
-		
->>>>>>> 15da096e9545c0467f8a1fa365fa2e463b481dcd
 	});
 	
 	

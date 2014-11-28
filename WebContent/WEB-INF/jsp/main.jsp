@@ -106,10 +106,10 @@
 			                <div class="form-group" id="gender">
 			                	<label class="control-label col-xs-12 col-sm-3">성별</label>
 								<div class="col-xs-12 col-sm-9">
-									<button type="button" class="btn btn-default dropdown-toggle" id="inputgender" data-toggle="dropdown" style="width: 100%">Male</button>
+									<button type="button" class="btn btn-default dropdown-toggle" id="inputgender" data-toggle="dropdown" style="width: 100%">남</button>
 									<ul class="dropdown-menu" id="genderdropdown">
-										<li><a href="#">Male</a></li>
-										<li><a href="#">Female</a></li>
+										<li><a href="#">남</a></li>
+										<li><a href="#">여</a></li>
 									</ul>
 								</div>
 								

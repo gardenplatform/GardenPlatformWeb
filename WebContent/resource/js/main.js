@@ -231,7 +231,12 @@
 		
 		var id = $('#signinId').val();
 		var pwd = $('#signinPwd').val();
+<<<<<<< HEAD
 		pwd = sha256_digest(pwd);
+=======
+		//pwd = sha256_digest(pwd);
+		console.log(pwd);
+>>>>>>> 231a6d6f76a0e5d92d848af071ec9a7f8995d27b
 		
 		if(id  == "" || pwd  == "") {	
 			setError("아이디와 비밀번호를 입력해주세요.");
