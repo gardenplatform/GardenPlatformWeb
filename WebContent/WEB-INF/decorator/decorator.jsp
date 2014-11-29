@@ -33,7 +33,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/GardenPlatformWeb/home.do"><img src="/GardenPlatformWeb/resource/img/logo.png">Garden</a>
+                <a class="navbar-brand" href="/GardenPlatformWeb/home.do"><img src="/GardenPlatformWeb/resource/img/logo_02.png">Garden</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
