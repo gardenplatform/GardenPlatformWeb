@@ -62,7 +62,7 @@
 				  
 				</div>
 				<div class="panel panel-default">
-				  <div class="panel-heading"><h4 class="no_margin">Developers<button class="btn btn-default btn-xs pull-right" type="button" data-toggle="modal" data-target="#add_developer_modal">Add Developers</button></h4></div>
+				  <div class="panel-heading"><h4 class="no_margin">Developers<button id="modal_reset" class="btn btn-default btn-xs pull-right" type="button" data-toggle="modal" data-target="#add_developer_modal">Add Developers</button></h4></div>
 				  <div class="panel-body">
 				  	<c:if test="${empty developerList}">
 						<h3 class="text-center"><small>등록된 멤버가 없습니다.</small></h3>
