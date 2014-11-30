@@ -29,15 +29,91 @@
 					</div>
 				</div>
 				<div class="col-md-9">
-					<ul class="nav nav-tabs">
+					<ul class="nav nav-tabs" style="margin-bottom:10px;">
 						<li role="presentation" class="active"><a href="#" style="color:#000000"><span class="glyphicon glyphicon-list-alt"></span> My Apps</a></li>
 						<li role="presentation"><a href="#" style="color:#000000"><span class="glyphicon glyphicon-wrench"></span> Profile</a></li>
 					</ul>
 					<div id="myapps">
-						myapps
+						<div class="row">
+						<div class="col-md-6">
+						<div class="panel panel-default">
+						<div class="panel-heading">
+							내가 등록한 앱
+						</div>
+						<div class="panel-body">
+						</div>
+						</div>
+						</div>
+						<div class="col-md-6">
+						<div class="panel panel-default">
+						<div class="panel-heading">
+							현재 출시 중인 앱
+						</div>
+						<div class="panel-body">
+						</div>
+						</div>
+						</div>
+						</div>
 					</div>
 					<div id="profile" class="hidden">
-						profile
+					<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="form center-block">
+	
+							<div class="form-group row">
+								<h5 class="col-xs-4">ID</h5>
+								<h5 id="userid" class="col-xs-8">${id}</h5>
+							</div>
+							<div class="form-group row">
+								<h5 class="col-xs-4">이름</h5>
+								<h5 id="username" class="col-xs-8">${name}</h5>
+							</div>
+							
+							<div class="form-group row">
+								<h5 class="col-xs-4">기수</h5>
+								<h5 id="classnum" class="col-xs-8">${class_num}</h5>
+							</div>
+							
+							<div class="form-group row">
+								<h5 class="col-xs-4">기존 비밀번호</h5>
+								<div class="col-xs-8">
+									<input id="password" class="form-control" type="password" placeholder="기존 비밀번호"></input>
+								</div>
+							</div> 
+							
+							<div class="form-group row">
+								<h5 class="col-xs-4">새 비밀번호</h5>
+								<div class="col-xs-8">
+									<input id="newpassword" class="form-control" disabled="disabled" type="password" placeholder="새 비밀번호"></input>
+								</div>
+							</div>
+							
+							<div class="form-group row">
+								<h5 class="col-xs-4">비밀번호 확인</h5>
+								<div class="col-xs-8">
+									<input id="newpasswordconfirm" class="form-control" disabled="disabled" type="password" placeholder="새 비밀번호 확인"></input>
+								</div>
+							</div>
+							
+							
+							<div class="form-group row">
+								<h5 class="col-xs-4">이메일</h5>
+								<div class="col-xs-8">
+									<input id="email" class="form-control" placeholder="email@gmail.com" value=${email}></input>
+								</div>
+							</div>
+							
+							<div class="form-group row">
+								<h5 class="col-xs-4">핸드폰 번호</h5>
+								<div class="col-xs-8">
+									<input id="phonenum" class="form-control" type="tel" placeholder="010-1234-5678" value=${phone}></input>
+								</div>
+							</div>
+							
+							<button id="modify" type="button" class="btn btn-primary btn-block" disabled="disabled">수정</button>
+						</div>
+					</div>
+					</div>
 					</div>
 				</div>
 			</div>
@@ -74,6 +150,7 @@
 	        </div>
 	    </div>
 	  </div>
+	  
 	<!-- 
 	 
 	<h3>개인 정보</h3>
@@ -81,11 +158,6 @@
 
 	<div class="form center-block">
 	
-		<div class="form-group row">
-			<h5 class="col-xs-4">프로필 사진</h5>
-			
-		</div>
-		
 		<div class="form-group row">
 			<h5 class="col-xs-4">ID</h5>
 			<h5 id="userid" class="col-xs-8">${id}</h5>

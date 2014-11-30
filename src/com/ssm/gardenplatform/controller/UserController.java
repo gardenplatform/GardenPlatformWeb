@@ -446,6 +446,8 @@ public class UserController {
 		
 		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
 		
+		System.out.println(result);
+		
 		JSONObject obj = new JSONObject();
 		try {
 			
