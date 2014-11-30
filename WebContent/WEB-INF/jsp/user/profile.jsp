@@ -22,9 +22,9 @@
 					    <h3 class="list-group-item-heading"><small>${id}</small></h3>
 					  </a>
 					  <a class="list-group-item">
-					    <h5 class="list-group-item-heading ellipsis"><small><span class="glyphicon glyphicon-comment"></span> ${email}</small></h5>
-					    <h5 class="list-group-item-heading"><small><span class="glyphicon glyphicon-book"></span> ${class_num}기</small></h5>
-					    <h5 class="list-group-item-heading"><small><span class="glyphicon glyphicon-phone"></span> ${phone}</small></h5>
+					    <h5 class="list-group-item-heading ellipsis" style="height:20px;"><span class="glyphicon glyphicon-comment"></span> ${email}</h5>
+					    <h5 class="list-group-item-heading ellipsis" style="height:20px;"><span class="glyphicon glyphicon-book"></span> ${class_num}기</h5>
+					    <h5 class="list-group-item-heading ellipsis" style="height:20px;"><span class="glyphicon glyphicon-phone"></span> ${phone}</h5>
 					  </a>
 					</div>
 				</div>
