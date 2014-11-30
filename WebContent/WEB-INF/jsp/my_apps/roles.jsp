@@ -72,18 +72,11 @@
 					  	<div class="text-center">
 					  		<c:forEach var="item" items="${developerList}">
 						  		<div class="col-md-6">
-						  		<!-- 
-						  			<a href="#" class="thumbnail-round"><img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="/GardenPlatformWeb/resource/img/testimg.png" data-holder-rendered="true" style="width: 140px; height: 140px;"></a>
-						  			<h3 id="pl_name"><small>${item}</small></h3>
-						  		 -->
 						  		 <ul class="ch-grid">
 									<li>
 										<div class="ch-item">	
 											<div class="ch-info">
 												<h3>${item.developerName}</h3>
-												<!-- 
-												<p>${item} <a href="#" data-toggle="modal" data-target="#info_developer_modal">View on Userinfo</a></p>
-												 -->
 												<p><span class="member">${item.developerID}</span> <a href="#" class="userInfo">View on Userinfo</a></p>
 											</div>
 											<div class="ch-thumb ch-img-1" style="background-image: url(${item.developerProfileImg});"></div>
@@ -99,7 +92,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- /.col-xs-12 main -->
 	</div><!--/.row-->
 		<div class="modal fade" id="add_developer_modal">
 		    <div class="modal-dialog modal-vertical-centered">
@@ -108,12 +100,9 @@
 		                <h4 class="modal-title">Add Developers</h4>
 		            </div>
 		            <div class="modal-body">
-						<!-- 
-						<input class="form-control" id="findid" type="text" placeholder="user id">
-						 -->
 						 <div class="input-group form-group">
 			      			<div class="input-group-btn">
-				        		<button id="searchmode" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">이름<span class="caret"></span></button>
+				        		<button id="searchmode" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">이름 <span class="caret"></span></button>
 				        		<ul class="dropdown-menu" id="searchmodedropdown">
 				          			<li><a href="#">이름</a></li>
 				          			<li><a href="#">아이디</a></li>

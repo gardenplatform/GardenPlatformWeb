@@ -4,6 +4,25 @@ $(document).ready(function(){
 	$('#nav-userinfo').addClass('active');
 });
 
+$(function () { 
+    $("[data-toggle='tooltip']").tooltip();
+});
+
+$('ul.nav-tabs li').click(function(){
+	var index = $(this).index();
+	$('ul.nav-tabs li').removeClass('active');
+	$(this).addClass('active');
+	console.log(index);
+	if(index == 0){
+		$('div#myapps').removeClass('hidden');
+		$('div#profile').addClass('hidden');
+	}
+	else if(index == 1){
+		$('div#profile').removeClass('hidden');
+		$('div#myapps').addClass('hidden');
+	}
+});
+
 
 var newpasswordgroup = $('#newpassword').add('#newpasswordconfirm'); 
 
@@ -98,7 +117,7 @@ $('button#modify').click(function(){
 				if(obj.status=="success") {
 					setSuccess("성공적으로 변경되었습니다.");
 					setTimeout(function(){
-						location.href = location.href;
+						location.href = "/GardenPlatformWeb/user/profile.do";
 					}, 500);
 				}
 				else{
