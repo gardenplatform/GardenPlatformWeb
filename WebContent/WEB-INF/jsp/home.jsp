@@ -39,7 +39,7 @@
 						    </c:when>
 						    <c:otherwise>
 								<a class="thumbnail-round">
-									<img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="${item.appImgUrl}" data-toggle="tooltip" data-placement="top" data-original-title="Publish OFF" style="width: 140px; height: 140px; -webkit-filter: grayscale(1);">
+									<img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="${item.appImgUrl}" data-toggle="tooltip" data-placement="top" data-original-title="Publish OFF" style="width: 140px; height: 140px; opacity: 0.1">
 								</a>
 						    </c:otherwise>
 					    </c:choose>
