@@ -22,9 +22,9 @@
 					    <h3 class="list-group-item-heading"><small>${id}</small></h3>
 					  </a>
 					  <a class="list-group-item">
-					    <h3 class="list-group-item-heading"><small><span class="glyphicon glyphicon-comment"></span> ${email}</small></h3>
-					    <h3 class="list-group-item-heading"><small><span class="glyphicon glyphicon-book"></span> ${class_num}기</small></h3>
-					    <h3 class="list-group-item-heading"><small><span class="glyphicon glyphicon-phone"></span> ${phone}</small></h3>
+					    <h5 class="list-group-item-heading ellipsis"><small><span class="glyphicon glyphicon-comment"></span> ${email}</small></h5>
+					    <h5 class="list-group-item-heading"><small><span class="glyphicon glyphicon-book"></span> ${class_num}기</small></h5>
+					    <h5 class="list-group-item-heading"><small><span class="glyphicon glyphicon-phone"></span> ${phone}</small></h5>
 					  </a>
 					</div>
 				</div>
@@ -35,26 +35,38 @@
 					</ul>
 					<div id="myapps">
 						<div class="row">
-						<div class="col-md-6">
-						<div class="panel panel-default">
-						<div class="panel-heading">
-							내가 등록한 앱
+						
+							<div class="col-md-6">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										내가 등록한 앱
+									</div>
+								
+									<ul class="list-group">
+									    <li class="list-group-item">
+									    <h5><span class="glyphicon glyphicon-list-alt"></span> 프로젝트 이름</h5>
+									    <h6>Short Description</h6>
+									    </li>
+									</ul>
+								</div>
+							</div>
+							
+							<div class="col-md-6">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										현재 출시 중인 앱
+									</div>
+								
+									<ul class="list-group">
+									    <li class="list-group-item">
+									    <h5><span class="glyphicon glyphicon-list-alt"></span> 프로젝트 이름</h5>
+									    <h6>Short Description</h6>
+									    </li>
+									</ul>
+								</div>
+							</div>
+							</div>
 						</div>
-						<div class="panel-body">
-						</div>
-						</div>
-						</div>
-						<div class="col-md-6">
-						<div class="panel panel-default">
-						<div class="panel-heading">
-							현재 출시 중인 앱
-						</div>
-						<div class="panel-body">
-						</div>
-						</div>
-						</div>
-						</div>
-					</div>
 					<div id="profile" class="hidden">
 					<div class="panel panel-default">
 					<div class="panel-body">
@@ -115,6 +127,7 @@
 					</div>
 					</div>
 					</div>
+				</div>
 				</div>
 			</div>
 	</div>

@@ -117,7 +117,7 @@ $('button#modify').click(function(){
 				if(obj.status=="success") {
 					setSuccess("성공적으로 변경되었습니다.");
 					setTimeout(function(){
-						location.href = location.href;
+						location.href = "/GardenPlatformWeb/user/profile.do";
 					}, 500);
 				}
 				else{
