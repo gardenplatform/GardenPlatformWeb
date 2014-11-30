@@ -81,15 +81,16 @@ $('#searchbutton').click(function(){
 				var string='';
 				string += '<tbody>';
 
-				if(obj.userList.length==0) 
+				if(obj.userList.length==0){
 					string += '<tr><td class="text-center">검색결과가 없습니다.</td></tr>';
+				}
 				else {
 					for(var i=0; i<obj.userList.length; i++){
 						string += '<tr>';
 						string += '<td class="text-center"><img style="width:50px; height:50px; margin-bottom:0px" class="thumbnail-round" src="'+obj.userList[i].profile_img+'"></td>';
 						string += '<td class="text-center">'+obj.userList[i].class_num+'</td>';
 						string += '<td class="text-center">'+obj.userList[i].real_name+'</td>';
-						string += '<td class="text-center">'+obj.userList[i].username+'</td>';
+						string += '<td class="text-center memberid">'+obj.userList[i].username+'</td>';
 						string += '</tr>';
 					}
 				}
@@ -112,10 +113,16 @@ $('#searchbutton').click(function(){
 
 });
 
+//모달 초기화
+$('#modal_reset').click(function(){
+	var string = ' ';
+	$('#search_result').html(string);
+	$('#searchinput').val("");
+});
+
 $('#add_developer').click(function(){
-	
-	var appName = $('#appName').text(); 
-	var memberID = $('#search_result tr.success').find(':fourth-child').html();
+	var appName = $('#appName').text().trim(); 
+	var memberID = $('#search_result tr.success td.memberid').html().trim();
 	
 	var data = {
 			appName    : appName,
