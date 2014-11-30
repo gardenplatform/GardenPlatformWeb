@@ -5,6 +5,7 @@
 	<decorator name="noheader" page="noheader.jsp">
         <pattern>/main.do</pattern>
         <pattern>/error.do</pattern>
+        <pattern>/</pattern>
     </decorator>
     
   	<decorator name="decorator" page="decorator.jsp">
