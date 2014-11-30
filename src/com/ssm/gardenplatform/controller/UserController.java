@@ -273,6 +273,10 @@ public class UserController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+		
+		System.out.println(imgFile);
+		System.out.println(imgFile.getOriginalFilename());
+		System.out.println(imgFile.getSize());
 
 		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.POST);
 
@@ -499,25 +503,4 @@ public class UserController {
 		}
 	}
 	*/
-	
-	@RequestMapping(value = "/testRest.do", method = RequestMethod.GET)
-	public void setSSMUserPwd(HttpServletRequest request, HttpServletResponse response) throws IOException{
-
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		logMgr.printLog(request);
-		
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("Authorization","Bearer EnQE49qnFVzXlJDAPmHFQTdMNrFmnO");
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		
-		Map<String, Object> result = null;
-		
-		String url = RestInfo.restURL+"/api/v1/me";
-		
-		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
-		
-		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
-	}
-		
 }
