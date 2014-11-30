@@ -149,7 +149,7 @@
 								</div>
 							</div>
 							
-							<button id="modify" type="button" class="btn btn-primary btn-block" disabled="disabled">수정</button>
+							<button id="modify" type="button" class="btn btn-primary btn-block">수정</button>
 						</div>
 					</div>
 					</div>

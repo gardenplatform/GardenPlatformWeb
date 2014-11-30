@@ -76,17 +76,74 @@ $('button#modify').click(function(){
 	var id = $('#userid').html();
 	var phone = $('#phonenum').val();
 	var email = $('#email').val();
-	var pwd = $('#password').val();
-	var newPwd1 = $('#newpassword').val();
-	var newPwd2 = $('#newpasswordconfirm').val();
 	
+	/*
 	pwd = sha256_digest(pwd);
 	newPwd1 = sha256_digest(newPwd1);
 	newPwd2 = sha256_digest(newPwd2);
+	*/
 	
 	var phoneRegEx = /01[0-9]-[0-9]{4}-[0-9]{4}/;
 	var emailRegEx = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{2,5}$/;
 	
+	var userInfo = {
+			id 	: id,
+			email   : email,
+			phone    : phone
+	};
+	
+	if(ispasswordchanged){
+		var pwd = $('#password').val();
+		var newPwd1 = $('#newpassword').val();
+		var newPwd2 = $('#newpasswordconfirm').val();
+		
+		if(newPwd1.length == 0){
+			setError('비밀번호를 입력해 주십시오.');
+			return;
+		}
+		
+		if(newPwd1 != newPwd2){
+			setError("새 비밀번호가 일치하지 않습니다.");
+			return;
+		}
+		
+		pwd = sha256_digest(pwd);
+		newPwd1 = sha256_digest(newPwd1);
+		
+		userInfo.pwd = pwd;
+		userInfo.newPwd = newPwd1;
+	}
+
+	if(!phoneRegEx.test(phone)) {
+		setError("핸드폰 번호 입력 양식이 틀립니다.");
+	}
+	else if(!emailRegEx.test(email)) {
+		setError("Email 입력 양식이 틀립니다.");
+	} else {
+		$.ajax({
+			type : "POST",
+			url : "/GardenPlatformWeb/updateUser.do",
+			data : userInfo,
+			success : function(data) {
+				var obj = jQuery.parseJSON(data);
+				if(obj.status=="success") {
+					setSuccess("성공적으로 변경되었습니다.");
+					setTimeout(function(){
+						location.href = "/GardenPlatformWeb/user/profile.do";
+					}, 500);
+				}
+				else{
+					setError(obj.msg);
+				}
+			},
+			error : function(xhr, status, error) {
+				location.href="/GardenPlatformWeb/error.do?status="+status+"&msg="+error;
+			}
+		});	
+	}
+	
+	
+	/*
 	var userInfo = {
 			id 	: id,
 			pwd   : pwd,
@@ -95,10 +152,7 @@ $('button#modify').click(function(){
 			phone    : phone,
 	};
 	
-	if(phone=="" || email=="" || pwd=="") {
-		setError("입력하지 않은 항목이 있습니다.");
-	}
-	else if(!phoneRegEx.test(phone)) {
+	if(!phoneRegEx.test(phone)) {
 		setError("핸드폰 번호 입력 양식이 틀립니다.");
 	}
 	else if(!emailRegEx.test(email)) {
@@ -129,6 +183,7 @@ $('button#modify').click(function(){
 			}
 		});	
 	}
+	*/
 	/*
 			classnum : classnum,
 			phonenum : phonenum,
