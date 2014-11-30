@@ -59,14 +59,14 @@ $('#searchmodedropdown li a').click(function(){
 $('#searchbutton').click(function(){
 	
 	var search = $('#searchinput').val();
+	console.log(search);
 	var mode = $('#searchmode').text();
-	
+	console.log(mode);
 	var data = {
 			mode : mode,
 			search : search
 	};
 	
-	console.log(data);
 	if(search == ""){
 		setError("아이디 또는 이름을 입력해주세요.");
 	}
@@ -77,24 +77,29 @@ $('#searchbutton').click(function(){
 			data : data,
 			success : function(data) {
 				var obj = jQuery.parseJSON(data);
-				
+				console.log(obj);
 				var string='';
 				string += '<tbody>';
-				console.log(obj.userList.length);
-				for(var i=0; i<obj.userList.length; i++){
-					string += '<tr>';
-					string += '<td class="text-center"><img style="width:50px; height:50px; margin-bottom:0px" class="thumbnail-round" src="'+obj.userList[i].profile_img+'"></td>';
-					string += '<td class="text-center">'+obj.userList[i].class_num+'</td>';
-					string += '<td class="text-center">'+obj.userList[i].real_name+'</td>';
-					string += '<td class="text-center">'+obj.userList[i].username+'</td>';
-					string += '</tr>';
+
+				if(obj.userList.length==0) 
+					string += '<tr><td class="text-center">검색결과가 없습니다.</td></tr>';
+				else {
+					for(var i=0; i<obj.userList.length; i++){
+						string += '<tr>';
+						string += '<td class="text-center"><img style="width:50px; height:50px; margin-bottom:0px" class="thumbnail-round" src="'+obj.userList[i].profile_img+'"></td>';
+						string += '<td class="text-center">'+obj.userList[i].class_num+'</td>';
+						string += '<td class="text-center">'+obj.userList[i].real_name+'</td>';
+						string += '<td class="text-center">'+obj.userList[i].username+'</td>';
+						string += '</tr>';
+					}
 				}
+				dismissProgress();
+
 				string += '</tbody>';
 				$('#search_result').html(string);
 
 				// 테이블 tr 클릭
 				$('#search_result tr').click(function(){
-					console.log("click");
 					$('#search_result tr').removeClass('success');
 					$(this).addClass('success');
 				});
@@ -116,6 +121,7 @@ $('#add_developer').click(function(){
 			appName    : appName,
 			memberID   : memberID
 	};
+
 	$.ajax({
 		type : "POST",
 		url : "/GardenPlatformWeb/addMember.do",
@@ -138,6 +144,7 @@ $('#add_developer').click(function(){
 	});
 	
 });
+
 
 $('#delete_developer').click(function(){
 

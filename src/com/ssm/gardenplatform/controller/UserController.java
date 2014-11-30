@@ -455,39 +455,17 @@ public class UserController {
 				
 				JSONObject jsonObj = new JSONObject(result.get("result").toString());
 				JSONArray userList = new JSONArray(jsonObj.get("user_list").toString());
-				obj.put("userList", userList);
-			}
-			else{
-				obj.put("status", result.get("status").toString());
-				obj.put("msg", result.get("msg").toString());
-			}
-			/*
-			JSONArray jsonArr = new JSONArray(result.get("result").toString());
-			LinkedList<Map<String, String>> userList = new LinkedList<Map<String, String>>();
-			
-			if(result.get("status").toString().equals("success")) {
-				obj.put("status", result.get("status").toString());
-				obj.put("msg", "search User success");
 				
-				for(int i=0; i<jsonArr.length(); i++) {
-					JSONObject jsonObj = new JSONObject(jsonArr.getJSONObject(i).toString());
-					
-					Map<String, String> user = new HashMap<String, String>();
-					user.put("username", jsonObj.get("username").toString());
-					user.put("email", jsonObj.get("real_name").toString());
-					user.put("profile", RestInfo.restURL+jsonObj.get("profile_img").toString());
-					user.put("class_num", jsonObj.get("class_num").toString());
-					
-					userList.add(user);
+				for(int i=0;i<userList.length();i++) {
+					JSONObject temp = (JSONObject)userList.get(i);
+					temp.put("profile_img", RestInfo.restURL+temp.get("profile_img").toString());
 				}
 				obj.put("userList", userList);
-				
 			}
 			else{
 				obj.put("status", result.get("status").toString());
 				obj.put("msg", result.get("msg").toString());
 			}
-			*/
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
