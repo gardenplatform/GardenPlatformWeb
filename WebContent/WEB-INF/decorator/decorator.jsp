@@ -43,7 +43,7 @@
                             <li><a id="app" data-toggle="modal" data-target="#app_modal">앱 등록</a></li>
                             <li class="divider"></li>
 						    <c:forEach var="item" items="${sessionScope.myAppList}">
-                            	<li id="nav-myapps"><a href="/GardenPlatformWeb/my_apps/index.do?appName=${item}">${item}</a></li>
+                            	<li id="nav-myapps"><a href="/GardenPlatformWeb/my_apps/index.do?appName=${item.name}">${item.name}</a></li>
 						    </c:forEach>
                         </ul>
                     </li>

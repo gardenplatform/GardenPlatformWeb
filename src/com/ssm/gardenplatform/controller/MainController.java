@@ -73,12 +73,17 @@ public class MainController {
 			
 		ModelAndView mav = new ModelAndView();
 		if(result.get("status").equals("success")){
-			LinkedList<String> myAppList= new LinkedList<>();
+			LinkedList<Map<String, String>> myAppList = new LinkedList<Map<String, String>>();
 			try {
 				JSONArray jsonArr = new JSONArray(result.get("result").toString());
 				for(int i=0; i<jsonArr.length() ;i++) {
 					JSONObject item = new JSONObject(jsonArr.get(i).toString());
-					myAppList.add(item.getString("name"));
+					Map<String, String> app = new HashMap<String, String>();
+					app.put("name", item.get("name").toString());
+					app.put("publish", item.get("publish").toString());
+					app.put("shortDescription", item.get("short_description").toString());
+					
+					myAppList.add(app);
 				}
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block

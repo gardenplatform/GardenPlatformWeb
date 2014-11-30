@@ -35,7 +35,6 @@
 					</ul>
 					<div id="myapps">
 						<div class="row">
-						
 							<div class="col-md-6">
 								<div class="panel panel-default">
 									<div class="panel-heading">
@@ -43,10 +42,24 @@
 									</div>
 								
 									<ul class="list-group">
-									    <li class="list-group-item">
-									    <h5><span class="glyphicon glyphicon-list-alt"></span> 프로젝트 이름</h5>
-									    <h6>Short Description</h6>
-									    </li>
+								  	<c:forEach var="item" items="${sessionScope.myAppList}">
+								  		<li class="list-group-item">
+		                            	<h5>
+		                            		<span class="glyphicon glyphicon-list-alt"></span>
+		                            		<a href="/GardenPlatformWeb/my_apps/index.do?appName=${item.name}">${item.name}</a>
+	                            		</h5>
+									    <h6>
+									    <c:choose>
+											<c:when test="${empty item.shortDescription}">
+												설명이 없습니다.
+										    </c:when>
+										    <c:otherwise>
+												${item.shortDescription}
+										    </c:otherwise>
+									    </c:choose>
+									    </h6>
+		                            	</li>
+								    </c:forEach>
 									</ul>
 								</div>
 							</div>
@@ -56,13 +69,27 @@
 									<div class="panel-heading">
 										현재 출시 중인 앱
 									</div>
-								
-									<ul class="list-group">
-									    <li class="list-group-item">
-									    <h5><span class="glyphicon glyphicon-list-alt"></span> 프로젝트 이름</h5>
-									    <h6>Short Description</h6>
-									    </li>
-									</ul>
+
+									<c:forEach var="item" items="${sessionScope.myAppList}">
+										<c:if test="${item.publish}">
+								  		<li class="list-group-item">
+			                            	<h5>
+			                            		<span class="glyphicon glyphicon-list-alt"></span>
+			                            		<a href="/GardenPlatformWeb/my_apps/index.do?appName=${item.name}">${item.name}</a>
+		                            		</h5>
+											<h6>
+										    <c:choose>
+												<c:when test="${empty item.shortDescription}">
+													설명이 없습니다.
+											    </c:when>
+											    <c:otherwise>
+													${item.shortDescription}
+											    </c:otherwise>
+										    </c:choose>
+										    </h6>
+			                            	</li>
+										</c:if>
+								    </c:forEach>
 								</div>
 							</div>
 							</div>

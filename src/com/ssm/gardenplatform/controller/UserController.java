@@ -2,6 +2,8 @@ package com.ssm.gardenplatform.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -240,6 +242,32 @@ public class UserController {
 		else {
 			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));			
 		}
+		
+		url = RestInfo.restURL+"/clients";
+		
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
+			
+		if(result.get("status").equals("success")){
+			LinkedList<Map<String, String>> myAppList = new LinkedList<Map<String, String>>();
+			try {
+				JSONArray jsonArr = new JSONArray(result.get("result").toString());
+				for(int i=0; i<jsonArr.length() ;i++) {
+					JSONObject item = new JSONObject(jsonArr.get(i).toString());
+					Map<String, String> app = new HashMap<String, String>();
+					app.put("name", item.get("name").toString());
+					app.put("publish", item.get("publish").toString());
+					app.put("shortDescription", item.get("short_description").toString());
+					
+					myAppList.add(app);
+				}
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			session.setAttribute("myAppList", myAppList);
+		}
+		
+		
 		return mav;
 	}
 	
