@@ -58,7 +58,7 @@ $('#searchmodedropdown li a').click(function(){
 
 $('#searchbutton').click(function(){
 	
-	var search = $('#searchinput').val();
+	var search = $('#searchinput').val().trim();
 	console.log(search);
 	var mode = $('#searchmode').text();
 	console.log(mode);
