@@ -15,7 +15,8 @@
 				<div class="col-md-3">
 			    	<div class="list-group">
 					  <a href="#" class="list-group-item" data-toggle="modal" data-target="#profileImgModal">
-					  	<img src="${profileImg}" alt="profile" class="thumbnail img-responsive" style="margin-bottom:5px;" data-toggle="tooltip" data-placement="bottom" data-original-title="프로필 사진 변경">
+					  	<img src="${profileImg}" alt="profile" class="thumbnail img-responsive" 
+					  		style="margin:5px; width:180px; height:180px;" data-toggle="tooltip" data-placement="bottom" data-original-title="프로필 사진 변경">
 					  </a>
 					  <a class="list-group-item">
 					    <h4 class="list-group-item-heading"><strong>${name}</strong></h4>

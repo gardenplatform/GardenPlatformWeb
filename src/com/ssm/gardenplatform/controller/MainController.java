@@ -110,6 +110,7 @@ public class MainController {
 					app.put("realName", jsonObj.get("name").toString());
 					app.put("url", jsonObj.get("url").toString());
 					app.put("appImgUrl", RestInfo.restURL+jsonObj.get("app_icon"));
+					app.put("publish", jsonObj.get("publish").toString());
 					
 					bookmarkList.add(app);
 				}

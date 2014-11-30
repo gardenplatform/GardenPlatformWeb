@@ -335,10 +335,17 @@ public class UserController {
 		String userID = session.getAttribute("userID").toString();
 		
 		String id = request.getParameter("id");
-		String pwd = request.getParameter("pwd");
-		String newPwd = request.getParameter("newPwd");
+		String pwd = null;
+		String newPwd = null ;
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
+		
+		if(request.getParameter("pwd") != null){ 
+			pwd = request.getParameter("pwd");
+		}
+		if(request.getParameter("newPwd") != null){ 
+			newPwd = request.getParameter("newPwd");
+		}
 		
 		String url = RestInfo.restURL+"/tokens";
 		
@@ -350,26 +357,17 @@ public class UserController {
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		
-		System.out.println(vars.toString());
-		
-		// 아이디 비밀번호 확인
-		result = restMgr.post(url, vars);
-		
 		JSONObject obj = new JSONObject();
-		try {
-			// 비밀번호가 맞으면 프로필 업데이트
-			if(result.get("status").toString().equals("success")) {
+		
+		// 비밀번호를 제외한 정보 변경
+		if(pwd == null && newPwd == null) {
+			try {
 				url = RestInfo.restURL+"/users/"+userID;
 				
-				vars.clear();
 				vars.add("email", email);
 				vars.add("phone", phone);
-				if(newPwd == null) 
-					vars.add("password", pwd);
-				else
-					vars.add("password", newPwd);
-
-				System.out.println(vars.toString());
+				vars.add("password", null);
+				
 				result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.PUT);
 				
 				if(result.get("status").toString().equals("success")) {
@@ -380,15 +378,46 @@ public class UserController {
 					obj.put("status", result.get("status").toString());
 					obj.put("msg", result.get("msg").toString());
 				}
+			}catch (JSONException e) {
+				e.printStackTrace();
 			}
-			else{
-				obj.put("status", result.get("status").toString());
-				obj.put("msg", result.get("msg").toString());
-			}
-		} catch (JSONException e) {
-			e.printStackTrace();
 		}
-		
+
+		// 비밀번호 변경하는 경우
+		else {
+
+			// 아이디 비밀번호 확인
+			url = RestInfo.restURL+"/tokens";
+			result = restMgr.post(url, vars);
+			try {
+				// 비밀번호가 맞으면 프로필 업데이트
+				if(result.get("status").toString().equals("success")) {
+					url = RestInfo.restURL+"/users/"+userID;
+					
+					vars.clear();
+					vars.add("email", email);
+					vars.add("phone", phone);
+					vars.add("password", newPwd);
+					
+					result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.PUT);
+					
+					if(result.get("status").toString().equals("success")) {
+						obj.put("status", result.get("status").toString());
+						obj.put("msg", "Profile update success");
+					}
+					else {
+						obj.put("status", result.get("status").toString());
+						obj.put("msg", result.get("msg").toString());
+					}
+				}
+				else{
+					obj.put("status", result.get("status").toString());
+					obj.put("msg", result.get("msg").toString());
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
 		PrintWriter writer = response.getWriter();
 		writer.write(obj.toString());
 	}

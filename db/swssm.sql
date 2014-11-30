@@ -1,6 +1,6 @@
 GRANT ALL PRIVILEGES
 ON gardenplatform.*
-TO 'sungjin'@'%'
+TO 'sungjin'@'211.189.127.73'
 IDENTIFIED BY 'rkems';
 
 LOAD DATA LOCAL INFILE 'D:\ssm2.csv'

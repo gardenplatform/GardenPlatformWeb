@@ -31,9 +31,19 @@
 					<div class="col-xs-6 col-md-3 text-center">
 						<input class="realName" type="hidden" value="${item.realName}">
 						<button type="button" class="close delete_app"><span aria-hidden="true">&times;</span></button>
-						<a href="${item.url}" class="thumbnail-round">
-							<img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="${item.appImgUrl}" data-toggle="tooltip" data-placement="top" data-original-title="${item.displayName}" style="width: 140px; height: 140px;">
-						</a>
+						<c:choose>
+							<c:when test="${item.publish}">
+								<a href="${item.url}" class="thumbnail-round">
+									<img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="${item.appImgUrl}" data-toggle="tooltip" data-placement="top" data-original-title="${item.displayName}" style="width: 140px; height: 140px;">
+								</a>
+						    </c:when>
+						    <c:otherwise>
+								<a class="thumbnail-round">
+									<img data-src="holder.js/140x140" class="img-circle" alt="140x140" src="${item.appImgUrl}" data-toggle="tooltip" data-placement="top" data-original-title="Publish OFF" style="width: 140px; height: 140px; -webkit-filter: grayscale(1);">
+								</a>
+						    </c:otherwise>
+					    </c:choose>
+							
 					</div>
 				</c:forEach>
 				 	
