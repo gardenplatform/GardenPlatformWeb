@@ -2,8 +2,6 @@ package com.ssm.gardenplatform.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -501,5 +499,25 @@ public class UserController {
 		}
 	}
 	*/
+	
+	@RequestMapping(value = "/testRest.do", method = RequestMethod.GET)
+	public void setSSMUserPwd(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		logMgr.printLog(request);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization","Bearer EnQE49qnFVzXlJDAPmHFQTdMNrFmnO");
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		
+		Map<String, Object> result = null;
+		
+		String url = RestInfo.restURL+"/api/v1/me";
+		
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+		
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
+	}
 		
 }
