@@ -77,17 +77,13 @@ $('button#modify').click(function(){
 	var phone = $('#phonenum').val();
 	var email = $('#email').val();
 	
-	/*
-	pwd = sha256_digest(pwd);
-	newPwd1 = sha256_digest(newPwd1);
-	newPwd2 = sha256_digest(newPwd2);
-	*/
-	
 	var phoneRegEx = /01[0-9]-[0-9]{4}-[0-9]{4}/;
 	var emailRegEx = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{2,5}$/;
 	
 	var userInfo = {
 			id 	: id,
+			pwd   : pwd,
+			newPwd   : newPwd1,
 			email   : email,
 			phone    : phone
 	};
