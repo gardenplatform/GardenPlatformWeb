@@ -428,7 +428,7 @@ public class UserController {
 		String token = session.getAttribute("token").toString();
 
 		String url = RestInfo.restURL+"/search";
-
+		System.out.println(url);
 		if(mode.equals("이름")) {
 			url += "?real_name="+search;
 		}

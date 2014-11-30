@@ -17,13 +17,13 @@
 				<ul class="snb nav">
 					<li><a href="#" data-toggle="collapse" data-target="#sub1" id="appName"><b class="ellipsis"><span class="glyphicon glyphicon-list-alt"></span> ${appName}<span class="caret"></span></b></a>
 						<ul class="nav collapse" id="sub1">
-							<c:forEach var="item" items="${sessionScope.appList}">
-                            	<li><a class="ellipsis-suv" href="/GardenPlatformWeb/my_apps/index.do?appName=${item}">${item}</a></li>
+							<c:forEach var="item" items="${sessionScope.myAppList}">
+                            	<li><a class="ellipsis-suv" href="/GardenPlatformWeb/my_apps/index.do?appName=${item}"> ${item}</a></li>
 						    </c:forEach>
 						</ul>
 					</li>
 				</ul>
-			</div>
+				</div>
 			<div class="well">
 				<ul class="snb nav">
 					<li><a href="/GardenPlatformWeb/my_apps/index.do?appName=${appName}"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>

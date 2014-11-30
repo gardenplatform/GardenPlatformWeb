@@ -19,13 +19,14 @@
 				<ul class="snb nav">
 					<li><a href="#" data-toggle="collapse" data-target="#sub1" id="appName"><b class="ellipsis"><span class="glyphicon glyphicon-list-alt"></span> ${appName}<span class="caret"></span></b></a>
 						<ul class="nav collapse" id="sub1">
-							<c:forEach var="item" items="${sessionScope.appList}">
-                            	<li><a class="ellipsis-suv" href="/GardenPlatformWeb/my_apps/index.do?appName=${item}">${item}</a></li>
+							<c:forEach var="item" items="${sessionScope.myAppList}">
+                            	<li><a class="ellipsis-suv" href="/GardenPlatformWeb/my_apps/index.do?appName=${item}"> ${item}</a></li>
 						    </c:forEach>
 						</ul>
 					</li>
 				</ul>
-			</div>
+				</div>
+			
 			<div class="well">
 				<ul class="snb nav">
 					<li><a href="/GardenPlatformWeb/my_apps/index.do?appName=${appName}"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
@@ -62,7 +63,7 @@
 				  
 				</div>
 				<div class="panel panel-default">
-				  <div class="panel-heading"><h4 class="no_margin">Developers<button class="btn btn-default btn-xs pull-right" type="button" data-toggle="modal" data-target="#add_developer_modal">Add Developers</button></h4></div>
+				  <div class="panel-heading"><h4 class="no_margin">Developers<button id="modal_reset" class="btn btn-default btn-xs pull-right" type="button" data-toggle="modal" data-target="#add_developer_modal">Add Developers</button></h4></div>
 				  <div class="panel-body">
 				  	<c:if test="${empty developerList}">
 						<h3 class="text-center"><small>등록된 멤버가 없습니다.</small></h3>
