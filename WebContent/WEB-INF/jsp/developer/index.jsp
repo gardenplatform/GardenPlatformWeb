@@ -7,6 +7,9 @@
 <head>
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/developer/developer.css">
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/developer/docs.css">
+	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/styles/dark.css">
+	<script src="/GardenPlatformWeb/resource/js/lib/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 </head>
 
 <body>
@@ -87,6 +90,16 @@
 						</h5>
 					</div>
 				</div>
+				
+				<pre>
+					<code class="hljs java">
+public void static main() {
+	int a;
+	boolean b;
+	System.out.println();
+}
+					</code>
+				</pre>
 			
 		
 			

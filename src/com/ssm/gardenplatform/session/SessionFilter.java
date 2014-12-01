@@ -84,6 +84,9 @@ public class SessionFilter implements Filter {
 		else if(uri.startsWith("/GardenPlatformWeb/resource/")){
 			return true;
 		}
+		else if(uri.startsWith("/GardenPlatformWeb/setSSMUserPwd.do")){
+			return true;
+		}
 		else{
 			return false;
 		}

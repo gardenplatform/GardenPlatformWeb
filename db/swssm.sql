@@ -38,3 +38,23 @@ UPDATE users_gardenuser
 SET profile_img='profile/GardenUserDefault.png'
 WHERE profile_img='/profile/GardenUserDefault.png';
 
+desc authtoken_token;
+
+desc users_gardenuser;
+desc django_session;
+
+CREATE TABLE UserSessionMapper ( 
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    user INTEGER NOT NULL,
+    session VARCHAR(40) NOT NULL,
+
+    PRIMARY KEY (id)
+)DEFAULT CHARSET=utf8;
+
+ALTER TABLE UserSessionMapper
+ADD CONSTRAINT FK_UserSessionMapper1
+FOREIGN KEY (user) REFERENCES user_gardenuser(id)
+ON DELETE CASCADE,
+ADD CONSTRAINT FK_UserSessionMapper2
+FOREIGN KEY (session) REFERENCES user_gardenuser(session_key)
+ON DELETE CASCADE;

@@ -190,17 +190,22 @@ public class UserController {
 		HttpSession session = request.getSession(false);
 		
 		String token = session.getAttribute("token").toString();
+		String userID = session.getAttribute("userID").toString();
 		
-		String url = RestInfo.restURL+"/tokens";
+		String url = RestInfo.restURL+"/tokens/"+userID;
 
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+		vars.add("token", token);
 		
 		HttpHeaders headers = new HttpHeaders();
-		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-//		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.DELETE);
-//		
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.DELETE);
+		result = restMgr.delete(url, vars);
+		
+		System.out.println(url);
+		System.out.println(vars.toString());
+		
 //		ModelAndView mav = new ModelAndView();
 //		if(result.get("status").equals("success")){
 //			if (session != null) {
@@ -214,9 +219,13 @@ public class UserController {
 		
 		ModelAndView mav = new ModelAndView();
 		if (session != null) {
+			session.removeAttribute(userID);
+		    session.removeAttribute(token);
 		    session.invalidate();
+		    System.out.println();
 		}
 		mav.setView(new RedirectView("main.do"));
+		
 		return mav;
 	}
 	
@@ -559,7 +568,6 @@ public class UserController {
 	
 	
 	
-	/*
 	@RequestMapping(value = "/setSSMUserPwd.do", method = RequestMethod.GET)
 	public void setSSMUserPwd(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
@@ -569,9 +577,9 @@ public class UserController {
 		
 		UserDAO userDao = new UserDAO();
 		List<User> userList = userDao.selectSSMUser();
-		
+
+		Map<String, Object> result = null;
 		for(User user : userList) {
-			Map<String, Object> result = null;
 			
 			String url = RestInfo.restURL+"/password";
 			
@@ -583,5 +591,4 @@ public class UserController {
 			System.out.println(user.getUsername()+ " "+user.getReal_name()+ " "+user.getPassword());
 		}
 	}
-	*/
 }
