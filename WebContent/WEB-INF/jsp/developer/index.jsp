@@ -29,23 +29,42 @@
 								<li><a href="#setting">Setting</a></li>
 							</ul>
 						</li>
-						
-						<li><a href="#tutorial_java">Tutorial (JAVA)</a>
-						<ul class="nav">
-							<li><a href="#Tutorial_1">1</a></li>
-							<li><a href="#Tutorial_2">2</a></li>
-							<li><a href="#Tutorial_3">3</a></li>
-							<li><a href="#Tutorial_4">4</a></li>
-							<li><a href="#Tutorial_5">5</a></li>
-						</ul></li>
 					</ul>
-					
+					<ul class="nav bs-sidenav manualmenu">
+						<li class="active"><a href="#tutorial_java">Garden SDK Tutorial</a>
+							<ul class="nav">
+								<li><a href="#Tutorial_1">Step 1</a></li>
+								<li><a href="#Tutorial_2">Step 2</a></li>
+								<li><a href="#Tutorial_3">Step 3</a></li>
+								<li><a href="#Tutorial_4">Step 4</a></li>
+								<li><a href="#Tutorial_5">Step 5</a></li>
+								<li><a href="#Tutorial_6">Step 6</a></li>
+								<li><a href="#Tutorial_7">Step 7</a></li>
+								<li><a href="#Tutorial_8">Step 8</a></li>
+								<li><a href="#Tutorial_9">Step 9</a></li>
+								<li><a href="#Tutorial_10">Step 10</a></li>
+								<li><a href="#Tutorial_11">Step 11</a></li>
+								<li><a href="#Tutorial_12">Step 12</a></li>
+								<li><a href="#Tutorial_13">Step 13</a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav bs-sidenav manualmenu">
+						<li class="active"><a href="#guideSDK">Garden SDK Api Guide</a>
+							<ul class="nav">
+								<li><a href="#Guide_1">Guide 1</a></li>
+								<li><a href="#Guide_2">Guide 2</a></li>
+								<li><a href="#Guide_3">Guide 3</a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav bs-sidenav manualmenu">
+						<li><a href="/GardenPlatformWeb/sdk/doc/index.html" target="_blank">Garden SDK Document</a></li>
+					</ul>
+					<ul class="nav bs-sidenav manualmenu">
+						<li><a href="http://211.189.127.73:8000/docs/" target="_blank">Rest Api Document</a></li>
+					</ul>
 				</div>
-				<!-- 
-				<div class="well">
-					<a class="btn btn-primary btn-lg" href="/GardenPlatformWeb/downloadSDK.do" role="button" style="margin-top:20px;">SDK Download</a>
-				</div>
-				 -->
 			</div>
 
 			<div class="col-md-9">
@@ -101,38 +120,235 @@
 						</h5>
 					</div>
 				</div>
-						<pre>
-					<code class="hljs java">
-@Controller
-public class UserController {
+				
+				<br/>
+				<h2 id="tutorial_java">Garden SDK Tutorial</h2>
+				<div class="well">
+					<div class="bs-callout bs-callout-danger">
+						<h5>
+							<strong>샘플 서블릿 컨트롤러 (ServletSample.java, ServletCallbackSample.java)를</strong></br>
+							다운로드 받아 추가하면 더욱 쉽게 구현할 수 있습니다.
+						</h5>
+					</div>
+				</div>
+				<h3 id="Tutorial_1">Step 1 : 어플리케이션의 Client ID와 Client Secret을 받는다.</h3>
+				<div class="well">
+					<img class="img-responsive" src="/GardenPlatformWeb/resource/img/developer/dashboard.PNG"/> <br/>
+					<p>
+					redirect URL은 Authentication 과정을 위한 URL로 <br/>
+					실제로 로그인 후 redirect될 페이지가 아닌 임의의 콜백 URL로 지정한다. (실제 존재하는 페이지가 아니어도 됨.)<br/>
+					</p>
+				</div>
+				<h3 id="Tutorial_2">Step 2 : SDK를 다운로드 받고, 본인의 IDE에 Import한다.</h3>
+				<div class="well">
+					<img class="img-responsive" src="/GardenPlatformWeb/resource/img/developer/sdk_step2.PNG"/> <br/>
+					<p>
+					이클립스의 경우, <br/>
+					1) 해당 프로젝트 우클릭 -> Properties 선택 -> <br/>
+					Java Build Path메뉴에서 Libraries 탭 선택 -> Add External Jars 버튼 클릭 후 SDK 선택<br/>
+					2) 해당 프로젝트 우클릭 -> Properties 선택 -> Deployment Assembly 메뉴에서 Add 버튼 클릭 -> <br/>
+					Java Build Path Entries 선택 후 SDK 선택.<br/>
+					</p>
+				</div>
+				<h3 id="Tutorial_3">Step 3 : Garden 로그인을 위한 서블릿을 만든다.</h3>
+				<div class="well">
+					<img class="img-responsive" src="/GardenPlatformWeb/resource/img/developer/sdk_step3.PNG"/> <br/>
+					<p>
+					Garden 로그인을 위한 서블릿 클래스(컨트롤러) 1개를 만든 후<br/> 
+					AbstractAuthorizationCodeServlet를 상속하여, Implemented된 메소드들을 상속받는다. <br/>
+					</p>
+				</div>
+				<h3 id="Tutorial_4">Step 4 : 변수들의 값을 설정한다.</h3>
+				<div class="well">
+					<img class="img-responsive" src="/GardenPlatformWeb/resource/img/developer/sdk_step3.PNG"/> <br/>
+					<p>
+					Garden Platform에 앱을 등록할 때 입력한 Redirect URI와, <br/>
+					등록 후 받은 Client Id, Client Secret, Scope를 String타입으로 선언 및 초기화한다. <br/> 
+					(Scope의 경우 현재 'read'권한만 제공한다.)
+					</p>
+				</div>
+				<h3 id="Tutorial_5">Step 5 : getRedirectUri() 메소드를 설정한다.</h3>
+<pre>
+<code class="hljs java">
+GenericUrl url = new GenericUrl(req.getRequestURL().toString());
+url.setRawPath(Redirect_Uri); //Redirect_uri는Garden Platform 앱에등록한RedirectURL의URI이다.
+returnurl.build();
 
-	LogManager logMgr = new LogManager();
-	RestManager restMgr = new RestManager();
-	public void static main() {
-		int a;
-		boolean b;
-		System.out.println("asdf");
-	}
+</code>
+상속받은 getRedirectUri 메소드에 Redirect_Uri를 리턴할 수 있도록 다음과 같은 코드를 추가한다.<br/>
+</pre>
+
+				<h3 id="Tutorial_6">Step 6 : initializeFlow() 메소드를 설정한다.</h3>
+<pre>
+<code class="hljs java">
+AuthorizationCodeFlow flow = new AuthorizationCodeFlow.Builder(
+newBasicAuthentication(Garden_Client_ID, Garden_Client_Secret), Garden_Client_ID) 
+//Garden_Client_ID, Garden_Client_Secret은Garden Platform에서서발급받은값이다.
+.setScopes(Arrays.asList(SCOPE)) //Scope는현재'read' 권한만제공한다.
+.setApprovalPrompt("auto")
+.build();
+
+return flow;
+
+</code>
+상속받은 initializeFlow()메소드에 다음과같은코드를추가한다.<br/>
+</pre>
+				<h3 id="Tutorial_7">Step 7 : Oauth Callback을 위한 서블릿을 만든다.</h3>
+				<div class="well">
+					<img class="img-responsive" src="/GardenPlatformWeb/resource/img/developer/sdk_step7.PNG"/> <br/>
+					<p>
+					Oauth Callback을 위한 서블릿클래스(컨트롤러)를 하나 더 만든 후, <br/>
+					AbstractAuthorizationCodeServlet을 상속하여 <br/>
+					Implemented된 메소드와 onError, onSuccess 메소드를 Override한다.<br/>
+					</p>
+				</div>
+	
+				<h3 id="Tutorial_8">Step 8 : OnError() 메소드를 설정한다.</h3>
+<pre>
+<code class="hljs java">
+protected void onError(HttpServletRequest req, HttpServletResponse resp,
+		AuthorizationCodeResponseUrl errorResponse)throws ServletException,IOException{
+		
+	redirectAfterErrorAuth(req, resp, "http://localhost:8080/GardenServletSample/");
+	// 세번째파라미터에는에러발생시Redirect 될주소를넣는다/
 }
 
-					</code>
-					</pre>
- 
+</code>
+상속받은 onError 메소드에 redirectAfterErrorAuth 메소드를 넣어
+에러발생시 Redirect될 주소를 지정한다.<br/>
+</pre>
+
+				<h3 id="Tutorial_9">Step 9 : OnError() 메소드를 설정한다.</h3>
+<pre>
+<code class="hljs java">
+protected void onSuccess(HttpServletRequest req, HttpServletResponse resp,
+		TokenResponse tokenResponse)throws ServletException,IOException{
+		
+	redirectAfterSuccessAuth(req, resp,
+		"http://localhost:8080/GardenServletSample/login_success");
+	// 세번째파라미터에는로그인성공시Redirect될주소를넣는다.
+}
+
+</code>
+상속받은 onSuccess 메소드에도 redirectAfterSuccessAuth 메소드를 넣어
+로그인성공시 Redirect될 주소를 넣는다.<br/>
+</pre>
+
+				<h3 id="Tutorial_10">Step 10 : getRedirectUri(), initializeFlow() 메소드를 설정한다.</h3>
+<pre>
+<code class="hljs java">
+protected String getRedirectUri(HttpServletRequest req)throws ServletException, IOException{
+
+	GenericUrl url = new GenericUrl(req.getRequestURL().toString());
+	url.setRawPath(GardenTutorial.Redirect_Uri);
+	
+	return url.build();
+}
+
+</code>
+getRedirectUri 메소드와 initializeFlow 메소드에는 이전에 만들었던 
+서블릿 클래스(GardenTutorial.java)를 참조하여 다음과 같은 코드를 추가한다.<br/>
+</pre>
+
+				<h3 id="Tutorial_11">Step 11 : getRedirectUri(), initializeFlow() 메소드를 설정한다.</h3>
+<pre>
+<code class="hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-title">servlet</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-title">servlet-name</span>&gt;</span><servlet-class>ServletSample</servlet-class><span class="hljs-tag"><span class="hljs-title">/servlet-name</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-title">servlet-class</span>&gt;</span><servlet-class>controller.GardenTutorial</servlet-class><span class="hljs-tag">&lt;<span class="hljs-title">/servlet-class</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">/servlet</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">servlet-mapping</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-title">servlet-name</span>&gt;</span><servlet-class>ServletSample</servlet-class><span class="hljs-tag"><span class="hljs-title">/servlet-name</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-title">url-pattern</span>&gt;</span><servlet-class>/gardenLogin</servlet-class><span class="hljs-tag">&lt;<span class="hljs-title">/url-pattern</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">/servlet-mapping</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">servlet</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-title">servlet-name</span>&gt;</span><servlet-class>ServletCallbackSample<</servlet-class><span class="hljs-tag"><span class="hljs-title">/servlet-name</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-title">servlet-class</span>&gt;</span><servlet-class>controller.GardenTutorialCallback</servlet-class><span class="hljs-tag">&lt;<span class="hljs-title">/servlet-class</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">/servlet</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">servlet-mapping</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-title">servlet-name</span>&gt;</span><servlet-class>ServletCallbackSample<</servlet-class><span class="hljs-tag"><span class="hljs-title">/servlet-name</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-title">url-pattern</span>&gt;</span><servlet-class>/garden2callback</servlet-class><span class="hljs-tag">&lt;<span class="hljs-title">/url-pattern</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">/servlet-mapping</span>&gt;</span>
+
+</code>
+web.xml에 만든 서블릿 컨트롤러를 추가하고, url-pattern을 다음 주석과 같이 지정한다.<br/>
+</pre>
+
+				<h3 id="Tutorial_12">Step 12 : Garden Platform 전용 로그인버튼을 만든다.</h3>
+<pre>
+<code class="hljs xml">
+&lt;<span class="hljs-title">form </span><span class="hljs-attribute">action=</span><span class="hljs-value">"gardenLogin" </span><span class="hljs-attribute">method=</span><span class="hljs-value">"get"</span>&gt;
+	<span class="hljs-title">&lt;<span class="hljs-title">input </span><span class="hljs-attribute">type=</span><span class="hljs-value">"submit" </span><span class="hljs-attribute">value=</span><span class="hljs-value">"가든 로그인"</span>/&gt;
+&lt;<span class="hljs-title">/form</span></span>&gt;
+
+</code>
+Garden Platform 전용 로그인 버튼을 만든 후
+ 버튼을 누를 시 web.xml에서 지정한 url-pattern으로 GET Method로 Request 보내도록 한다.<br/>
+</pre>
+
+				<h3 id="Tutorial_13">Step 13 : API 사용하기</h3>
+<pre>
+만든 로그인 버튼을 누르면 Authorization 과정이 진행되고, 
+Redirect될 페이지로 성공적으로 Redirect된 경우 연동에 성공한것이다. 
+Redirect된 페이지 세션에서 다음과 같이 Access Token 정보를 확인할 수 있다. 
+(사용자 정보를 가져오는 등 API를 호출하는 것은 API Guide 참조)<br/>
+<code class="hljs java">
+protected void doGet(HttpServletRequest request, HttpServletResponse response)
+						throws ServletException,IOException{
+	HttpSession session = request.getSession();
+	String accessToken = (String)session.getAttribute("access_token");
+	System.out.println("success session tests : "+accessToken);
+}
+
+</code>
+</pre>
+				</br>
+				<h2 id="guideSDK">Garden SDK Api Guide</h2>
 				
-				<h2 id="tutorial_java">Tutorial(JAVA)</h2>
-				<h3 id="Tutorial_1">1</h3>
-				<p>d</p>
-				<h3 id="Tutorial_2">1</h3>
-				<h3 id="Tutorial_3">1</h3>
-				<h3 id="Tutorial_4">1</h3>
-				<h3 id="Tutorial_5">1</h3>
+				<div class="well">
+					<div class="bs-callout bs-callout-danger">
+						<h5>
+							Garden API는 Oauth Authorization 과정을 통해 Access Token을 받은 후, <br/>
+							Access Token을 이용하여 호출할 수 있다. <br/>
+							아래의 코드와 같이 Access Token을 이용하여 Clients 객체를 만든 후 <br/>
+							다음과 같은 메소드로 API를 호출할 수있다. <br/>
+						</h5>
+					</div>
+				</div>
+				<pre><code class="hljs java">Clients client = new Clients(accessToken);</code></pre>		
+					
+				<h3 id="Guide_1">Guide 1 : 로그인한 사용자 프로필 가져오기</h3>
+				<div class="well">
+					<img class="img-responsive" src="/GardenPlatformWeb/resource/img/developer/sdk_guide1_1.PNG"/> <br/>
+					<p>
+					리턴받은값에서 Json이아닌 파싱된 데이터를 가져오려면<br/> 
+					getProfile() 메소드 뒤에 get(index)를 한 후 다음과 같은 메소드를 사용한다. <br/>
+					</p>
+					<img class="img-responsive" src="/GardenPlatformWeb/resource/img/developer/sdk_guide1_2.PNG"/> <br/>
+				</div>
+				
+				<h3 id="Guide_2">Guide 2 : 로그인한 사용자가 이용 중인 앱목록 가져오기</h3>
+				<div class="well">
+					<img class="img-responsive" src="/GardenPlatformWeb/resource/img/developer/sdk_guide2_1.PNG"/> <br/>
+					<p>
+					리턴받은값에서 Json이아닌 파싱된 데이터를 가져오려면<br/> 
+					getProjectList() 메소드 뒤에 get(index)를 한 후 다음과 같은 메소드를 사용한다. <br/>
+					</p>
+					<img class="img-responsive" src="/GardenPlatformWeb/resource/img/developer/sdk_guide2_2.PNG"/> <br/>
+				</div>
+				
+				<h3 id="Guide_3">Guide 3 : 로그인한 사용자가 진행한 프로젝트 목록 가져오기</h3>
+				<div class="well">
+					<img class="img-responsive" src="/GardenPlatformWeb/resource/img/developer/sdk_guide3_1.PNG"/> <br/>
+					<p>
+					리턴받은값에서 Json이아닌 파싱된 데이터를 가져오려면<br/> 
+					getAppList() 메소드 뒤에 get(index)를 한 후 다음과 같은 메소드를 사용한다. <br/>
+					</p>
+					<img class="img-responsive" src="/GardenPlatformWeb/resource/img/developer/sdk_guide3_2.PNG"/> <br/>
+				</div>
+
 			</div>
-			
-			
-			
-			
 		</div>
-	</div>
 		
 		<script src="/GardenPlatformWeb/resource/js/developer/developer.js"></script>
 </body>

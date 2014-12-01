@@ -113,21 +113,21 @@
 	</div>
 	
 	<div class="modal fade" id="delete_modal">
-		    <div class="modal-dialog modal-vertical-centered">
-		        <div class="modal-content">
-		            <div class="modal-header">
-		                <h4 class="modal-title">Delete App</h4>
-		            </div>
-		            <div class="modal-body">
-     					<p>삭제 후에는 복구할 수 없습니다. <strong>${appName}</strong>를 삭제 하시겠습니까?</p>
-					</div>
+	    <div class="modal-dialog modal-vertical-centered">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <h4 class="modal-title">Delete App</h4>
+	            </div>
+	            <div class="modal-body">
+   					<p>삭제 후에는 복구할 수 없습니다. <strong>${appName}</strong>를 삭제 하시겠습니까?</p>
+				</div>
 
-		            <div class="modal-footer">
-	                	<button class="btn btn-danger" type="button" id="deleteApp">삭제</button>  
-		                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-		            </div>
-		           </div>
-		    </div>
+	            <div class="modal-footer">
+                	<button class="btn btn-danger" type="button" id="deleteApp">삭제</button>  
+	                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+	            </div>
+	           </div>
+	    </div>
 	 </div>
 
 	<script src="/GardenPlatformWeb/resource/js/my_apps/setting.js"></script>
