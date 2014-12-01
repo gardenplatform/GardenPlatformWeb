@@ -20,7 +20,7 @@
 					<li><a href="#" data-toggle="collapse" data-target="#sub1" id="appName"><b class="ellipsis"><span class="glyphicon glyphicon-list-alt"></span> ${appName}<span class="caret"></span></b></a>
 						<ul class="nav collapse" id="sub1">
 							<c:forEach var="item" items="${sessionScope.myAppList}">
-                            	<li><a class="ellipsis-suv" href="/GardenPlatformWeb/my_apps/index.do?appName=${item}"> ${item}</a></li>
+                            	<li><a class="ellipsis-suv" href="/GardenPlatformWeb/my_apps/index.do?appName=${item.name}"> ${item.name}</a></li>
 						    </c:forEach>
 						</ul>
 					</li>

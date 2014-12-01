@@ -185,8 +185,6 @@ public class UserController {
 		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 		
-		Map<String, Object> result = null;
-		
 		HttpSession session = request.getSession(false);
 		
 		String token = session.getAttribute("token").toString();
@@ -194,35 +192,19 @@ public class UserController {
 		
 		String url = RestInfo.restURL+"/tokens/"+userID;
 
-		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
-		vars.add("token", token);
+		JSONObject jsonObj = new JSONObject();
+		try {
+			jsonObj.put("token", token);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-
-		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.DELETE);
-		result = restMgr.delete(url, vars);
-		
-		System.out.println(url);
-		System.out.println(vars.toString());
-		
-//		ModelAndView mav = new ModelAndView();
-//		if(result.get("status").equals("success")){
-//			if (session != null) {
-//			    session.invalidate();
-//			}
-//			mav.setView(new RedirectView("main.do"));
-//		}
-//		else {
-//			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));			
-//		}
+		restMgr.exchangeDeleteWithJsonValue(url, jsonObj);
 		
 		ModelAndView mav = new ModelAndView();
 		if (session != null) {
-			session.removeAttribute(userID);
-		    session.removeAttribute(token);
 		    session.invalidate();
-		    System.out.println();
 		}
 		mav.setView(new RedirectView("main.do"));
 		
@@ -567,7 +549,7 @@ public class UserController {
 	}
 	
 	
-	
+	/*
 	@RequestMapping(value = "/setSSMUserPwd.do", method = RequestMethod.GET)
 	public void setSSMUserPwd(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
@@ -591,6 +573,6 @@ public class UserController {
 			System.out.println(user.getUsername()+ " "+user.getReal_name()+ " "+user.getPassword());
 		}
 	}
-	
+	*/
 	
 }
