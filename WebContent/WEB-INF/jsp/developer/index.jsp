@@ -7,7 +7,7 @@
 <head>
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/developer/developer.css">
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/developer/docs.css">
-	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/styles/dark.css">
+	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/styles/monokai_sublime.css">
 	<script src="/GardenPlatformWeb/resource/js/lib/highlight.pack.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
 </head>
@@ -93,11 +93,18 @@
 				
 				<pre>
 					<code class="hljs java">
-public void static main() {
-	int a;
-	boolean b;
-	System.out.println();
+@Controller
+public class UserController {
+
+	LogManager logMgr = new LogManager();
+	RestManager restMgr = new RestManager();
+	public void static main() {
+		int a;
+		boolean b;
+		System.out.println("asdf");
+	}
 }
+
 					</code>
 				</pre>
 			

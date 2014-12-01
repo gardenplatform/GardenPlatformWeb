@@ -591,4 +591,6 @@ public class UserController {
 			System.out.println(user.getUsername()+ " "+user.getReal_name()+ " "+user.getPassword());
 		}
 	}
+	
+	
 }
