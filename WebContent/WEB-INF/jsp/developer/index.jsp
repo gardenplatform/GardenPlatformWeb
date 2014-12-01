@@ -6,7 +6,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/developer/developer.css">
-	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/developer/docs.css">
+	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/developer/docs1.css">
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/styles/monokai_sublime.css">
 	<script src="/GardenPlatformWeb/resource/js/developer/developer.js"></script>
 	
