@@ -199,19 +199,24 @@ public class UserController {
 		headers.set("Authorization","token "+token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.DELETE);
+//		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.DELETE);
+//		
+//		ModelAndView mav = new ModelAndView();
+//		if(result.get("status").equals("success")){
+//			if (session != null) {
+//			    session.invalidate();
+//			}
+//			mav.setView(new RedirectView("main.do"));
+//		}
+//		else {
+//			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));			
+//		}
 		
 		ModelAndView mav = new ModelAndView();
-		if(result.get("status").equals("success")){
-			if (session != null) {
-			    session.invalidate();
-			}
-			mav.setView(new RedirectView("main.do"));
+		if (session != null) {
+		    session.invalidate();
 		}
-		else {
-			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));			
-		}
-		
+		mav.setView(new RedirectView("main.do"));
 		return mav;
 	}
 	

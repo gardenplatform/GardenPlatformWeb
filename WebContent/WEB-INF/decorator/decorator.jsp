@@ -41,7 +41,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Apps<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a id="app" data-toggle="modal" data-target="#app_modal">앱 등록</a></li>
-                            <li class="divider"></li>
+                            <c:if test="${not empty sessionScope.myAppList}">
+                            	<li class="divider"></li>
+                            </c:if>
 						    <c:forEach var="item" items="${sessionScope.myAppList}">
                             	<li id="nav-myapps"><a href="/GardenPlatformWeb/my_apps/index.do?appName=${item.name}">${item.name}</a></li>
 						    </c:forEach>
