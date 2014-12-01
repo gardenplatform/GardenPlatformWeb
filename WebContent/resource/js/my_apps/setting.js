@@ -51,12 +51,10 @@ $('#setting_update').click(function(){
 
 $('#deleteApp').click(function(){
 	var appName = $('#appName').text(); 
-	
 	var data = {
 			appName : appName,
 	};
 	
-	console.log(data);
 	$.ajax({
 		type : "POST",
 		url : "/GardenPlatformWeb/deleteClient.do",

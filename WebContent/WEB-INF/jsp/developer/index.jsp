@@ -8,35 +8,46 @@
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/developer/developer.css">
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/developer/docs.css">
 	<link rel="stylesheet" href="/GardenPlatformWeb/resource/css/lib/styles/monokai_sublime.css">
+	
 	<script src="/GardenPlatformWeb/resource/js/lib/highlight.pack.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
 </head>
 
-<body>
+<body data-spy="scroll" data-target=".bs-sidebar">
 	<div class="container">
 
 		<div class="row">
-			<!-- sidebar -->
 			<div class="col-md-3 role="navigation">
-				<div class="well">
-					<h4>Developers</h4>
-				</div>
-				<div class="bs-sidebar well" data-spy="affix" data-offset-top="200" data-offset-bottom="200">
+				<div class="bs-sidebar" data-spy="affix" data-offset-top="200" data-offset-bottom="200">
 					<ul class="nav bs-sidenav manualmenu">
 						<li class="active"><a href="#myApps">My Apps</a>
+							<ul class="nav">
+								<li><a href="#do_registapp">앱 등록하기</a></li>
+								<li><a href="#dashboard">Dashboard</a></li>
+								<li><a href="#appdetail">App Detail</a></li>
+								<li><a href="#roles">Roles</a></li>
+								<li><a href="#setting">Setting</a></li>
+							</ul>
+						</li>
+						
+						<li><a href="#tutorial_java">Tutorial (JAVA)</a>
 						<ul class="nav">
-							<li><a href="#do_registapp">앱 등록하기</a></li>
-							<li><a href="#dashboard">Dashboard</a></li>
-							<li><a href="#appdetail">App Detail</a></li>
-							<li><a href="#roles">Roles</a></li>
-							<li><a href="#setting">Setting</a></li>
+							<li><a href="#Tutorial_1">1</a></li>
+							<li><a href="#Tutorial_2">2</a></li>
+							<li><a href="#Tutorial_3">3</a></li>
+							<li><a href="#Tutorial_4">4</a></li>
+							<li><a href="#Tutorial_5">5</a></li>
 						</ul></li>
 					</ul>
+					
+				</div>
+				<!-- 
+				<div class="well">
 					<a class="btn btn-primary btn-lg" href="/GardenPlatformWeb/downloadSDK.do" role="button" style="margin-top:20px;">SDK Download</a>
 				</div>
+				 -->
 			</div>
 
-			<!-- main area -->
 			<div class="col-md-9">
 				
 				<h2 id="myApps">My Apps</h2>
@@ -90,8 +101,7 @@
 						</h5>
 					</div>
 				</div>
-				
-				<pre>
+						<pre>
 					<code class="hljs java">
 @Controller
 public class UserController {
@@ -106,17 +116,24 @@ public class UserController {
 }
 
 					</code>
-				</pre>
-			
-		
-			
+					</pre>
+ 
+				
+				<h2 id="tutorial_java">Tutorial(JAVA)</h2>
+				<h3 id="Tutorial_1">1</h3>
+				<p>d</p>
+				<h3 id="Tutorial_2">1</h3>
+				<h3 id="Tutorial_3">1</h3>
+				<h3 id="Tutorial_4">1</h3>
+				<h3 id="Tutorial_5">1</h3>
 			</div>
+			
+			
+			
+			
 		</div>
-		<!-- /.col-xs-12 main -->
 	</div>
-
-
-	<script src="/GardenPlatformWeb/resource/js/developer/developer.js"></script>
-
+		
+		<script src="/GardenPlatformWeb/resource/js/developer/developer.js"></script>
 </body>
 </html>
