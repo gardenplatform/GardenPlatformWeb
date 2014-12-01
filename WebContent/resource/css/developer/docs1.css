@@ -546,22 +546,20 @@ body {
 .bs-sidebar .nav > li > a:focus {
   padding-left: 19px;
 /*   color: #563d7c; */
-  color: #428bca;
+  color: #1abc9c;
   text-decoration: none;
   background-color: transparent;
 /*   border-left: 1px solid #563d7c; */
-	border-left: 1px solid #428bca;
+	border-left: 1px solid #1abc9c;
 }
 .bs-sidebar .nav > .active > a,
 .bs-sidebar .nav > .active:hover > a,
 .bs-sidebar .nav > .active:focus > a {
   padding-left: 18px;
   font-weight: bold;
-/*   color: #563d7c; */
-  color: #428bca;
+  color: #1abc9c;
   background-color: transparent;
-/*   border-left: 2px solid #563d7c; */
-	border-left: 2px solid #428bca;
+	border-left: 2px solid #1abc9c;
 }
 
 /* Nav: second level (shown on .active) */
@@ -614,7 +612,7 @@ body {
   /* Widen the fixed sidebar again */
   .bs-sidebar.affix-bottom,
   .bs-sidebar.affix {
-    width: 263px;
+    /*width: 263px;*/
   }
 }
 
@@ -1200,8 +1198,7 @@ h1[id] {
 }
 .bs-glyphicons li:hover {
   color: #fff;
-/*   background-color: #563d7c; */
-  background-color: #428bca;
+  background-color: #1abc9c;
 }
 
 @media (min-width: 768px) {
@@ -1322,7 +1319,7 @@ h1[id] {
   margin-bottom: 15px;
   overflow: hidden;
 /*   color: #563d7c; */
-  color: #428bca;
+  color: #1abc9c;
   background-color: #f9f9f9;
   border-radius: 4px;
 }
@@ -1338,7 +1335,7 @@ h1[id] {
 .bs-brand-logos .inverse {
   color: #fff;
 /*   background-color: #563d7c; */
-  background-color: #428bca;
+  background-color: #1abc9c;
 }
 
 /* Heading content within */
