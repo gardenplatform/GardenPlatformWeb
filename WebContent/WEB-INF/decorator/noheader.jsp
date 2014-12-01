@@ -33,7 +33,7 @@
 		<div class="footer">
 			<div class="container">
 				<h5 class="text-right"><small>Copyright 2014 Samsung Software Membership, All Rights Reserved.</small></h5>
-				<h6 class="text-right"><small>Developed by Sungjin Park, Juyoung Park, Sungho Park, Sangwoo Jun</small></h6>
+				<h6 class="text-right"><small>Developed by Sungjin Park, Juyoung Park, Sungho Park, Sangwoo Chon</small></h6>
 			</div>
 		</div>
 		

@@ -31,6 +31,9 @@
 						</li>
 					</ul>
 					<ul class="nav bs-sidenav manualmenu">
+						<li class="active"><a href="#gardenSDKDownlaod">Garden SDK Download</a></li>
+					</ul>
+					<ul class="nav bs-sidenav manualmenu">
 						<li class="active"><a href="#tutorial_java">Garden SDK Tutorial</a>
 							<ul class="nav">
 								<li><a href="#Tutorial_1">Step 1</a></li>
@@ -122,6 +125,19 @@
 				</div>
 				
 				<br/>
+				<h2 id="gardenSDKDownlaod">Garden SDK Download</h2>
+				<div class="well">
+					<div class="bs-callout bs-callout-danger">
+						<h5>
+							<strong>Garden SDK</strong>를 통해 앱을 개발해보세요.<br/>
+							하나의 통합된 계정으로 쉽게 시스템을 이용할 수 있습니다.
+						</h5>
+					</div>
+					<a href="/GardenPlatformWeb/downloadSDK.do">
+						<button class="btn-mint" >Garden SDK Download</button>
+					</a>
+				</div>
+				
 				<h2 id="tutorial_java">Garden SDK Tutorial</h2>
 				<div class="well">
 					<div class="bs-callout bs-callout-danger">
@@ -130,6 +146,12 @@
 							다운로드 받아 추가하면 더욱 쉽게 구현할 수 있습니다.
 						</h5>
 					</div>
+					<a href="#">
+						<button class="btn-mint" >Garden Sample Code Download</button>
+					</a>
+					<a href="/GardenPlatformWeb/downloadTutorialDoc.do">
+						<button class="btn-mint" >Tutorial Document Downlaod</button>
+					</a>
 				</div>
 				<h3 id="Tutorial_1">Step 1 : 어플리케이션의 Client ID와 Client Secret을 받는다.</h3>
 				<div class="well">
@@ -314,6 +336,9 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 							다음과 같은 메소드로 API를 호출할 수있다. <br/>
 						</h5>
 					</div>
+					<a href="/GardenPlatformWeb/downloadAPIGuideDoc.do">
+						<button class="btn-mint" >API Guide Document Downlaod</button>
+					</a>
 				</div>
 				<pre><code class="hljs java">Clients client = new Clients(accessToken);</code></pre>		
 					

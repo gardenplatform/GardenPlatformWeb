@@ -30,13 +30,46 @@ public class DeveloperController implements ApplicationContextAware{
 	private WebApplicationContext context = null;
 	
 	@RequestMapping(value = "/downloadSDK.do", method = RequestMethod.GET)
-	public ModelAndView getDownload(HttpServletRequest request, HttpServletResponse response) throws IOException{
+	public ModelAndView getDownloadSDK(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
-		File downloadFile = getSDKFile();
+		String filepath = context.getServletContext().getRealPath("/sdk/garden-oauth-sdk-0.0.1-SNAPSHOT-jar-with-dependencies.jar");
+		File downloadFile = getSDKFile(filepath);
+		
+		ModelAndView mav = new ModelAndView("downloadView");
+		mav.addObject("downloadFile", downloadFile);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/downloadTutorialDoc.do", method = RequestMethod.GET)
+	public ModelAndView getDownloadTutorialDoc(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		logMgr.printLog(request);
+
+		String filepath = context.getServletContext().getRealPath("/sdk/doc/Tutorial(Java).pdf");
+		File downloadFile = getSDKFile(filepath);
+		
+		ModelAndView mav = new ModelAndView("downloadView");
+		mav.addObject("downloadFile", downloadFile);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/downloadAPIGuideDoc.do", method = RequestMethod.GET)
+	public ModelAndView getDownloadAPIDoc(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		logMgr.printLog(request);
+
+		String filepath = context.getServletContext().getRealPath("/sdk/doc/APIGuide(Java).pdf");
+		File downloadFile = getSDKFile(filepath);
 		
 		ModelAndView mav = new ModelAndView("downloadView");
 		mav.addObject("downloadFile", downloadFile);
@@ -44,11 +77,9 @@ public class DeveloperController implements ApplicationContextAware{
 		return mav;
 	}
 
-	private File getSDKFile() {
-		
-		String path = context.getServletContext().getRealPath("/sdk/garden-oauth-sdk-0.0.1-SNAPSHOT-jar-with-dependencies.jar");
+	private File getSDKFile(String filepath) {
 
-		return new File(path);
+		return new File(filepath);
 	} 
 	
 	@Override
