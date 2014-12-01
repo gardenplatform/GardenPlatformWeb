@@ -46,7 +46,7 @@ public class DeveloperController implements ApplicationContextAware{
 
 	private File getSDKFile() {
 		
-		String path = context.getServletContext().getRealPath("/sdk/gardenSDK-1.01.jar");
+		String path = context.getServletContext().getRealPath("/sdk/garden-oauth-sdk-0.0.1-SNAPSHOT-jar-with-dependencies.jar");
 
 		return new File(path);
 	} 
