@@ -185,14 +185,47 @@ public class UserController {
 		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 		
+		Map<String, Object> result = null;
+		
 		HttpSession session = request.getSession(false);
-		if (session != null) {
-		    session.invalidate();
-		}
+		
+		String token = session.getAttribute("token").toString();
+		String userID = session.getAttribute("userID").toString();
+		
+		String url = RestInfo.restURL+"/tokens/"+userID;
+
+		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
+		vars.add("token", token);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.DELETE);
+		result = restMgr.delete(url, vars);
+		
+		System.out.println(url);
+		System.out.println(vars.toString());
+		
+//		ModelAndView mav = new ModelAndView();
+//		if(result.get("status").equals("success")){
+//			if (session != null) {
+//			    session.invalidate();
+//			}
+//			mav.setView(new RedirectView("main.do"));
+//		}
+//		else {
+//			mav.setView(new RedirectView("/GardenPlatformWeb/error.do?status=500"));			
+//		}
 		
 		ModelAndView mav = new ModelAndView();
+		if (session != null) {
+			session.removeAttribute(userID);
+		    session.removeAttribute(token);
+		    session.invalidate();
+		    System.out.println();
+		}
 		mav.setView(new RedirectView("main.do"));
-
+		
 		return mav;
 	}
 	
@@ -505,8 +538,6 @@ public class UserController {
 		
 		result = restMgr.exchangeWithHeader(url, vars, headers, HttpMethod.GET);
 		
-		System.out.println(result);
-		
 		JSONObject obj = new JSONObject();
 		try {
 			
@@ -537,7 +568,6 @@ public class UserController {
 	
 	
 	
-	/*
 	@RequestMapping(value = "/setSSMUserPwd.do", method = RequestMethod.GET)
 	public void setSSMUserPwd(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
@@ -547,9 +577,9 @@ public class UserController {
 		
 		UserDAO userDao = new UserDAO();
 		List<User> userList = userDao.selectSSMUser();
-		
+
+		Map<String, Object> result = null;
 		for(User user : userList) {
-			Map<String, Object> result = null;
 			
 			String url = RestInfo.restURL+"/password";
 			
@@ -561,5 +591,6 @@ public class UserController {
 			System.out.println(user.getUsername()+ " "+user.getReal_name()+ " "+user.getPassword());
 		}
 	}
-	*/
+	
+	
 }

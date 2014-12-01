@@ -104,6 +104,38 @@ public class RestManager {
 		return result;
 	}
 	
+	public Map<String, Object> delete(String url, MultiValueMap<String, Object> vars) {
+		
+		Map<String, Object> result = new HashMap<>();
+		
+		try{
+			restTemplate.delete(url, vars);
+			result.put("status", "success");
+			result.put("result", "delete success");
+		}catch(HttpClientErrorException  e1) {
+
+			System.out.println(e1+"");
+			System.out.println(e1.getResponseBodyAsString());
+			
+			if(e1.getMessage().equals("409 CONFLICT"))
+				result.put("status", "conflict");
+			else
+				result.put("status", "error");
+			
+		}catch(HttpServerErrorException e2){
+			System.out.println(e2.getMessage()+"");
+			System.out.println(e2.getResponseBodyAsString());
+			result.put("status", "error");
+			result.put("msg", e2.getResponseBodyAsString());
+		}catch(Exception e2){
+			System.out.println(e2+"");
+			result.put("status", "error");
+			result.put("msg", e2.getMessage()+"");
+		}
+		
+		return result;
+	}
+	
 	public Map<String, Object> exchangeWithHeader(String url, MultiValueMap<String, Object> vars, HttpHeaders headers, HttpMethod method) {
 		
 		Map<String, Object> result = new HashMap<>();
@@ -141,6 +173,7 @@ public class RestManager {
 			
 		}catch(HttpServerErrorException e2){
 			System.out.println(e2.getMessage()+"");
+			System.out.println(e2.getResponseBodyAsString());
 			result.put("status", "error");
 			result.put("msg", e2.getResponseBodyAsString());
 		}

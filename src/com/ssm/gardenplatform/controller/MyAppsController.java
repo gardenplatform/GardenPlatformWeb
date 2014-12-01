@@ -608,21 +608,23 @@ public class MyAppsController {
 		writer.write(obj.toString());
 	}
 	
-	@RequestMapping(value = "/deleteMemeber.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/deleteClient.do", method = RequestMethod.POST)
 	public void deleteClient(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
-		String memberID = request.getParameter("memberID");
+		String appName = request.getParameter("appName").trim();
 		
 		Map<String, Object> result = null;
 		
 		HttpSession session = request.getSession(false);
 		String token = session.getAttribute("token").toString();
 
-		String url = RestInfo.restURL+"/teams/members?username="+memberID;
+		String url = RestInfo.restURL+"/clients/"+appName;
+		
+		System.out.println(url);
 		
 		MultiValueMap<String, Object> vars = new LinkedMultiValueMap<String, Object>();
 		

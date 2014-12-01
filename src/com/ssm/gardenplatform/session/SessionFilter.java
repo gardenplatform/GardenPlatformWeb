@@ -39,7 +39,7 @@ public class SessionFilter implements Filter {
 			}
 		}
 		String uri = httpRequest.getRequestURI().toString().trim();
-		if(uri.startsWith("/GardenPlatformWeb/main.do") && login){
+		if((uri.equals("/GardenPlatformWeb/") || uri.startsWith("/GardenPlatformWeb/main.do")) && login){
 			httpResponse.sendRedirect("/GardenPlatformWeb/home.do");
 		}
 		
@@ -82,6 +82,9 @@ public class SessionFilter implements Filter {
 			return true;
 		}
 		else if(uri.startsWith("/GardenPlatformWeb/resource/")){
+			return true;
+		}
+		else if(uri.startsWith("/GardenPlatformWeb/setSSMUserPwd.do")){
 			return true;
 		}
 		else{
