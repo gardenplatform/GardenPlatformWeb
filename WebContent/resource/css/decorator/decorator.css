@@ -265,3 +265,7 @@ div.footer{
   border:0 #f2f2f2 solid;
   border-bottom-width:1px;
 }
+.navbar-inverse .navbar-toggle {
+	border-color: #FFFFFF;
+	background-color: #1abc9c;
+}
