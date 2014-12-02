@@ -53,12 +53,16 @@
 						</li>
 					</ul>
 					<ul class="nav bs-sidenav manualmenu">
-						<li class="active"><a href="#guideSDK">Garden SDK Api Guide</a>
+						<li class="active"><a href="#guideSDK">Garden SDK Guide</a>
 							<ul class="nav">
 								<li><a href="#Guide_1">Guide 1</a></li>
 								<li><a href="#Guide_2">Guide 2</a></li>
 								<li><a href="#Guide_3">Guide 3</a></li>
 							</ul>
+						</li>
+					</ul>
+					<ul class="nav bs-sidenav manualmenu">
+						<li class="active"><a href="#guideApi">Garden Api Guide</a>
 						</li>
 					</ul>
 					<ul class="nav bs-sidenav manualmenu">
@@ -146,8 +150,8 @@
 							다운로드 받아 추가하면 더욱 쉽게 구현할 수 있습니다.
 						</h5>
 					</div>
-					<a href="#">
-						<button class="btn-mint" >Garden Sample Code Download</button>
+					<a href="/GardenPlatformWeb/downloadSample.do">
+						<button class="btn-mint" >Garden Sample Download</button>
 					</a>
 					<a href="/GardenPlatformWeb/downloadTutorialDoc.do">
 						<button class="btn-mint" >Tutorial Document Downlaod</button>
@@ -325,7 +329,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 </code>
 </pre>
 				</br>
-				<h2 id="guideSDK">Garden SDK Api Guide</h2>
+				<h2 id="guideSDK">Garden SDK Guide</h2>
 				
 				<div class="well">
 					<div class="bs-callout bs-callout-danger">
@@ -336,8 +340,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 							다음과 같은 메소드로 API를 호출할 수있다. <br/>
 						</h5>
 					</div>
-					<a href="/GardenPlatformWeb/downloadAPIGuideDoc.do">
-						<button class="btn-mint" >API Guide Document Downlaod</button>
+					<a href="/GardenPlatformWeb/downloadSDKGuideDoc.do">
+						<button class="btn-mint" >SDK Guide Document Downlaod</button>
 					</a>
 				</div>
 				<pre><code class="hljs java">Clients client = new Clients(accessToken);</code></pre>		
@@ -371,7 +375,17 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 					</p>
 					<img class="img-responsive" src="/GardenPlatformWeb/resource/img/developer/sdk_guide3_2.PNG"/> <br/>
 				</div>
-
+				<h2 id="guideApi">Garden Api Guide</h2>
+				<div class="well">
+					<div class="bs-callout bs-callout-danger">
+						<h5>
+							Rest Api를 통해 다양한 언어로 개발할 수 있습니다. <br/>
+						</h5>
+					</div>
+					<a href="/GardenPlatformWeb/downloadAPIGuideDoc.do">
+						<button class="btn-mint" >API Guide Document Downlaod</button>
+					</a>
+				</div>
 			</div>
 		</div>
 		

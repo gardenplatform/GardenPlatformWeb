@@ -29,6 +29,19 @@ public class DeveloperController implements ApplicationContextAware{
 	LogManager logMgr = new LogManager();
 	private WebApplicationContext context = null;
 	
+	//start developer pages
+	@RequestMapping(value = "/developer/index.do", method = RequestMethod.GET)
+	public ModelAndView getDeveloper_Index(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		logMgr.printLog(request);
+		
+		ModelAndView mav = new ModelAndView("/developer/index");
+		mav.addObject("msg", "Garden Platform");
+		return mav;
+	}
+		
 	@RequestMapping(value = "/downloadSDK.do", method = RequestMethod.GET)
 	public ModelAndView getDownloadSDK(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
@@ -52,7 +65,7 @@ public class DeveloperController implements ApplicationContextAware{
 		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
-		String filepath = context.getServletContext().getRealPath("/sdk/doc/Tutorial(Java).pdf");
+		String filepath = context.getServletContext().getRealPath("/sdk/doc/SDKTutorial(Java).pdf");
 		File downloadFile = getSDKFile(filepath);
 		
 		ModelAndView mav = new ModelAndView("downloadView");
@@ -61,14 +74,14 @@ public class DeveloperController implements ApplicationContextAware{
 		return mav;
 	}
 	
-	@RequestMapping(value = "/downloadAPIGuideDoc.do", method = RequestMethod.GET)
-	public ModelAndView getDownloadAPIDoc(HttpServletRequest request, HttpServletResponse response) throws IOException{
+	@RequestMapping(value = "/downloadSDKGuideDoc.do", method = RequestMethod.GET)
+	public ModelAndView getDownloadSDKDoc(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		logMgr.printLog(request);
 
-		String filepath = context.getServletContext().getRealPath("/sdk/doc/APIGuide(Java).pdf");
+		String filepath = context.getServletContext().getRealPath("/sdk/doc/SDKGuide(Java).pdf");
 		File downloadFile = getSDKFile(filepath);
 		
 		ModelAndView mav = new ModelAndView("downloadView");
@@ -77,6 +90,37 @@ public class DeveloperController implements ApplicationContextAware{
 		return mav;
 	}
 
+	@RequestMapping(value = "/downloadSample.do", method = RequestMethod.GET)
+	public ModelAndView getDownloadSample(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		logMgr.printLog(request);
+
+		String filepath = context.getServletContext().getRealPath("/sdk/GardenServletSample.zip");
+		File downloadFile = getSDKFile(filepath);
+		
+		ModelAndView mav = new ModelAndView("downloadView");
+		mav.addObject("downloadFile", downloadFile);
+		
+		return mav;
+	}
+
+	@RequestMapping(value = "/downloadAPIGuideDoc.do", method = RequestMethod.GET)
+	public ModelAndView getDownloadAPIDoc(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		logMgr.printLog(request);
+
+		String filepath = context.getServletContext().getRealPath("/sdk/doc/SDKGuide(Java).pdf");
+		File downloadFile = getSDKFile(filepath);
+		
+		ModelAndView mav = new ModelAndView("downloadView");
+		mav.addObject("downloadFile", downloadFile);
+		
+		return mav;
+	}
 	private File getSDKFile(String filepath) {
 
 		return new File(filepath);
@@ -85,19 +129,6 @@ public class DeveloperController implements ApplicationContextAware{
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.context = (WebApplicationContext) applicationContext;
-	}
-	
-	//start developer pages
-	@RequestMapping(value = "/developer/index.do", method = RequestMethod.GET)
-	public ModelAndView getDeveloper_Index(HttpServletRequest request, HttpServletResponse response) throws IOException{
-
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		logMgr.printLog(request);
-		
-		ModelAndView mav = new ModelAndView("/developer/index");
-		mav.addObject("msg", "Garden Platform");
-		return mav;
 	}
 	
 	// test page
