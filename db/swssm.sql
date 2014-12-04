@@ -51,6 +51,8 @@ CREATE TABLE UserSessionMapper (
     PRIMARY KEY (id)
 )DEFAULT CHARSET=utf8;
 
+create database gardenplatform;
+
 ALTER TABLE UserSessionMapper
 ADD CONSTRAINT FK_UserSessionMapper1
 FOREIGN KEY (user) REFERENCES user_gardenuser(id)
