@@ -68,7 +68,7 @@
 					<div class="col-md-4">
 						<li>
 						<figure>
-							<img class="thumbnail" src="${item.appImgUrl}" alt="img04" style="width:170px; height:170px;">
+							<img class="thumbnail show_detail" src="${item.appImgUrl}" alt="img04" style="width:170px; height:170px;">
 							<figcaption>
 								<h5 class="ellipsis">${item.displayName}</h5>
 								<c:if test="${empty item.category}">
